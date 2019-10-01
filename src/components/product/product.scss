@@ -1,0 +1,174 @@
+.product{
+    width: 100%;
+    display: flex;
+    margin-bottom: 3%;
+
+    &_image{
+        margin-right: 1%;
+        width: 15%;
+
+        img{
+            width: 100%;
+        }
+    }
+
+    i{
+        color: #999;
+        opacity: 0;
+        transition: opacity .3s ease;
+    }
+
+  &_name{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    margin-top: 2%;
+    margin-right: 12%;
+    width: 16%;
+    
+
+    i{
+        margin-right: 10px;
+        color: #999;
+        margin-top: 10px;
+        opacity: 0;
+        transition: opacity .3s ease;
+    }
+
+    .wishlist p{
+        color: #999; 
+        opacity: 0;
+        transition: opacity .3s ease;
+    }
+
+  }
+
+  &_color{
+    align-self: center;
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    margin-right: 8%;
+    transition: all .3s ease;
+    position: relative;
+
+    select{
+        border: none;
+        outline: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-color: transparent;
+        width: 60px;
+        cursor: pointer;
+    }
+
+    i{
+        margin-top: 3px;
+        transition: opacity .3s ease;
+        position: absolute;
+        top: 10px;
+        left: 84px;
+        z-index: -1;
+    }
+
+    .color-ball{
+        width: 10px;
+        height: 10px;
+        border-radius: 100%;
+        margin-right: 10px;
+        margin-top: 2px;
+    }
+  }
+
+  &_size{
+    align-self: center;
+    margin-right: 10%;
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    transition: all .3s ease;
+    position: relative;
+
+    select{
+        border: none;
+        outline: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-color: transparent;
+        cursor: pointer;
+        width: 50px;
+  }
+
+  i{
+    margin-top: 3px;
+    margin-left: 5px;
+    transition: opacity .3s ease;
+    position: absolute;
+    top: 10px;
+    left: 45px;
+    z-index: -1
+}
+}
+
+  &_quantity{
+    align-self: center;
+    margin-right: 9%;
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    justify-content: space-between;
+    transition: all .3s ease;
+    position: relative;
+
+    select{
+        border: none;
+        outline: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-color: transparent;
+        cursor: pointer;
+        width: 30px;
+    }
+
+    i{
+        margin-top: 3px;
+        transition: opacity .3s ease;
+        position: absolute;
+        top: 10px;
+        left: 32px;
+        z-index: -1
+    }
+  }
+
+  &_price{
+      align-self: center;
+      margin-right: 5%;
+  }
+
+  &_exit{
+      align-self: center;
+  }
+
+}
+
+.product:hover{
+    i,
+    .wishlist p{
+        opacity: 1;
+        visibility: visible;
+    }
+    .product{
+        &_color,
+        &_quantity,
+        &_size{
+            border: 1px solid #888;
+        }
+
+    }
+}
+

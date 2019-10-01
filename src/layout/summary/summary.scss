@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:200,300,400,400i&display=swap');
-
 .summary{
     background-color: rgba(247, 242, 242, 0.5);
-    width: 40%;
-    font-family: 'Montserrat', sans-serif;
+    width: 30%;
     padding: 1% 2%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
 
    .shipping{
        background-color: rgb(228, 226, 226);
@@ -16,7 +16,7 @@
    &__total{
        display: flex;
        justify-content: space-between;
-       margin: 11.5% 0 3% 0;
+       margin: 10.5% 0 3% 0;
    }
 
    .line{

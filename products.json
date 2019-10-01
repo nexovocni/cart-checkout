@@ -1,0 +1,40 @@
+{
+    "products":[
+        {
+            "name": "Slik geo print ruffle dress",
+            "size": "14",
+            "price": "89.00",
+            "color": "red",
+            "image": "https://xcdn.next.co.uk/COMMON/Items/Default/Default/ItemImages/AltItemShot/513238s8.jpg",
+            "quantity": 1,
+            "id": 0
+        },
+        {
+            "name": "Leopard print midi skirt",
+            "size": "14",
+            "price": "65.00",
+            "color": "leopard",
+            "image": "https://aritzia.scene7.com/is/image/Aritzia/hi-res/s19_01_a07_75349_16562_off_a.jpg",
+            "quantity": 1,
+            "id": 1
+        },
+        {
+            "name": "Textured two-piece earrnings",
+            "size": "-",
+            "price": "20.00",
+            "color": "gold",
+            "image": "https://i.pinimg.com/originals/91/39/0c/91390c9da6fce88cb0a1f8516b1988ed.jpg",
+            "quantity": 1,
+            "id": 2
+        },
+        {
+            "name": "Seamless demi bra",
+            "size": "38DDD",
+            "price": "55.00",
+            "color": "peach",
+            "image": "https://dynamic.zacdn.com/mUjcALOY3oj9GFOSrvrS8yk-4OE=/fit-in/346x500/filters:quality(95):fill(ffffff)/http://static.hk.zalora.net/p/xixili-7570-1530405-1.jpg",
+            "quantity": 1,
+            "id": 3
+        }
+    ]
+}

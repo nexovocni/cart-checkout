@@ -5,9 +5,7 @@ const Tax = () => {
   
     const [on, setOn] = useState<boolean>(false)
     const [height, setHeight] = useState<string>("0px")
-    const [opa, setOpacity] = useState("0")
     const toggleOnClick = () => {
-        setOpacity(on ? "0" : "1")
         setHeight(on ? "0" : "220px")
         setOn(!on)
     }

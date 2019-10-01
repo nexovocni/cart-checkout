@@ -11,8 +11,10 @@ class App extends React.Component  {
     return (
       <Router>
       <div className="App">
-        <Header />
-        <Products />
+        <div className="vertical">
+          <Header />
+          <Products />
+        </div>
         <Summary />
       </div>
       </Router>

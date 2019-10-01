@@ -1,12 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:200,300,400,400i&display=swap');
-
 header {
 
     display: flex;
     flex-direction: column;
-    font-family: 'Montserrat', sans-serif;
-    width: 60%;
-    padding: 1% 2%;;
+    width: 100%;
+    margin-bottom: 5%;
+    padding-right: 7%;
 
     .top{
         display: flex;
@@ -41,25 +39,6 @@ header {
         a:first-child{
             margin-right: 20px;
         }
-    }
-
-    .bottom{
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        margin: 10% 0 2% 0;
-    }
-
-    .categories{
-        display: flex;
-        width: 50%;
-        justify-content: space-between;
-    }
-
-    .line{
-        height: 2px;
-        background-color: #000;
-        width: 100%;
     }
 
 }

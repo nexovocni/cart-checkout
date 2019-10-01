@@ -15,16 +15,6 @@ const Header = () => {
                     <Link to="#">Registration</Link>
                 </div>
             </div>
-            <div className="bottom">
-                <p>Your bag - 3</p>
-                <div className="categories">
-                        <p>Color</p>
-                        <p>Size</p>
-                        <p>Quantity</p>
-                        <p>Price</p>
-                </div>
-            </div>
-            <div className="line"></div>
         </header>
     )
 }
