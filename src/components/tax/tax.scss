@@ -1,5 +1,5 @@
 .tax{
-  
+
     .visible{
         display: flex;
         cursor: pointer;
@@ -41,7 +41,16 @@
             padding: 10px 20px;
             cursor: pointer;
             font-weight: 300;
+            outline: none;
         }
     }
+
+    ::-webkit-input-placeholder {
+        color: #000;
+      }
+      
+      :-ms-input-placeholder { 
+        color: #000;;
+      }
 
 }

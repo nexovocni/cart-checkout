@@ -7,7 +7,6 @@
     }
 
     label{
-        display: inline-block;
         position: relative;
         padding-left: 25px;
         cursor: pointer;
@@ -18,11 +17,10 @@
     }
 
     .circle{
-        display: inline-block;
         width: 16px;
         height: 16px;
         position: absolute;
-        top: 0;
+        top: -2px;
         left: 0;
         border-radius: 50%;
         border: 1px solid #000;

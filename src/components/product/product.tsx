@@ -14,7 +14,7 @@ interface productProps {
 
 const Product = (props: productProps) => {
 
-    const [color, useColor] = useState(props.colorName)
+    const [color, setColor] = useState(props.colorName)
 
     return (
         <div className="product" key={props.id}>
@@ -29,9 +29,9 @@ const Product = (props: productProps) => {
                         <p><i className="fa fa-heart"></i>Move to wishlist</p>
                     </div>
             </div>
-            <div className="product_color"> 
+            <div className="product_color">
                 <div style={{backgroundColor: color}} className="color-ball"></div>
-                <select>
+                <select onChange={e => setColor(e.target.value)}>
                     <option selected hidden>{props.color}</option>
                     <option value="red">Red</option>
                     <option value="gold">Gold</option>

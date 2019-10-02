@@ -1,9 +1,15 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import {CodeContext} from '../../hooks/CodeContext'
+import {TaxContext} from '../../hooks/TaxContext'
 import './checkbox.scss'
 
 const Checkbox = () => {
+
+    const [disabledCode] = useContext(CodeContext)
+    const [disabledTax] = useContext(TaxContext) 
+
     return (
-        <div className="checkbox">
+        <div style={{opacity: disabledCode | disabledTax ? .3 : 1, pointerEvents: disabledCode | disabledTax ? "none" : "auto"}} className="checkbox">
                 <div className="checkbox__component">
                     <div className="ship">
                         <label>

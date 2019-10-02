@@ -4,20 +4,26 @@ import Header from './layout/header/header'
 import Summary from './layout/summary/summary'
 import Products from './layout/products/products'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import {CodeProvider} from './hooks/CodeContext'
+import {TaxProvider} from './hooks/TaxContext'
 
 class App extends React.Component  {
 
   render(){
     return (
-      <Router>
-      <div className="App">
-        <div className="vertical">
-          <Header />
-          <Products />
+      <TaxProvider>
+      <CodeProvider>
+        <Router>
+        <div className="App">
+          <div className="vertical">
+            <Header />
+            <Products />
+          </div>
+          <Summary />
         </div>
-        <Summary />
-      </div>
-      </Router>
+        </Router>
+      </CodeProvider>
+      </TaxProvider>
     );
   }
 }
