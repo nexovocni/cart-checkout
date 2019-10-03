@@ -6,11 +6,15 @@ import Products from './layout/products/products'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import {CodeProvider} from './hooks/CodeContext'
 import {TaxProvider} from './hooks/TaxContext'
+import {CheckProvider} from './hooks/CheckContext'
+import {ProductProvider} from './hooks/ProductContext'
 
 class App extends React.Component  {
 
   render(){
     return (
+      <ProductProvider>
+      <CheckProvider>
       <TaxProvider>
       <CodeProvider>
         <Router>
@@ -24,6 +28,8 @@ class App extends React.Component  {
         </Router>
       </CodeProvider>
       </TaxProvider>
+      </CheckProvider>
+      </ProductProvider>
     );
   }
 }

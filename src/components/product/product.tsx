@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState, useContext} from 'react'
 import './product.scss'
 
 interface productProps {
@@ -14,7 +14,7 @@ interface productProps {
 
 const Product = (props: productProps) => {
 
-    const [color, setColor] = useState(props.colorName)
+const [color, setColor] = useState(props.colorName)
 
     return (
         <div className="product" key={props.id}>
@@ -50,7 +50,7 @@ const Product = (props: productProps) => {
                 <i className="fas fa-angle-down"></i>
             </div>
             <div className="product_quantity">
-            <select >
+            <select>
                     <option defaultValue={props.quantity} disabled hidden>{props.quantity}</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
