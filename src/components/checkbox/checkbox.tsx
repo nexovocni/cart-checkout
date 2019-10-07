@@ -4,7 +4,7 @@ import {TaxContext} from '../../hooks/TaxContext'
 import {CheckContext} from '../../hooks/CheckContext'
 import './checkbox.scss'
 
-const Checkbox = () => {
+const Checkbox = (props:any) => {
 
     const [disabledCode] = useContext(CodeContext)
     const [disabledTax] = useContext(TaxContext)
@@ -16,16 +16,16 @@ const Checkbox = () => {
                 <div className="checkbox__component">
                     <div className="ship">
                         <label>
-                        <input onChange={(e) => setCheckValue(parseInt(e.target.value))} onClick={() => setChecked(true)} checked={isChecked} type="radio" name="ship" value="10"/>
+                        <input onChange={(e) => setCheckValue(parseInt(e.target.value))} onClick={() => setChecked(true)} checked={isChecked} type="radio" name="ship" value={10}/>
                         <span className="circle"></span>
                         Ship to an adress</label> 
                     </div>
-                    <p>$10</p>
+                    <p>{props.shipValue > 0 ? `$10.00` : `Free`}</p>
                 </div>
                 <div className="checkbox__component">
                     <div className="ship">
                         <label>
-                        <input onChange={(e) => setCheckValue(parseInt(e.target.value))} onClick={() => setChecked(false)} checked={!isChecked} type="radio" name="ship" value="0"/>
+                        <input onChange={(e) => setCheckValue(parseInt(e.target.value))} onClick={() => setChecked(false)} checked={!isChecked} type="radio" name="ship" value={0}/>
                         <span className="circle"></span>
                         Pick up in store</label> 
                     </div>

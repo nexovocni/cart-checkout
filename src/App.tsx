@@ -3,7 +3,7 @@ import './App.scss';
 import Header from './layout/header/header'
 import Summary from './layout/summary/summary'
 import Products from './layout/products/products'
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import {BrowserRouter as Router} from 'react-router-dom'
 import {CodeProvider} from './hooks/CodeContext'
 import {TaxProvider} from './hooks/TaxContext'
 import {CheckProvider} from './hooks/CheckContext'

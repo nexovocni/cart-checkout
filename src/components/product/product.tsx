@@ -1,4 +1,5 @@
 import React,{useState, useContext} from 'react'
+import {ProductContext} from '../../hooks/ProductContext'
 import './product.scss'
 
 interface productProps {
@@ -7,19 +8,42 @@ interface productProps {
     price: string,
     color: string,
     colorName: string, 
-    image: string,
     quantity: string,
-    id: number
+    id: number,
+    colors: string[]
+    sizes: string[],
+    quantities: number[]
+    image: any
 }
 
 const Product = (props: productProps) => {
 
-const [color, setColor] = useState(props.colorName)
+const [color, setColor] = useState(props.color)
+const [products, setProducts] = useContext(ProductContext)
+const [product, setProduct] = useState(props)
+const handleChange = (e:any) => {
+    setProduct({...product, [e.target.name]: e.target.value})
+    setProducts([...products], newProduct)
+}
+
+const handleChangeColor = (e:any) => {
+    setProduct({...product, [e.target.name]: e.target.value})
+    setProducts([...products], newProduct)
+    setColor(e.target.value) 
+}
+
+let newProduct = products.splice(product.id, 1, product)
+
+const deleteProduct = (e:any) => {
+    const result = products.filter((product:any) => product.id !== props.id)
+    setProducts(products)
+    console.log(e.target.className)
+}
 
     return (
         <div className="product" key={props.id}>
                 <div className="product_image">
-                    <img src={props.image} alt="image"/>
+                    <img src={props.image[color]} alt="image"/>
                 </div>
                 <div className="product_name">
                     <div className="name">
@@ -30,38 +54,43 @@ const [color, setColor] = useState(props.colorName)
                     </div>
             </div>
             <div className="product_color">
-                <div style={{backgroundColor: color}} className="color-ball"></div>
-                <select onChange={e => setColor(e.target.value)}>
+                <div style={{backgroundColor: color === "Leopard" ? "orange" : color }} className="color-ball"></div>
+                <select name="colorName" onChange={e => handleChangeColor(e)}>
                     <option selected hidden>{props.color}</option>
-                    <option value="red">Red</option>
-                    <option value="gold">Gold</option>
-                    <option value="orange">Leopard</option>
-                    <option value="pink">Pink</option>
+                    {props.colors.map((color, index) => {
+                        return(
+                            <option key={index} value={color}>{color}</option>
+                        )
+                    })}
                 </select>
                 <i className="fas fa-angle-down"></i>
             </div>
             <div className="product_size">
-            <select >
-                    <option defaultValue={props.size} disabled hidden>{props.size}</option>
-                    <option value="14">14</option>
-                    <option value="15">15</option>
-                    <option value="16">16</option>
+            <select name="size" onChange={e => handleChange(e)}>
+                <option selected hidden>{props.size}</option>
+                {props.sizes.map((size, index) => {
+                    return(
+                        <option key={index} value={size}>{size}</option>
+                    )
+                })}
                 </select>
                 <i className="fas fa-angle-down"></i>
             </div>
             <div className="product_quantity">
-            <select>
+            <select name="quantity" onChange={e => handleChange(e)}>
                     <option defaultValue={props.quantity} disabled hidden>{props.quantity}</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
+                    {props.quantities.map((quantity, index) => {
+                        return(
+                            <option key={index} value={quantity}>{quantity}</option>
+                        )
+                    })}
                 </select>
                 <i className="fas fa-angle-down"></i>
             </div>
             <div className="product_price">
-                <p>${props.price}</p>
+                <p>${parseInt(props.price).toFixed(2)}</p>
             </div>
-            <div className="product_exit">
+            <div id={`${props.id}`} onClick={(e) => deleteProduct(e)} className="product_exit">
             <i className="fa fa-times"></i>
             </div>
        </div>

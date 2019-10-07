@@ -9,7 +9,7 @@ const Tax = () => {
     const [height, setHeight] = useState<string>("0px")
     const [disabledTax, setDisabledTax] = useContext(TaxContext)
     const [disabledCode] = useContext(CodeContext)
-    const [emptyInput, setInput] = useState("")
+    const [emptyInput, setInput] = useState<string>("")
 
     const toggleOnClick = () => {
         setHeight(on ? "0" : "220px")
