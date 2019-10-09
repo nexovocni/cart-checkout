@@ -7,6 +7,7 @@ import {BrowserRouter as Router} from 'react-router-dom'
 import {CodeProvider} from './hooks/CodeContext'
 import {TaxProvider} from './hooks/TaxContext'
 import {CheckProvider} from './hooks/CheckContext'
+import {ProductsProvider} from './hooks/ProductsContext'
 import {ProductProvider} from './hooks/ProductContext'
 
 class App extends React.Component  {
@@ -14,6 +15,7 @@ class App extends React.Component  {
   render(){
     return (
       <ProductProvider>
+      <ProductsProvider>
       <CheckProvider>
       <TaxProvider>
       <CodeProvider>
@@ -29,6 +31,7 @@ class App extends React.Component  {
       </CodeProvider>
       </TaxProvider>
       </CheckProvider>
+      </ProductsProvider>
       </ProductProvider>
     );
   }

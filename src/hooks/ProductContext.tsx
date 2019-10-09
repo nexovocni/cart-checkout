@@ -4,10 +4,10 @@ export const ProductContext = createContext<any>((undefined as any) as any);
 
 export const ProductProvider = (props:any) => {
 
-    const[products, setProducts] = useState([])
+    const[globalProduct, setGlobalProduct] = useState({})
     
     return(
-        <ProductContext.Provider value={[products, setProducts]}>
+        <ProductContext.Provider value={[globalProduct, setGlobalProduct]}>
             {props.children}
         </ProductContext.Provider>
     )

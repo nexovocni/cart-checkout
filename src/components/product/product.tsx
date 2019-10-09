@@ -1,4 +1,5 @@
-import React,{useState, useContext} from 'react'
+import React,{useState, useContext, useEffect} from 'react'
+import {ProductsContext} from '../../hooks/ProductsContext'
 import {ProductContext} from '../../hooks/ProductContext'
 import './product.scss'
 
@@ -19,26 +20,29 @@ interface productProps {
 const Product = (props: productProps) => {
 
 const [color, setColor] = useState(props.color)
-const [products, setProducts] = useContext(ProductContext)
+const [products, setProducts] = useContext(ProductsContext)
+const [globalProduct, setGlobalProduct] = useContext(ProductContext)
 const [product, setProduct] = useState(props)
 const handleChange = (e:any) => {
     setProduct({...product, [e.target.name]: e.target.value})
-    setProducts([...products], newProduct)
 }
 
 const handleChangeColor = (e:any) => {
-    setProduct({...product, [e.target.name]: e.target.value})
-    setProducts([...products], newProduct)
-    setColor(e.target.value) 
+    setProduct({...product, color: e.target.value}) 
+    setColor(product.color)
 }
-
-let newProduct = products.splice(product.id, 1, product)
 
 const deleteProduct = (e:any) => {
     const result = products.filter((product:any) => product.id !== props.id)
-    setProducts(products)
-    console.log(e.target.className)
+    setProducts(result)
 }
+
+useEffect(() => {
+    setColor(product.color)
+    setGlobalProduct(product)
+    products[product.id] = product
+    setProducts(products)
+}, [product])
 
     return (
         <div className="product" key={props.id}>

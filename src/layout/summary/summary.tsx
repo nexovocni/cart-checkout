@@ -1,4 +1,4 @@
-import React,{useContext} from 'react'
+import React,{useContext, useEffect} from 'react'
 import './summary.scss'
 import Checkbox from '../../components/checkbox/checkbox'
 import Tax from '../../components/tax/tax'
@@ -6,8 +6,9 @@ import Code from '../../components/code/code'
 import Buttons from '../../components/summaryButtons/buttons'
 import {CodeContext} from '../../hooks/CodeContext'
 import {TaxContext} from '../../hooks/TaxContext'
-import {ProductContext} from '../../hooks/ProductContext'
+import {ProductsContext} from '../../hooks/ProductsContext'
 import {CheckContext} from '../../hooks/CheckContext'
+import {ProductContext} from '../../hooks/ProductContext'
 
 
 const Summary = () => {
@@ -15,12 +16,20 @@ const Summary = () => {
     const [CheckValue] = useContext(CheckContext)
     const [disabledCode] = useContext(CodeContext)
     const [disabledTax] = useContext(TaxContext)
-    const [products] = useContext(ProductContext)
+    const [products] = useContext(ProductsContext)
+    const [globalProduct] = useContext(ProductContext)
     let itemsValue = 0
    
     {products.map((product:any) => {
         itemsValue += (product.quantity * product.price)
     })}
+
+    useEffect(() => {
+        {products.map((product:any) => {
+            itemsValue += (product.quantity * product.price)
+        })}
+        console.log(products)
+    }, [globalProduct])
 
     const shipValue = (550 - itemsValue)
     

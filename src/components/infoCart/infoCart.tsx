@@ -1,10 +1,10 @@
 import React, {useContext} from 'react'
 import './infoCart.scss'
-import {ProductContext} from '../../hooks/ProductContext'
+import {ProductsContext} from '../../hooks/ProductsContext'
 
 const InfoCart = () => {
 
-    const [product, setProduct] = useContext(ProductContext)
+    const [product, setProduct] = useContext(ProductsContext)
 
     return (
         <div className="info-cart">

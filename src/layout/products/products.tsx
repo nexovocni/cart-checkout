@@ -1,12 +1,12 @@
 import React,{useState, useEffect, useContext} from 'react'
 import Product from '../../components/product/product'
 import InfoCart from '../../components/infoCart/infoCart'
-import {ProductContext} from '../../hooks/ProductContext'
+import {ProductsContext} from '../../hooks/ProductsContext'
 import './products.scss'
 
 const Products = () => {
 
-    const [products, setProducts] = useContext(ProductContext)
+    const [products, setProducts] = useContext(ProductsContext)
 
     useEffect( () => {
         (async () => {
