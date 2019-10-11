@@ -1,68 +1,75 @@
-import React,{useState, useContext, useEffect} from 'react'
-import {ProductsContext} from '../../hooks/ProductsContext'
-import {ProductContext} from '../../hooks/ProductContext'
+import React, { useState, useEffect } from 'react'
 import './product.scss'
 
-interface productProps {
-    name: string,
-    size: string,
-    price: string,
-    color: string,
-    colorName: string, 
-    quantity: string,
-    id: number,
-    colors: string[]
-    sizes: string[],
-    quantities: number[]
-    image: any
+
+interface IProps {
+    product: {
+        name: string,
+        size: string,
+        price: string,
+        color: string,
+        colorName: string, 
+        quantity: string,
+        id: number,
+        colors: string[]
+        sizes: string[],
+        quantities: number[]
+        image: any;
+    };
+    update: any;
+    remove: any;
 }
 
-const Product = (props: productProps) => {
+const Product: React.FC<IProps> = ({
+    product,
+    update,
+    remove,
+}) => {
+    const [localData, setLocalData] = useState(product);
 
-const [color, setColor] = useState(props.color)
-const [products, setProducts] = useContext(ProductsContext)
-const [globalProduct, setGlobalProduct] = useContext(ProductContext)
-const [product, setProduct] = useState(props)
-const handleChange = (e:any) => {
-    setProduct({...product, [e.target.name]: e.target.value})
-}
+    const handleChange = (e: any) => {
+        const newProduct = {...localData, [e.target.name]: e.target.value};
+        update(newProduct.id, newProduct);
+    };
 
-const handleChangeColor = (e:any) => {
-    setProduct({...product, color: e.target.value}) 
-    setColor(product.color)
-}
+    const handleChangeColor = (e:any) => {
+        const newColor = e.target.value;
 
-const deleteProduct = (e:any) => {
-    const result = products.filter((product:any) => product.id !== props.id)
-    setProducts(result)
-}
+        const newProduct = {
+            ...localData, 
+            color: newColor,
+        };
 
-useEffect(() => {
-    setColor(product.color)
-    setGlobalProduct(product)
-    products[product.id] = product
-    setProducts(products)
-}, [product])
+        update(newProduct.id, newProduct);
+    }
+
+    const removeProduct = (e:any) => {
+        remove(localData.id);
+    }
+
+    useEffect(() => {
+        setLocalData(product);
+    }, [product]);
 
     return (
-        <div className="product" key={props.id}>
+        <div className="product">
                 <div className="product_image">
-                    <img src={props.image[color]} alt="image"/>
+                    <img src={localData.image[localData.colors.indexOf(localData.color)]} alt="image"/>
                 </div>
                 <div className="product_name">
                     <div className="name">
-                        <p>{props.name}</p>
+                        <p>{localData.name}</p>
                     </div>
                     <div className="wishlist">
                         <p><i className="fa fa-heart"></i>Move to wishlist</p>
                     </div>
             </div>
             <div className="product_color">
-                <div style={{backgroundColor: color === "Leopard" ? "orange" : color }} className="color-ball"></div>
-                <select name="colorName" onChange={e => handleChangeColor(e)}>
-                    <option selected hidden>{props.color}</option>
-                    {props.colors.map((color, index) => {
-                        return(
+                <div style={{backgroundColor: localData.color === "Leopard" ? "orange" : localData.color }} className="color-ball"></div>
+                <select name="colorName" onChange={handleChangeColor}>
+                    <option selected hidden>{localData.color}</option>
+                    {localData.colors.map((color, index) => {
+                        return (
                             <option key={index} value={color}>{color}</option>
                         )
                     })}
@@ -70,9 +77,9 @@ useEffect(() => {
                 <i className="fas fa-angle-down"></i>
             </div>
             <div className="product_size">
-            <select name="size" onChange={e => handleChange(e)}>
-                <option selected hidden>{props.size}</option>
-                {props.sizes.map((size, index) => {
+            <select name="size" onChange={handleChange}>
+                <option selected hidden>{product.size}</option>
+                {localData.sizes.map((size, index) => {
                     return(
                         <option key={index} value={size}>{size}</option>
                     )
@@ -81,9 +88,9 @@ useEffect(() => {
                 <i className="fas fa-angle-down"></i>
             </div>
             <div className="product_quantity">
-            <select name="quantity" onChange={e => handleChange(e)}>
-                    <option defaultValue={props.quantity} disabled hidden>{props.quantity}</option>
-                    {props.quantities.map((quantity, index) => {
+            <select name="quantity" onChange={handleChange}>
+                    <option defaultValue={localData.quantity} disabled hidden>{localData.quantity}</option>
+                    {localData.quantities.map((quantity, index) => {
                         return(
                             <option key={index} value={quantity}>{quantity}</option>
                         )
@@ -92,13 +99,13 @@ useEffect(() => {
                 <i className="fas fa-angle-down"></i>
             </div>
             <div className="product_price">
-                <p>${parseInt(props.price).toFixed(2)}</p>
+                <p>${parseInt(localData.price).toFixed(2)}</p>
             </div>
-            <div id={`${props.id}`} onClick={(e) => deleteProduct(e)} className="product_exit">
+            <div id={`${localData.id}`} onClick={removeProduct} className="product_exit">
             <i className="fa fa-times"></i>
             </div>
        </div>
-    )
+    );
 }
 
 export default Product

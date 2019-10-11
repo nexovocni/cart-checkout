@@ -1,39 +1,36 @@
 import React,{useContext, useEffect} from 'react'
 import './summary.scss'
-import Checkbox from '../../components/checkbox/checkbox'
-import Tax from '../../components/tax/tax'
-import Code from '../../components/code/code'
-import Buttons from '../../components/summaryButtons/buttons'
-import {CodeContext} from '../../hooks/CodeContext'
-import {TaxContext} from '../../hooks/TaxContext'
-import {ProductsContext} from '../../hooks/ProductsContext'
-import {CheckContext} from '../../hooks/CheckContext'
-import {ProductContext} from '../../hooks/ProductContext'
+import Checkbox from '../../../components/checkbox/checkbox'
+import Tax from '../../../components/tax/tax'
+import Code from '../../../components/code/code'
+import Buttons from '../../../components/summaryButtons/buttons'
+import {CodeContext} from '../../../hooks/CodeContext'
+import {TaxContext} from '../../../hooks/TaxContext'
+import {ProductsContext} from '../../../hooks/ProductsContext'
+import {CheckContext} from '../../../hooks/CheckContext'
 
-
-const Summary = () => {
+const Summary = (props:any) => {
 
     const [CheckValue] = useContext(CheckContext)
     const [disabledCode] = useContext(CodeContext)
     const [disabledTax] = useContext(TaxContext)
-    const [products] = useContext(ProductsContext)
-    const [globalProduct] = useContext(ProductContext)
+    const [products, setProducts] = useContext(ProductsContext)
     let itemsValue = 0
-   
+
+    console.log(products)
+
     {products.map((product:any) => {
         itemsValue += (product.quantity * product.price)
     })}
-
+   
     useEffect(() => {
         {products.map((product:any) => {
             itemsValue += (product.quantity * product.price)
         })}
-        console.log(products)
-    }, [globalProduct])
+    }, [products])
 
     const shipValue = (550 - itemsValue)
     
-
     return (
         <section className="summary">
             <div className="top">
