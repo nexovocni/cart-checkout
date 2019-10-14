@@ -1,32 +1,17 @@
 import React from 'react';
 import './App.scss';
-import Page from './layout/cartPage/Page';
+import CartPage from './layout/cartPage/CartPage';
 import {BrowserRouter as Router} from 'react-router-dom'
-import {CodeProvider} from './hooks/CodeContext'
-import {TaxProvider} from './hooks/TaxContext'
-import {CheckProvider} from './hooks/CheckContext'
-import {ProductsProvider} from './hooks/ProductsContext'
-import {ProductProvider} from './hooks/ProductContext'
 
 class App extends React.Component  {
 
   render() {
     return (
-      <ProductProvider>
-      <ProductsProvider>
-      <CheckProvider>
-      <TaxProvider>
-      <CodeProvider>
       <Router>
         <div className="App">
-          <Page />
+          <CartPage />
         </div>
         </Router>
-      </CodeProvider>
-      </TaxProvider>
-      </CheckProvider>
-      </ProductsProvider>
-      </ProductProvider>
     );
   }
 }

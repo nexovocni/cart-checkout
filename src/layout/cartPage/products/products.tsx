@@ -1,4 +1,4 @@
-import React,{useState, useEffect, useContext} from 'react'
+import React from 'react'
 import Product from '../../../components/product/product'
 import InfoCart from '../../../components/infoCart/infoCart'
 import './products.scss'
@@ -12,6 +12,7 @@ const Products: React.FC<IProps> = ({
     products,
     updateProducts,
 }) => {
+    
     const changeProducts = (productId: number, productData: any) => {
         const newProducts = products.map((product: any) => product.id === productId ? productData : product);
 
@@ -26,9 +27,9 @@ const Products: React.FC<IProps> = ({
 
     return (
         <main className="main">
-            <InfoCart />
-            <div className="products">
-                {products.map((product: any, index: any) => {
+            <InfoCart products={ products }/>
+            <div className="main__products">
+                {products.map((product: any) => {
                     return (
                         <Product
                             key={ product.id }

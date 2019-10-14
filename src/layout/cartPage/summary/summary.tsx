@@ -1,56 +1,65 @@
-import React,{useContext, useEffect} from 'react'
+import React,{useState} from 'react'
 import './summary.scss'
 import Checkbox from '../../../components/checkbox/checkbox'
 import Tax from '../../../components/tax/tax'
 import Code from '../../../components/code/code'
 import Buttons from '../../../components/summaryButtons/buttons'
-import {CodeContext} from '../../../hooks/CodeContext'
-import {TaxContext} from '../../../hooks/TaxContext'
-import {ProductsContext} from '../../../hooks/ProductsContext'
-import {CheckContext} from '../../../hooks/CheckContext'
 
-const Summary = (props:any) => {
+interface IProps {
+    products: any
+}
 
-    const [CheckValue] = useContext(CheckContext)
-    const [disabledCode] = useContext(CodeContext)
-    const [disabledTax] = useContext(TaxContext)
-    const [products, setProducts] = useContext(ProductsContext)
+interface IProduct {
+    price: number
+    quantity: number
+    product: {}
+}
+
+const Summary:React.FC<IProps> = ({products}) => {
+
+    const[CheckValue, setCheckValue] = useState(10)
+    const [disabledCode, setDisabledCode] = useState(false)
+    const [disabledTax, setDisabledTax] = useState(false)
     let itemsValue = 0
 
-    console.log(products)
-
-    {products.map((product:any) => {
-        itemsValue += (product.quantity * product.price)
+    {products.map( (product:IProduct) => {
+        itemsValue += product.quantity * product.price
     })}
-   
-    useEffect(() => {
-        {products.map((product:any) => {
-            itemsValue += (product.quantity * product.price)
-        })}
-    }, [products])
 
     const shipValue = (550 - itemsValue)
     
     return (
         <section className="summary">
-            <div className="top">
-                <div style={{opacity: disabledCode | disabledTax ? .3 : 1, pointerEvents: disabledCode | disabledTax ? "auto" : "none"}} className="shipping">
-                    <p>{shipValue > 0 ? `You are $${shipValue.toFixed(2)} away from free shipping` : `Free Shipment`}</p>
+            <div className="summary__top">
+                <div style={{opacity: disabledCode || disabledTax ? .3 : 1, pointerEvents: disabledCode || disabledTax ? "auto" : "none"}} className="summary__top__shipping">
+                    <p className="summary__top__shipping-text">{shipValue > 0 ? `You are $${shipValue.toFixed(2)} away from free shipping` : `Free Shipment`}</p>
                 </div>
-                <div style={{opacity: disabledCode | disabledTax ? .3 : 1, pointerEvents: "none"}} className="summary__total">
+                <div style={{opacity: disabledCode || disabledTax ? .3 : 1, pointerEvents: "none"}} className="summary__top__total">
                     <p>Your items</p>
                     <p>${itemsValue.toFixed(2)}</p>
                 </div>
-                <div style={{opacity: disabledCode | disabledTax ? .3 : 1 }} className="line"></div>
-                <Checkbox shipValue={shipValue}/>
-                <div className="line-grey"></div>
-                <Tax />
-                <div className="line-grey"></div>
-                <Code />
-                <div className="line-grey"></div>
-                <div style={{opacity: disabledCode | disabledTax ? .3 : 1, pointerEvents: "none"}} className="summary__subtotal">
+                <div style={{opacity: disabledCode || disabledTax ? .3 : 1 }} className="summary__line"></div>
+                <Checkbox 
+                    code={disabledCode} 
+                    tax={disabledTax} update={setCheckValue} 
+                    shipValue={shipValue}
+                />
+                <div className="summary__line-grey"></div>
+                <Tax 
+                    code={disabledCode} 
+                    tax={disabledTax} 
+                    update={setDisabledTax}
+                />
+                <div className="summary__line-grey"></div>
+                <Code 
+                    code={disabledCode} 
+                    tax={disabledTax} 
+                    update={setDisabledCode}
+                />
+                <div className="summary__line-grey"></div>
+                <div style={{opacity: disabledCode || disabledTax ? .3 : 1, pointerEvents: "none"}} className="summary__top__subtotal">
                     <p>Subtotal</p>
-                    <p className="total_value">${shipValue > 0 ? (itemsValue + CheckValue).toFixed(2) : (itemsValue.toFixed(2))}</p>
+                    <p className="summary__total__value">${shipValue > 0 ? (itemsValue + CheckValue).toFixed(2) : (itemsValue.toFixed(2))}</p>
                 </div>
             </div>
             <Buttons />

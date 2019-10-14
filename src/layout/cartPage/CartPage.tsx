@@ -1,22 +1,37 @@
-import React, {useEffect, useContext} from 'react'
-import Page from './Page'
-import {ProductsContext} from '../../hooks/ProductsContext'
+import React, { useState, useEffect } from 'react'
+import Header from './header/header'
+import Products from './products/products'
+import Summary from './summary/summary'
 import './CartPage.scss'
 
-const CartPage = () => {
+const CartPage:React.FC = () => {
 
-    const [products, setProducts] = useContext(ProductsContext)
+    const [products, updateProducts] = useState([]);
 
     useEffect( () => {
         (async () => {
         const response = await fetch("https://private-1c29a1-products156.apiary-mock.com/products")
         const data = await response.json()
-        const prod = data.products
-        setProducts(prod)
+        updateProducts(data.products)
     })()}, [])
 
     return (
-       <Page products={products}/>
+        <div>
+             <div className="cart__page">
+                <div className="cart__page__main">
+                    <Header />
+                    <Products
+                        products={ products } 
+                        updateProducts={ updateProducts }
+                    />
+                </div>
+               
+                    <Summary 
+                        products={ products }
+                    />
+                
+            </div>
+        </div>
     )
 }
 

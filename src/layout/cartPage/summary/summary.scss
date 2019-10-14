@@ -1,25 +1,34 @@
 .summary{
     background-color: rgba(247, 242, 242, 0.5);
     width: 30%;
-    padding: 1% 2%;
+    padding: 3% 2%;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
 
-   .shipping{
+   &__top__shipping{
        background-color: rgb(228, 226, 226);
        text-transform: uppercase;
        padding: 20px;
        text-align: center;
+       height: 50px;
+       margin-bottom: 45px;
+       padding: auto;
+       display: flex;
+
+       &-text{
+           align-self: center;
+            margin: 0 auto;
+       }
    }
 
-   &__total{
+   &__top__total{
        display: flex;
        justify-content: space-between;
-       margin: 10.5% 0 3% 0;
+       margin: 0 0 5% 0;
    }
 
-   .line{
+   &__line{
         width: 100%;
         height: 2px;
         background-color: #000;
@@ -31,13 +40,13 @@
         }
    }
 
-   &__subtotal{
+   &__top__subtotal{
         display: flex;
         justify-content: space-between;
         margin: 40px 0;
    }
 
-   .total_value{
+   &__total__value{
        font-size: 1.5rem;
        font-weight: 600;
    }
