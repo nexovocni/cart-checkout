@@ -1,23 +1,30 @@
 import React, {useContext} from 'react'
 import './infoCart.scss'
-import {ProductsContext} from '../../hooks/ProductsContext'
 
-const InfoCart = () => {
-
-    const [product, setProduct] = useContext(ProductsContext)
+const InfoCart:React.FC<any> = ({products}) => {
 
     return (
-        <div className="info-cart">
-            <div className="info">
-                <p>Your bag - {product.length}</p>
-                <div className="categories">
-                    <p>Color</p>
-                    <p>Size</p>
-                    <p>Quantity</p>
-                    <p>Price</p>
+        <div className="info">
+            <div className="info__cart">
+                <div className="info__cart__bag">
+                    <p>Your bag - {products.length}</p>
+                </div>
+                <div className="info__cart__categories">
+                    <div className="info__cart__categories-color">
+                        <p>Color</p>
+                    </div>
+                    <div className="info__cart__categories-size">
+                        <p>Size</p>
+                    </div>
+                    <div className="info__cart__categories-quantity">
+                        <p>Quantity</p>
+                    </div>
+                    <div className="info__cart__categories-price">
+                        <p>Price</p>
+                    </div>
                 </div>
             </div>
-            <div className="line"></div>
+            <div className="info__line"></div>
         </div>
     )
 }

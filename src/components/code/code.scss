@@ -1,6 +1,6 @@
 .code{
 
-    .visible{
+    &__visible{
         display: flex;
         cursor: pointer;
         margin: 40px 0 10px 0;
@@ -12,19 +12,14 @@
             margin-top: 4px;
             transition: all .6s ease;
         }
-    }
-    
-        .clicked{
-            transform: rotate(-180deg);
-        }
-    
-        .visible-form{
+
+        &-form{
             justify-content: space-between;
             display: flex;
             transition: max-height .7s ease-in-out;
             overflow: hidden;
             margin-bottom: 30px;
-    
+
             input[type="text"]{
                 border: none;
                 outline: none;
@@ -37,12 +32,16 @@
             input[type="submit"]{
                 background-color: #000;
                 color: #fff;
-                font-size: 1.2rem;
-                padding: 3% 5%;
+                font-size: 1rem;
+                padding: 3% 4%;
                 cursor: pointer;
                 font-weight: 300;
                 outline: none;
             }
+        }
+    
+        .clicked{
+            transform: rotate(-180deg);
         }
 
         ::-webkit-input-placeholder {
@@ -53,3 +52,4 @@
             color: #000;;
           }
     }
+}

@@ -1,24 +1,28 @@
-.info-cart{
+.info{
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding-right: 7%;
-}
-
-.info{
-    display: flex;
     justify-content: space-between;
-}
+    padding-right: 8%;
 
-.categories{
-    display: flex;
-    width: 50%;
-    justify-content: space-between;
-}
+    &__cart{
+        display: flex;
 
-.line{
-    height: 2px;
-    background-color: #000;
-    width: 100%;
-    margin: 2% 0;
+        &__bag{
+            width: 50%;
+        }
+
+        &__categories{
+            display: flex;
+            width: 50%;
+            justify-content: space-between;
+        }
+    }
+
+    &__line{
+        height: 2px;
+        background-color: #000;
+        width: 100%;
+        margin: 2% 0;
+    }
 }

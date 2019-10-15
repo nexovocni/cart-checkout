@@ -1,177 +1,185 @@
 .product{
     width: 100%;
     display: flex;
-    margin-bottom: 3%;
+    padding-bottom: 3%;
 
-    &_image{
-        margin-right: 1%;
-        width: 15%;
+    &__section{
+        width: 92%;
+        display: flex;
 
-        img{
-            width: 100%;
+        &__first{
+            width: 49%;
+            display: flex;
+
+            &-image{
+                width: 33%;
+                margin-right: 2%;
+
+                img{
+                    width: 100%
+                }
+            }
+
+            &-name{
+                align-self: center;
+                margin-top: 2%;
+
+                i{
+                    margin-right: 10px;
+                    color: #999;
+                    margin-top: 10px;
+                    opacity: 0;
+                    transition: opacity .3s ease;
+                }
+            
+                .wishlist p{
+                    color: #999; 
+                    opacity: 0;
+                    transition: opacity .3s ease;
+                }
+            }
+        }
+
+        &__second{
+            width: 51%;
+            display: flex;
+            align-self: center;
+            margin-bottom: 1%;
+            justify-content: space-between;
+
+            &-color{
+                display: flex;
+                border: 1px solid transparent;
+                align-self: center;
+                transition: all .3s ease;
+                position: relative;
+                align-items: center;
+                padding: 10px 0;
+                padding-left: 1%;
+            
+                select{
+                    border: none;
+                    outline: none;
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    background-color: transparent;
+                    width: 60px;
+                    cursor: pointer;
+                }
+            
+                i{
+                    margin-top: 3px;
+                    transition: opacity .3s ease;
+                    position: absolute;
+                    top: 10px;
+                    left: 82%;
+                    z-index: -1;
+                    opacity: 0;
+                }
+            
+                .color-ball{
+                    width: 7px;
+                    height: 7px;
+                    border-radius: 1000px;
+                    margin-right: 10px;
+                }
+            }
+
+            &-size{
+                align-self: center;
+                border: 1px solid transparent;
+                display: flex;
+                align-items: center;
+                padding: 10px;
+                display: flex;
+                justify-content: space-between;
+                transition: all .3s ease;
+                position: relative;
+            
+                select{
+                    border: none;
+                    outline: none;
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    background-color: transparent;
+                    cursor: pointer;
+                    width: 50px;
+                }
+            
+                i{
+                    margin-top: 3px;
+                    margin-left: 5px;
+                    transition: opacity .3s ease;
+                    position: absolute;
+                    top: 10px;
+                    left: 65%;
+                    z-index: -1;
+                    opacity: 0;
+                }
+            }
+
+            &-quantity{
+                align-self: center;
+                border: 1px solid transparent;
+                display: flex;
+                align-items: center;
+                padding: 10px;
+                justify-content: space-between;
+                transition: all .3s ease;
+                position: relative;
+                margin-left: 2%;
+            
+                select{
+                    border: none;
+                    outline: none;
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    background-color: transparent;
+                    cursor: pointer;
+                    width: 30px;
+                }
+            
+                i{
+                    margin-top: 3px;
+                    transition: opacity .3s ease;
+                    position: absolute;
+                    top: 10px;
+                    left: 65%;
+                    z-index: -1;
+                    cursor: pointer;
+                    opacity: 0;
+                }
+            }
+
+            &-price{
+                align-self: center;
+                margin-left: 3%;
+            }
         }
     }
 
-    i{
+    &__exit{
+        opacity: 0;
         color: #999;
-        opacity: 0;
-        transition: opacity .3s ease;
+        align-self: center;
+        margin: 0 auto;
+        margin-bottom: 8px;
     }
 
-  &_name{
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-    margin-top: 2%;
-    margin-right: 12%;
-    width: 16%;
-    
-
-    i{
-        margin-right: 10px;
-        color: #999;
-        margin-top: 10px;
-        opacity: 0;
-        transition: opacity .3s ease;
-    }
-
-    .wishlist p{
-        color: #999; 
-        opacity: 0;
-        transition: opacity .3s ease;
-    }
-
-  }
-
-  &_color{
-    align-self: center;
-    border: 1px solid transparent;
-    display: flex;
-    align-items: center;
-    padding: 10px 15px;
-    transition: all .3s ease;
-    position: relative;
-    margin-right: 3%;
-
-    select{
-        border: none;
-        outline: none;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        background-color: transparent;
-        width: 60px;
-        cursor: pointer;
-    }
-
-    i{
-        margin-top: 3px;
-        transition: opacity .3s ease;
-        position: absolute;
-        top: 10px;
-        left: 84px;
-        z-index: -1;
-    }
-
-    .color-ball{
-        width: 10px;
-        height: 10px;
-        border-radius: 100%;
-        margin-right: 10px;
-        margin-top: 2px;
-    }
-  }
-
-  &_size{
-    align-self: center;
-    border: 1px solid transparent;
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    transition: all .3s ease;
-    position: relative;
-    margin-right: 8%;
-
-    select{
-        border: none;
-        outline: none;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        background-color: transparent;
-        cursor: pointer;
-        width: 50px;
-  }
-
-  i{
-    margin-top: 3px;
-    margin-left: 5px;
-    transition: opacity .3s ease;
-    position: absolute;
-    top: 10px;
-    left: 45px;
-    z-index: -1
-}
-}
-
-  &_quantity{
-    align-self: center;
-    border: 1px solid transparent;
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    justify-content: space-between;
-    transition: all .3s ease;
-    position: relative;
-    margin-right: 9%;
-
-    select{
-        border: none;
-        outline: none;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        background-color: transparent;
-        cursor: pointer;
-        width: 30px;
-    }
-
-    i{
-        margin-top: 3px;
-        transition: opacity .3s ease;
-        position: absolute;
-        top: 10px;
-        left: 32px;
-        z-index: -1;
-        cursor: pointer;
-    }
-  }
-
-  &_price{
-      align-self: center;
-      margin-right: auto;
-  }
-
-  &_exit{
-      align-self: center;
-      cursor: pointer
-  }
-
-}
-
-.product:hover{
-    i,
-    .wishlist p{
-        opacity: 1;
-        visibility: visible;
-        cursor: pointer;
-    }
-    .product{
-        &_color,
-        &_quantity,
-        &_size{
-            border: 1px solid #888;
+    &:hover{
+        i,
+        .wishlist p, 
+        .product__exit{
+            opacity: 1;
+            visibility: visible;
+            cursor: pointer;
         }
-
+        
+        .product__section__second-color,
+        .product__section__second-size,
+        .product__section__second-quantity{
+            border: 1px solid rgba(0, 0, 0, .1);
+        }
     }
 }
 

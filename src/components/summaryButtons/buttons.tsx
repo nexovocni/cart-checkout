@@ -6,8 +6,8 @@ const Buttons = () => {
     return (
         <div className="buttons">
             <Link to="#" className="button button_check">Checkout now</Link>
-            <Link to="#" className="button button_pay"><img className="paypay" src="img/paypay.png"/></Link>
-            <Link to="#" className="button button_pay"><img className="pay" src="img/pay.png"/></Link>
+            <Link to="#" className="button button_pay"><img className="apple" src="img/apple.svg"/></Link>
+            <Link to="#" className="button button_pay"><img className="paypay" src="img/pay.svg"/></Link>
         </div>
     )
 }
