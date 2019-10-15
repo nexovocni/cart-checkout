@@ -4,6 +4,7 @@ import Checkbox from '../../../components/checkbox/checkbox'
 import Tax from '../../../components/tax/tax'
 import Code from '../../../components/code/code'
 import Buttons from '../../../components/summaryButtons/buttons'
+import MobileHeader from '../../../components/mobileHeader/MobileHeader'
 
 interface IProps {
     products: any
@@ -30,6 +31,7 @@ const Summary:React.FC<IProps> = ({products}) => {
     
     return (
         <section className="summary">
+            <MobileHeader products={products}/>
             <div className="summary__top">
                 <div style={{opacity: disabledCode || disabledTax ? .3 : 1, pointerEvents: disabledCode || disabledTax ? "auto" : "none"}} className="summary__top__shipping">
                     <p className="summary__top__shipping-text">{shipValue > 0 ? `You are $${shipValue.toFixed(2)} away from free shipping` : `Free Shipment`}</p>
@@ -62,7 +64,7 @@ const Summary:React.FC<IProps> = ({products}) => {
                     <p className="summary__total__value">${shipValue > 0 ? (itemsValue + CheckValue).toFixed(2) : (itemsValue.toFixed(2))}</p>
                 </div>
             </div>
-            <Buttons />
+            <Buttons isChecked={CheckValue}/>
         </section>
     )
 }

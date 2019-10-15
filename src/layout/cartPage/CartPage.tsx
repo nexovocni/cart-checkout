@@ -16,7 +16,6 @@ const CartPage:React.FC = () => {
     })()}, [])
 
     return (
-        <div>
              <div className="cart__page">
                 <div className="cart__page__main">
                     <Header />
@@ -25,13 +24,11 @@ const CartPage:React.FC = () => {
                         updateProducts={ updateProducts }
                     />
                 </div>
-               
                     <Summary 
                         products={ products }
                     />
                 
             </div>
-        </div>
     )
 }
 
