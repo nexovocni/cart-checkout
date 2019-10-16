@@ -48,11 +48,35 @@
         .apple{
             width: 10%;
             height: auto;
+
+            @include respond(desktop){
+                width: 15%
+            }
+
+            @include respond(tablet){
+                width: 20%
+            }
+
+            @include respond(phone){
+                width: 12%
+            }
         }
 
         .paypay{
             width: 20%;
             height: auto;
+
+            @include respond(desktop){
+                width: 30%
+            }
+
+            @include respond(tablet){
+                width: 40%
+            }
+
+            @include respond(phone){
+                width: 22%
+            }
         }
     }
 }

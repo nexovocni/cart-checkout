@@ -26,7 +26,7 @@ const Tax:React.FC<IProps> = ({code, tax, update}) => {
                 <i className={on ? "fas fa-angle-down clicked" : "fas fa-angle-down"}></i>
             </div>
                 <form style={{maxHeight: `${height}` }} action="#" className="tax__visible-form" >
-                    <input onChange={(e) => setInput(e.target.value)} placeholder="Enter tax code" type="text"/>
+                    <input onChange={(e) => setInput(e.target.value)} placeholder="Enter TAX code" type="text"/>
                     <input disabled={emptyInput ? false : true} style={{opacity: emptyInput ? 1 : .3}} type="submit" value="Estimate" />
                 </form>
         </div>

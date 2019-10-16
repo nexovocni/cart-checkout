@@ -1,0 +1,186 @@
+@import '../../sass/mixins/mixins.scss' ;
+@import '../product/product.scss';
+@import '../product/product.scss'; 
+
+.product__section {
+
+    &__right{
+        width: 52%;
+        display: flex;
+        align-self: center;
+        margin-bottom: 1%;
+
+        &-color{
+            width: 40%;
+
+            @include respond(tablet){
+                width: 45%
+              }
+
+                &-full{
+                    display: flex;
+                    border: 1px solid transparent;
+                    align-self: center;
+                    transition: all .3s ease;
+                    position: relative;
+                    align-items: center;
+                    padding: 10px;
+                    width: 125px;
+
+                    @include respond(desktop){
+                        width: 90%;
+                    }
+
+                    @include respond(tablet){
+                        padding: 10px 5px;
+                    }
+            
+                select{
+                    border: none;
+                    outline: none;
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    background-color: transparent;
+                    cursor: pointer;
+                    width: 110%;
+                }
+            
+                i{
+                    margin-top: 3px;
+                    transition: opacity .3s ease;
+                    position: absolute;
+                    top: 10px;
+                    left: 82%;
+                    z-index: -1;
+                    opacity: 0;
+
+                    @include respond(tablet){
+                        left: 85%;
+                    }
+                }
+            
+                .color-ball{
+                    width: 7px;
+                    height: 7px;
+                    border-radius: 1000px;
+                    margin-right: 10px;
+
+                    @include respond(desktop){
+                        width: 10px;
+                        height: 7px;
+                    }
+
+                    @include respond(tablet){
+                        margin-right: 5px;
+                        width: 8px;
+                        height: 6px;
+                    }
+                }
+            }
+        }
+
+        &-size{
+            width: 30%;
+
+            @include respond(tablet){
+                width: 36%;
+            }
+            
+            &-full{
+                align-self: center;
+                border: 1px solid transparent;
+                display: flex;
+                align-items: center;
+                padding: 10px;
+                display: flex;
+                justify-content: space-between;
+                transition: all .3s ease;
+                position: relative;
+                align-content: center;
+                width: 72px;
+
+                @include respond(tablet){
+                    width: 85%;
+                    padding: 10px 5px; 
+                }
+            
+                select{
+                    border: none;
+                    outline: none;
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    background-color: transparent;
+                    cursor: pointer;
+                    width: 100%;
+                }
+            
+                i{
+                    margin-top: 3px;
+                    margin-left: 5px;
+                    transition: opacity .3s ease;
+                    position: absolute;
+                    top: 10px;
+                    left: 65%;
+                    z-index: -1;
+                    opacity: 0;
+
+                    @include respond(tablet){
+                       left: 73%;
+                    }
+                }
+            }
+        }
+
+        &-quantity{
+            width: 30%;
+            
+            &-full{
+                align-self: center;
+                border: 1px solid transparent;
+                display: flex;
+                align-items: center;
+                padding: 10px;
+                justify-content: space-between;
+                transition: all .3s ease;
+                position: relative;
+                align-content: flex-start;
+                width: 50px;
+
+                @include respond(tablet){
+                    width: 70%
+                  }
+            
+                select{
+                    border: none;
+                    outline: none;
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    background-color: transparent;
+                    cursor: pointer;
+                    width: 100%;
+                }
+            
+                i{
+                    margin-top: 3px;
+                    transition: opacity .3s ease;
+                    position: absolute;
+                    top: 10px;
+                    left: 65%;
+                    z-index: -1;
+                    cursor: pointer;
+                    opacity: 0;
+                }
+            }
+        }
+
+        &-price{
+            align-self: center;
+            margin-left: 1%;
+
+
+            @include respond(phone){
+                display: none;
+            }
+        }
+    }
+}

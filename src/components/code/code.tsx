@@ -26,7 +26,7 @@ const Code:React.FC<IProps> = ({tax, code, update}) => {
                 <i className={on ? "fas fa-angle-down clicked" : "fas fa-angle-down"}></i>
             </div>
             <form style={{maxHeight: `${height}`}} action="#" className="code__visible-form" >
-                <input onChange={(e) => setInput(e.target.value)} placeholder="Enter promo code" type="text"/>
+                <input onChange={(e) => setInput(e.target.value)} placeholder="Enter ZIP code" type="text"/>
                 <input disabled={emptyInput ? false : true} style={{opacity: emptyInput ? 1 : .3}} type="submit" value="Apply" />
             </form>
         </div>
