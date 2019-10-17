@@ -7,13 +7,18 @@
     border-bottom: 2px solid transparent;
 
     @include respond(phone){
-        border-bottom: 1px solid rgba(0, 0, 0, .1);
+        border-top: 1px solid rgba(0, 0, 0, .1);
         padding: 5% 0;
 
         &:nth-child(1){
             padding-top: 0;
+            border-top: none;
         }
-      };
+
+        &:last-child{
+            padding-bottom: 0;
+        }
+      }
 
     &__section{
         width: 92%;
@@ -22,7 +27,7 @@
         @include respond(phone){
             width: 100%;
             flex-direction: column;
-          };
+        }
     }
 
     &__exit{
@@ -30,7 +35,7 @@
         color: #999;
         align-self: center;
         margin: 0 auto;
-        margin-bottom: .5%;
+        margin-bottom: .8%;
 
         @include respond(phone){
             display: none;
@@ -44,10 +49,6 @@
             opacity: 1;
             visibility: visible;
             cursor: pointer;
-            
-            @include respond(phone){
-                display: none;
-              };
         }
         
         .product__section__right-color-full,

@@ -6,7 +6,26 @@
     &__left{
         width: 50%;
         display: flex;
+        flex-direction: column;
 
+        &-top{
+            display: flex;
+
+            @include respond(phone){
+                display: flex;
+                width: 100%;
+            }
+        }
+
+        &-bottom{
+            display: none;
+
+            @include respond(phone){
+                display: none;
+                flex-direction: column;
+                width: 100%;
+            }
+        }
 
         @include respond(phone){
             width: 100%;
@@ -62,7 +81,7 @@
 
                     @include respond(phone){
                         display: flex;
-                      };
+                    };
 
                     &-edit{
                         margin-right: 20px;
@@ -91,6 +110,10 @@
                 margin-top: 10px;
                 opacity: 0;
                 transition: opacity .3s ease;
+
+                @include respond(phone){
+                    opacity: 1;
+                };
             }
         
             .wishlist {

@@ -5,9 +5,10 @@ interface IProps {
     tax: boolean
     code: boolean
     update: any
+    stateComponent: boolean
 }
 
-const Tax:React.FC<IProps> = ({code, tax, update}) => {
+const Tax:React.FC<IProps> = ({code, tax, update, stateComponent}) => {
   
     const [on, setOn] = useState<boolean>(false)
     const [height, setHeight] = useState<string>("0px")
@@ -20,7 +21,7 @@ const Tax:React.FC<IProps> = ({code, tax, update}) => {
     }
 
     return (
-        <div className="tax" style={{opacity: code ? .3 : 1, pointerEvents: code ? "none" : "auto"}}>
+        <div className="tax" style={{opacity: code ? .3 : 1, pointerEvents: code || stateComponent ? "none" : "auto"}}>
             <div className="tax__visible" onClick={toggleOnClick}>
                 <p>Estimate you tax and shipping</p>
                 <i className={on ? "fas fa-angle-down clicked" : "fas fa-angle-down"}></i>

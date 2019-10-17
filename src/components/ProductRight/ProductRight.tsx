@@ -1,4 +1,10 @@
 import React from 'react'
+import SelectColor from '../SelectColor/SelectColor'
+import SelectSize from '../SelectSize/SelectSize'
+import SelectQuantity from '../SelectQuantity/SelectQuantity'
+import '../SelectColor/SelectColor.scss'
+import '../SelectSize/SelectSize.scss'
+import '../SelectQuantity/SelectQuantity.scss'
 import './ProductRight.scss'
 
 interface IProps {
@@ -24,44 +30,13 @@ const ProductRight:React.FC<IProps> = ({product, localData, handleChange, handle
     return (
         <div className="product__section__right">
             <div className="product__section__right-color">
-                <div className="product__section__right-color-full">
-                    <div style={{backgroundColor: localData.color === "Leopard" ? "orange" : localData.color }} className="color-ball"></div>
-                    <select name="colorName" onChange={handleChangeColor}>
-                        <option selected hidden>{localData.color}</option>
-                        {localData.colors.map((color: string, index: number) => {
-                            return (
-                                <option key={index} value={color}>{color}</option>
-                            )
-                        })}
-                    </select>
-                    <i className="fas fa-angle-down"></i>
-                </div>
+                <SelectColor localData={localData} handleChangeColor={handleChangeColor}/>
             </div>
             <div className="product__section__right-size">
-                <div className="product__section__right-size-full">
-                <select name="size" onChange={handleChange}>
-                    <option selected hidden>{product.size}</option>
-                    {localData.sizes.map((size: string, index:number) => {
-                        return(
-                            <option key={index} value={size}>{size}</option>
-                        )
-                    })}
-                    </select>
-                    <i className="fas fa-angle-down"></i>
-                </div>
+                <SelectSize localData={localData} handleChange={handleChange} product={product}/>
             </div>
             <div className="product__section__right-quantity">
-                <div className="product__section__right-quantity-full">
-                <select name="quantity" onChange={handleChange}>
-                        <option defaultValue={localData.quantity} disabled hidden>{localData.quantity}</option>
-                        {localData.quantities.map((quantity: number, index: number) => {
-                            return(
-                                <option key={index} value={quantity}>{quantity}</option>
-                            )
-                        })}
-                    </select>
-                    <i className="fas fa-angle-down"></i>
-                </div>
+                <SelectQuantity localData={localData} handleChange={handleChange} />
             </div>
             <div className="product__section__right-price">
                 <p>${parseInt(localData.price).toFixed(2)}</p>

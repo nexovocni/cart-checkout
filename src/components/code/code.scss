@@ -49,6 +49,10 @@
                 cursor: pointer;
                 font-weight: 300;
                 outline: none;
+
+                @include respond(phone){
+                    padding: 2% 4%;
+                }
             }
         }
     

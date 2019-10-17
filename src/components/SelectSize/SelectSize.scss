@@ -1,0 +1,64 @@
+@import '../../sass/mixins/mixins.scss';
+
+.product__section{
+
+    &__right{
+
+        &-size{
+
+            &-full{
+                align-self: center;
+                border: 1px solid transparent;
+                display: flex;
+                align-items: center;
+                padding: 10px;
+                display: flex;
+                justify-content: space-between;
+                transition: all .3s ease;
+                position: relative;
+                align-content: center;
+                width: 72px;
+
+                @include respond(tablet){
+                    width: 85%;
+                    padding: 10px 5px; 
+                }
+
+                @include respond(phone){
+                    border: 1px solid rgba(0, 0, 0, .1);
+                    width: 100%;
+                }
+            
+                select{
+                    border: none;
+                    outline: none;
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    background-color: transparent;
+                    cursor: pointer;
+                    width: 100%;
+                }
+            
+                i{
+                    margin-top: 3px;
+                    margin-left: 5px;
+                    transition: opacity .3s ease;
+                    position: absolute;
+                    top: 10px;
+                    left: 65%;
+                    z-index: -1;
+                    opacity: 0;
+
+                    @include respond(tablet){
+                       left: 70%;
+                    }
+
+                    @include respond(phone){
+                        opacity: 1;
+                        left: 85%;
+                     }
+                }
+            }
+        }
+    }
+}

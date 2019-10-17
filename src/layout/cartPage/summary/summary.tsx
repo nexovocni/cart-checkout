@@ -4,10 +4,11 @@ import Checkbox from '../../../components/checkbox/checkbox'
 import Tax from '../../../components/tax/tax'
 import Code from '../../../components/code/code'
 import Buttons from '../../../components/summaryButtons/buttons'
-import MobileHeader from '../../../components/mobileHeader/MobileHeader'
+import MobileHeader from '../../../components/MobileHeader/MobileHeader'
 
 interface IProps {
     products: any
+    stateComponent: boolean
 }
 
 interface IProduct {
@@ -16,7 +17,7 @@ interface IProduct {
     product: {}
 }
 
-const Summary:React.FC<IProps> = ({products}) => {
+const Summary:React.FC<IProps> = ({products, stateComponent}) => {
 
     const[CheckValue, setCheckValue] = useState(10)
     const [disabledCode, setDisabledCode] = useState(false)
@@ -30,7 +31,7 @@ const Summary:React.FC<IProps> = ({products}) => {
     const shipValue = (550 - itemsValue)
     
     return (
-        <section className="summary">
+        <section style={{opacity: stateComponent ? .3 : 1, pointerEvents: stateComponent ? "none" : "auto"}} className="summary">
             <MobileHeader products={products}/>
             <div className="summary__top">
                 <div style={{opacity: disabledCode || disabledTax ? .3 : 1, pointerEvents: disabledCode || disabledTax ? "auto" : "none"}} className="summary__top__shipping">
@@ -45,18 +46,21 @@ const Summary:React.FC<IProps> = ({products}) => {
                     code={disabledCode} 
                     tax={disabledTax} update={setCheckValue} 
                     shipValue={shipValue}
+                    stateComponent= {stateComponent}
                 />
                 <div className="summary__line-grey"></div>
                 <Tax 
                     code={disabledCode} 
                     tax={disabledTax} 
                     update={setDisabledTax}
+                    stateComponent= {stateComponent}
                 />
                 <div className="summary__line-grey"></div>
                 <Code 
                     code={disabledCode} 
                     tax={disabledTax} 
                     update={setDisabledCode}
+                    stateComponent= {stateComponent}
                 />
                 <div className="summary__line-grey"></div>
                 <div style={{opacity: disabledCode || disabledTax ? .3 : 1, pointerEvents: "none"}} className="summary__top__subtotal">
@@ -64,7 +68,7 @@ const Summary:React.FC<IProps> = ({products}) => {
                     <p className="summary__total__value">${shipValue > 0 ? (itemsValue + CheckValue).toFixed(2) : (itemsValue.toFixed(2))}</p>
                 </div>
             </div>
-            <Buttons isChecked={CheckValue}/>
+            <Buttons stateComponent= {stateComponent} isChecked={CheckValue}/>
         </section>
     )
 }
