@@ -1,33 +1,19 @@
 import React from 'react'
 import Product from '../../../components/Product/Product'
-import InfoCart from '../../../components/InfoCart/InfoCart'
+import InfoCart from '../../../components/infoCart/infoCart'
 import './Products.scss'
 
 interface IProps {
     products: any;
-    updateProducts: any;
-    updateState: any;
-    stateComponent: boolean
+    changeProducts: any;
+    deleteProduct: any
 }
 
 const Products: React.FC<IProps> = ({
     products,
-    updateProducts,
-    updateState,
-    stateComponent
+    changeProducts,
+    deleteProduct
 }) => {
-    
-    const changeProducts = (productId: number, productData: any) => {
-        const newProducts = products.map((product: any) => product.id === productId ? productData : product);
-
-        updateProducts(newProducts);
-    };
-
-    const deleteProduct = (productId: number) => {
-        const newProducts = products.filter((product: any) => product.id !== productId);
-      
-        updateProducts(newProducts);
-    };
 
     return (
         <main className="main">

@@ -4,18 +4,15 @@ import Products from './Products/Products'
 import Summary from './summary/summary'
 import './CartPage.scss'
 
-const CartPage:React.FC = () => {
+interface IProps {
+    products: any[],
+    changeProducts: any,
+    deleteProduct: any,
+    checkValue: any,
+    setCheckValue: any
+}
 
-    const [products, updateProducts] = useState([])
-    const [state, updateState] = useState(false)
-
-
-    useEffect( () => {
-        (async () => {
-        const response = await fetch("https://private-1c29a1-products156.apiary-mock.com/products")
-        const data = await response.json()
-        updateProducts(data.products)
-    })()}, [])
+const CartPage:React.FC<IProps> = ({products, deleteProduct, changeProducts, checkValue, setCheckValue}) => {
 
     return (
              <div className="cart__page">
@@ -23,12 +20,13 @@ const CartPage:React.FC = () => {
                     <Header />
                     <Products
                         products={ products } 
-                        updateProducts={ updateProducts }
-                        updateState={ updateState }
-                        stateComponent = {state}
+                        deleteProduct = {deleteProduct}
+                        changeProducts = {changeProducts}
                     />
                 </div>
                     <Summary 
+                        checkValue={checkValue}
+                        setCheckValue={setCheckValue}
                         products={ products }
                         stateComponent = {state}
                     />

@@ -6,8 +6,9 @@ import Buttons from '../../../components/SummaryButtons/Buttons'
 import MobileHeader from '../../../components/MobileHeader/MobileHeader'
 
 interface IProps {
-    products: any
-    stateComponent: boolean
+    products: any,
+    checkValue: any,
+    setCheckValue: any
 }
 
 interface IProduct {
@@ -18,7 +19,6 @@ interface IProduct {
 
 const Summary:React.FC<IProps> = ({products, stateComponent}) => {
 
-    const[CheckValue, setCheckValue] = useState(10)
     const [disabledCode, setDisabledCode] = useState(false)
     let itemsValue = 0
 
@@ -67,7 +67,7 @@ const Summary:React.FC<IProps> = ({products, stateComponent}) => {
                 <div className="summary__line-grey"></div>
                 <div style={{opacity: disabledCode ? .3 : 1, pointerEvents: "none"}} className="summary__top__subtotal">
                     <p>Subtotal</p>
-                    <p className="summary__total__value">${shipValue > 0 ? (itemsValue + CheckValue).toFixed(2) : (itemsValue.toFixed(2))}</p>
+                    <p className="summary__total__value">${shipValue > 0 ? (itemsValue + checkValue).toFixed(2) : (itemsValue.toFixed(2))}</p>
                 </div>
             </div>
             <Buttons 
