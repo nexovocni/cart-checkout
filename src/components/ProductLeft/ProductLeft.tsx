@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import SelectMobile from '../SelectMobile/SelectMobile'
+import ViewProduct from '../ViewProduct/ViewProduct'
 import './ProductLeft.scss'
 
 interface IProps {
@@ -44,31 +45,14 @@ const ProductLeft:React.FC<IProps> = ({
     return (
         <div className="product__section__left" style={{opacity: stateComponent && productComponent ? .3 : 1, pointerEvents: stateComponent && productComponent ? "none" : "auto"}}>
             <div className="product__section__left-top">
-                <div className="product__section__left-image">
-                    <img src={localData.image[localData.colors.indexOf(localData.color)]} alt="image"/>
-                </div>
-                <div className="product__section__left-name">
-                    <div style={{justifyContent: !productComponent ? "center" : "space-between"}} className="name">
-                        <div>
-                            <p>{localData.name}</p>
-                        </div>
-                        <div style={{display: !productComponent ? "none" : "inline"}}>
-                            <p className="name__mobile-data">{localData.color} - Size {localData.size} - Quantity {localData.quantity}</p>
-                        </div>
-                        <div  style={{display: !productComponent ? "none" : ""}} className="name__mobile-nav">
-                            <button onClick={handleState} className="name__mobile-nav-edit">Edit</button>
-                            <button onClick={removeProduct} className="name__mobile-nav-remove">Remove</button>
-                        </div>
-                        <div style={{display: productComponent ? "" : "inline"}} className="wishlist">
-                            <p><i className="fa fa-heart"></i>Move to wishlist</p>
-                        </div>
-                    </div>
-                    <div className="name__price">
-                        <p>${parseInt(localData.price).toFixed(2)}</p>
-                    </div>
-                </div>
+                <ViewProduct 
+                    localData={localData}
+                    productComponent={productComponent}
+                    handleState={handleState}
+                    removeProduct={removeProduct}
+                />
             </div>
-            <div style={{display: productComponent ? "none" : "flex"}} className="product__section__left-bottom">
+            <div className={productComponent ? "product__section__left-bottom" : ""}>
                 <SelectMobile 
                     localData={ localData}  
                     handleChange={ handleChange } 

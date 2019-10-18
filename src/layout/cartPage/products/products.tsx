@@ -1,6 +1,6 @@
 import React from 'react'
-import Product from '../../../components/Product/Product'
-import InfoCart from '../../../components/infoCart/infoCart'
+import Product from '../../../components/Product/product'
+import InfoCart from '../../../components/InfoCart/InfoCart'
 import './Products.scss'
 
 interface IProps {

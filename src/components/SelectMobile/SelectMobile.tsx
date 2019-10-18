@@ -33,7 +33,7 @@ const SelectMobile:React.FC<IProps> = ({localData, handleChange, handleChangeCol
     }
 
     return (
-        <>
+        <React.Fragment>
                 <div className="product__section__left-bottom-select">
                     <div className="product__section__left-bottom-select-color">
                         <p>Color</p>
@@ -51,7 +51,7 @@ const SelectMobile:React.FC<IProps> = ({localData, handleChange, handleChangeCol
                 <div className="product__section__left-bottom-button">
                     <button onClick={handleButton}>Update Bag</button>
                 </div>
-        </>
+        </React.Fragment>
     )
 }
 

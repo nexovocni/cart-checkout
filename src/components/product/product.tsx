@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import ProductLeft from '../ProductLeft/ProductLeft'
 import ProductRight from '../ProductRight/ProductRight'
-import './Product.scss'
+import './product.scss'
 
 
 interface IProps {
