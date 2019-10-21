@@ -1,5 +1,5 @@
 import React from 'react'
-import './buttons.scss'
+import './Buttons.scss'
 import {Link} from 'react-router-dom'
 
 interface IProps {

@@ -1,0 +1,47 @@
+@import "../../sass/mixins/mixins.scss"; 
+
+.name{
+    
+    &__mobile{
+
+        &-data{
+
+            &-text{
+                display: none;
+                color: #999;
+
+                @include respond(phone){
+                    display: flex;
+                }
+            }
+
+            &-mob{
+                display: none;
+            }
+        }
+
+        &-nav{
+            display: none;
+            margin-top: 15px;
+
+            @include respond(phone){
+                display: flex;
+            };
+
+            &-edit{
+                margin-right: 20px;
+            }
+
+            &-mob{
+                display: none;
+            }
+
+            button{
+                cursor: pointer;
+                border: none;
+                background-color: transparent;
+                outline: none;;
+            }
+        }
+    }
+}

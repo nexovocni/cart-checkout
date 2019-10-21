@@ -45,6 +45,10 @@
 
                         &-mob{
                             align-self: center;
+
+                            .wishlist-mob{
+                                color: #999;
+                            }
                         }
                     };
 
@@ -53,53 +57,10 @@
                         transition: opacity .3s ease-in;
                         color: #999;
 
-                        &-mob{
-                            color:red;
-                        }
-
                         @include respond(phone){
                            display: none;
                         }
                     }
-
-                &__mobile-data{
-
-                    &-text{
-                        display: none;
-                        color: #999;
-    
-                        @include respond(phone){
-                            display: flex;
-                          };
-                    }
-
-                    &-mob{
-                        display: none;
-                    }
-                }
-
-            &__mobile-nav{
-                    display: none;
-
-                    @include respond(phone){
-                        display: flex;
-                    };
-
-                    &-edit{
-                        margin-right: 20px;
-                    }
-
-                    &-mob{
-                        display: none;
-                    }
-
-                    button{
-                        cursor: pointer;
-                        border: none;
-                        background-color: transparent;
-                        outline: none;;
-                    }
-                }
 
             &__price{
                     display: none;

@@ -1,12 +1,12 @@
 import React from 'react'
 import './ViewProduct.scss'
+import ViewMobile from '../ViewMobile/ViewMobile'
 
 interface IProps {
     localData: any,
     handleState: any,
     productComponent: any,
-    removeProduct: any,
-   
+    removeProduct: any
 }
 
 const ViewProduct:React.FC<IProps> = ({localData, handleState, productComponent, removeProduct}) => {
@@ -21,13 +21,12 @@ const ViewProduct:React.FC<IProps> = ({localData, handleState, productComponent,
                         <div>
                             <p>{localData.name}</p>
                         </div>
-                        <div className={!productComponent ? "name__mobile-data-mob" : "name__mobile-data"} >
-                            <p className="name__mobile-data-text">{localData.color} - Size {localData.size} - Quantity {localData.quantity}</p>
-                        </div>
-                        <div className={productComponent ? "name__mobile-nav" : "name__mobile-nav-mob"}>
-                            <button onClick={handleState} className="name__mobile-nav-edit">Edit</button>
-                            <button onClick={removeProduct} className="name__mobile-nav-remove">Remove</button>
-                        </div>
+                        <ViewMobile 
+                            handleState={handleState} 
+                            removeProduct={removeProduct} 
+                            productComponent={productComponent}
+                            localData={localData}
+                        />
                         <div className={productComponent ? "wishlist" : "wishlist-mob"}>
                             <p><i className="fa fa-heart"></i>Move to wishlist</p>
                         </div>

@@ -1,5 +1,5 @@
-import React, {useContext, useState} from 'react'
-import './checkbox.scss'
+import React, {useState} from 'react'
+import './Checkbox.scss'
 
 interface IProps {
     code: boolean

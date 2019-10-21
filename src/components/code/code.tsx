@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import './code.scss'
+import './Code.scss'
 
 interface IProps {
     code: boolean

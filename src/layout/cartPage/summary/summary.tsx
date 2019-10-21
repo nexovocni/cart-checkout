@@ -1,8 +1,8 @@
 import React,{useState} from 'react'
 import './summary.scss'
-import Checkbox from '../../../components/checkbox/checkbox'
-import Code from '../../../components/code/code'
-import Buttons from '../../../components/summaryButtons/buttons'
+import Checkbox from '../../../components/Checkbox/Checkbox'
+import Code from '../../../components/Code/Code'
+import Buttons from '../../../components/SummaryButtons/Buttons'
 import MobileHeader from '../../../components/MobileHeader/MobileHeader'
 
 interface IProps {
