@@ -32,7 +32,6 @@ const CartPage:React.FC = () => {
                         products={ products }
                         stateComponent = {state}
                     />
-                
             </div>
     )
 }

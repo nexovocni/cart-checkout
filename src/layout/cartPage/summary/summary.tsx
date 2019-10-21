@@ -59,7 +59,7 @@ const Summary:React.FC<IProps> = ({products, stateComponent}) => {
                 <Code 
                     setCode={setDisabledCode}
                     code={disabledCode}
-                    stateComponent= {stateComponent}
+                    stateComponent={stateComponent}
                     title="Have a promo code"
                     button="Apply"
                     placeholder="Enter Zip Code"
@@ -70,7 +70,10 @@ const Summary:React.FC<IProps> = ({products, stateComponent}) => {
                     <p className="summary__total__value">${shipValue > 0 ? (itemsValue + CheckValue).toFixed(2) : (itemsValue.toFixed(2))}</p>
                 </div>
             </div>
-            <Buttons stateComponent= {stateComponent} isChecked={CheckValue}/>
+            <Buttons 
+                stateComponent={stateComponent} 
+                isChecked={CheckValue}
+            />
         </section>
     )
 }

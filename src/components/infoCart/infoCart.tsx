@@ -1,5 +1,5 @@
-import './InfoCart.scss'
 import React from 'react'
+import './InfoCart.scss'
 
 const InfoCart:React.FC<any> = ({products}) => {
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import Product from '../../../components/Product/product'
+import Product from '../../../components/Product/Product'
 import InfoCart from '../../../components/InfoCart/InfoCart'
 import './Products.scss'
 
