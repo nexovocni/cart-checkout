@@ -1,0 +1,67 @@
+@import '../../sass/mixins/mixins.scss' ;
+
+.product{
+
+    &__section{
+
+        &__left{
+
+            &-bottom{
+
+                &-select{
+                    display: flex;
+                    width: 100%;
+                    justify-content: space-between;
+                    margin: 30px 0;
+
+                    &-color{
+                        width: 30%;
+                        display: flex;
+                        flex-direction: column;
+
+                        p{
+                            margin: 0 auto;
+                            margin-bottom: 15px;
+                        }
+                    }
+
+                    &-size{
+                        width: 30%;
+                        display: flex;
+                        flex-direction: column;
+                        
+                        p{
+                            margin: 0 auto;
+                            margin-bottom: 15px;
+                        }
+                    }
+
+                    &-quantity{
+                        width: 30%;
+                        display: flex;
+                        flex-direction: column;
+                        
+                        p{
+                            margin: 0 auto;
+                            margin-bottom: 15px;
+                        }
+                    }
+                }
+
+                &-button{
+                    width: 100%;
+
+                    button{
+                        margin: 0 auto;
+                        background-color: #000;
+                        color: #fff;
+                        width: 100%;
+                        outline: none;
+                        border: none;
+                        padding: 10px;
+                    }
+                }
+            }
+        }
+    }
+}

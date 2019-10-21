@@ -1,16 +1,20 @@
 import React from 'react'
-import Product from '../../../components/product/product'
-import InfoCart from '../../../components/infoCart/infoCart'
-import './products.scss'
+import Product from '../../../components/Product/product'
+import InfoCart from '../../../components/InfoCart/InfoCart'
+import './Products.scss'
 
 interface IProps {
     products: any;
     updateProducts: any;
+    updateState: any;
+    stateComponent: boolean
 }
 
 const Products: React.FC<IProps> = ({
     products,
     updateProducts,
+    updateState,
+    stateComponent
 }) => {
     
     const changeProducts = (productId: number, productData: any) => {
@@ -33,9 +37,11 @@ const Products: React.FC<IProps> = ({
                     return (
                         <Product
                             key={ product.id }
-                            update={ changeProducts } 
+                            updateProducts={ changeProducts } 
                             remove={ deleteProduct } 
                             product={ product } 
+                            updateState= { updateState }
+                            stateComponent={stateComponent}
                         />
                     )
                 })}

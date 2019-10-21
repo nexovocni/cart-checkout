@@ -1,5 +1,5 @@
-import React, {useContext} from 'react'
-import './infoCart.scss'
+import './InfoCart.scss'
+import React from 'react'
 
 const InfoCart:React.FC<any> = ({products}) => {
 

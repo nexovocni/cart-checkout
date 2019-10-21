@@ -1,33 +1,38 @@
-import React,{useState, useContext} from 'react'
+import React, {useState} from 'react'
 import './code.scss'
 
 interface IProps {
-    tax: boolean
     code: boolean
-    update: any
+    setCode: any
+    stateComponent: boolean
+    title: string
+    button: string
+    placeholder: string
 }
 
-const Code:React.FC<IProps> = ({tax, code, update}) => {
+const Code:React.FC<IProps> = ({code, stateComponent, setCode, button, title, placeholder}) => {
 
     const [on, setOn] = useState<boolean>(false)
     const [height, setHeight] = useState<string>("0px")
     const [emptyInput, setInput] = useState("")
+    const [componentState, updateComponentState] = useState(true)
     
     const toggleOnClick = () => {
         setHeight(on ? `0px` : "220px")
         setOn(!on)
-        update(!code)
+        setCode(!code)
+        updateComponentState(!componentState)
     }
 
     return (
-        <div style={{opacity: tax ? .3 : 1, pointerEvents: tax ? "none" : "auto"}} className="code">
+        <div style={{opacity: code && componentState ? .3 : 1, pointerEvents: code && componentState || stateComponent ? "none" : "auto"}} className="code">
             <div className="code__visible" onClick={toggleOnClick}>
-                <p>Have a promo code?</p>
+                <p>{title}</p>
                 <i className={on ? "fas fa-angle-down clicked" : "fas fa-angle-down"}></i>
             </div>
             <form style={{maxHeight: `${height}`}} action="#" className="code__visible-form" >
-                <input onChange={(e) => setInput(e.target.value)} placeholder="Enter promo code" type="text"/>
-                <input disabled={emptyInput ? false : true} style={{opacity: emptyInput ? 1 : .3}} type="submit" value="Apply" />
+                <input onChange={(e) => setInput(e.target.value)} placeholder={placeholder} type="text"/>
+                <input disabled={emptyInput ? false : true} style={{opacity: emptyInput ? 1 : .3}} type="submit" value={button} />
             </form>
         </div>
     )

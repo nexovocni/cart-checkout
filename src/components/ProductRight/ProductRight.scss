@@ -1,0 +1,44 @@
+@import '../../sass/mixins/mixins.scss' ;
+@import '../product/product.scss';
+
+.product__section {
+
+    &__right{
+        width: 52%;
+        display: flex;
+        align-self: center;
+        margin-bottom: 1%;
+
+        @include respond(phone){
+            display: none;
+          }
+
+        &-color{
+            width: 40%;
+
+            @include respond(tablet){
+                width: 45%
+              }
+        }
+
+        &-size{
+            width: 30%;
+
+            @include respond(tablet){
+                width: 36%;
+            }
+        }
+
+        &-quantity{
+            width: 30%;
+        }
+
+        &-price{
+            align-self: center;
+
+            @include respond(phone){
+                display: none;
+            }
+        }
+    }
+}

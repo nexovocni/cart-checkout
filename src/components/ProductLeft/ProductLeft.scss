@@ -1,0 +1,34 @@
+@import '../../sass/mixins/mixins.scss' ;
+@import '../product/product.scss';
+
+.product__section {
+
+    &__left{
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+
+        &-top{
+            display: flex;
+
+            @include respond(phone){
+                display: flex;
+                width: 100%;
+            }
+        }
+
+        &-bottom{
+            display: none;
+
+            @include respond(phone){
+                display: none;
+                flex-direction: column;
+                width: 100%;
+            }
+        }
+
+        @include respond(phone){
+            width: 100%;
+        };
+    }
+}

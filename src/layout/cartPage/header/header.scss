@@ -1,3 +1,5 @@
+@import '../../../sass/mixins/mixins.scss' ;
+
 .header {
     display: flex;
     flex-direction: column;
@@ -5,6 +7,10 @@
     margin-bottom: 43px;
     padding-right: 8%;
     height: 50px;
+
+    @include respond(phone){
+        display: none;
+      };
 
     &__top{
         display: flex;

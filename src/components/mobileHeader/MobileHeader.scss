@@ -1,0 +1,42 @@
+@import '../../sass/mixins/mixins.scss' ;
+
+.mobile-header{
+    display: none;
+    
+    @include respond(phone){
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 25px;
+      };
+
+    &__left{
+        display: flex;
+
+        &__lines{
+            width: 15px;
+            height: 6px;
+            border-bottom: 1px solid #000;
+            border-top: 1px solid #000;
+            margin-right: 33px;
+            align-self: center;
+        }
+    }
+
+    &__right{
+        display: flex;
+
+        img{
+            cursor: pointer;
+
+            &.search{
+                height: 11px;
+                align-self: center;
+                margin-right: 33px;
+            }
+
+            &.close{
+                height: 15px;
+            }
+        }
+    }
+}
