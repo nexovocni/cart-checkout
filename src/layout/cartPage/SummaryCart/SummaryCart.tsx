@@ -5,6 +5,7 @@ import Code from '../../../components/Code/Code'
 import Buttons from '../../../components/SummaryButtons/Buttons'
 import MobileHeader from '../../../components/MobileHeader/MobileHeader'
 import SummaryData from '../../../components/SummaryData/SummaryData'
+import SummaryTitle from '../../../components/SummaryTitle/SummaryTitle'
 
 interface IProps {
     products: any,
@@ -34,10 +35,15 @@ const Summary:React.FC<IProps> = ({products, stateComponent, setCheckValue, chec
         <section style={{opacity: stateComponent ? .3 : 1, pointerEvents: stateComponent ? "none" : "auto"}} className="summary">
             <MobileHeader products={products}/>
             <div className="summary__top">
-                <div style={{opacity: disabledCode ? .3 : 1, pointerEvents: disabledCode ? "auto" : "none"}} className="summary__top__shipping">
-                    <p className="summary__top__shipping-text">{shipValue > 0 ? `You are $${shipValue.toFixed(2)} away from free shipping` : `Free Shipment`}</p>
-                </div>
-                <SummaryData itemsValue={itemsValue} disabledCode={disabledCode} title="Your Items"/>
+                <SummaryTitle 
+                    shipValue={shipValue} 
+                    disabledCode={disabledCode}
+                />
+                <SummaryData
+                    itemsValue={itemsValue} 
+                    disabledCode={disabledCode} 
+                    title="Your Items"
+                 />
                 <div style={{opacity: disabledCode ? .3 : 1 }} className="summary__line"></div>
                 <Checkbox 
                     code={disabledCode} 
