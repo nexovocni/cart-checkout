@@ -29,7 +29,7 @@ const CartCheckOut = () => {
     };
 
     return (
-            <div>
+            <React.Fragment>
                 <Router>
                     <Switch>
                         <Route path="/" exact render={(props) => <CartPage 
@@ -44,7 +44,7 @@ const CartCheckOut = () => {
                         <Route path="/form" render={(props) => <FormPage />}/>
                     </Switch>
                 </Router>
-            </div>
+            </React.Fragment>
       
     )
 }
