@@ -31,16 +31,6 @@
        }
    }
 
-   &__top__total{
-       display: flex;
-       justify-content: space-between;
-       margin: 0 0 5% 0;
-
-       @include respond(phone){
-        display: none;
-      };
-   }
-
    &__line{
         width: 100%;
         height: 2px;

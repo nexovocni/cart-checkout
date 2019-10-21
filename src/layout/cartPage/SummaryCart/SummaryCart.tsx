@@ -72,6 +72,7 @@ const Summary:React.FC<IProps> = ({products, stateComponent, setCheckValue, chec
             <Buttons 
                 stateComponent={stateComponent} 
                 isChecked={checkValue}
+                disabledCode={disabledCode}
             />
         </section>
     )
