@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import Header from './header/header'
+import Header from './Header/Header'
 import Products from './Products/Products'
-import Summary from './summary/summary'
+import Summary from './Summary/Summary'
 import './CartPage.scss'
 
 interface IProps {

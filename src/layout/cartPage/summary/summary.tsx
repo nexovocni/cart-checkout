@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import './summary.scss'
+import './Summary.scss'
 import Checkbox from '../../../components/Checkbox/Checkbox'
 import Code from '../../../components/Code/Code'
 import Buttons from '../../../components/SummaryButtons/Buttons'

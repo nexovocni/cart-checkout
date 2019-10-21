@@ -1,5 +1,4 @@
 import React from 'react'
-import Summary from '../cartPage/summary/summary'
 
 const FormPage = () => {
     return (
