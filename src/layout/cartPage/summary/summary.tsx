@@ -9,6 +9,7 @@ interface IProps {
     products: any,
     checkValue: any,
     setCheckValue: any
+    stateComponent: boolean
 }
 
 interface IProduct {
@@ -17,7 +18,7 @@ interface IProduct {
     product: {}
 }
 
-const Summary:React.FC<IProps> = ({products, stateComponent}) => {
+const Summary:React.FC<IProps> = ({products, stateComponent, setCheckValue, checkValue}) => {
 
     const [disabledCode, setDisabledCode] = useState(false)
     let itemsValue = 0
@@ -72,7 +73,7 @@ const Summary:React.FC<IProps> = ({products, stateComponent}) => {
             </div>
             <Buttons 
                 stateComponent={stateComponent} 
-                isChecked={CheckValue}
+                isChecked={checkValue}
             />
         </section>
     )

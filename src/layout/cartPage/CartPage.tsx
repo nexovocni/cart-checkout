@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Header from './header/header'
 import Products from './Products/Products'
 import Summary from './summary/summary'
@@ -14,6 +14,8 @@ interface IProps {
 
 const CartPage:React.FC<IProps> = ({products, deleteProduct, changeProducts, checkValue, setCheckValue}) => {
 
+    const [state, updateState] = useState(false)
+
     return (
              <div className="cart__page">
                 <div className="cart__page__main">
@@ -22,6 +24,8 @@ const CartPage:React.FC<IProps> = ({products, deleteProduct, changeProducts, che
                         products={ products } 
                         deleteProduct = {deleteProduct}
                         changeProducts = {changeProducts}
+                        updateState={updateState}
+                        stateComponent={state}
                     />
                 </div>
                     <Summary 

@@ -1,18 +1,22 @@
 import React from 'react'
 import Product from '../../../components/Product/Product'
-import InfoCart from '../../../components/infoCart/infoCart'
+import InfoCart from '../../../components/InfoCart/InfoCart'
 import './Products.scss'
 
 interface IProps {
-    products: any;
-    changeProducts: any;
-    deleteProduct: any
+    products: any,
+    changeProducts: any,
+    deleteProduct: any,
+    updateState: any
+    stateComponent: boolean
 }
 
 const Products: React.FC<IProps> = ({
     products,
     changeProducts,
-    deleteProduct
+    deleteProduct,
+    updateState,
+    stateComponent
 }) => {
 
     return (
