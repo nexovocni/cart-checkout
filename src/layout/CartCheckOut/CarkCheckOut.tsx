@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
-import CartPage from '../cartPage/CartPage'
-import FormPage from '../formPage/FormPage'
+import CartPage from '../CartPage/CartPage'
+import FormPage from '../FormPage/FormPage'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
 const CartCheckOut = () => {
@@ -41,7 +41,14 @@ const CartCheckOut = () => {
                         setCheckValue={setCheckValue}
                         /> 
                         }/>
-                        <Route path="/form" render={(props) => <FormPage />}/>
+                        <Route path="/form" render={(props) => <FormPage 
+                        {...props} 
+                        products={products} 
+                        changeProducts={changeProducts}
+                        deleteProduct={deleteProduct}
+                        checkValue={checkValue}
+                        /> 
+                        }/>
                     </Switch>
                 </Router>
             </React.Fragment>

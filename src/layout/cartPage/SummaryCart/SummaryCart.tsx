@@ -4,8 +4,9 @@ import Checkbox from '../../../components/Checkbox/Checkbox'
 import Code from '../../../components/Code/Code'
 import Buttons from '../../../components/SummaryButtons/Buttons'
 import MobileHeader from '../../../components/MobileHeader/MobileHeader'
-import SummaryData from '../../../components/SummaryData/SummaryData'
+import SummaryTotal from '../../../components/SummaryTotal/SummaryTotal'
 import SummaryTitle from '../../../components/SummaryTitle/SummaryTitle'
+import SummarySubtotal from '../../../components/SummarySubtotal/SummarySubtotal'
 
 interface IProps {
     products: any,
@@ -32,26 +33,26 @@ const Summary:React.FC<IProps> = ({products, stateComponent, setCheckValue, chec
     const shipValue = (550 - itemsValue)
     
     return (
-        <section style={{opacity: stateComponent ? .3 : 1, pointerEvents: stateComponent ? "none" : "auto"}} className="summary">
+        <section style={{opacity: stateComponent ? .3 : 1, pointerEvents: stateComponent ? "none" : "auto"}} className="summarycart">
             <MobileHeader products={products}/>
-            <div className="summary__top">
+            <div className="summarycart__top">
                 <SummaryTitle 
                     shipValue={shipValue} 
                     disabledCode={disabledCode}
                 />
-                <SummaryData
+                <SummaryTotal
                     itemsValue={itemsValue} 
                     disabledCode={disabledCode} 
-                    title="Your Items"
+                    title="Your order"
                  />
-                <div style={{opacity: disabledCode ? .3 : 1 }} className="summary__line"></div>
+                <div style={{opacity: disabledCode ? .3 : 1 }} className="summarycart__line"></div>
                 <Checkbox 
                     code={disabledCode} 
                     update={setCheckValue} 
                     shipValue={shipValue}
                     stateComponent= {stateComponent}
                 />
-                <div className="summary__line-grey"></div>
+                <div className="summarycart__line-grey"></div>
                 <Code 
                     setCode={setDisabledCode}
                     code={disabledCode} 
@@ -60,7 +61,7 @@ const Summary:React.FC<IProps> = ({products, stateComponent, setCheckValue, chec
                     button="Estimate"
                     placeholder="Enter Tax Code"
                 />
-                <div className="summary__line-grey"></div>
+                <div className="summarycart__line-grey"></div>
                 <Code 
                     setCode={setDisabledCode}
                     code={disabledCode}
@@ -69,11 +70,13 @@ const Summary:React.FC<IProps> = ({products, stateComponent, setCheckValue, chec
                     button="Apply"
                     placeholder="Enter Zip Code"
                 />
-                <div className="summary__line-grey"></div>
-                <div style={{opacity: disabledCode ? .3 : 1, pointerEvents: "none"}} className="summary__top__subtotal">
-                    <p>Subtotal</p>
-                    <p className="summary__total__value">${shipValue > 0 ? (itemsValue + checkValue).toFixed(2) : (itemsValue.toFixed(2))}</p>
-                </div>
+                <div className="summarycart__line-grey"></div>
+               <SummarySubtotal 
+                 itemsValue={itemsValue}
+                 checkValue={checkValue}
+                 shipValue={shipValue}
+                 disabledCode={disabledCode}
+               />
             </div>
             <Buttons 
                 stateComponent={stateComponent} 

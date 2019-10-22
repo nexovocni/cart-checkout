@@ -10,7 +10,7 @@ interface IProps {
 
 const Buttons:React.FC<IProps> = ({isChecked, stateComponent, disabledCode}) => {
     return (
-        <div style={{opacity: !isChecked || disabledCode  ? .3 : 1, pointerEvents: !stateComponent || disabledCode  ? "auto" : "none"}} className="buttons">
+        <div style={{opacity: disabledCode  ? .3 : 1, pointerEvents: !disabledCode ? "auto" : "none"}} className="buttons">
             <Link to="/form" className="button button_check">Checkout now</Link>
             <Link to="#" className="button button_pay"><img className="apple" src="img/apple.svg"/></Link>
             <Link to="#" className="button button_pay"><img className="paypay" src="img/pay.svg"/></Link>

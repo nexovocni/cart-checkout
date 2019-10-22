@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import Header from './Header/Header'
+import Header from './HeaderCart/HeaderCart'
 import Products from './Products/Products'
-import Summary from './SummaryCart/SummaryCart'
+import SummaryCart from './SummaryCart/SummaryCart'
 import './CartPage.scss'
 
 interface IProps {
@@ -28,7 +28,7 @@ const CartPage:React.FC<IProps> = ({products, deleteProduct, changeProducts, che
                         stateComponent={state}
                     />
                 </div>
-                    <Summary 
+                    <SummaryCart
                         checkValue={checkValue}
                         setCheckValue={setCheckValue}
                         products={ products }

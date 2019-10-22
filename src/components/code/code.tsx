@@ -4,7 +4,7 @@ import './Code.scss'
 interface IProps {
     code: boolean
     setCode: any
-    stateComponent: boolean
+    stateComponent: any
     title: string
     button: string
     placeholder: string
