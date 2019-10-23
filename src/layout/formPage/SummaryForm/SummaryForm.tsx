@@ -30,6 +30,7 @@ const SummaryForm:React.FC<IProps> = ({products, checkValue}) => {
     const shipValue = (550 - itemsValue)
 
     const [tax, setTax] = useState(false)
+
     const toggleOnClick = () => {
         setTax(!tax)  
     }
@@ -54,18 +55,11 @@ const SummaryForm:React.FC<IProps> = ({products, checkValue}) => {
                     itemsValue={checkValue < 10 || shipValue < 1 ? 'Free' : '$10.00'} 
                  />
                   <div className="summaryform__line-grey"></div>
-                  <div className="summaryform-tax">
-                    <SummaryTotal
-                        itemsValue="TBD"
-                        disabledCode={disabledCode} 
-                        title="Taxes"
-                    />
                     <SummaryTax 
                         disabledCode={disabledCode} 
                         tax={tax}
                     />
-                  </div>
-                <div className="summaryform__line-grey"></div>
+                <div className="summaryform__line-grey-tax"></div>
                 <Code 
                     setCode={setDisabledCode}
                     code={disabledCode} 
@@ -76,13 +70,13 @@ const SummaryForm:React.FC<IProps> = ({products, checkValue}) => {
                 />
                 <div className="summaryform__line-grey-last"></div>
                 <SummarySubtotal 
-                    itemsValue={itemsValue}
+                    itemsValue={tax ? itemsValue + 5 : itemsValue }
                     checkValue={checkValue}
                     shipValue={shipValue}
                     disabledCode={disabledCode}
                 />
             </div>
-            <button onClick={() => toggleOnClick()}>Click me</button>
+            <button onClick={toggleOnClick}>Click me</button>
         </section>
     )
 }

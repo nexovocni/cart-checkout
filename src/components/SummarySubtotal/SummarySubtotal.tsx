@@ -5,7 +5,7 @@ interface IProps {
     itemsValue: any,
     checkValue: any,
     shipValue: any,
-    disabledCode: boolean
+    disabledCode: boolean,
 }
 
 const SummarySubtotal:React.FC<IProps> = ({itemsValue, checkValue, shipValue, disabledCode}) => {

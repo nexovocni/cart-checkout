@@ -5,8 +5,25 @@
     width: 30%;
     padding: 3% 2%;
     display: flex;
-    justify-content: space-between;
     flex-direction: column;
+
+    &__top{
+      position: sticky;
+      top: 20px;
+
+      @include respond(phone){
+        position: unset;
+      };
+    }
+
+    &__bottom{
+      position: sticky;
+      top: 550px;
+
+      @include respond(phone){
+        position: unset;
+      };
+    }
 
     @include respond(phone){
         width: 100%;

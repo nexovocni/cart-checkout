@@ -41,7 +41,7 @@ const Summary:React.FC<IProps> = ({products, stateComponent, setCheckValue, chec
                     disabledCode={disabledCode}
                 />
                 <SummaryTotal
-                    itemsValue={itemsValue} 
+                    itemsValue={`$${itemsValue.toFixed(2)}`} 
                     disabledCode={disabledCode} 
                     title="Your order"
                  />
@@ -78,11 +78,13 @@ const Summary:React.FC<IProps> = ({products, stateComponent, setCheckValue, chec
                  disabledCode={disabledCode}
                />
             </div>
-            <Buttons 
-                stateComponent={stateComponent} 
-                isChecked={checkValue}
-                disabledCode={disabledCode}
-            />
+            <div className="summarycart__bottom">
+                <Buttons 
+                    stateComponent={stateComponent} 
+                    isChecked={checkValue}
+                    disabledCode={disabledCode}
+                />
+            </div>
         </section>
     )
 }
