@@ -9,10 +9,12 @@ interface IProps {
     changeProducts: any,
     deleteProduct: any,
     checkValue: any,
-    setCheckValue: any
+    setCheckValue: any,
+    itemsValue: any,
+    shipValue: any
 }
 
-const CartPage:React.FC<IProps> = ({products, deleteProduct, changeProducts, checkValue, setCheckValue}) => {
+const CartPage:React.FC<IProps> = ({products, deleteProduct, changeProducts, checkValue, setCheckValue, itemsValue, shipValue}) => {
 
     const [state, updateState] = useState(false)
 
@@ -33,6 +35,8 @@ const CartPage:React.FC<IProps> = ({products, deleteProduct, changeProducts, che
                         setCheckValue={setCheckValue}
                         products={ products }
                         stateComponent = {state}
+                        itemsValue={itemsValue}
+                        shipValue={shipValue}
                     />
             </div>
     )

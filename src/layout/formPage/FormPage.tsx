@@ -9,9 +9,11 @@ interface IProps {
     changeProducts: any,
     deleteProduct: any,
     checkValue: any,
+    itemsValue: any,
+    shipValue: any,
 }
 
-const FormPage:React.FC<IProps> = ({products, deleteProduct, changeProducts, checkValue}) => {
+const FormPage:React.FC<IProps> = ({products, deleteProduct, changeProducts, checkValue, itemsValue, shipValue}) => {
 
     return (
         <div className="form__page">
@@ -26,6 +28,8 @@ const FormPage:React.FC<IProps> = ({products, deleteProduct, changeProducts, che
              <SummaryForm
                 checkValue={checkValue}
                 products={ products }
+                itemsValue={itemsValue}
+                shipValue={shipValue}
             />
         </div>
     )

@@ -52,7 +52,7 @@ const ProductLeft:React.FC<IProps> = ({
                     removeProduct={removeProduct}
                 />
             </div>
-            <div className={productComponent ? "product__section__left-bottom" : ""}>
+            <div className={productComponent ? "product__section__left-bottom" : "product__section__left-bottom-open"}>
                 <SelectMobile 
                     localData={ localData}  
                     handleChange={ handleChange } 

@@ -9,6 +9,7 @@ interface IProps {
 }
 
 const SummarySubtotal:React.FC<IProps> = ({itemsValue, checkValue, shipValue, disabledCode}) => {
+
     return (
         <div style={{opacity: disabledCode ? .3 : 1, pointerEvents: "none"}} className="summary__top__subtotal">
             <p>Subtotal</p>

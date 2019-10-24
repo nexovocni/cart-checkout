@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useRef, useEffect} from 'react'
 import MobileHeader from '../../../components/MobileHeader/MobileHeader'
 import SummaryTitle from '../../../components/SummaryTitle/SummaryTitle'
 import SummaryTotal from '../../../components/SummaryTotal/SummaryTotal'
@@ -9,30 +9,22 @@ import './SummaryForm.scss'
 
 interface IProps {
     products: any,
-    checkValue: any
+    checkValue: any,
+    itemsValue: any,
+    shipValue: number
 }
 
-interface IProduct {
-    price: number
-    quantity: number
-    product: {}
-}
-
-const SummaryForm:React.FC<IProps> = ({products, checkValue}) => {
+const SummaryForm:React.FC<IProps> = ({products, checkValue, itemsValue, shipValue}) => {
 
     const [disabledCode, setDisabledCode] = useState(false)
-    let itemsValue = 0
-
-    {products.map( (product:IProduct) => {
-        itemsValue += product.quantity * product.price
-    })}
-
-    const shipValue = (550 - itemsValue)
 
     const [tax, setTax] = useState(false)
 
+    const [value, setValue] = useState(itemsValue)
+
     const toggleOnClick = () => {
-        setTax(!tax)  
+        setTax(!tax)
+        {!tax ? setValue(value + 5) : setValue(value)} 
     }
 
     return (
@@ -70,7 +62,7 @@ const SummaryForm:React.FC<IProps> = ({products, checkValue}) => {
                 />
                 <div className="summaryform__line-grey-last"></div>
                 <SummarySubtotal 
-                    itemsValue={tax ? itemsValue + 5 : itemsValue }
+                    itemsValue={value}
                     checkValue={checkValue}
                     shipValue={shipValue}
                     disabledCode={disabledCode}

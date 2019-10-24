@@ -11,26 +11,15 @@ import SummarySubtotal from '../../../components/SummarySubtotal/SummarySubtotal
 interface IProps {
     products: any,
     checkValue: any,
-    setCheckValue: any
-    stateComponent: boolean
+    setCheckValue: any,
+    stateComponent: boolean,
+    itemsValue: number,
+    shipValue: number
 }
 
-interface IProduct {
-    price: number
-    quantity: number
-    product: {}
-}
-
-const Summary:React.FC<IProps> = ({products, stateComponent, setCheckValue, checkValue}) => {
+const Summary:React.FC<IProps> = ({products, stateComponent, setCheckValue, checkValue, itemsValue, shipValue}) => {
 
     const [disabledCode, setDisabledCode] = useState(false)
-    let itemsValue = 0
-
-    {products.map( (product:IProduct) => {
-        itemsValue += product.quantity * product.price
-    })}
-
-    const shipValue = (550 - itemsValue)
     
     return (
         <section style={{opacity: stateComponent ? .3 : 1, pointerEvents: stateComponent ? "none" : "auto"}} className="summarycart">
@@ -41,7 +30,7 @@ const Summary:React.FC<IProps> = ({products, stateComponent, setCheckValue, chec
                     disabledCode={disabledCode}
                 />
                 <SummaryTotal
-                    itemsValue={`$${itemsValue.toFixed(2)}`} 
+                    itemsValue={`$${itemsValue.toFixed(2)}`}  
                     disabledCode={disabledCode} 
                     title="Your order"
                  />
