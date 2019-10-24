@@ -18,7 +18,7 @@
 
     &__bottom{
       position: sticky;
-      top: 550px;
+      top: 60%;
 
       @include respond(phone){
         position: unset;
