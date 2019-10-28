@@ -32,6 +32,10 @@
             display: block;
             margin-bottom: 15px;
             color: rgba(0, 0, 0, .4);
+            max-height: 20px;
+            opacity: 1;
+            overflow: hidden;
+            transition: all .3s ease;
         }
 
         &__input{
@@ -90,4 +94,10 @@
             width: 100%;
         }
     }
+}
+
+.open{
+    max-height: 0;
+    opacity: 0;
+    transition: all .3s ease;
 }

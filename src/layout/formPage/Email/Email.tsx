@@ -17,8 +17,8 @@ const Email:React.FC<IProps> = ({component, openComponent}) => {
             <div className="email__component">
                 <h2 className="email__heading">Your email</h2>
                 <form className={component ? "email__component__form" : "email__component__form__close"}>
-                    <label className="email__component__label">Email</label>
-                    <input onChange={(e) => {setInput(e.target.value)}} className="email__component__input" type="email" autoFocus/>
+                    <label className={input ? "email__component__label" : "email__component__label open"}>Email</label>
+                    <input onChange={(e) => {setInput(e.target.value)}} className="email__component__input" type="email" placeholder="Email" autoFocus/>
                     <p className="email__component__policy">See our <span>privacy policy</span></p>
                     <div className={input ? "email__component__message" : "email__component__message__close"}>
                         <div className="email__component__message__up">
