@@ -3,20 +3,15 @@ import './WhiteButtons.scss'
 
 interface IProps {
     title: string,
-    componentSubmit: any,
-    component: boolean;
+    component: any,
+    componentSubmit: any
 } 
 
-const WhiteButtons:React.FC<IProps> = ({title, componentSubmit, component}) => {
-
-    const submitBtn = (e:any) => {
-        e.preventDefault()
-        componentSubmit(!component)
-    }
+const WhiteButtons:React.FC<IProps> = ({title, componentSubmit}) => {
      
     return (
         <div className="white__buttons">
-            <button onClick={(e) => {submitBtn(e)}} className="white__button">{title}</button>
+            <button onClick={componentSubmit} className="white__button">{title}</button>
         </div>
     )
 }

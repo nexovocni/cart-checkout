@@ -18,14 +18,26 @@
             max-height: 260px;
             opacity: 1;
             transition: all .2s ease;
-            overflow: hidden;
 
             &__close{
                 max-height: 0;
                 transition: all .2s ease;
-                opacity: 0;
-                overflow: hidden;
+                opacity: 0;   
             }
+        }
+
+        &__validation{
+            display: inline-block;
+            color: red;
+            font-size: .6rem;
+            position: relative;
+            left: 90%;
+            top: -70px;
+
+        }
+
+        &__password{
+
         }
 
         &__label{
@@ -63,12 +75,6 @@
             opacity: 1;
             transition: all .3s ease;
 
-            &__close{
-                max-height: 0;
-                opacity: 0;
-                transition: all .3s ease;
-            }
-
                 &__up{
                 display: flex;
                 width: 80%;
@@ -101,3 +107,42 @@
     opacity: 0;
     transition: all .3s ease;
 }
+
+.close{
+    max-height: 0;
+    opacity: 0;
+    transition: all .3s ease;
+}
+
+.border{
+    border-bottom: 1px solid rgba(0, 0, 0, .3)
+}
+
+
+    
+.white__button{
+    border: none;
+    outline: none;
+    padding: 15px 50px;
+    cursor: pointer;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, .3);
+
+    &:hover{
+        border: 1px solid rgba(0, 0, 0, 1);
+    }
+}
+
+.black__button{
+    border: none;
+    outline: none;
+    padding: 15px;
+    cursor: pointer;
+    background-color: #000;
+    color: #FFF;
+    text-align: center;
+    width: 100%;
+}
+
+   
+
