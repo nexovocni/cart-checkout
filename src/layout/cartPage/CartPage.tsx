@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Header from './Header/Header'
+import Header from './header/Header'
 import Products from './Products/Products'
 import Summary from './SummaryCart/SummaryCart'
 import './CartPage.scss'
