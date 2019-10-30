@@ -31,157 +31,12 @@
     &__component{
         width: 560px;
 
-        &__field{
-            margin-bottom: 40px;
-            height: 70px;
-
-            i.input{
-                font-size: 1rem;
-                position:relative;
-                left: 100%;
-                top: 20px;
-                color: #999;
-            }
-
-            i.red,
-            i.green{
-                position: relative;
-                top: 17px;
-                font-size: 1rem;
-                left: -2.5%;
-            }
-
-            i.red{
-                color: red;
-                
-            }
-
-            i.green{
-                color: green
-            }
-
-            i.pass{
-                left: 0;
-            }
-        }
-
         &__form{
             max-height: 260px;
             opacity: 1;
             transition: all .2s ease;
-
-            &__close{
-                max-height: 0;
-                transition: all .2s ease;
-                opacity: 0;   
-            }
-        }
-
-        &__validation{
-            display: inline-block;
-            color: red;
-            font-size: .6rem;
-            position: relative;
-            left: 90%;
-            top: -70px;
-
-        }
-
-        &__label{
-            display: block;
-            margin-bottom: 15px;
-            color: rgba(0, 0, 0, .4);
-            max-height: 20px;
-            opacity: 1;
-            overflow: hidden;
-            transition: all .3s ease;
-        }
-
-        &__input{
-            border: none;
-            outline: none;
-            border-bottom: 1px solid #000;
-            width: 100%;
-            padding-bottom: 5px;
-            font-size: 1rem;
-            margin-bottom: 15px;
-        }
-
-        &__policy{
-            color: rgba(0, 0, 0, .4);
-            font-size: .6rem;
-            margin-bottom: 60px;
-
-            span{
-                border-bottom: 1px solid #000;
-            }
-        }
-
-        &__message{
-            max-height: 300px;
-            opacity: 1;
-            transition: all .3s ease;
-
-                &__up{
-                display: flex;
-                width: 80%;
-                margin-bottom: 42px;
-
-                p{
-                    font-weight: 800;
-                }
-
-                i{
-                    display: inline-block;
-                    margin-right: 15px;
-                    font-size: .4rem; 
-                    margin-left: -20px;
-                    margin-top: 5px;
-                }
-            }
-        }
-
-        &__password{
-            max-height: 500px;
-            opacity: 1;
-            transition: all .3s ease;
-
-            &__up{
-                margin-bottom: 60px;
-
-                p{
-                    font-weight: 800;
-                    width: 80%;
-                    margin-top: -13px;
-                    margin-bottom: 42px;
-                }
-
-                i{
-                    display: inline-block;
-                    margin-right: 15px;
-                    font-size: .4rem; 
-                    margin-left: -20px;
-                }
-            }
-
-            &__validation{
-                color: red;
-                font-size: .6rem
-            }
-        }
-
-        &__buttons{
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
         }
     }
-}
-
-.open{
-    max-height: 0;
-    opacity: 0;
-    transition: all .3s ease;
 }
 
 .close{
@@ -191,33 +46,6 @@
     overflow: hidden;
 }
 
-.border{
-    border-bottom: 1px solid rgba(0, 0, 0, .3)
-}
-    
-.white__button{
-    border: none;
-    outline: none;
-    padding: 15px 80px;
-    cursor: pointer;
-    background-color: #fff;
-    border: 1px solid rgba(0, 0, 0, .3);
-
-    &:hover{
-        border: 1px solid rgba(0, 0, 0, 1);
-    }
-}
-
-.black__button{
-    border: none;
-    outline: none;
-    padding: 15px;
-    cursor: pointer;
-    background-color: #000;
-    color: #FFF;
-    text-align: center;
-    width: 100%;
-}
 
    
 
