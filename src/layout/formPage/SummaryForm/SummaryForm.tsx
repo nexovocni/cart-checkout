@@ -40,22 +40,22 @@ const SummaryForm:React.FC<IProps> = ({products, checkValue, itemsValue, shipVal
                     disabledCode={disabledCode} 
                     title="Your Items"
                  />
-                  <div className="summaryform__line-grey"></div>
-                  <SummaryTotal
+                <div className="summaryform__line-grey"></div>
+                <SummaryTotal
                     disabledCode={disabledCode} 
                     title="Shipping"
                     itemsValue={checkValue < 10 || shipValue < 1 ? 'Free' : '$10.00'} 
                  />
-                  <div className="summaryform__line-grey"></div>
-                    <SummaryTax 
-                        disabledCode={disabledCode} 
-                        tax={tax}
-                    />
+                <div className="summaryform__line-grey"></div>
+                <SummaryTax 
+                    disabledCode={disabledCode} 
+                    tax={tax}
+                />
                 <div className="summaryform__line-grey-tax"></div>
                 <Code 
                     setCode={setDisabledCode}
                     code={disabledCode} 
-                    stateComponent= {null}
+                    stateComponent= {true}
                     title="Have a promo code"
                     button="Apply"
                     placeholder="Enter Promo Code"
