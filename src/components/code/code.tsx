@@ -2,12 +2,12 @@ import React, {useState} from 'react'
 import './Code.scss'
 
 interface IProps {
-    code: boolean
-    setCode: any
-    stateComponent: any
-    title: string
-    button: string
-    placeholder: string
+    code: boolean;
+    setCode: any;
+    stateComponent: boolean;
+    title: string;
+    button: string;
+    placeholder: string;
 }
 
 const Code:React.FC<IProps> = ({code, stateComponent, setCode, button, title, placeholder}) => {

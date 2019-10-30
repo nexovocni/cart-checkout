@@ -3,7 +3,7 @@ import './SummaryTotal.scss'
 
 interface IProps {
     disabledCode: boolean,
-    itemsValue: any,
+    itemsValue: string,
     title: string
 }
 
