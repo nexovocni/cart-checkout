@@ -1,0 +1,21 @@
+.header{
+
+    &__top{
+
+        &__logo{
+            display: flex;
+            align-items: center;
+
+            h1{
+                text-transform: uppercase;
+                font-weight: 300;
+                font-size: 30px;
+            }
+
+            i{
+                font-size: 10px;
+                margin-right: 14px;
+            }
+        }
+    }
+}

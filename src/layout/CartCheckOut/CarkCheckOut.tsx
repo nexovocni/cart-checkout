@@ -5,6 +5,15 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
 const CartCheckOut = () => {
 
+    interface IProduct {
+        price: number
+        quantity: number
+        id: number
+        product: {}
+    }
+
+    let itemsValue = 0
+
     const [products, updateProducts] = useState([]);
 
     const[checkValue, setCheckValue] = useState(10)
@@ -17,7 +26,7 @@ const CartCheckOut = () => {
     })()}, [])
 
     const changeProducts = (productId: number, productData: any) => {
-        const newProducts: any = products.map((product: any) => product.id === productId ? productData : product);
+        const newProducts: any = products.map((product: IProduct) => product.id === productId ? productData : product);
 
         updateProducts(newProducts);
     };
@@ -28,24 +37,40 @@ const CartCheckOut = () => {
         updateProducts(newProducts);
     };
 
+    {products.map( (product: IProduct) => {
+        itemsValue += product.quantity * product.price
+    })}
+ 
+    const shipValue = (550 - itemsValue)
+
     return (
             <React.Fragment>
                 <Router>
                     <Switch>
                         <Route path="/" exact render={(props) => <CartPage 
-                        {...props} 
-                        products={products} 
-                        changeProducts={changeProducts}
-                        deleteProduct={deleteProduct}
-                        checkValue={checkValue}
-                        setCheckValue={setCheckValue}
+                            {...props} 
+                            products={products} 
+                            changeProducts={changeProducts}
+                            deleteProduct={deleteProduct}
+                            checkValue={checkValue}
+                            setCheckValue={setCheckValue}
+                            itemsValue={itemsValue}
+                            shipValue={shipValue}
                         /> 
                         }/>
-                        <Route path="/form" render={(props) => <FormPage />}/>
+                        <Route path="/form" render={(props) => <FormPage 
+                            {...props} 
+                            products={products} 
+                            changeProducts={changeProducts}
+                            deleteProduct={deleteProduct}
+                            checkValue={checkValue}
+                            itemsValue={itemsValue}
+                            shipValue={shipValue}
+                        /> 
+                        }/>
                     </Switch>
                 </Router>
             </React.Fragment>
-      
     )
 }
 

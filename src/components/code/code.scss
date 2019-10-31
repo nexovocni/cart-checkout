@@ -5,7 +5,7 @@
     &__visible{
         display: flex;
         cursor: pointer;
-        margin: 40px 0 10px 0;
+        margin: 35px 0 10px 0;
     
         i{
             align-self: center;
@@ -20,7 +20,7 @@
             display: flex;
             transition: max-height .7s ease-in-out;
             overflow: hidden;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
 
             input[type="text"]{
                 border: none;
@@ -45,10 +45,11 @@
                 background-color: #000;
                 color: #fff;
                 font-size: 1rem;
-                padding: 3% 4%;
+                padding: 3% 6%;
                 cursor: pointer;
                 font-weight: 300;
                 outline: none;
+                border: none;
 
                 @include respond(phone){
                     padding: 2% 4%;

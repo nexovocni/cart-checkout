@@ -1,0 +1,40 @@
+.summary{
+
+    &-first{
+        max-height: 60px;
+        transition: max-height .4s ease;
+        margin-bottom: 35px;
+
+        &-open{
+            max-height: 30px;
+            transition: max-height .4s ease;
+            margin-bottom: 15px;
+        }
+
+        &-total{
+            transition: opacity .1s ease;
+            opacity: 0;
+            overflow: hidden;
+            z-index: -10;
+            position: relative;
+
+            &-open{
+                opacity: 1;
+                transition: opacity 1s ease;
+            }
+        }
+
+        &-tax{
+            transition: opacity .8s ease;
+            opacity: 0;
+            overflow: hidden;
+            max-height: 0px;
+    
+            &-open{
+                opacity: 1;
+                transition: all .8s ease;
+                max-height: 20px;
+            }
+        }
+    }
+}

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import Header from './Header/Header'
+import Header from './HeaderCart/HeaderCart'
 import Products from './Products/Products'
-import Summary from './SummaryCart/SummaryCart'
+import SummaryCart from './SummaryCart/SummaryCart'
 import './CartPage.scss'
 
 interface IProps {
@@ -9,10 +9,12 @@ interface IProps {
     changeProducts: any,
     deleteProduct: any,
     checkValue: any,
-    setCheckValue: any
+    setCheckValue: any,
+    itemsValue: any,
+    shipValue: any
 }
 
-const CartPage:React.FC<IProps> = ({products, deleteProduct, changeProducts, checkValue, setCheckValue}) => {
+const CartPage:React.FC<IProps> = ({products, deleteProduct, changeProducts, checkValue, setCheckValue, itemsValue, shipValue}) => {
 
     const [state, updateState] = useState(false)
 
@@ -28,11 +30,13 @@ const CartPage:React.FC<IProps> = ({products, deleteProduct, changeProducts, che
                         stateComponent={state}
                     />
                 </div>
-                    <Summary 
+                    <SummaryCart
                         checkValue={checkValue}
                         setCheckValue={setCheckValue}
                         products={ products }
                         stateComponent = {state}
+                        itemsValue={itemsValue}
+                        shipValue={shipValue}
                     />
             </div>
     )
