@@ -1,18 +1,24 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Field, Form} from 'react-final-form'
 import './PasswordEmail.scss'
 
 interface IProps{
     passwordComponent: boolean;
     submitBtn: any;
-    validatePassword: any;
     input: string;
     validate: any;
-    setPasswordValue: any;
-    validateConfirmPassword: any;
 }
 
-const PasswordEmail:React.FC<IProps> = ({submitBtn, validateConfirmPassword, setPasswordValue, validatePassword, passwordComponent, input, validate}) => {
+const PasswordEmail:React.FC<IProps> = ({submitBtn, passwordComponent, input, validate}) => {
+
+    const [passwordValue, setPasswordValue] = useState("")
+
+    const [eye, setEye] = useState(false)
+
+    const validatePassword = () => (passwordValue.length + 1 >= 5 ? null : "Password needs to be at least 5 charactes long")
+
+    const validateConfirmPassword = (value:any) => (value === passwordValue ? null : "Password don't match")
+
     return(
         <Form onSubmit={submitBtn} 
                 render={(props:any) => { 
@@ -20,10 +26,10 @@ const PasswordEmail:React.FC<IProps> = ({submitBtn, validateConfirmPassword, set
                     <div className={validate(input) && passwordComponent ? "email__component__password" : "email__component__password close"}>
                     <div className="email__component__password__up">
                         <i className="fas fa-circle"></i>
-                        <p>Create your password using at least 8 characters and some other interesting security rules for your own safety.</p>
+                        <p>Create your password using at least 5 characters and some other interesting security rules for your own safety.</p>
                         <Field  
                             name="password" 
-                            type="password"  
+                            type={!eye ? "password" : "text"} 
                             component="input"
                             validate={validatePassword}
                         >
@@ -31,7 +37,7 @@ const PasswordEmail:React.FC<IProps> = ({submitBtn, validateConfirmPassword, set
                                 setPasswordValue(input.value)
                                 return(
                                     <div className="email__component__field">
-                                        <i className="fa fa-eye input"></i>
+                                        <i onClick={() => setEye(!eye)} className="fa fa-eye input"></i>
                                         {meta.error && meta.touched ? <i className="fa fa-times red"></i> : null}
                                         {meta.touched && !meta.error && meta.touched ? <i className="fa fa-check green"></i> : null}
                                         <input placeholder="Password" className={input.value ? "email__component__input" : "email__component__input border"} {...input}/>
@@ -59,7 +65,7 @@ const PasswordEmail:React.FC<IProps> = ({submitBtn, validateConfirmPassword, set
                         </Field>
                     </div>
                     <div className="email__component__buttons">
-                        <button type="submit" onClick={props.handleChange} className="black__button">Save and continue</button>
+                        <button type="submit" onClick={props.handleSubmit} className="black__button">Save and continue</button>
                     </div>
                 </div>
                 )
