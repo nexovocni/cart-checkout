@@ -55,7 +55,6 @@ const Product: React.FC<IProps> = ({
 
     useEffect(() => {
         setLocalData(product);
-        console.log(product)
     }, [product]);
 
     return (

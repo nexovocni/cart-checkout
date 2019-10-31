@@ -21,9 +21,24 @@
             display: none;
 
             @include respond(phone){
-                display: none;
+                display: inline;
+                max-height: 0;
+                overflow: hidden;
+                opacity: 0;
                 flex-direction: column;
                 width: 100%;
+                transition: all .4s ease;
+            }
+
+            &-open{
+
+                @include respond(phone){
+                    max-height: 160px;
+                    flex-direction: column;
+                    width: 100%;
+                    opacity: 1;
+                    transition: all .4s ease;
+                }
             }
         }
 

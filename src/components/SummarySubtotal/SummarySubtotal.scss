@@ -1,0 +1,19 @@
+.summary{
+
+    &__top{
+
+        &__subtotal{
+            display: flex;
+            justify-content: space-between;
+            margin: 40px 0;
+        }
+    }
+
+    &__total{
+
+        &__value{
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+    }
+}
