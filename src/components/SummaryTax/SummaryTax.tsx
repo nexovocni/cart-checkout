@@ -8,6 +8,9 @@ interface IProps {
 }
 
 const SummaryTax:React.FC<IProps> = ({disabledCode, tax}) => {
+
+    const gst = 13.01
+    const pst = 1.99
     
     return (
         <div className={tax ? "summary-first" : "summary-first-open"} >
@@ -22,12 +25,12 @@ const SummaryTax:React.FC<IProps> = ({disabledCode, tax}) => {
                 <SummaryTotal 
                     disabledCode={disabledCode} 
                     title="GST"
-                    itemsValue="$3.01"
+                    itemsValue={"$" + gst}
                 />
                 <SummaryTotal 
                     disabledCode={disabledCode} 
                     title="PST"
-                    itemsValue="$1.99"
+                    itemsValue={"$" + pst}
                 />
             </div>
         </div>
