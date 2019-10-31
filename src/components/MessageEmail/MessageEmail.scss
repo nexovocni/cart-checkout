@@ -51,6 +51,11 @@
                 width: 40%;
                 padding: 2% 3%;
 
+                @include respond(tablet){
+                    padding: 4%;
+                    width: 45%;
+                }
+
                 @include respond(phone){
                     padding: 3%;
                     width: 45%;

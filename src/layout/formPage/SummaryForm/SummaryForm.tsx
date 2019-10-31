@@ -5,6 +5,7 @@ import SummaryTotal from '../../../components/SummaryTotal/SummaryTotal'
 import Code from '../../../components/Code/Code'
 import SummarySubtotal from '../../../components/SummarySubtotal/SummarySubtotal'
 import SummaryTax from '../../../components/SummaryTax/SummaryTax'
+import {Link} from 'react-router-dom'
 import './SummaryForm.scss'
 
 interface IProps {
@@ -29,6 +30,7 @@ const SummaryForm:React.FC<IProps> = ({products, checkValue, itemsValue, shipVal
 
     return (
         <section className="summaryform">
+            <div className="summaryform__sticky">
             <MobileHeader products={products}/>
             <div className="summaryform__top">
                 <SummaryTitle 
@@ -67,8 +69,10 @@ const SummaryForm:React.FC<IProps> = ({products, checkValue, itemsValue, shipVal
                     shipValue={shipValue}
                     disabledCode={disabledCode}
                 />
+                <Link to="/" className="summaryform button_check">Go back</Link>
             </div>
-            <button onClick={toggleOnClick}>Click me</button>
+            </div>
+            <div></div>
         </section>
     )
 }

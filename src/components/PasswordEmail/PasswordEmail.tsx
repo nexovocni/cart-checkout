@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {Field, Form} from 'react-final-form'
 import './PasswordEmail.scss'
 
@@ -15,7 +15,9 @@ const PasswordEmail:React.FC<IProps> = ({submitBtn, passwordComponent, input, va
 
     const [eye, setEye] = useState(false)
 
-    const validatePassword = () => (passwordValue.length + 1 >= 5 ? null : "Password needs to be at least 5 charactes long")
+    let i = 0
+
+    const validatePassword = (value:any) => (passwordValue.length + 1 >= 5 ? null : "Password needs to be at least 5 charactes long")
 
     const validateConfirmPassword = (value:any) => (value === passwordValue ? null : "Password don't match")
 
