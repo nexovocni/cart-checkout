@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import './Email.scss'
 import {Form} from 'react-final-form'
 import MessageEmail from '../../../components/MessageEmail/MessageEmail'
@@ -16,8 +16,6 @@ const Email:React.FC<IProps> = ({component, openComponent}) => {
 
     const [passwordComponent, setPasswordComponent] = useState(false)
 
-    const [passwordValue, setPasswordValue] = useState("")
-
     const passwordBtn = () => {
         setPasswordComponent(true)
         openComponent(true)
@@ -33,10 +31,6 @@ const Email:React.FC<IProps> = ({component, openComponent}) => {
       }
 
    const validateEmail = (value:any) => (value && validate(value) ? null : "Invalid mail")
-
-   const validatePassword = () => (passwordValue.length > 5 ? null : "Password needs to be at least 8 charactes long")
-
-   const validateConfirmPassword = (value:any) => (value === passwordValue ? null : "Password don't match")
 
     return (
         <Form onSubmit={submitBtn} 
@@ -60,16 +54,13 @@ const Email:React.FC<IProps> = ({component, openComponent}) => {
                                     passwordComponent={passwordComponent}
                                     input={input}
                                     validate={validate}
-                                    submitBtn={submitBtn}
+                                    submitBtn={props.handleSubmit}
                                 />
                                 <PasswordEmail 
                                     passwordComponent={passwordComponent}
                                     input={input}
                                     validate={validate}
-                                    submitBtn={submitBtn}
-                                    validatePassword={validatePassword}
-                                    setPasswordValue={setPasswordValue}
-                                    validateConfirmPassword={validateConfirmPassword}
+                                    submitBtn={props.handleSubmit}
                                 />
                             </form>
                         </div>
