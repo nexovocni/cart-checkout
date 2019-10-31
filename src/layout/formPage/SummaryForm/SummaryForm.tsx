@@ -1,4 +1,4 @@
-import React, {useState, useRef, useEffect} from 'react'
+import React, {useState} from 'react'
 import MobileHeader from '../../../components/MobileHeader/MobileHeader'
 import SummaryTitle from '../../../components/SummaryTitle/SummaryTitle'
 import SummaryTotal from '../../../components/SummaryTotal/SummaryTotal'
@@ -55,7 +55,7 @@ const SummaryForm:React.FC<IProps> = ({products, checkValue, itemsValue, shipVal
                 <Code 
                     setCode={setDisabledCode}
                     code={disabledCode} 
-                    stateComponent= {true}
+                    stateComponent= {false}
                     title="Have a promo code"
                     button="Apply"
                     placeholder="Enter Promo Code"

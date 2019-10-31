@@ -1,3 +1,5 @@
+@import "../../sass/mixins/mixins.scss";
+
 .email{
 
     &__component{
@@ -22,13 +24,17 @@
             margin-bottom: 15px;
         }
 
+        &__underinput{
+            display: flex;
+            justify-content: space-between;
+        }
+
         &__validation{
-            display: inline-block;
-            color: red;
-            font-size: .6rem;
-            position: relative;
-            left: 90%;
-            top: -70px;
+
+            &__underinput{
+                color: red;
+                font-size: .6rem;
+            }
         }
 
         &__policy{

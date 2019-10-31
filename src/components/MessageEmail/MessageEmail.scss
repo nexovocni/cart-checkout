@@ -1,3 +1,5 @@
+@import '../../sass/mixins/mixins.scss'; 
+
 .email{
 
     &__component{
@@ -9,8 +11,16 @@
 
                 &__up{
                 display: flex;
-                width: 80%;
-                margin-bottom: 42px;
+                width: 50%;
+                margin-bottom: 60px;
+
+                @include respond(tablet){
+                    width: 80%;
+                }
+
+                @include respond(phone){
+                    width: 100%;
+                }
 
                 p{
                     font-weight: 800;
@@ -34,10 +44,17 @@
             .white__button{
                 border: none;
                 outline: none;
-                padding: 15px 80px;
+                padding: 3%;
                 cursor: pointer;
                 background-color: #fff;
                 border: 1px solid rgba(0, 0, 0, .3);
+                width: 40%;
+                padding: 2% 3%;
+
+                @include respond(phone){
+                    padding: 3%;
+                    width: 45%;
+                }
             
                 &:hover{
                     border: 1px solid rgba(0, 0, 0, 1);

@@ -1,9 +1,9 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import './Email.scss'
 import {Form} from 'react-final-form'
-import MessageEmail from '../../../components/MessageEmail/MessageEmail'
-import PasswordEmail from '../../../components/PasswordEmail/PasswordEmail'
-import YourEmail from '../../../components/YourEmail/YourEmail'
+import MessageEmail from '../MessageEmail/MessageEmail'
+import PasswordEmail from '../PasswordEmail/PasswordEmail'
+import YourEmail from '../YourEmail/YourEmail'
 
 interface IProps {
     component: boolean;

@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import SummaryForm from './SummaryForm/SummaryForm'
 import Header from './HeaderForm/HeaderForm'
 import Form from './Form/Form'
-import Email from './Email/Email'
+import Email from '../../components/Email/Email'
 import './FormPage.scss'
 
 interface IProps {
@@ -15,7 +15,6 @@ interface IProps {
 }
 
 const FormPage:React.FC<IProps> = ({products, deleteProduct, changeProducts, checkValue, itemsValue, shipValue}) => {
-    const [component, openComponent] = useState(true)
     return (
         <div className="form__page">
             <div className="form__page__main">
@@ -25,7 +24,6 @@ const FormPage:React.FC<IProps> = ({products, deleteProduct, changeProducts, che
                     deleteProduct = {deleteProduct}
                     changeProducts = {changeProducts}
                 />
-                 <Email component={component} openComponent={openComponent}/>
             </div>
              <SummaryForm
                 checkValue={checkValue}
