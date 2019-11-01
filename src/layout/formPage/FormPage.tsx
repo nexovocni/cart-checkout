@@ -15,17 +15,24 @@ interface IProps {
 }
 
 const FormPage:React.FC<IProps> = ({products, deleteProduct, changeProducts, checkValue, itemsValue, shipValue}) => {
+
+
+    const [tax, setTax] = useState(false)
+
+
     return (
         <div className="form__page">
             <div className="form__page__main">
                 <Header />
                 <Form
+                    setTax={setTax}
                     products={ products } 
                     deleteProduct = {deleteProduct}
                     changeProducts = {changeProducts}
                 />
             </div>
              <SummaryForm
+                tax={tax}
                 checkValue={checkValue}
                 products={ products }
                 itemsValue={itemsValue}

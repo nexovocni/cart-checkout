@@ -1,0 +1,10 @@
+.shipping{
+
+    &__component{
+
+        &__standard{
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+}

@@ -9,24 +9,18 @@ import {Link} from 'react-router-dom'
 import './SummaryForm.scss'
 
 interface IProps {
-    products: any,
-    checkValue: any,
-    itemsValue: any,
-    shipValue: number
+    products: any;
+    checkValue: any;
+    itemsValue: any;
+    shipValue: number;
+    tax: boolean;
 }
 
-const SummaryForm:React.FC<IProps> = ({products, checkValue, itemsValue, shipValue}) => {
+const SummaryForm:React.FC<IProps> = ({products, checkValue, itemsValue, shipValue, tax}) => {
 
     const [disabledCode, setDisabledCode] = useState(false)
 
-    const [tax, setTax] = useState(false)
-
     const [value, setValue] = useState(itemsValue)
-
-    const toggleOnClick = () => {
-        setTax(!tax)
-        {!tax ? setValue(value + 5) : setValue(value)} 
-    }
 
     return (
         <section className="summaryform">
@@ -71,8 +65,10 @@ const SummaryForm:React.FC<IProps> = ({products, checkValue, itemsValue, shipVal
                 />
                 <Link to="/" className="summaryform button_check">Go back</Link>
             </div>
+
             </div>
             <div></div>
+
         </section>
     )
 }
