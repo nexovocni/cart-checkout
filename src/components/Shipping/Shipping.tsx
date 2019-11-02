@@ -1,12 +1,8 @@
 import React, {useState} from 'react'
 import './Shipping.scss'
-import {Form} from 'react-final-form'
-import ShippingName from '../ShippingName/ShippingName'
-import ShippingAdress from '../../components/ShippingAdress/ShippingAdress'
-import ShippingCity from '../../components/ShippingCity/ShippingCity'
-import ShippingPhone from '../../components/ShippingPhone/ShippingPhone'
-import ShippingStandard from '../../components/ShippingStandard/ShippingStandard'
-import ShippingSelect from '../../components/ShippingSelect/ShippingSelect'
+import ShippingHome from "../../components/ShippingHome/ShippingHome"
+import ShippingStore from "../../components/ShippingStore/ShippingStore"
+import ShippingData from "../../components/ShippingData/ShippingData"
 
 interface IProps {
     component: boolean;
@@ -30,72 +26,80 @@ const Shipping:React.FC<IProps> = ({component, openComponent, setTax}) => {
     const [postal, setPostal] = useState("")
     const [country, setCountry] = useState("")
     const [phone, setPhone] = useState("")
+    const [open, setOpen] = useState({
+        home: false,
+        store: false
+    })
 
     const validate = (value:any) => (value ? null : "Invalid input")
 
+    const openStore = () => {
+        setOpen({
+            home: false,
+            store: true
+        })
+    }
+
+    const openHome = () => {
+        setOpen({
+            home: true,
+            store: false
+        })
+    }
+
     return (
-        <Form onSubmit={submitBtn}
-            render={(props:any) => {
-                return(
-                    <div className="shipping">
-                        <h2 className="shipping__number">2</h2>
-                        <div className="shipping__component">
-                            <h2 className="shipping__heading">Shipping to</h2>
-                            <p className={!component ? "shipping__shipping" : "shipping__shipping close"}>{firstName} {lastName}</p>
-                            <p className={!component ? "shipping__shipping" : "shipping__shipping close"}>{firstAdress}, {lastAdress}</p>
-                            <p className={!component ? "shipping__shipping" : "shipping__shipping close"}>{postal}, {city}, {province}, {country}</p>
-                            <p className={!component ? "shipping__shipping" : "shipping__shipping close"}>{phone}</p>
-                            <button onClick={() => {openComponent(!component)}} className={!component ? "shipping__heading__button" : "shipping__heading__button close"}>Edit</button>
-                            <form onSubmit={props.handleSubmit} className={component ? "shipping__component__form" : "shipping__component__form close"}>
-                            <div className="shipping__component__buttons">
-                                <button className="shipping__component__button">Store - Free</button>
-                                <button className="shipping__component__button">Adress - $10.00</button>
-                            </div>
-                            <div className="shipping__component__home">
-                                    <ShippingName 
-                                        setFirstName={setFirstName}
-                                        setLastName={setLastName}
-                                        validate={validate}
-                                    />
-                                    <ShippingAdress 
-                                        setFirstAdress={setFirstAdress}
-                                        setLastAdress={setLastAdress}
-                                        validate={validate}
-                                    />
-                                    <ShippingCity 
-                                        setCity={setCity}
-                                        setProvince={setProvince}
-                                        setPostal={setPostal}
-                                        setCountry={setCountry}
-                                        validate={validate}
-                                    />
-                                    <ShippingPhone 
-                                        setPhone={setPhone}
-                                        validate={validate}
-                                    />
-                                    <ShippingStandard />
-                                </div>
-                                <div className="shipping__component__store">
-                                    <p>Please ensure that your first bane and last name is identical to a valid id card. The phone number will be used to contact you once your order has been received in your selected store.</p>
-                                    <ShippingName 
-                                            setFirstName={setFirstName}
-                                            setLastName={setLastName}
-                                            validate={validate}
-                                        />
-                                    <ShippingPhone 
-                                        setPhone={setPhone}
-                                        validate={validate}
-                                    />
-                                    <ShippingSelect />
-                                </div>
-                                <button onSubmit={props.handleSubmit} className="shipping__component__submit" type="submit">Continue to payment method</button>
-                            </form>
-                        </div>
-                    </div>
-                )
-            }}
-        />
-    )
-}
+        <div className="shipping">
+            <h2 className="shipping__number">2</h2>
+            <div className="shipping__component">
+                <h2 className="shipping__heading">Shipping to</h2>
+                <ShippingData 
+                    firstName={firstName}
+                    lastName={lastName}
+                    firstAdress={firstAdress}
+                    lastAdress={lastAdress}
+                    postal={postal}
+                    province={province}
+                    country={country}
+                    city={city}
+                    phone={phone}
+                    component={component}
+                    home={open.home}
+                    store={open.store}
+                />
+                <button onClick={() => {openComponent(!component)}} className={!component ? "shipping__heading__button" : "shipping__heading__button close"}>Edit</button>
+                <div className={component ? "shipping__component__buttons" : "shipping__component__buttons close" }>
+                    <button onClick={openStore} className={open.store ? "shipping__component__button border-black" : "shipping__component__button"}>Store - Free</button>
+                    <button onClick={openHome} className={open.home ? "shipping__component__button border-black" : "shipping__component__button"}>Adress - $10.00</button>
+                </div>
+            </div>
+            <div className={open.home ? "shipping__component__home" : "shipping__component__home close"}>  
+               <ShippingHome 
+                    setFirstName={setFirstName}
+                    setLastName={setLastName}
+                    setFirstAdress={setFirstAdress}
+                    setLastAdress={setLastAdress}
+                    setCity={setCity}
+                    setPostal={setPostal}
+                    setProvince={setProvince}
+                    setPhone={setPhone}
+                    setCountry={setCountry}
+                    submitBtn={submitBtn}
+                    validate={validate}
+                    component={component}
+               /> 
+            </div>
+            <div className={open.store ? "shipping__component__store" : "shipping__component__store close"}>
+                <ShippingStore 
+                    setFirstName={setFirstName}
+                    setLastName={setLastName}
+                    setPhone={setPhone}
+                    validate={validate}
+                    component={component}
+                    submitBtn={submitBtn}
+                />
+            </div>
+        </div>
+)}
+
 
 export default Shipping
