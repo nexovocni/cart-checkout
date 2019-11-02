@@ -69,6 +69,13 @@
                 border-color: #000;
             }
         }
+
+        &__home,
+        &__store{
+            max-height: 600px;
+            opacity: 1;
+            transition: all .3s ease;
+        }
     }
 }
 
