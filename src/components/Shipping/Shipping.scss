@@ -7,7 +7,7 @@
 
     @include respond(tablet){
         width: 80%;
-      };
+      }
 
     &__number{
         margin-right: 22%;
@@ -20,7 +20,7 @@
     }
 
     &__heading{
-        margin-bottom: 20px;
+        margin-bottom: 40px;
         position: relative;
 
         &__button{
@@ -42,6 +42,10 @@
             max-height: 600px;
             opacity: 1;
             transition: all .2s ease;
+
+            p{
+                margin-bottom: 30px;
+            }
         }
 
         &__submit{
@@ -56,12 +60,13 @@
         &__buttons{
             display: flex;
             justify-content: space-between;
+            margin-bottom: 40px;
         }
 
         &__button{
             border: 1px solid #999;
             outline: none;
-            width: 40%;
+            width: 48%;
             padding: 15px;
             cursor: pointer;
             transition: all .5s ease;

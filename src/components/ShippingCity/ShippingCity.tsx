@@ -1,5 +1,6 @@
 import React from 'react'
 import {Field} from 'react-final-form'
+import './ShippingCity.scss'
 
 interface IProps {
     setCity: any;
@@ -22,11 +23,11 @@ const ShippingCity:React.FC<IProps> = ({setCity, setProvince, setCountry, setPos
                     {({input, meta}) => {
                         setCity(input.value)
                         return(
-                            <>
-                                <label className={input.value ? "shipping__component__label" : "shipping__component__label open"}>City</label>
-                                <input placeholder="City" className={input.value ? "shipping__component__city__city__input" : "shipping__component__city__input border"} {...input} />
+                            <div className="shipping__component__city__field">
+                                <label className={input.value ? "shipping__component__label" : "shipping__component__label close"}>City</label>
+                                <input placeholder="City" className={input.value ? "shipping__component__city__input" : "shipping__component__city__input border"} {...input} />
                                 {meta.error && meta.touched ? <span className="shipping__component__validation">{meta.error}</span> : null}
-                            </>
+                            </div>
                         )
                     }}
                 </Field>
@@ -39,16 +40,16 @@ const ShippingCity:React.FC<IProps> = ({setCity, setProvince, setCountry, setPos
                     {({input, meta}) => {
                         setProvince(input.value)
                         return(
-                            <>
-                                <label className={input.value ? "shipping__component__label" : "shipping__component__label open"}>Province</label>
-                                <input placeholder="Province" className={input.value ? "shipping__component__city__province__input" : "shipping__component__province__input border"} {...input} />
+                            <div className="shipping__component__city__field">
+                                <label className={input.value ? "shipping__component__label" : "shipping__component__label close"}>Province</label>
+                                <input placeholder="Province" className={input.value ? "shipping__component__province__input" : "shipping__component__province__input border"} {...input} />
                                 {meta.error && meta.touched ? <span className="shipping__component__validation">{meta.error}</span> : null}
-                            </>
+                            </div>
                         )
                     }}
                 </Field>
             </div>
-            <div className="shipping__component__city__city">
+            <div className="shipping__component__city__postal">
                 <Field 
                     name="postal"
                     type="text"
@@ -58,11 +59,11 @@ const ShippingCity:React.FC<IProps> = ({setCity, setProvince, setCountry, setPos
                     {({input, meta}) => {
                         setPostal(input.value)
                         return(
-                            <>
-                                <label className={input.value ? "shipping__component__label" : "shipping__component__label open"}>Postal Code</label>
-                                <input placeholder="Postal Code" className={input.value ? "shipping__component__city__postal__input" : "shipping__component__city__postal__input border"} {...input}/>
+                            <div className="shipping__component__city__field">
+                                <label className={input.value ? "shipping__component__label" : "shipping__component__label close"}>Postal Code</label>
+                                <input placeholder="Postal Code" className={input.value ? "shipping__component__postal__input" : "shipping__component__postal__input border"} {...input}/>
                                 {meta.error && meta.touched ? <span className="shipping__component__validation">{meta.error}</span> : null}
-                            </>
+                            </div>
                         )
                     }}
                 </Field>
@@ -75,16 +76,17 @@ const ShippingCity:React.FC<IProps> = ({setCity, setProvince, setCountry, setPos
                     {({input, meta}) => {
                         setCountry(input.value)
                         return(
-                            <>
-                                <label className={input.value ? "shipping__component__label" : "shipping__component__label open"}>Country</label>
-                                <select placeholder="Country" className={input.value ? "shipping__component__city__country__input" : "shipping__component__city__country__input border"} {...input}>
+                            <div className="shipping__component__city__field border-bottom">
+                                <label className={input.value ? "shipping__component__label" : "shipping__component__label close"}>Country</label>
+                                <select placeholder="Country" className="shipping__component__country__input select select border" {...input}>
                                     <option selected hidden>Canada</option>
                                     <option value="Canada">Canada</option>
                                     <option value="America">America</option>
                                     <option value="Mexico">Mexico</option>
                                 </select>
+                                <i className="fas fa-angle-down"></i>
                                 {meta.error && meta.touched ? <span className="shipping__component__validation">{meta.error}</span> : null}
-                            </>
+                            </div>
                         )
                     }}
                 </Field>

@@ -14,7 +14,7 @@ const Checkbox:React.FC<IProps> = ({ code, shipValue, update, stateComponent}) =
 
     return (
         <form style={{opacity: code ? .3 : 1, pointerEvents: code || stateComponent  ? "none" : "auto"}} className="checkbox">
-                <div className="shipping__component">
+                <div className="checkbox__component">
                     <div className="ship">
                         <label>
                         <input onChange={(e) => update(parseInt(e.target.value))} onClick={() => setChecked(true)} checked={isChecked} type="radio" name="ship" value={10}/>

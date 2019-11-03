@@ -1,5 +1,6 @@
 import React from 'react'
 import {Field} from 'react-final-form'
+import './ShippingPhone.scss'
 
 interface IProps {
     setPhone:any;
@@ -20,8 +21,8 @@ const ShippingPhone:React.FC<IProps> = ({setPhone, validate}) => {
                         setPhone(input.value)
                         return(
                             <>
-                                <label className={input.value ? "shipping__component__label" : "shipping__component__label open"}>Phone</label>
-                                <input placeholder="Phone" className={input.value ? "shipping__component__phone__input" : "shipping__component__phone__input border"} {...input} />
+                                <label className={input.value ? "shipping__component__label" : "shipping__component__label close"}>Phone</label>
+                                <input placeholder="Phone" className="shipping__component__phone__input" {...input} />
                                 <div className="shipping__component__phone__underinput">
                                     <span>Why is it required?</span>
                                     {meta.error && meta.touched ? <span className="shipping__component__validation">{meta.error}</span> : null}

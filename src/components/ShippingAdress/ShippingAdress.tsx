@@ -11,7 +11,7 @@ interface IProps {
 const ShippingAdress:React.FC<IProps> = ({setFirstAdress, setLastAdress, validate}) => {
     return (
         <div className="shipping__component__adress">
-            <div className="shipping__component__name__adress">
+            <div className="shipping__component__adress__first">
                 <Field 
                     name="firstAdress"
                     type="text"
@@ -22,8 +22,8 @@ const ShippingAdress:React.FC<IProps> = ({setFirstAdress, setLastAdress, validat
                         setFirstAdress(input.value)
                         return(
                             <>
-                                <label className={input.value ? "shipping__component__label" : "shipping__component__label open"}>Adress</label>
-                                <input placeholder="Adress" className={input.value ? "shipping__component__adress__first__input" : "shipping__component__adress__first__input border"} {...input} />
+                                <label className={input.value ? "shipping__component__label" : "shipping__component__label close"}>Adress</label>
+                                <input placeholder="Adress" className="shipping__component__adress__input" {...input} />
                                 {meta.error && meta.touched ? <span className="shipping__component__validation">{meta.error}</span> : null}
                             </>
                         )
@@ -41,8 +41,8 @@ const ShippingAdress:React.FC<IProps> = ({setFirstAdress, setLastAdress, validat
                         setLastAdress(input.value)
                         return(
                             <>
-                                <label className={input.value ? "shipping__component__label" : "shipping__component__label open"}>Adress</label>
-                                <input placeholder="Appartment, suite, etc(optional)" className={input.value ? "shipping__component__adress__last__input" : "shipping__component__adress__last__input border"} {...input}/>
+                                <label className={input.value ? "shipping__component__label" : "shipping__component__label close"}>Adress</label>
+                                <input placeholder="Appartment, suite, etc(optional)" className="shipping__component__adress__input" {...input}/>
                                 {meta.error && meta.touched ? <span className="shipping__component__validation">{meta.error}</span> : null}
                             </>
                         )

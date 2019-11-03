@@ -50,56 +50,59 @@ const Shipping:React.FC<IProps> = ({component, openComponent, setTax}) => {
     return (
         <div className="shipping">
             <h2 className="shipping__number">2</h2>
-            <div className="shipping__component">
-                <h2 className="shipping__heading">Shipping to</h2>
-                <ShippingData 
-                    firstName={firstName}
-                    lastName={lastName}
-                    firstAdress={firstAdress}
-                    lastAdress={lastAdress}
-                    postal={postal}
-                    province={province}
-                    country={country}
-                    city={city}
-                    phone={phone}
-                    component={component}
-                    home={open.home}
-                    store={open.store}
-                />
-                <button onClick={() => {openComponent(!component)}} className={!component ? "shipping__heading__button" : "shipping__heading__button close"}>Edit</button>
-                <div className={component ? "shipping__component__buttons" : "shipping__component__buttons close" }>
-                    <button onClick={openStore} className={open.store ? "shipping__component__button border-black" : "shipping__component__button"}>Store - Free</button>
-                    <button onClick={openHome} className={open.home ? "shipping__component__button border-black" : "shipping__component__button"}>Adress - $10.00</button>
+            <div className="shipping__component__up">
+                <div className="shipping__component">
+                    <h2 className="shipping__heading">Shipping to</h2>
+                    <ShippingData 
+                        firstName={firstName}
+                        lastName={lastName}
+                        firstAdress={firstAdress}
+                        lastAdress={lastAdress}
+                        postal={postal}
+                        province={province}
+                        country={country}
+                        city={city}
+                        phone={phone}
+                        component={component}
+                        home={open.home}
+                        store={open.store}
+                    />
+                    <button onClick={() => {openComponent(!component)}} className={!component ? "shipping__heading__button" : "shipping__heading__button close"}>Edit</button>
+                    <div className={component ? "shipping__component__buttons" : "shipping__component__buttons close" }>
+                        <button onClick={openStore} className={open.store ? "shipping__component__button border-black" : "shipping__component__button"}>Store - Free</button>
+                        <button onClick={openHome} className={open.home ? "shipping__component__button border-black" : "shipping__component__button"}>Adress - $10.00</button>
+                    </div>
+                </div>
+                <div className={open.home ? "shipping__component__home" : "shipping__component__home close"}>  
+                <ShippingHome 
+                        setFirstName={setFirstName}
+                        setLastName={setLastName}
+                        setFirstAdress={setFirstAdress}
+                        setLastAdress={setLastAdress}
+                        setCity={setCity}
+                        setPostal={setPostal}
+                        setProvince={setProvince}
+                        setPhone={setPhone}
+                        setCountry={setCountry}
+                        submitBtn={submitBtn}
+                        validate={validate}
+                        component={component}
+                /> 
+                </div>
+                <div className={open.store ? "shipping__component__store" : "shipping__component__store close"}>
+                    <ShippingStore 
+                        setFirstName={setFirstName}
+                        setLastName={setLastName}
+                        setPhone={setPhone}
+                        validate={validate}
+                        component={component}
+                        submitBtn={submitBtn}
+                    />
                 </div>
             </div>
-            <div className={open.home ? "shipping__component__home" : "shipping__component__home close"}>  
-               <ShippingHome 
-                    setFirstName={setFirstName}
-                    setLastName={setLastName}
-                    setFirstAdress={setFirstAdress}
-                    setLastAdress={setLastAdress}
-                    setCity={setCity}
-                    setPostal={setPostal}
-                    setProvince={setProvince}
-                    setPhone={setPhone}
-                    setCountry={setCountry}
-                    submitBtn={submitBtn}
-                    validate={validate}
-                    component={component}
-               /> 
-            </div>
-            <div className={open.store ? "shipping__component__store" : "shipping__component__store close"}>
-                <ShippingStore 
-                    setFirstName={setFirstName}
-                    setLastName={setLastName}
-                    setPhone={setPhone}
-                    validate={validate}
-                    component={component}
-                    submitBtn={submitBtn}
-                />
-            </div>
         </div>
-)}
+    )
+}
 
 
 export default Shipping

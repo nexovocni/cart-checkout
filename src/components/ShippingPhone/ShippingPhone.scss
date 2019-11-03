@@ -1,0 +1,48 @@
+.shipping{
+
+    &__component{
+
+        &__phone{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            height: 70px;
+            margin-bottom: 30px;
+
+            &__input{
+                border: none;
+                outline: none;
+                border-bottom: 1px solid #999;
+                width: 100%;
+                padding-bottom: 5px;
+                font-size: 1rem;
+                margin: 5px 0; 
+                border-radius: 0;
+
+                &:focus{
+                    border-color: #000;
+                }
+            }
+
+            &__underinput{
+                display: flex;
+                justify-content: space-between;
+                
+                span{
+                    font-size: .6rem;
+                }
+            }
+        }
+    }
+}
+
+.close{
+    max-height: 0;
+    opacity: 0;
+    transition: all .3s ease;
+    overflow: hidden;
+}
+
+.border{
+    border-color: #999;
+}
