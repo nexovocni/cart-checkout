@@ -10,7 +10,7 @@ const ShippingStandard = () => {
 
     return (
         <React.Fragment>
-            <h3>Shipping method</h3>
+            <h3 className="shipping__component__heading">Shipping method</h3>
             <div className = "shipping__component__radio">
                 <div className="shipping__component__radio__input">
                 <Field
@@ -22,7 +22,7 @@ const ShippingStandard = () => {
                 {({input}) => {
                     return(
                         <label>
-                        <input {...input} />
+                        <input type="radio" {...input} />
                         <span className="circle"></span>
                         Standard Shipping
                         <p>5 - 7 business days</p></label>
@@ -32,18 +32,18 @@ const ShippingStandard = () => {
                 </div>
                 <p>${standardShipping.toFixed(2)}</p>
             </div>
-            <div className="checkbox__component__radio"> 
+            <div className="shipping__component__radio"> 
                 <div className="shipping__component__radio__input"> 
                 <Field
                     type="radio"
                     name="extra"
-                    value={standardShipping}
+                    value={expressShipping}
                     component="input"
                 >
                 {({input}) => {
                     return(
                         <label>
-                        <input {...input}/>
+                        <input type="radio" onClick={() => console.log("clicked")} onChange={() => console.log("changed")} {...input}/>
                         <span className="circle"></span>
                         Express Shipping
                         <p>2 - 3 business days</p></label>
@@ -53,7 +53,7 @@ const ShippingStandard = () => {
                 </div>
                 <p>${expressShipping.toFixed(2)}</p>
             </div> 
-            <div className="checkbox__component__radio"> 
+            <div className="shipping__component__radio"> 
                 <div className="shipping__component__radio__input">
                 <Field
                     type="radio"
