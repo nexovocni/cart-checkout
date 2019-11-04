@@ -10,17 +10,15 @@ import './SummaryForm.scss'
 
 interface IProps {
     products: any;
-    checkValue: any;
     itemsValue: any;
     shipValue: number;
     tax: boolean;
+    checkValue: number;
 }
 
-const SummaryForm:React.FC<IProps> = ({products, checkValue, itemsValue, shipValue, tax}) => {
+const SummaryForm:React.FC<IProps> = ({products, itemsValue, shipValue, tax, checkValue}) => {
 
     const [disabledCode, setDisabledCode] = useState(false)
-
-    const [value, setValue] = useState(itemsValue)
 
     return (
         <section className="summaryform">
@@ -40,7 +38,7 @@ const SummaryForm:React.FC<IProps> = ({products, checkValue, itemsValue, shipVal
                 <SummaryTotal
                     disabledCode={disabledCode} 
                     title="Shipping"
-                    itemsValue={checkValue < 10 || shipValue < 1 ? 'Free' : '$10.00'} 
+                    itemsValue={shipValue < 1 ? 'Free' : `$${checkValue.toFixed(2)}`} 
                  />
                 <div className="summaryform__line-grey"></div>
                 <SummaryTax 
@@ -58,10 +56,10 @@ const SummaryForm:React.FC<IProps> = ({products, checkValue, itemsValue, shipVal
                 />
                 <div className="summaryform__line-grey-last"></div>
                 <SummarySubtotal 
-                    itemsValue={value}
-                    checkValue={checkValue}
+                    itemsValue={itemsValue}
                     shipValue={shipValue}
                     disabledCode={disabledCode}
+                    checkValue={checkValue}
                 />
                 <Link to="/" className="summaryform button_check">Go back</Link>
             </div>

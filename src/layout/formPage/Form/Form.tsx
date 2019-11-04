@@ -11,10 +11,18 @@ interface IProps {
     changeProducts: any;
     deleteProduct: any;
     setTax: any;
+    setCheckValue: any;
+    checkValue: number;
+    shipValue: number;
+
 }
 
+<<<<<<< HEAD
 
 const Form:React.FC<IProps> = ({products, deleteProduct, changeProducts, setTax}) => {
+=======
+const Form:React.FC<IProps> = ({products, deleteProduct, changeProducts, setTax, setCheckValue, checkValue, shipValue}) => {
+>>>>>>> still fixing shipping component
 
     const [component, openComponent] = useState(true)
 
@@ -29,6 +37,9 @@ const Form:React.FC<IProps> = ({products, deleteProduct, changeProducts, setTax}
                 component={component}
                 openComponent={openComponent}
                 setTax={setTax}
+                setCheckValue={setCheckValue}
+                checkValue={checkValue}
+                shipValue={shipValue}
             />
         </main>
     )

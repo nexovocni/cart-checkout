@@ -7,10 +7,13 @@ import ShippingData from "../../components/ShippingData/ShippingData"
 interface IProps {
     component: boolean;
     openComponent: any;
-    setTax: any
+    setTax: any;
+    setCheckValue: any;
+    checkValue: number;
+    shipValue: number;
 }
 
-const Shipping:React.FC<IProps> = ({component, openComponent, setTax}) => {
+const Shipping:React.FC<IProps> = ({component, openComponent, setTax, setCheckValue, checkValue, shipValue}) => {
 
     const submitBtn = () => {
         setTax(true)
@@ -67,7 +70,7 @@ const Shipping:React.FC<IProps> = ({component, openComponent, setTax}) => {
                         home={open.home}
                         store={open.store}
                     />
-                    <button onClick={() => {openComponent(!component)}} className={!component ? "shipping__heading__button" : "shipping__heading__button close"}>Edit</button>
+                    <button onClick={() => {openComponent(!component)}} className={!component ? "shipping__heading__button" : "close"}>Edit</button>
                     <div className={component ? "shipping__component__buttons" : "shipping__component__buttons close" }>
                         <button onClick={openStore} className={open.store ? "shipping__component__button border-black" : "shipping__component__button"}>Store - Free</button>
                         <button onClick={openHome} className={open.home ? "shipping__component__button border-black" : "shipping__component__button"}>Adress - $10.00</button>
@@ -86,16 +89,17 @@ const Shipping:React.FC<IProps> = ({component, openComponent, setTax}) => {
                         setCountry={setCountry}
                         submitBtn={submitBtn}
                         validate={validate}
-                        component={component}
+                        setCheckValue={setCheckValue}
+                        checkValue={checkValue}
+                        shipValue={shipValue}
                 /> 
                 </div>
-                <div className={open.store ? "shipping__component__store" : "shipping__component__store close"}>
+                <div className={open.store ? "shipping__component__store" : "close-store"}>
                     <ShippingStore 
                         setFirstName={setFirstName}
                         setLastName={setLastName}
                         setPhone={setPhone}
                         validate={validate}
-                        component={component}
                         submitBtn={submitBtn}
                     />
                 </div>

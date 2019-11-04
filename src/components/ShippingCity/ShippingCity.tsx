@@ -78,12 +78,12 @@ const ShippingCity:React.FC<IProps> = ({setCity, setProvince, setCountry, setPos
                         return(
                             <div className="shipping__component__city__field border-bottom">
                                 <label className={input.value ? "shipping__component__label" : "shipping__component__label close"}>Country</label>
-                                <select placeholder="Country" className="shipping__component__country__input select select border" {...input}>  
+                                <select placeholder="Country" className="shipping__component__country__input select border" {...input}>  
                                     <option selected value="Canada">Canada</option>
                                     <option value="America">America</option>
                                     <option value="Mexico">Mexico</option>
                                 </select>
-                                <i className="fas fa-angle-down"></i>
+                                <i className="fas fa-angle-down select"></i>
                                 {meta.error && meta.touched ? <span className="shipping__component__validation">{meta.error}</span> : null}
                             </div>
                         )

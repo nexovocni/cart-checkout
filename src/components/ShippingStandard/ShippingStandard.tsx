@@ -1,12 +1,14 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Field} from 'react-final-form'
 import './ShippingStandard.scss'
 
-const ShippingStandard = () => {
+interface IProps {
+    setCheckValue: any;
+}
 
-    const standardShipping = 10
-    const expressShipping = 15
-    const nextDayShipping = 20
+const ShippingStandard:React.FC<IProps> = ({setCheckValue}) => {
+
+    const [isChecked, setChecked] = useState<boolean>(true)
 
     return (
         <React.Fragment>
@@ -15,14 +17,15 @@ const ShippingStandard = () => {
                 <div className="shipping__component__radio__input">
                 <Field
                     type="radio"
-                    name="standard"
-                    value={standardShipping}
+                    name="ship"
+                    value={"10"}
                     component="input"
+                    checked
                 >
                 {({input}) => {
                     return(
                         <label>
-                        <input type="radio" {...input} />
+                        <input onClick={() => setCheckValue(parseInt(input.value))} {...input} />
                         <span className="circle"></span>
                         Standard Shipping
                         <p>5 - 7 business days</p></label>
@@ -30,20 +33,20 @@ const ShippingStandard = () => {
                 }}  
                 </Field>
                 </div>
-                <p>${standardShipping.toFixed(2)}</p>
+                <p>$10.00</p>
             </div>
             <div className="shipping__component__radio"> 
                 <div className="shipping__component__radio__input"> 
                 <Field
                     type="radio"
-                    name="extra"
-                    value={expressShipping}
+                    name="ship"
+                    value={"15"}
                     component="input"
                 >
                 {({input}) => {
                     return(
                         <label>
-                        <input type="radio" onClick={() => console.log("clicked")} onChange={() => console.log("changed")} {...input}/>
+                        <input onClick={() => setCheckValue(parseInt(input.value))} {...input}/>
                         <span className="circle"></span>
                         Express Shipping
                         <p>2 - 3 business days</p></label>
@@ -51,20 +54,20 @@ const ShippingStandard = () => {
                 }}
                 </Field>
                 </div>
-                <p>${expressShipping.toFixed(2)}</p>
+                <p>$15.00</p>
             </div> 
             <div className="shipping__component__radio"> 
                 <div className="shipping__component__radio__input">
                 <Field
                     type="radio"
-                    name="nextday"
-                    value={nextDayShipping}
+                    name="ship"
+                    value={"20"}
                     component="input"
                 >
                 {({input}) => {
                     return( 
                         <label>
-                        <input {...input}/>
+                        <input onClick={() => setCheckValue(parseInt(input.value))} {...input}/>
                         <span className="circle"></span>
                         Next day delivery
                         <p>Orders before 12PM</p></label>
@@ -72,7 +75,7 @@ const ShippingStandard = () => {
                 }} 
                 </Field>
                 </div>
-                <p>${nextDayShipping.toFixed(2)}</p>  
+                <p>$20.00</p>  
             </div> 
         </React.Fragment>
     )

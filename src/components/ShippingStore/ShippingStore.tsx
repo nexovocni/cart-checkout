@@ -3,6 +3,7 @@ import {Form} from 'react-final-form'
 import ShippingName from '../ShippingName/ShippingName'
 import ShippingPhone from '../../components/ShippingPhone/ShippingPhone'
 import ShippingSelect from '../../components/ShippingSelect/ShippingSelect'
+import './ShippingStore.scss'
 
 interface IProps {
     setFirstName: any;
@@ -10,15 +11,14 @@ interface IProps {
     setPhone: any;
     validate: any;
     submitBtn: any;
-    component: boolean;
 }
 
-const ShippingStore:React.FC<IProps> = ({setFirstName, setLastName, setPhone, validate, component, submitBtn}) => {
+const ShippingStore:React.FC<IProps> = ({setFirstName, setLastName, setPhone, validate, submitBtn}) => {
     return (
         <Form onSubmit={submitBtn}
             render={(props:any) => {
                 return(
-                    <form onSubmit={props.handleSubmit} className={component ? "shipping__component__form" : "shipping__component__form close"}>
+                    <form onSubmit={props.handleSubmit} className="shipping__component__form">
                         <p>Please ensure that your first bane and last name is identical to a valid id card. The phone number will be used to contact you once your order has been received in your selected store.</p>
                         <ShippingName 
                             setFirstName={setFirstName}
@@ -29,7 +29,9 @@ const ShippingStore:React.FC<IProps> = ({setFirstName, setLastName, setPhone, va
                             setPhone={setPhone}
                             validate={validate}
                         />
-                        <ShippingSelect />
+                        <ShippingSelect
+                            validate={validate}
+                        />
                         <button onSubmit={props.handleSubmit} className="shipping__component__submit" type="submit">Continue to payment method</button>
                     </form>
                 )

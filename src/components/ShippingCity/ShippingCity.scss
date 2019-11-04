@@ -6,7 +6,7 @@
             width: 100%;
 
             &__field{
-                width: 48%;
+                width: 47.5%;
             }
 
             &__city,
@@ -22,7 +22,6 @@
         &__postal,
         &__country{
             
-
             &__input{
                 border: none;
                 outline: none;
@@ -55,7 +54,7 @@
     cursor: pointer;
 }
 
-i{
+i.select{
     position: relative;
     top: -25px;
     left: 97%;

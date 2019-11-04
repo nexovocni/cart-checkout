@@ -6,17 +6,17 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 const CartCheckOut = () => {
 
     interface IProduct {
-        price: number
-        quantity: number
-        id: number
-        product: {}
+        price: number;
+        quantity: number;
+        id: number;
+        product: {};
     }
 
     let itemsValue = 0
 
     const [products, updateProducts] = useState([]);
 
-    const[checkValue, setCheckValue] = useState(10)
+    const[checkValue, setCheckValue] = useState<number>(10)
 
     useEffect( () => {
         (async () => {
@@ -52,10 +52,10 @@ const CartCheckOut = () => {
                             products={products} 
                             changeProducts={changeProducts}
                             deleteProduct={deleteProduct}
-                            checkValue={checkValue}
                             setCheckValue={setCheckValue}
                             itemsValue={itemsValue}
                             shipValue={shipValue}
+                            checkValue={checkValue}
                         /> 
                         }/>
                         <Route path="/form" render={(props) => <FormPage 
@@ -66,6 +66,7 @@ const CartCheckOut = () => {
                             checkValue={checkValue}
                             itemsValue={itemsValue}
                             shipValue={shipValue}
+                            setCheckValue={setCheckValue}
                         /> 
                         }/>
                     </Switch>

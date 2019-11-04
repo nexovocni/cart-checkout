@@ -9,15 +9,15 @@ import SummaryTitle from '../../../components/SummaryTitle/SummaryTitle'
 import SummarySubtotal from '../../../components/SummarySubtotal/SummarySubtotal'
 
 interface IProps {
-    products: any,
-    checkValue: any,
-    setCheckValue: any,
-    stateComponent: boolean,
-    itemsValue: number,
-    shipValue: number
+    products: any;
+    setCheckValue: any;
+    stateComponent: boolean;
+    itemsValue: number;
+    shipValue: number;
+    checkValue: number;
 }
 
-const Summary:React.FC<IProps> = ({products, stateComponent, setCheckValue, checkValue, itemsValue, shipValue}) => {
+const Summary:React.FC<IProps> = ({products, stateComponent, setCheckValue, itemsValue, shipValue, checkValue}) => {
 
     const [disabledCode, setDisabledCode] = useState(false)
     
@@ -39,7 +39,7 @@ const Summary:React.FC<IProps> = ({products, stateComponent, setCheckValue, chec
                 <div style={{opacity: disabledCode ? .3 : 1 }} className="summarycart__line"></div>
                 <Checkbox 
                     code={disabledCode} 
-                    update={setCheckValue} 
+                    setCheckValue={setCheckValue} 
                     shipValue={shipValue}
                     stateComponent= {stateComponent}
                 />
@@ -64,15 +64,14 @@ const Summary:React.FC<IProps> = ({products, stateComponent, setCheckValue, chec
                 <div className="summarycart__line-grey"></div>
                <SummarySubtotal 
                  itemsValue={itemsValue}
-                 checkValue={checkValue}
                  shipValue={shipValue}
                  disabledCode={disabledCode}
+                 checkValue={checkValue}
                />
             </div>
             <div className="summarycart__bottom">
                 <Buttons 
                     stateComponent={stateComponent} 
-                    isChecked={checkValue}
                     disabledCode={disabledCode}
                 />
             </div>
