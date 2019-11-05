@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import SummaryForm from './SummaryForm/SummaryForm'
 import Header from './HeaderForm/HeaderForm'
 import Form from './Form/Form'
+import Email from '../../components/Email/Email'
 import './FormPage.scss'
 
 interface IProps {
@@ -14,7 +15,6 @@ interface IProps {
 }
 
 const FormPage:React.FC<IProps> = ({products, deleteProduct, changeProducts, checkValue, itemsValue, shipValue}) => {
-
     return (
         <div className="form__page">
             <div className="form__page__main">

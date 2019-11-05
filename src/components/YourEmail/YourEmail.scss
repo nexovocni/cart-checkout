@@ -1,0 +1,60 @@
+@import "../../sass/mixins/mixins.scss";
+
+.email{
+
+    &__component{
+
+        &__label{
+            display: block;
+            margin-bottom: 15px;
+            color: rgba(0, 0, 0, .4);
+            max-height: 20px;
+            opacity: 1;
+            overflow: hidden;
+            transition: all .3s ease;
+        }
+
+        &__input{
+            border: none;
+            outline: none;
+            border-bottom: 1px solid #000;
+            width: 100%;
+            padding-bottom: 5px;
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        &__underinput{
+            display: flex;
+            justify-content: space-between;
+        }
+
+        &__validation{
+
+            &__underinput{
+                color: red;
+                font-size: .6rem;
+            }
+        }
+
+        &__policy{
+            color: rgba(0, 0, 0, .4);
+            font-size: .6rem;
+            margin-bottom: 60px;
+
+            span{
+                border-bottom: 1px solid #000;
+            }
+        }
+    }
+}
+
+.open{
+    max-height: 0;
+    opacity: 0;
+    transition: all .3s ease;
+}
+
+.border{
+    border-bottom: 1px solid rgba(0, 0, 0, .3)
+}

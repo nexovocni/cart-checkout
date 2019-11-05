@@ -1,0 +1,10 @@
+@import '../../../sass/mixins/mixins.scss';
+
+.main{
+    width: 100%;
+    padding-right: 15%;
+
+    @include respond(tablet){
+        padding-right: 0;
+      };
+}

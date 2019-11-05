@@ -22,7 +22,9 @@ const Summary:React.FC<IProps> = ({products, stateComponent, setCheckValue, chec
     const [disabledCode, setDisabledCode] = useState(false)
     
     return (
+        <React.Fragment>
         <section style={{opacity: stateComponent ? .3 : 1, pointerEvents: stateComponent ? "none" : "auto"}} className="summarycart">
+            <div className="summarycart__sticky">
             <MobileHeader products={products}/>
             <div className="summarycart__top">
                 <SummaryTitle 
@@ -74,7 +76,11 @@ const Summary:React.FC<IProps> = ({products, stateComponent, setCheckValue, chec
                     disabledCode={disabledCode}
                 />
             </div>
+            </div>
+            <div></div>
         </section>
+        
+        </React.Fragment>
     )
 }
 
