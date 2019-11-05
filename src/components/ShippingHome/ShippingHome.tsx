@@ -22,14 +22,15 @@ interface IProps {
     setCheckValue: any;
     checkValue: number;
     shipValue: number;
+    component: any
 }
 
-const ShippingHome:React.FC<IProps> = ({setFirstName, setLastName, setFirstAdress, setLastAdress, setCity, setCountry, setPhone, setPostal, setProvince, validate, submitBtn, setCheckValue, checkValue, shipValue}) => {
+const ShippingHome:React.FC<IProps> = ({setFirstName, setLastName, setFirstAdress, setLastAdress, setCity, setCountry, setPhone, setPostal, setProvince, validate, submitBtn, setCheckValue, checkValue, shipValue, component}) => {
     return (
         <Form onSubmit={submitBtn}
             render={(props:any) => {
                 return(
-                    <form onSubmit={props.handleSubmit} className="shipping__component__form">
+                    <form onSubmit={props.handleSubmit} className={component ? "shipping__component__form" : "close"}>
                         <ShippingName 
                             setFirstName={setFirstName}
                             setLastName={setLastName}

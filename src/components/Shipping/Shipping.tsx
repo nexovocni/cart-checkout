@@ -21,7 +21,9 @@ const Shipping:React.FC<IProps> = ({component, openComponent, setTax, setCheckVa
     }
 
     const [firstName, setFirstName] = useState("")
+    const [firstNameAdress, setFirstNameAdress] = useState("")
     const [lastName, setLastName] = useState("")
+    const [lastNameAdress, setLastNameAdress] = useState("")
     const [firstAdress, setFirstAdress] = useState("")
     const [lastAdress, setLastAdress] = useState("")
     const [city, setCity] = useState("")
@@ -29,6 +31,7 @@ const Shipping:React.FC<IProps> = ({component, openComponent, setTax, setCheckVa
     const [postal, setPostal] = useState("")
     const [country, setCountry] = useState("")
     const [phone, setPhone] = useState("")
+    const [phoneAdress, setPhoneAdress] = useState("")
     const [open, setOpen] = useState({
         home: false,
         store: false
@@ -58,7 +61,9 @@ const Shipping:React.FC<IProps> = ({component, openComponent, setTax, setCheckVa
                     <h2 className="shipping__heading">Shipping to</h2>
                     <ShippingData 
                         firstName={firstName}
+                        firstNameAdress={firstNameAdress}
                         lastName={lastName}
+                        lastNameAdress={lastNameAdress}
                         firstAdress={firstAdress}
                         lastAdress={lastAdress}
                         postal={postal}
@@ -66,6 +71,7 @@ const Shipping:React.FC<IProps> = ({component, openComponent, setTax, setCheckVa
                         country={country}
                         city={city}
                         phone={phone}
+                        phoneAdress={phoneAdress}
                         component={component}
                         home={open.home}
                         store={open.store}
@@ -78,20 +84,21 @@ const Shipping:React.FC<IProps> = ({component, openComponent, setTax, setCheckVa
                 </div>
                 <div className={open.home ? "shipping__component__home" : "shipping__component__home close"}>  
                 <ShippingHome 
-                        setFirstName={setFirstName}
-                        setLastName={setLastName}
+                        setFirstName={setFirstNameAdress}
+                        setLastName={setLastNameAdress}
                         setFirstAdress={setFirstAdress}
                         setLastAdress={setLastAdress}
                         setCity={setCity}
                         setPostal={setPostal}
                         setProvince={setProvince}
-                        setPhone={setPhone}
+                        setPhone={setPhoneAdress}
                         setCountry={setCountry}
                         submitBtn={submitBtn}
                         validate={validate}
                         setCheckValue={setCheckValue}
                         checkValue={checkValue}
                         shipValue={shipValue}
+                        component={component}
                 /> 
                 </div>
                 <div className={open.store ? "shipping__component__store" : "close-store"}>
@@ -101,6 +108,7 @@ const Shipping:React.FC<IProps> = ({component, openComponent, setTax, setCheckVa
                         setPhone={setPhone}
                         validate={validate}
                         submitBtn={submitBtn}
+                        component={component}
                     />
                 </div>
             </div>

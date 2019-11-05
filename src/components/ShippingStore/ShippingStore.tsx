@@ -11,14 +11,15 @@ interface IProps {
     setPhone: any;
     validate: any;
     submitBtn: any;
+    component: any;
 }
 
-const ShippingStore:React.FC<IProps> = ({setFirstName, setLastName, setPhone, validate, submitBtn}) => {
+const ShippingStore:React.FC<IProps> = ({setFirstName, setLastName, setPhone, validate, submitBtn, component}) => {
     return (
         <Form onSubmit={submitBtn}
             render={(props:any) => {
                 return(
-                    <form onSubmit={props.handleSubmit} className="shipping__component__form">
+                    <form onSubmit={props.handleSubmit} className={component ? "shipping__component__form" : "close"}>
                         <p>Please ensure that your first bane and last name is identical to a valid id card. The phone number will be used to contact you once your order has been received in your selected store.</p>
                         <ShippingName 
                             setFirstName={setFirstName}

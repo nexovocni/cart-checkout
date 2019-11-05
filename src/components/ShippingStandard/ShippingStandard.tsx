@@ -8,7 +8,17 @@ interface IProps {
 
 const ShippingStandard:React.FC<IProps> = ({setCheckValue}) => {
 
-    const [isChecked, setChecked] = useState<boolean>(true)
+    const [isChecked, setChecked] = useState(true)
+
+    const checkBtn = (input:any) => {
+        setCheckValue(parseInt(input))
+        setChecked(false)
+    }
+
+    const checkBtnStandard = (input:any) => {
+        setCheckValue(parseInt(input))
+        setChecked(true)
+    }
 
     return (
         <React.Fragment>
@@ -23,9 +33,10 @@ const ShippingStandard:React.FC<IProps> = ({setCheckValue}) => {
                     checked
                 >
                 {({input}) => {
+                    input.checked = isChecked
                     return(
                         <label>
-                        <input onClick={() => setCheckValue(parseInt(input.value))} {...input} />
+                        <input onClick={() => checkBtnStandard(input.value)}   {...input} />
                         <span className="circle"></span>
                         Standard Shipping
                         <p>5 - 7 business days</p></label>
@@ -46,7 +57,7 @@ const ShippingStandard:React.FC<IProps> = ({setCheckValue}) => {
                 {({input}) => {
                     return(
                         <label>
-                        <input onClick={() => setCheckValue(parseInt(input.value))} {...input}/>
+                        <input onClick={() => checkBtn(parseInt(input.value))}  {...input}/>
                         <span className="circle"></span>
                         Express Shipping
                         <p>2 - 3 business days</p></label>
@@ -67,7 +78,7 @@ const ShippingStandard:React.FC<IProps> = ({setCheckValue}) => {
                 {({input}) => {
                     return( 
                         <label>
-                        <input onClick={() => setCheckValue(parseInt(input.value))} {...input}/>
+                        <input onClick={() => checkBtn(parseInt(input.value))} {...input}/>
                         <span className="circle"></span>
                         Next day delivery
                         <p>Orders before 12PM</p></label>
