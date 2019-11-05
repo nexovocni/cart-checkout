@@ -17,12 +17,7 @@ interface IProps {
 
 }
 
-<<<<<<< HEAD
-
-const Form:React.FC<IProps> = ({products, deleteProduct, changeProducts, setTax}) => {
-=======
 const Form:React.FC<IProps> = ({products, deleteProduct, changeProducts, setTax, setCheckValue, checkValue, shipValue}) => {
->>>>>>> still fixing shipping component
 
     const [component, openComponent] = useState(true)
 
