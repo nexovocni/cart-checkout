@@ -7,10 +7,11 @@ import YourEmail from '../YourEmail/YourEmail'
 
 interface IProps {
     component: boolean;
-    openComponent: any
+    openComponent: any;
+    openComponentShipping: any;
 }
 
-const Email:React.FC<IProps> = ({component, openComponent}) => {
+const Email:React.FC<IProps> = ({component, openComponent, openComponentShipping}) => {
 
     const [input, setInput] = useState("")
 
@@ -21,8 +22,14 @@ const Email:React.FC<IProps> = ({component, openComponent}) => {
         openComponent(true)
     }
 
-    const submitBtn = (e:any) => {
+    const submitBtn = () => {
         openComponent(!component)
+        openComponentShipping(true)
+    }
+
+    const editBtn = () => {
+        openComponent(!component)
+        openComponentShipping(false)
     }
 
     const validate = (email:any) => {
@@ -38,11 +45,11 @@ const Email:React.FC<IProps> = ({component, openComponent}) => {
                 return( 
                     <div className="email">
                         <h2 className="email__number">1</h2>
-                        <div className="email__component">
+                        <div className={component ? "email__component" :"email__component margin"}>
                             <h2 className="email__heading">Your email</h2>
-                            <p className={!component ? "email__email" : "email__email close"}>{input}</p>
-                            <button onClick={() => {openComponent(!component)}} className={!component ? "email__heading__button" : "email__heading__button close"}>Edit</button>
-                            <form onSubmit={props.handleSubmit} className={component ? "email__component__form" : "email__component__form close"}>
+                            <p className={!component ? "email__email" : "close"}>{input}</p>
+                            <button onClick={editBtn} className={!component ? "email__heading__button" : "close"}>Edit</button>
+                            <form onSubmit={props.handleSubmit} className={component ? "email__component__form" : "close"}>
                                 <YourEmail 
                                     submitBtn={submitBtn}
                                     input={input}

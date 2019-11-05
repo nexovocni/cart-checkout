@@ -19,18 +19,20 @@ interface IProps {
 
 const Form:React.FC<IProps> = ({products, deleteProduct, changeProducts, setTax, setCheckValue, checkValue, shipValue}) => {
 
-    const [component, openComponent] = useState(true)
+    const [componentEmail, openComponentEmail] = useState(true)
+    const [componentShipping, openComponentShipping] = useState(false)
 
     return (
-        <main className="main">
+        <main className="main__form">
 
             <Email 
-                component={component}
-                openComponent={openComponent}
+                component={componentEmail}
+                openComponent={openComponentEmail}
+                openComponentShipping={openComponentShipping}
             />
             <Shipping 
-                component={component}
-                openComponent={openComponent}
+                component={componentShipping}
+                openComponent={openComponentShipping}
                 setTax={setTax}
                 setCheckValue={setCheckValue}
                 checkValue={checkValue}
