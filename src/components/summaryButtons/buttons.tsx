@@ -3,12 +3,11 @@ import './Buttons.scss'
 import {Link} from 'react-router-dom'
 
 interface IProps {
-   isChecked: number
    stateComponent: boolean
    disabledCode: boolean
 }
 
-const Buttons:React.FC<IProps> = ({isChecked, stateComponent, disabledCode}) => {
+const Buttons:React.FC<IProps> = ({ stateComponent, disabledCode}) => {
     return (
         <div style={{opacity: disabledCode  ? .3 : 1, pointerEvents: !disabledCode ? "auto" : "none"}} className="buttons">
             <Link to="/form" className="button button_check">Checkout now</Link>

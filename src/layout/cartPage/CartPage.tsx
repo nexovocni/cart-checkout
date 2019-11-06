@@ -5,16 +5,16 @@ import SummaryCart from './SummaryCart/SummaryCart'
 import './CartPage.scss'
 
 interface IProps {
-    products: any[],
-    changeProducts: any,
-    deleteProduct: any,
-    checkValue: any,
-    setCheckValue: any,
-    itemsValue: any,
-    shipValue: any
+    products: any[];
+    changeProducts: any;
+    deleteProduct: any;
+    setCheckValue: any;
+    itemsValue: any;
+    shipValue: any;
+    checkValue: number;
 }
 
-const CartPage:React.FC<IProps> = ({products, deleteProduct, changeProducts, checkValue, setCheckValue, itemsValue, shipValue}) => {
+const CartPage:React.FC<IProps> = ({products, deleteProduct, changeProducts, setCheckValue, itemsValue, shipValue,  checkValue}) => {
 
     const [state, updateState] = useState(false)
 
@@ -31,12 +31,12 @@ const CartPage:React.FC<IProps> = ({products, deleteProduct, changeProducts, che
                     />
                 </div>
                     <SummaryCart
-                        checkValue={checkValue}
                         setCheckValue={setCheckValue}
                         products={ products }
                         stateComponent = {state}
                         itemsValue={itemsValue}
                         shipValue={shipValue}
+                        checkValue={checkValue}
                     />
             </div>
     )

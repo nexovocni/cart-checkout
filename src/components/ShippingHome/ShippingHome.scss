@@ -1,0 +1,19 @@
+.shipping{
+
+    &__component{
+
+        &__submit{
+            margin-top: 55px;
+        }
+    }
+
+    &__standard{
+        display: flex;
+        justify-content: space-between;
+
+        p{
+            color: #999;
+            font-size: .6rem;
+        }
+    }
+}

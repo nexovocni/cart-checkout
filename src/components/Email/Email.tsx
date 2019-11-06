@@ -6,11 +6,12 @@ import PasswordEmail from '../PasswordEmail/PasswordEmail'
 import YourEmail from '../YourEmail/YourEmail'
 
 interface IProps {
-    component: boolean;
-    openComponent: any
+    componentEmail: boolean;
+    openComponentEmail: any;
+    openComponentShipping: any;
 }
 
-const Email:React.FC<IProps> = ({component, openComponent}) => {
+const Email:React.FC<IProps> = ({componentEmail, openComponentEmail, openComponentShipping}) => {
 
     const [input, setInput] = useState("")
 
@@ -18,11 +19,17 @@ const Email:React.FC<IProps> = ({component, openComponent}) => {
 
     const passwordBtn = () => {
         setPasswordComponent(true)
-        openComponent(true)
+        openComponentEmail(true)
     }
 
-    const submitBtn = (e:any) => {
-        openComponent(!component)
+    const submitBtn = () => {
+        openComponentEmail(!componentEmail)
+        openComponentShipping(true)
+    }
+
+    const editBtn = () => {
+        openComponentEmail(!componentEmail)
+        openComponentShipping(false)
     }
 
     const validate = (email:any) => {
@@ -38,11 +45,11 @@ const Email:React.FC<IProps> = ({component, openComponent}) => {
                 return( 
                     <div className="email">
                         <h2 className="email__number">1</h2>
-                        <div className="email__component">
+                        <div className={componentEmail ? "email__component" :"email__component margin"}>
                             <h2 className="email__heading">Your email</h2>
-                            <p className={!component ? "email__email" : "email__email close"}>{input}</p>
-                            <button onClick={() => {openComponent(!component)}} className={!component ? "email__heading__button" : "email__heading__button close"}>Edit</button>
-                            <form onSubmit={props.handleSubmit} className={component ? "email__component__form" : "email__component__form close"}>
+                            <p className={!componentEmail ? "email__email" : "close"}>{input}</p>
+                            <button onClick={editBtn} className={!componentEmail ? "email__heading__button" : "close"}>Edit</button>
+                            <form onSubmit={props.handleSubmit} className={componentEmail ? "email__component__form" : "close"}>
                                 <YourEmail 
                                     submitBtn={submitBtn}
                                     input={input}

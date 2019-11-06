@@ -1,0 +1,107 @@
+@import '../../sass/mixins/mixins.scss'; 
+
+.shipping{
+    max-height: 800px;
+    display: flex;
+    width: 100%;
+    padding: 35px 0 ;
+    border-top: 1px solid rgba(0, 0, 0, .2);
+
+    @include respond(tablet){
+        width: 80%;
+      }
+
+    &__number{
+        margin-right: 22%;
+    }
+
+    &__shipping{
+        opacity: 1;
+        max-height: 300px;
+        transition: all .3 ease;
+    }
+
+    &__heading{
+        margin-bottom: 40px;
+        position: relative;
+
+        &__button{
+            border: none;
+            outline: none;
+            background-color: transparent;
+            position: absolute;
+            top: 5px;
+            left: 97%;
+            cursor: pointer;
+        }
+    }
+
+    &__component{
+        width: 100%;
+        position: relative;
+
+        &__form{
+            max-height: 600px;
+            opacity: 1;
+            transition: all .2s ease;
+
+            p{
+                margin-bottom: 30px;
+            }
+        }
+
+        &__submit{
+            width: 100%;
+            border: none;
+            outline: none;
+            padding: 15px;
+            background-color: #000;
+            color: #fff;
+        }
+
+        &__buttons{
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 55px;
+        }
+
+        &__button{
+            border: 1px solid #999;
+            outline: none;
+            width: 48%;
+            padding: 15px;
+            cursor: pointer;
+            transition: all .5s ease;
+            background-color: transparent;
+
+            &:hover{
+                border-color: #000;
+            }
+        }
+
+        &__home,
+        &__store{
+            max-height: 600px;
+            opacity: 1;
+            transition: all .3s ease;
+        }
+    }
+}
+
+.close{
+    max-height: 0;
+    opacity: 0;
+    transition: all .3s ease;
+    overflow: hidden;
+}
+
+.close{
+    max-height: 0;
+    opacity: 0;
+    transition: all .1s ease;
+    overflow: hidden;
+}
+
+.border-black{
+    border-color: #000;
+}
