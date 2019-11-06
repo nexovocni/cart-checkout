@@ -1,7 +1,7 @@
 import React from 'react'
 import {Form} from 'react-final-form'
 import ShippingName from '../ShippingName/ShippingName'
-import ShippingAdress from '../../components/ShippingAdress/ShippingAdress'
+import ShippingAddress from '../ShippingAddress/ShippingAddress'
 import ShippingCity from '../../components/ShippingCity/ShippingCity'
 import ShippingPhone from '../../components/ShippingPhone/ShippingPhone'
 import ShippingStandard from '../../components/ShippingStandard/ShippingStandard'
@@ -10,8 +10,8 @@ import './ShippingHome.scss'
 interface IProps {
     setFirstName: any;
     setLastName: any;
-    setFirstAdress: any;
-    setLastAdress: any;
+    setFirstAddress: any;
+    setLastAddress: any;
     setCity: any;
     setProvince: any;
     setPostal: any;
@@ -25,7 +25,7 @@ interface IProps {
     component: any
 }
 
-const ShippingHome:React.FC<IProps> = ({setFirstName, setLastName, setFirstAdress, setLastAdress, setCity, setCountry, setPhone, setPostal, setProvince, validate, submitBtn, setCheckValue, checkValue, shipValue, component}) => {
+const ShippingHome:React.FC<IProps> = ({setFirstName, setLastName, setFirstAddress, setLastAddress, setCity, setCountry, setPhone, setPostal, setProvince, validate, submitBtn, setCheckValue, checkValue, shipValue, component}) => {
     return (
         <Form onSubmit={submitBtn}
             render={(props:any) => {
@@ -36,9 +36,9 @@ const ShippingHome:React.FC<IProps> = ({setFirstName, setLastName, setFirstAdres
                             setLastName={setLastName}
                             validate={validate}
                         />
-                        <ShippingAdress 
-                            setFirstAdress={setFirstAdress}
-                            setLastAdress={setLastAdress}
+                        <ShippingAddress 
+                            setFirstAddress={setFirstAddress}
+                            setLastAddress={setLastAddress}
                             validate={validate}
                         />
                         <ShippingCity 

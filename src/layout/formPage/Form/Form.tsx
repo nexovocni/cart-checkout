@@ -26,13 +26,13 @@ const Form:React.FC<IProps> = ({products, deleteProduct, changeProducts, setTax,
         <main className="main__form">
 
             <Email 
-                component={componentEmail}
-                openComponent={openComponentEmail}
+                componentEmail={componentEmail}
+                openComponentEmail={openComponentEmail}
                 openComponentShipping={openComponentShipping}
             />
             <Shipping 
-                component={componentShipping}
-                openComponent={openComponentShipping}
+                componentShipping={componentShipping}
+                openComponentShipping={openComponentShipping}
                 setTax={setTax}
                 setCheckValue={setCheckValue}
                 checkValue={checkValue}

@@ -1,48 +1,48 @@
 import React from 'react'
-import './ShippingAdress.scss'
+import './ShippingAddress.scss'
 import{Field} from 'react-final-form'
 
 interface IProps {
-    setFirstAdress:any;
-    setLastAdress: any;
+    setFirstAddress:any;
+    setLastAddress: any;
     validate: any;
 }
 
-const ShippingAdress:React.FC<IProps> = ({setFirstAdress, setLastAdress, validate}) => {
+const ShippingAddress:React.FC<IProps> = ({setFirstAddress, setLastAddress, validate}) => {
     return (
-        <div className="shipping__component__adress">
-            <div className="shipping__component__adress__first">
+        <div className="shipping__component__address">
+            <div className="shipping__component__address__first">
                 <Field 
-                    name="firstAdress"
+                    name="firstAddress"
                     type="text"
                     component="input"
                     validate={validate}
                 >
                     {({input, meta}) => {
-                        setFirstAdress(input.value)
+                        setFirstAddress(input.value)
                         return(
                             <>
-                                <label className={input.value ? "shipping__component__label" : "shipping__component__label close"}>Adress</label>
-                                <input placeholder="Adress" className="shipping__component__adress__input" {...input} />
+                                <label className={input.value ? "shipping__component__label" : "shipping__component__label close"}>Address</label>
+                                <input placeholder="Address" className="shipping__component__address__input" {...input} />
                                 {meta.error && meta.touched ? <span className="shipping__component__validation">{meta.error}</span> : null}
                             </>
                         )
                     }}
                 </Field>
             </div>
-            <div className="shipping__component__adress__last">
+            <div className="shipping__component__address__last">
                 <Field 
-                    name="lastAdress"
+                    name="lastAddress"
                     type="text"
                     component="input"
                     validate={validate}
                 >
                     {({input, meta}) => {
-                        setLastAdress(input.value)
+                        setLastAddress(input.value)
                         return(
                             <>
-                                <label className={input.value ? "shipping__component__label" : "shipping__component__label close"}>Adress</label>
-                                <input placeholder="Appartment, suite, etc(optional)" className="shipping__component__adress__input" {...input}/>
+                                <label className={input.value ? "shipping__component__label" : "shipping__component__label close"}>Address</label>
+                                <input placeholder="Appartment, suite, etc(optional)" className="shipping__component__address__input" {...input}/>
                                 {meta.error && meta.touched ? <span className="shipping__component__validation">{meta.error}</span> : null}
                             </>
                         )
@@ -53,4 +53,4 @@ const ShippingAdress:React.FC<IProps> = ({setFirstAdress, setLastAdress, validat
     )
 }
 
-export default ShippingAdress
+export default ShippingAddress

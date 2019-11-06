@@ -3,23 +3,23 @@ import './ShippingData.scss'
 
 interface IProps {
     firstName: string;
-    firstNameAdress: string
+    firstNameAddress: string
     lastName: string;
-    lastNameAdress: string
-    firstAdress: string;
-    lastAdress: string;
+    lastNameAddress: string
+    firstAddress: string;
+    lastAddress: string;
     postal: string;
     city: string;
     province: string;
     country: string;
     phone: string;
-    phoneAdress: string
+    phoneAddress: string
     component: boolean;
     home: boolean;
     store: boolean;
 }
 
-const ShippingData:React.FC<IProps> = ({firstName, lastName, firstAdress, lastAdress, postal, province, city, country, phone, component, home, store, firstNameAdress, lastNameAdress, phoneAdress}) => {
+const ShippingData:React.FC<IProps> = ({firstName, lastName, firstAddress, lastAddress, postal, province, city, country, phone, component, home, store, firstNameAddress, lastNameAddress, phoneAddress}) => {
     return (
         <React.Fragment>
             <div className={!component && store ? "shipping__data" : "close"}>
@@ -27,10 +27,10 @@ const ShippingData:React.FC<IProps> = ({firstName, lastName, firstAdress, lastAd
                 <p>{phone}</p> 
             </div>
             <div className={!component && home ? "shipping__data" : "close"}>
-                <p>{firstNameAdress} {lastNameAdress}</p>
-                <p>{firstAdress}, {lastAdress}</p>
+                <p>{firstNameAddress} {lastNameAddress}</p>
+                <p>{firstAddress}, {lastAddress}</p>
                 <p>{postal}, {city}, {province}, {country}</p>
-                <p>{phoneAdress}</p> 
+                <p>{phoneAddress}</p> 
             </div>
         </React.Fragment>
     )

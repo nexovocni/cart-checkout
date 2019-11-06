@@ -5,33 +5,33 @@ import ShippingStore from "../../components/ShippingStore/ShippingStore"
 import ShippingData from "../../components/ShippingData/ShippingData"
 
 interface IProps {
-    component: boolean;
-    openComponent: any;
+    componentShipping: boolean;
+    openComponentShipping: any;
     setTax: any;
     setCheckValue: any;
     checkValue: number;
     shipValue: number;
 }
 
-const Shipping:React.FC<IProps> = ({component, openComponent, setTax, setCheckValue, checkValue, shipValue}) => {
+const Shipping:React.FC<IProps> = ({componentShipping, openComponentShipping, setTax, setCheckValue, checkValue, shipValue}) => {
 
     const submitBtn = () => {
         setTax(true)
-        openComponent(!component)
+        openComponentShipping(!componentShipping)
     }
 
     const [firstName, setFirstName] = useState("")
-    const [firstNameAdress, setFirstNameAdress] = useState("")
+    const [firstNameAddress, setFirstNameAddress] = useState("")
     const [lastName, setLastName] = useState("")
-    const [lastNameAdress, setLastNameAdress] = useState("")
-    const [firstAdress, setFirstAdress] = useState("")
-    const [lastAdress, setLastAdress] = useState("")
+    const [lastNameAddress, setLastNameAddress] = useState("")
+    const [firstAddress, setFirstAddress] = useState("")
+    const [lastAddress, setLastAddress] = useState("")
     const [city, setCity] = useState("")
     const [province, setProvince] = useState("")
     const [postal, setPostal] = useState("")
     const [country, setCountry] = useState("")
     const [phone, setPhone] = useState("")
-    const [phoneAdress, setPhoneAdress] = useState("")
+    const [phoneAddress, setPhoneAddress] = useState("")
     const [open, setOpen] = useState({
         home: false,
         store: false
@@ -61,44 +61,44 @@ const Shipping:React.FC<IProps> = ({component, openComponent, setTax, setCheckVa
                     <h2 className="shipping__heading">Shipping to</h2>
                     <ShippingData 
                         firstName={firstName}
-                        firstNameAdress={firstNameAdress}
+                        firstNameAddress={firstNameAddress}
                         lastName={lastName}
-                        lastNameAdress={lastNameAdress}
-                        firstAdress={firstAdress}
-                        lastAdress={lastAdress}
+                        lastNameAddress={lastNameAddress}
+                        firstAddress={firstAddress}
+                        lastAddress={lastAddress}
                         postal={postal}
                         province={province}
                         country={country}
                         city={city}
                         phone={phone}
-                        phoneAdress={phoneAdress}
-                        component={component}
+                        phoneAddress={phoneAddress}
+                        component={componentShipping}
                         home={open.home}
                         store={open.store}
                     />
-                    <button onClick={() => {openComponent(!component)}} className={!component ? "shipping__heading__button" : "close"}>Edit</button>
-                    <div className={component ? "shipping__component__buttons" : "shipping__component__buttons close" }>
+                    <button onClick={() => {openComponentShipping(!componentShipping)}} className={!componentShipping ? "shipping__heading__button" : "close"}>Edit</button>
+                    <div className={componentShipping ? "shipping__component__buttons" : "shipping__component__buttons close" }>
                         <button onClick={openStore} className={open.store ? "shipping__component__button border-black" : "shipping__component__button"}>Store - Free</button>
                         <button onClick={openHome} className={open.home ? "shipping__component__button border-black" : "shipping__component__button"}>Adress - $10.00</button>
                     </div>
                 </div>
                 <div className={open.home ? "shipping__component__home" : "shipping__component__home close"}>  
                 <ShippingHome 
-                        setFirstName={setFirstNameAdress}
-                        setLastName={setLastNameAdress}
-                        setFirstAdress={setFirstAdress}
-                        setLastAdress={setLastAdress}
+                        setFirstName={setFirstNameAddress}
+                        setLastName={setLastNameAddress}
+                        setFirstAddress={setFirstAddress}
+                        setLastAddress={setLastAddress}
                         setCity={setCity}
                         setPostal={setPostal}
                         setProvince={setProvince}
-                        setPhone={setPhoneAdress}
+                        setPhone={setPhoneAddress}
                         setCountry={setCountry}
                         submitBtn={submitBtn}
                         validate={validate}
                         setCheckValue={setCheckValue}
                         checkValue={checkValue}
                         shipValue={shipValue}
-                        component={component}
+                        component={componentShipping}
                 /> 
                 </div>
                 <div className={open.store ? "shipping__component__store" : "close-store"}>
@@ -108,7 +108,7 @@ const Shipping:React.FC<IProps> = ({component, openComponent, setTax, setCheckVa
                         setPhone={setPhone}
                         validate={validate}
                         submitBtn={submitBtn}
-                        component={component}
+                        component={componentShipping}
                     />
                 </div>
             </div>
