@@ -82,7 +82,7 @@ const Shipping:React.FC<IProps> = ({componentShipping, openComponentShipping, se
                         <button onClick={openHome} className={open.home ? "shipping__component__button border-black" : "shipping__component__button"}>Adress - $10.00</button>
                     </div>
                 </div>
-                <div className={open.home ? "shipping__component__home" : "shipping__component__home close"}>  
+                <div className={open.home ? "shipping__component__home" : "close"}>  
                 <ShippingHome 
                         setFirstName={setFirstNameAddress}
                         setLastName={setLastNameAddress}

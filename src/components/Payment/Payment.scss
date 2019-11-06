@@ -1,0 +1,38 @@
+@import '../../sass/mixins/mixins.scss'; 
+
+.payment{
+    max-height: 800px;
+    display: flex;
+    width: 100%;
+    padding: 35px 0 ;
+    border-top: 1px solid rgba(0, 0, 0, .2);
+
+    @include respond(tablet){
+        width: 80%;
+      }
+
+    &__number{
+        margin-right: 22%;
+    }
+
+    &__form{
+        max-height: 600px;
+        opacity: 1;
+        transition: all .2s ease;
+    }
+
+    &__heading{
+        margin-bottom: 40px;
+        position: relative;
+
+        &__button{
+            border: none;
+            outline: none;
+            background-color: transparent;
+            position: absolute;
+            top: 5px;
+            left: 97%;
+            cursor: pointer;
+        }
+    }
+}

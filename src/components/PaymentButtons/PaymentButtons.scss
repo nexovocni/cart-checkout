@@ -1,0 +1,85 @@
+@import '../../sass/mixins/mixins.scss'; 
+
+.payment{
+
+    &__component{
+
+        &__button{
+            border: 1px solid #999;
+            outline: none;
+            width: 48%;
+            padding: 15px;
+            cursor: pointer;
+            transition: all .5s ease;
+            background-color: transparent;
+
+            &:hover{
+                border-color: #000;
+            }
+
+            .apple{
+                width: 14%;
+                height: auto;
+    
+                @include respond(desktop){
+                    width: 30%
+                }
+    
+                @include respond(tablet){
+                    width: 20%
+                }
+    
+                @include respond(phone){
+                    width: 10%
+                }
+            }
+
+            .paypay{
+                width: 25%;
+                height: auto;
+
+                @include respond(desktop){
+                    width: 50%
+                }
+
+                @include respond(tablet){
+                    width: 40%
+                }
+
+                @include respond(phone){
+                    width: 21%
+                }
+            }
+        }
+
+        &__buttons{
+            width: 100%;
+            margin-bottom: 45px;
+
+            &__up,
+            &__down{
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                margin-bottom: 15px;
+            }
+        }
+    }
+}
+
+.btnPadding{
+    padding: 6.5px 15px;
+}
+
+
+.close{
+    max-height: 0;
+    opacity: 0;
+    transition: all .3s ease;
+    overflow: hidden;
+    margin: 0;
+}
+
+.border-black{
+    border-color: #000;
+}
