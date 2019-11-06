@@ -1,5 +1,5 @@
 import React from 'react'
-import './MessageEmail.scss'
+import './EmailMessage.scss'
 
 interface IProps{
     passwordComponent: boolean;

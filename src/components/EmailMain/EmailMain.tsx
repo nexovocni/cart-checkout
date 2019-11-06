@@ -1,6 +1,6 @@
 import React from 'react'
 import {Field, Form} from 'react-final-form'
-import './YourEmail.scss'
+import './EmailMain.scss'
 
 interface IProps {
     submitBtn: any;

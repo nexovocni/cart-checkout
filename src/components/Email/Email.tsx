@@ -1,9 +1,9 @@
 import React, {useState} from 'react'
 import './Email.scss'
 import {Form} from 'react-final-form'
-import MessageEmail from '../MessageEmail/MessageEmail'
-import PasswordEmail from '../PasswordEmail/PasswordEmail'
-import YourEmail from '../YourEmail/YourEmail'
+import MessageEmail from '../EmailMessage/EmailMessage'
+import PasswordEmail from '../EmailPassword/EmailPassword'
+import EmailMain from '../EmailMain/EmailMain'
 
 interface IProps {
     componentEmail: boolean;
@@ -50,7 +50,7 @@ const Email:React.FC<IProps> = ({componentEmail, openComponentEmail, openCompone
                             <p className={!componentEmail ? "email__email" : "close"}>{input}</p>
                             <button onClick={editBtn} className={!componentEmail ? "email__heading__button" : "close"}>Edit</button>
                             <form onSubmit={props.handleSubmit} className={componentEmail ? "email__component__form" : "close"}>
-                                <YourEmail 
+                                <EmailMain 
                                     submitBtn={submitBtn}
                                     input={input}
                                     validateEmail={validateEmail}
