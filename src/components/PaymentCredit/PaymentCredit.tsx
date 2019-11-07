@@ -4,23 +4,24 @@ import {Form, Field} from 'react-final-form'
 
 interface IProps {
     setCardCredit: any;
-    component: any;
+    card: boolean;
     submitBtn: any;
     validate: any;
     setCard: any;
 }
 
-const PaymentCredit:React.FC<IProps> = ({component, validate, submitBtn, setCard, setCardCredit}) => {
+const PaymentCredit:React.FC<IProps> = ({card, validate, submitBtn, setCard, setCardCredit}) => {
     return (
         <Form onSubmit={submitBtn}
             render={(props:any) => {
                 return(
-                    <form onSubmit={props.handleSubmit} className={!component ? "payment__component__form" : "close"}>
+                    <form onSubmit={props.handleSubmit} className={card ? "payment__component__form" : "close"}>
                         <div className="payment__component__input border-bottom">
                         <Field 
                             name="radius"
                             type="select"
                             component="input"
+                            validate={validate}
                         >
                             {({input, meta}) => {
                                 setCard(input.value)
@@ -47,7 +48,6 @@ const PaymentCredit:React.FC<IProps> = ({component, validate, submitBtn, setCard
                                 validate={validate}
                             >
                                 {({input, meta}) => {
-                                    setCardCredit(input.value)
                                     return(
                                         <>
                                             <label className={input.value ? "payment__component__label" : "close"}>Card holder name</label>
@@ -66,6 +66,7 @@ const PaymentCredit:React.FC<IProps> = ({component, validate, submitBtn, setCard
                                 validate={validate}
                             >
                                 {({input, meta}) => {
+                                    setCardCredit(input.value)
                                     return(
                                         <>
                                             <label className={input.value ? "payment__component__label" : "close"}>Card number</label>

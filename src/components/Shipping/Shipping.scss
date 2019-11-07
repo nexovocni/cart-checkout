@@ -1,7 +1,7 @@
 @import '../../sass/mixins/mixins.scss'; 
 
 .shipping{
-    max-height: 800px;
+    max-height: 2000px;
     display: flex;
     width: 100%;
     padding: 35px 0;
@@ -31,7 +31,7 @@
             background-color: transparent;
             position: absolute;
             top: 5px;
-            left: 97%;
+            left: 95%;
             cursor: pointer;
         }
     }
@@ -41,7 +41,7 @@
         position: relative;
 
         &__form{
-            max-height: 1000px;
+            max-height: 2000px;
             opacity: 1;
             transition: all .2s ease;
 
@@ -63,6 +63,9 @@
             display: flex;
             justify-content: space-between;
             margin-bottom: 55px;
+            max-height: 2000px;
+            opacity: 1;
+            transition: all .2s ease;
         }
 
         &__button{
@@ -73,6 +76,7 @@
             cursor: pointer;
             transition: all .5s ease;
             background-color: transparent;
+            height: 50px;
 
             &:hover{
                 border-color: #000;
@@ -81,7 +85,7 @@
 
         &__home,
         &__store{
-            max-height: 600px;
+            max-height: 1000px;
             opacity: 1;
             transition: all .3s ease;
         }

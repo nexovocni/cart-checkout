@@ -1,11 +1,12 @@
 @import '../../sass/mixins/mixins.scss'; 
 
 .payment{
-    max-height: 800px;
+    max-height: 1000px;
     display: flex;
     width: 100%;
     padding: 35px 0 ;
     border-top: 1px solid rgba(0, 0, 0, .2);
+    position: relative;
 
     @include respond(tablet){
         width: 80%;
@@ -13,12 +14,6 @@
 
     &__number{
         margin-right: 22%;
-    }
-
-    &__form{
-        max-height: 600px;
-        opacity: 1;
-        transition: all .2s ease;
     }
 
     &__heading{
@@ -30,8 +25,8 @@
             outline: none;
             background-color: transparent;
             position: absolute;
-            top: 5px;
-            left: 97%;
+            top: 35px;
+            left: 96%;
             cursor: pointer;
         }
     }

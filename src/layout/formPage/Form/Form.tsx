@@ -24,7 +24,6 @@ const Form:React.FC<IProps> = ({products, deleteProduct, changeProducts, setTax,
 
     return (
         <main className="main__form">
-
             <Email 
                 componentEmail={componentEmail}
                 openComponentEmail={openComponentEmail}
@@ -37,6 +36,7 @@ const Form:React.FC<IProps> = ({products, deleteProduct, changeProducts, setTax,
                 setCheckValue={setCheckValue}
                 checkValue={checkValue}
                 shipValue={shipValue}
+                openComponentPayment={openComponentPayment}
             />
             <Payment 
                 componentPayment={componentPayment}

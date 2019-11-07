@@ -38,9 +38,11 @@ const Payment:React.FC<IProps> = ({componentPayment, openComponentPayment}) => {
 
     const submitBtn = () => {
         openComponentPayment(!componentPayment)
+        setOpen({
+            credit: false,
+            gift: false
+        })
     }
-
-    console.log(open)
 
     return (
         <div className="payment">
@@ -60,13 +62,14 @@ const Payment:React.FC<IProps> = ({componentPayment, openComponentPayment}) => {
                     <PaymentButtons 
                         openGift={openGift}
                         openCredit={openCredit}
-                        open={open}
                         componentPayment={componentPayment}
+                        giftComponent={open.gift}
+                        creditComponent={open.credit}
                     />
                 </div>
                 <div className={open.gift ? "payment__component__gift" : "close"}> 
                     <PaymentGift 
-                        component={componentPayment}
+                        gift={open.gift}
                         setCardGift={setCardGift}
                         validate={validate}
                         submitBtn={submitBtn}
@@ -74,7 +77,7 @@ const Payment:React.FC<IProps> = ({componentPayment, openComponentPayment}) => {
                 </div>
                 <div className={open.credit ? "payment__component__credit" : "close"}> 
                     <PaymentCredit 
-                        component={componentPayment}
+                        card={open.credit}
                         submitBtn={submitBtn}
                         setCard={setCard}
                         setCardCredit={setCardCredit}

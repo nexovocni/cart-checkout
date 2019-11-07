@@ -4,17 +4,19 @@ import './PaymentGift.scss'
 
 interface IProps {
     setCardGift: any;
-    component: any;
+    gift: boolean;
     submitBtn: any;
     validate: any
 }
 
-const PaymentGift:React.FC<IProps> = ({setCardGift, component, validate, submitBtn}) => {
+const PaymentGift:React.FC<IProps> = ({setCardGift, gift, validate, submitBtn}) => {
     return (
+        <React.Fragment>
+        <h3 className="payment__component__gift__heading">Apply gift cards</h3>
         <Form onSubmit={submitBtn}
             render={(props:any) => {
                 return(
-                    <form onSubmit={props.handleSubmit} className={!component ? "payment__component__form__gift" : "close"}>
+                    <form onSubmit={props.handleSubmit} className={gift ? "payment__component__form__gift" : "close"}>
                             <Field 
                                 name="gift-number"
                                 type="text"
@@ -34,15 +36,15 @@ const PaymentGift:React.FC<IProps> = ({setCardGift, component, validate, submitB
                             </Field>
                             <Field 
                                 name="pin-number"
-                                type="text"
+                                type="password"
                                 component="input"
                                 validate={validate}
                             >
                                 {({input, meta}) => {
                                     return(
                                         <div className="payment__component__gift__input">
-                                            <label className={input.value ? "payment__component__gift__label" : "close"}>Pin</label>
-                                            <input placeholder="Pin" className="payment__component__gift__pin" {...input} />
+                                            <label className={input.value ? "payment__component__gift__label" : "close"}>PIN</label>
+                                            <input placeholder="PIN" className="payment__component__gift__pin" {...input} />
                                             {meta.error && meta.touched ? <span className="payment__component__gift__validation">{meta.error}</span> : null}
                                         </div>
                                     )
@@ -53,6 +55,7 @@ const PaymentGift:React.FC<IProps> = ({setCardGift, component, validate, submitB
                 )
             }}
         />
+        </React.Fragment>
     )
 }
 

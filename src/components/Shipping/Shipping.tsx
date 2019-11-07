@@ -11,13 +11,15 @@ interface IProps {
     setCheckValue: any;
     checkValue: number;
     shipValue: number;
+    openComponentPayment: any;
 }
 
-const Shipping:React.FC<IProps> = ({componentShipping, openComponentShipping, setTax, setCheckValue, checkValue, shipValue}) => {
+const Shipping:React.FC<IProps> = ({componentShipping, openComponentShipping, setTax, setCheckValue, checkValue, shipValue, openComponentPayment}) => {
 
     const submitBtn = () => {
         setTax(true)
         openComponentShipping(!componentShipping)
+        openComponentPayment(true)
     }
 
     const [firstName, setFirstName] = useState("")

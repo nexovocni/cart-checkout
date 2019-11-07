@@ -1,3 +1,5 @@
+@import '../../sass/mixins/mixins.scss'; 
+
 .payment{
 
     &__component{
@@ -7,13 +9,30 @@
             &__gift{
                 display: flex;
                 justify-content: space-between;
+                max-height: 1000px;
+                opacity: 1;
+                transition: all .3s ease;
+
+                @include respond(phone){
+                    flex-wrap: wrap;
+                  }
             }
         }
 
         &__gift{
 
             &__input{
-                width: 40%;
+                width: 35%;
+                margin-right: 20px;
+                
+                @include respond(phone){
+                    width: 47%;
+                    margin-right: 0;
+                  }
+            }
+
+            &__heading{
+                margin-bottom: 30px;
             }
 
             &__label,
@@ -30,6 +49,22 @@
                 font-size: .6rem;
             }
 
+            &__submit{
+                background-color: #000;
+                color: #FFF;
+                flex: 1 0 100px;
+                height: 35px;
+                border: none;
+                outline: none;
+                margin-top: 5px;
+                cursor: pointer;
+
+                @include respond(phone){
+                    
+                    margin-top: 20px;
+                  }
+            }
+
             &__number,
             &__pin{
                 width: 100%;
@@ -39,7 +74,6 @@
                 width: 100%;
                 padding-bottom: 5px;
                 font-size: 1rem;
-                margin: 5px 0; 
                 
                 &:focus{
                     border-color: #000;
@@ -47,4 +81,23 @@
             }
         }
     }
+}
+
+
+i.select{
+    position: relative;
+    top: -25px;
+    left: 99%;
+    z-index: -10;
+
+    @include respond(tablet){
+        left: 97%;
+      }
+}
+
+.close{
+    max-height: 0;
+    opacity: 0;
+    transition: all .3s ease;
+    overflow: hidden;
 }
