@@ -1,6 +1,11 @@
 import React from 'react'
 import './PaymentCredit.scss'
 import {Form, Field} from 'react-final-form'
+import {
+    formatCreditCardNumber,
+    formatCVC,
+    formatExpirationDate
+  } from "./cardUtils";
 
 interface IProps {
     setCardCredit: any;
@@ -8,9 +13,28 @@ interface IProps {
     submitBtn: any;
     validate: any;
     setCard: any;
+    cardCredit: string;
+    cardValue: string;
 }
 
-const PaymentCredit:React.FC<IProps> = ({card, validate, submitBtn, setCard, setCardCredit}) => {
+const PaymentCredit:React.FC<IProps> = ({card, validate, submitBtn, setCard, setCardCredit, cardCredit , cardValue}) => {
+
+    const cardValidate = (input:any) => {
+
+        if(cardValue === "Visa"){
+            let cardno =  /^(?:4[0-9]{12}(?:[0-9]{3})?)$/
+            return cardno.test(input) ? null : "Invalid input"
+        }
+        if(cardValue === "Master"){
+            let cardno =  /^5[1-5][0-9]{14}$|^2(?:2(?:2[1-9]|[3-9][0-9])|[3-6][0-9][0-9]|7(?:[01][0-9]|20))[0-9]{12}$/
+            return cardno.test(input) ? null : "Invalid input"
+        }
+        if(cardValue === "American"){
+            let cardno =  /^3[47][0-9]{13}$/
+            return cardno.test(input) ? null : "Invalid input"
+        }
+    }
+
     return (
         <Form onSubmit={submitBtn}
             render={(props:any) => {
@@ -29,9 +53,10 @@ const PaymentCredit:React.FC<IProps> = ({card, validate, submitBtn, setCard, set
                                 <>
                                     <label className={input.value ? "payment__component__label" : "payment__component__label close"}>Cards in my wallet</label>
                                     <select placeholder="Country" className={input.value ? "payment__component__credit__select select" : "payment__component__credit__select select border"} {...input}>
-                                        <option selected value="Visa card">Visa card</option>
-                                        <option value="Master card">Master card</option>
-                                        <option value="Dina card">Dina card</option>
+                                        <option selected hidden value="Choise">Chose a card</option>
+                                        <option value="Visa">Visa card</option>
+                                        <option value="Master">Master card</option>
+                                        <option value="American">American Express</option>
                                     </select>
                                     <i className="fas fa-angle-down select"></i>
                                     {meta.error && meta.touched ? <span className="payment__component__validation">{meta.error}</span> : null}
@@ -63,14 +88,16 @@ const PaymentCredit:React.FC<IProps> = ({card, validate, submitBtn, setCard, set
                                 name="credit-number"
                                 type="text"
                                 component="input"
-                                validate={validate}
+                                validate = {cardValidate}
+                                pattern="[\d| ]{16,22}"
+                                format={formatCreditCardNumber}
                             >
                                 {({input, meta}) => {
-                                    setCardCredit(input.value)
+                                    console.log(cardCredit)
                                     return(
                                         <>
                                             <label className={input.value ? "payment__component__label" : "close"}>Card number</label>
-                                            <input placeholder="Card number" className="payment__component__credit__number" {...input} />
+                                            <input onChange ={ (e) => setCardCredit(e.target.value)} placeholder="Card number" className="payment__component__credit__number" {...input} />
                                             {meta.error && meta.touched ? <span className="payment__component__validation">{meta.error}</span> : null}
                                         </>
                                     )
@@ -83,6 +110,8 @@ const PaymentCredit:React.FC<IProps> = ({card, validate, submitBtn, setCard, set
                                 type="text"
                                 component="input"
                                 validate={validate}
+                                pattern={"\d\d/\d\d"}
+                                format={formatExpirationDate}
                             >
                                 {({input, meta}) => {
                                     return(
@@ -99,6 +128,8 @@ const PaymentCredit:React.FC<IProps> = ({card, validate, submitBtn, setCard, set
                                 type="text"
                                 component="input"
                                 validate={validate}
+                                pattern={"\d{3,4}"}
+                                format={formatCVC}
                             >
                                 {({input, meta}) => {
                                     return(

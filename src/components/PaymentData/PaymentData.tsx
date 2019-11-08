@@ -26,10 +26,10 @@ const PaymentData:React.FC<IProps> = ({card, cardCredit, cardGift, gift, credit,
     return (
         <React.Fragment>
             <div className={!component && !gift ? "payment__data" : "close"}>
-                <p>{cardGift ? "Gift card" : null} {passValidation(cardGift)}</p> 
+                <p>Gift card applied</p> 
             </div>
             <div className={!component && !credit ? "payment__data" : "close"}>
-                <p>{card} {passValidation(cardCredit)}</p>
+                <p>{card} </p>
                 
             </div>
         </React.Fragment>

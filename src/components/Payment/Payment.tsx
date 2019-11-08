@@ -82,6 +82,8 @@ const Payment:React.FC<IProps> = ({componentPayment, openComponentPayment}) => {
                         setCard={setCard}
                         setCardCredit={setCardCredit}
                         validate={validate}
+                        cardCredit={cardCredit}
+                        cardValue={card}
                     />
                 </div>
             </div>  
