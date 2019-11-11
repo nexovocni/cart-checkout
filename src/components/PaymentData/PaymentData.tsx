@@ -1,5 +1,6 @@
 import React from 'react'
 import './PaymentData.scss'
+import formatString from "format-string-by-pattern";
 
 interface IProps {
     cardGift: string;
@@ -12,24 +13,13 @@ interface IProps {
 
 const PaymentData:React.FC<IProps> = ({card, cardCredit, cardGift, gift, credit, component}) => {
 
-    const passValidation = (mainStr: any) => {
-        let vis = mainStr.slice(-4),
-        countNum = '';
-    
-        for(var i = (mainStr.length); i>0; i--){
-        countNum += '*';
-    }
-
-    return countNum + vis
-}
-
     return (
         <React.Fragment>
-            <div className={!component && !gift ? "payment__data" : "close"}>
-                <p>Gift card applied</p> 
+            <div className={component && gift ? "payment__data" : "close"}>
+                <p>Applied gift card</p> 
             </div>
-            <div className={!component && !credit ? "payment__data" : "close"}>
-                <p>{card} </p>
+            <div className={!component && card ? "payment__data" : "close"}>
+                <p>{card} &nbsp; {formatString("●●●● ●●●● ●●●● 9999",cardCredit)}</p>
                 
             </div>
         </React.Fragment>

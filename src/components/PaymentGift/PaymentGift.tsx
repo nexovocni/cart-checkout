@@ -10,13 +10,16 @@ interface IProps {
 }
 
 const PaymentGift:React.FC<IProps> = ({setCardGift, gift, validate, submitBtn}) => {
+
+
     return (
         <React.Fragment>
-        <h3 className="payment__component__gift__heading">Apply gift cards</h3>
         <Form onSubmit={submitBtn}
             render={(props:any) => {
                 return(
-                    <form onSubmit={props.handleSubmit} className={gift ? "payment__component__form__gift" : "close"}>
+                    <>
+                    <h3 className="payment__component__gift__heading">Apply gift cards</h3>
+                    <form onSubmit={props.handleSubmit} className="payment__component__form__gift">
                             <Field 
                                 name="gift-number"
                                 type="text"
@@ -52,6 +55,7 @@ const PaymentGift:React.FC<IProps> = ({setCardGift, gift, validate, submitBtn}) 
                             </Field>
                         <button onSubmit={props.handleSubmit} className="payment__component__gift__submit" type="submit">Apply</button>
                     </form>
+                    </>
                 )
             }}
         />

@@ -8,19 +8,13 @@
             margin-bottom: 15px;
         }
 
-        &__form{
-            max-height: 1000px;
-            opacity: 1;
-            transition: all .3s ease;
-        }
-
         &__date{
             width: 48%;
         }
 
         &__shipping{
             display: flex;
-            margin-bottom: 50px;
+            margin: 40px 0;
 
             &__sign{
                 background-color: #000;
@@ -52,6 +46,10 @@
         }
 
         &__credit{
+
+            max-height: 1;
+            opacity: 1;
+            transition: all .3s ease;
 
             &__submit{
                 background-color: #000;

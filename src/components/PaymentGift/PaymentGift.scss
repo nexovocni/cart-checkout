@@ -9,9 +9,6 @@
             &__gift{
                 display: flex;
                 justify-content: space-between;
-                max-height: 1000px;
-                opacity: 1;
-                transition: all .3s ease;
 
                 @include respond(phone){
                     flex-wrap: wrap;
@@ -20,6 +17,9 @@
         }
 
         &__gift{
+            max-height: 1000px;
+            opacity: 1;
+            transition: all .3s ease;
 
             &__input{
                 width: 35%;
