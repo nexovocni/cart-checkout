@@ -11,13 +11,7 @@ interface IProps {
     stateComponent: boolean
 }
 
-const Products: React.FC<IProps> = ({
-    products,
-    changeProducts,
-    deleteProduct,
-    updateState,
-    stateComponent
-}) => {
+const Products: React.FC<IProps> = ({products, changeProducts, deleteProduct, updateState, stateComponent}) => {
 
     return (
         <main className="main">
@@ -27,8 +21,8 @@ const Products: React.FC<IProps> = ({
                     return (
                         <Product
                             key={ product.id }
-                            updateProducts={ changeProducts } 
-                            remove={ deleteProduct } 
+                            changeProducts={ changeProducts } 
+                            deleteProduct={ deleteProduct } 
                             product={ product } 
                             updateState= { updateState }
                             stateComponent={stateComponent}

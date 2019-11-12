@@ -25,15 +25,7 @@ interface IProps {
     stateComponent: boolean
 }
 
-const ProductLeft:React.FC<IProps> = ({
-    localData,
-    removeProduct,
-    product, 
-    handleChange, 
-    handleChangeColor, 
-    updateState,
-    stateComponent
-}) => {
+const ProductLeft:React.FC<IProps> = ({localData, removeProduct, product, handleChange, handleChangeColor, updateState,stateComponent}) => {
 
     const [productComponent, updateProductComponent] = useState (true)
 
