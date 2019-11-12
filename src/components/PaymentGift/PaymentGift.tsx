@@ -4,12 +4,11 @@ import './PaymentGift.scss'
 
 interface IProps {
     setCardGift: any;
-    gift: boolean;
     submitBtn: any;
     validate: any
 }
 
-const PaymentGift:React.FC<IProps> = ({setCardGift, gift, validate, submitBtn}) => {
+const PaymentGift:React.FC<IProps> = ({setCardGift, validate, submitBtn}) => {
 
 
     return (

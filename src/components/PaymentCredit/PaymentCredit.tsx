@@ -5,7 +5,6 @@ import formatString from "format-string-by-pattern";
 
 interface IProps {
     setCardCredit: any;
-    card: boolean;
     submitBtn: any;
     validate: any;
     setCard: any;
@@ -13,7 +12,7 @@ interface IProps {
     cardValue: string;
 }
 
-const PaymentCredit:React.FC<IProps> = ({card, validate, submitBtn, setCard, setCardCredit, cardCredit , cardValue}) => {
+const PaymentCredit:React.FC<IProps> = ({validate, submitBtn, setCard, setCardCredit, cardValue}) => {
 
 
     const clearNumber = (value = '') => {
