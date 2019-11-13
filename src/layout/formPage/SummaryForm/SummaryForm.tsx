@@ -14,9 +14,10 @@ interface IProps {
     shipValue: number;
     tax: boolean;
     checkValue: number;
+    taxValue: any;
 }
 
-const SummaryForm:React.FC<IProps> = ({products, itemsValue, shipValue, tax, checkValue}) => {
+const SummaryForm:React.FC<IProps> = ({products, itemsValue, shipValue, tax, checkValue, taxValue}) => {
 
     const [disabledCode, setDisabledCode] = useState(false)
 
@@ -44,6 +45,7 @@ const SummaryForm:React.FC<IProps> = ({products, itemsValue, shipValue, tax, che
                 <SummaryTax 
                     disabledCode={disabledCode} 
                     tax={tax}
+                    taxValue={taxValue}
                 />
                 <div className="summaryform__line-grey-tax"></div>
                 <Code 

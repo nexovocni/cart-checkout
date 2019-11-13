@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import ReviewSelect from '../ReviewSelect/ReviewSelect'
+import ReviewInfo from '../ReviewInfo/ReviewInfo'
 import './ReviewProduct.scss'
 
 interface IProps {
@@ -16,19 +17,19 @@ interface IProps {
         quantities: number[]
         image: string;
     };
-    changeProducts: any
-    deleteProduct: any,
-    updateState: any
+    changeProducts: any;
+    deleteProduct: any;
+    updateProductComponent: any;
+    productComponent: boolean;
 }
 
-const ReviewProduct:React.FC<IProps> = ({product, changeProducts, deleteProduct, updateState}) => {
+const ReviewProduct:React.FC<IProps> = ({product, changeProducts, deleteProduct, updateProductComponent, productComponent}) => {
 
     const [localData, setLocalData] = useState(product);
-
-    const [productComponent, updateProductComponent] = useState (false)
+    const [state, updateState] = useState(true)
 
     const handleState = () => {
-        updateState(true)
+        updateState(false)
         updateProductComponent(true)
     }
 
@@ -62,29 +63,13 @@ const ReviewProduct:React.FC<IProps> = ({product, changeProducts, deleteProduct,
     }
 
     return (
-        <div className="review__product">
-               <div className="review__product__section__top">
-                    <div className="review__product__section__info">
-                        <div className="review__product__section__image">
-                            <img src={localData.image[localData.colors.indexOf(localData.color)]} alt="image"/>
-                        </div>
-                        <div className="review__product__section__name">
-                            <div>
-                                <p>{localData.name}</p>
-                            </div>
-                            <div className="review__product__section__text" >
-                                <p>{localData.color} - Size {localData.size} - Quantity {localData.quantity}</p>
-                            </div>
-                            <div className="review__product__section__nav">
-                                <button onClick={handleState} className="review__product__section__edit">Edit</button>
-                                <button onClick={removeProduct} className="review__product__section__remove">Remove</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="rewiev__product__section__price">
-                        <p>${parseInt(localData.price).toFixed(2)}</p>
-                    </div>
-            </div>
+        <div style={{opacity: productComponent && state ? .3 : 1, pointerEvents: productComponent && state ? "none" : "auto"}} className="review__product">
+            <ReviewInfo 
+                localData={localData}
+                productComponent={productComponent}
+                handleState={handleState}
+                removeProduct={removeProduct}
+            /> 
             <ReviewSelect 
                 handleButton={handleButton}
                 handleChange={handleChange}
@@ -92,9 +77,11 @@ const ReviewProduct:React.FC<IProps> = ({product, changeProducts, deleteProduct,
                 product={product}
                 localData={localData}
                 productComponent={productComponent}
+                state={state}
             />
         </div>
     )
 }
 
 export default ReviewProduct
+

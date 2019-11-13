@@ -14,10 +14,10 @@ interface IProps {
     checkValue: number;
     shipValue: number;
     itemsValue: number;
-    updateState:any;
+    taxValue: any;
 }
 
-const Form:React.FC<IProps> = ({products, deleteProduct, changeProducts, setTax, setCheckValue, checkValue, shipValue, itemsValue, updateState}) => {
+const Form:React.FC<IProps> = ({products, deleteProduct, changeProducts, setTax, setCheckValue, checkValue, shipValue, itemsValue, taxValue}) => {
 
     const [componentEmail, openComponentEmail] = useState(true)
     const [componentShipping, openComponentShipping] = useState(false)
@@ -51,9 +51,10 @@ const Form:React.FC<IProps> = ({products, deleteProduct, changeProducts, setTax,
                 changeProducts = {changeProducts}
                 checkValue={checkValue}
                 itemsValue={itemsValue}
-                updateState={updateState}
                 componentReview={componentReview}
                 openComponentReview={openComponentReview}
+                shipValue={shipValue}
+                taxValue={taxValue}
             />
         </main>
     )

@@ -61,7 +61,6 @@ const ShippingHome:React.FC<IProps> = ({setFirstName, setLastName, setFirstAddre
                             setCheckValue={setCheckValue}
                         />
                         }
-                        
                         <button onSubmit={props.handleSubmit} className="shipping__component__submit" type="submit">Continue to payment method</button>
                     </form>
                 )
