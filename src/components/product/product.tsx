@@ -67,7 +67,8 @@ const Product: React.FC<IProps> = ({product, changeProducts, updateState, delete
         navViewMob: "name__mobile-nav-mob",
         productLeft: "product__section__left",
         viewText: "name__mobile-data-text",
-        productBottom: "product__section__left-bottom"
+        productBottom: "product__section__left-bottom",
+        productBottomOpen: "product__section__left-bottom"
     }
 
     return (

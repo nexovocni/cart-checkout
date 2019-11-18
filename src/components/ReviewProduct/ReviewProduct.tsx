@@ -69,7 +69,8 @@ const ReviewProduct:React.FC<IProps> = ({product, changeProducts, deleteProduct,
         navViewMob: "review__name__mobile-nav-mob",
         productLeft: "review__section__left",
         viewText: "review__mobile-data-text",
-        productBottom: "product__section__left-bottom"
+        productBottom: "review__section__left-bottom",
+        productBottomOpen: "review__section__left-bottom"
     }
 
     return (
