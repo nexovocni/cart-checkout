@@ -3,21 +3,22 @@ import './ViewProduct.scss'
 import ViewMobile from '../ViewMobile/ViewMobile'
 
 interface IProps {
-    localData: any,
-    handleState: any,
-    productComponent: any,
-    removeProduct: any
+    localData: any;
+    handleState: any;
+    productComponent: any;
+    removeProduct: any;
+    classNames: any;
 }
 
-const ViewProduct:React.FC<IProps> = ({localData, handleState, productComponent, removeProduct}) => {
+const ViewProduct:React.FC<IProps> = ({localData, handleState, productComponent, removeProduct, classNames}) => {
 
     return (
             <React.Fragment>
-                <div className="product__section__left-image">
+                <div className={classNames.img}>
                     <img src={localData.image[localData.colors.indexOf(localData.color)]} alt="image"/>
                 </div>
-                <div className="product__section__left-name">
-                    <div className={productComponent ? "name" :  "name-mob"}>
+                <div className={classNames.nameSection}>
+                    <div className={productComponent ? classNames.name :  classNames.nameMob}>
                         <div>
                             <p>{localData.name}</p>
                         </div>
@@ -26,6 +27,7 @@ const ViewProduct:React.FC<IProps> = ({localData, handleState, productComponent,
                             removeProduct={removeProduct} 
                             productComponent={productComponent}
                             localData={localData}
+                            classNames={classNames}
                         />
                         <div className={productComponent ? "wishlist" : "wishlist-mob"}>
                             <p><i className="fa fa-heart"></i>Move to wishlist</p>

@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import ReviewSelect from '../ReviewSelect/ReviewSelect'
 import ReviewInfo from '../ReviewInfo/ReviewInfo'
+import ProductLeft from '../ProductLeft/ProductLeft'
 import './ReviewProduct.scss'
 
 interface IProps {
@@ -19,19 +20,14 @@ interface IProps {
     };
     changeProducts: any;
     deleteProduct: any;
-    updateProductComponent: any;
-    productComponent: boolean;
+    updateStateComponent: any;
+    stateComponent: boolean;
 }
 
-const ReviewProduct:React.FC<IProps> = ({product, changeProducts, deleteProduct, updateProductComponent, productComponent}) => {
+const ReviewProduct:React.FC<IProps> = ({product, changeProducts, deleteProduct, updateStateComponent, stateComponent}) => {
 
     const [localData, setLocalData] = useState(product);
     const [state, updateState] = useState(true)
-
-    const handleState = () => {
-        updateState(false)
-        updateProductComponent(true)
-    }
 
     const handleChange = (e:any) => {
         const newProduct = {...localData, [e.target.name]: e.target.value};
@@ -57,27 +53,36 @@ const ReviewProduct:React.FC<IProps> = ({product, changeProducts, deleteProduct,
         setLocalData(product);
     }, [product])
 
-    const handleButton = () => {
-        updateProductComponent(false)
-        updateState(false)
+
+    const classNames = {
+        img: "review__section__left-image",
+        nameSection: "review__section__left-name",
+        name: "review__name",
+        nameMob: "review__name-mob",
+        whishlist: "review__whishlist",
+        whishlistMob: "review__wishlist-mob",
+        price: "review__name-price",
+        viewMob: "review__name__viewMobile",
+        viewNameMob: "review__name__mobile-data-mob",
+        viewName: "review__name__mobile-data",
+        navMob: "review__name__mobile-nav",
+        navViewMob: "review__name__mobile-nav-mob",
+        productLeft: "review__section__left",
+        viewText: "review__mobile-data-text",
+        productBottom: "product__section__left-bottom"
     }
 
     return (
-        <div style={{opacity: productComponent && state ? .3 : 1, pointerEvents: productComponent && state ? "none" : "auto"}} className="review__product">
-            <ReviewInfo 
-                localData={localData}
-                productComponent={productComponent}
-                handleState={handleState}
-                removeProduct={removeProduct}
-            /> 
-            <ReviewSelect 
-                handleButton={handleButton}
-                handleChange={handleChange}
-                handleChangeColor={handleChangeColor}
+        <div className="review__product">
+            <ProductLeft 
+                localData={ localData }
+                removeProduct={ removeProduct }
+                handleChange={ handleChange }
+                handleChangeColor={ handleChangeColor } 
                 product={product}
-                localData={localData}
-                productComponent={productComponent}
-                state={state}
+                updateState={ updateState}
+                stateComponent= { stateComponent }
+                classNames={classNames}
             />
         </div>
     )

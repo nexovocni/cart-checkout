@@ -17,15 +17,16 @@ interface IProps {
         quantities: number[]
         image: string;
     };
-    localData: any,
-    handleChange: any,
-    handleChangeColor: any
-    removeProduct: any,
-    updateState: any,
-    stateComponent: boolean
+    localData: any;
+    handleChange: any;
+    handleChangeColor: any;
+    removeProduct: any;
+    updateState: any;
+    stateComponent: boolean;
+    classNames: any;
 }
 
-const ProductLeft:React.FC<IProps> = ({localData, removeProduct, product, handleChange, handleChangeColor, updateState,stateComponent}) => {
+const ProductLeft:React.FC<IProps> = ({localData, removeProduct, product, handleChange, handleChangeColor, updateState,stateComponent, classNames}) => {
 
     const [productComponent, updateProductComponent] = useState (true)
 
@@ -35,16 +36,17 @@ const ProductLeft:React.FC<IProps> = ({localData, removeProduct, product, handle
     }
 
     return (
-        <div className="product__section__left" style={{opacity: stateComponent && productComponent ? .3 : 1, pointerEvents: stateComponent && productComponent ? "none" : "auto"}}>
+        <div className={classNames.productLeft} style={{opacity: stateComponent && productComponent ? .3 : 1, pointerEvents: stateComponent && productComponent ? "none" : "auto"}}>
             <div className="product__section__left-top">
                 <ViewProduct 
                     localData={localData}
                     productComponent={productComponent}
                     handleState={handleState}
                     removeProduct={removeProduct}
+                    classNames={classNames}
                 />
             </div>
-            <div className={productComponent ? "product__section__left-bottom" : "product__section__left-bottom-open"}>
+            <div className={productComponent ? classNames.productBottom : "product__section__left-bottom-open"}>
                 <SelectMobile 
                     localData={ localData}  
                     handleChange={ handleChange } 

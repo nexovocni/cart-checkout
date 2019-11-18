@@ -17,7 +17,7 @@ interface IProps {
 
 const Review:React.FC<IProps> = ({products, changeProducts, deleteProduct, checkValue, itemsValue, openComponentReview, componentReview, shipValue, taxValue}) => {
 
-    const [productComponent, updateProductComponent] = useState (false)
+    const [stateComponent, updateStateComponent] = useState (false)
 
     const [scrollBtn, setScrollBtn] = useState(false)
 
@@ -51,8 +51,8 @@ const Review:React.FC<IProps> = ({products, changeProducts, deleteProduct, check
                                         product={product}
                                         changeProducts={changeProducts}
                                         deleteProduct={deleteProduct}
-                                        productComponent={productComponent}
-                                        updateProductComponent={updateProductComponent}
+                                        stateComponent={stateComponent}
+                                        updateStateComponent={updateStateComponent}
                                     />
                                 )
                             })}
@@ -61,13 +61,13 @@ const Review:React.FC<IProps> = ({products, changeProducts, deleteProduct, check
                             <ReviewData 
                                 itemsValue={itemsValue}
                                 checkValue={checkValue}
-                                productComponent={productComponent}
+                                productComponent={stateComponent}
                                 shipValue={shipValue}
                                 taxValue={taxValue}
                             />
                         </div>
-                        <div style={{position: productComponent ? "relative" : "sticky"}} id="sticky_div" className={!scrollBtn ? "review__component__button" : "review__component__button-sticky"}>
-                            <button style={{opacity: productComponent ? .3 : 1, pointerEvents: productComponent ? "none" : "auto"}} onClick={reviewSubmit} className="review__component__submit" type="submit">Place order</button>
+                        <div style={{position: stateComponent ? "relative" : "sticky"}} id="sticky_div" className={!scrollBtn ? "review__component__button" : "review__component__button-sticky"}>
+                            <button style={{opacity: stateComponent ? .3 : 1, pointerEvents: stateComponent ? "none" : "auto"}} onClick={reviewSubmit} className="review__component__submit" type="submit">Place order</button>
                         </div>
                     </div>
                 </div>

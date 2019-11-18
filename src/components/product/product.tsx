@@ -52,6 +52,24 @@ const Product: React.FC<IProps> = ({product, changeProducts, updateState, delete
         setLocalData(product);
     }, [product]);
 
+    const classNames = {
+        img: "product__section__left-image",
+        nameSection: "product__section__left-name",
+        name: "name",
+        nameMob: "name-mob",
+        whishlist: "wishlist",
+        whishlistMob: "wishlist-mob",
+        price: "name__price",
+        viewMob: "name__viewMobile",
+        viewNameMob: "name__mobile-data-mob",
+        viewName: "name__mobile-data",
+        navMob: "name__mobile-nav",
+        navViewMob: "name__mobile-nav-mob",
+        productLeft: "product__section__left",
+        viewText: "name__mobile-data-text",
+        productBottom: "product__section__left-bottom"
+    }
+
     return (
         <div className="product">
             <div className="product__section">
@@ -63,6 +81,7 @@ const Product: React.FC<IProps> = ({product, changeProducts, updateState, delete
                         product={product}
                         updateState={ updateState}
                         stateComponent= { stateComponent }
+                        classNames={classNames}
                 /> 
                 <ProductRight
                         product={product}
@@ -79,7 +98,7 @@ const Product: React.FC<IProps> = ({product, changeProducts, updateState, delete
                 <i className="fa fa-times"></i>
             </div>
         </div>
-    );
+    )
 }
 
 export default Product
