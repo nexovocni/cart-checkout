@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useRef, useLayoutEffect} from 'react'
 import ReviewProduct from '../ReviewProduct/ReviewProduct'
 import ReviewData from '../ReviewData/ReviewData'
 import './Review.scss'
@@ -19,19 +19,16 @@ const Review:React.FC<IProps> = ({products, changeProducts, deleteProduct, check
 
     const [productComponent, updateProductComponent] = useState (false)
 
-    const [scroll, setScroll] = useState(0)
     const [scrollBtn, setScrollBtn] = useState(false)
 
     useEffect(() => {
-      document.addEventListener("scroll", () => {
-        const scrollCheck = window.scrollY 
-        if (scrollCheck !== scroll) {
-          setScroll(scrollCheck)
-        }
-      })
-      if(scroll >= 841){
-        setScrollBtn(true)
-        }
+        document.addEventListener("scroll", () => {
+            const wrappedElement = document.getElementById('sticky_div')
+              
+            if (Math.round(wrappedElement!.getBoundingClientRect().bottom) - window.innerHeight <= 0) {
+                setScrollBtn(true)
+            }
+        })
     })
 
     const reviewSubmit = () => {
@@ -69,7 +66,7 @@ const Review:React.FC<IProps> = ({products, changeProducts, deleteProduct, check
                                 taxValue={taxValue}
                             />
                         </div>
-                        <div style={{position: productComponent ? "relative" : "sticky"}} className={!scrollBtn ? "review__component__button" : "review__component__button-sticky"}>
+                        <div style={{position: productComponent ? "relative" : "sticky"}} id="sticky_div" className={!scrollBtn ? "review__component__button" : "review__component__button-sticky"}>
                             <button style={{opacity: productComponent ? .3 : 1, pointerEvents: productComponent ? "none" : "auto"}} onClick={reviewSubmit} className="review__component__submit" type="submit">Place order</button>
                         </div>
                     </div>
