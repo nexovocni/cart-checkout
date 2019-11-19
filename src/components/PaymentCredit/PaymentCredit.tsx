@@ -22,16 +22,16 @@ const PaymentCredit:React.FC<IProps> = ({validate, submitBtn, setCard, setCardCr
     const cardValidate = (input:any) => {
 
         if(cardValue === "Visa card"){
-            let cardno =  /^(?:4[0-9]{12}(?:[0-9]{3})?)$/
-            return  cardno.test(clearNumber(input)) ? null : "Invalid input"
+            const visaValidator =  /^(?:4[0-9]{12}(?:[0-9]{3})?)$/
+            return  visaValidator.test(clearNumber(input)) ? null : "Invalid input"
         }
         else if(cardValue === "Master card"){
-            let cardno =  /^5[1-5][0-9]{14}$|^2(?:2(?:2[1-9]|[3-9][0-9])|[3-6][0-9][0-9]|7(?:[01][0-9]|20))[0-9]{12}$/
-            return  cardno.test(clearNumber(input)) ? null : "Invalid input"
+            let masterValidator =  /^5[1-5][0-9]{14}$|^2(?:2(?:2[1-9]|[3-9][0-9])|[3-6][0-9][0-9]|7(?:[01][0-9]|20))[0-9]{12}$/
+            return  masterValidator.test(clearNumber(input)) ? null : "Invalid input"
         }
         else if(cardValue === "American express"){
-            let cardno =  /^3[47][0-9]{13}$/
-            return  cardno.test(clearNumber(input)) ? null : "Invalid input"
+            let expressValidator =  /^3[47][0-9]{13}$/
+            return  expressValidator.test(clearNumber(input)) ? null : "Invalid input"
         }
         else if(cardValue === ""){
             return "Invalid input"
@@ -51,12 +51,12 @@ const PaymentCredit:React.FC<IProps> = ({validate, submitBtn, setCard, setCardCr
 
     const cvvValidate = (input:any) => {
         if(cardValue === "Visa card" || cardValue === "Master card"){
-            let cardno = /^[0-9]{3}$/
-            return  cardno.test(clearNumber(input)) ? null : "Invalid input"
+            let cvvValidator = /^[0-9]{3}$/
+            return  cvvValidator.test(clearNumber(input)) ? null : "Invalid input"
         }
         else if(cardValue === "American express"){
-            let cardno = /^[0-9]{4}$/
-            return  cardno.test(clearNumber(input)) ? null : "Invalid input"
+            let cvvValidator = /^[0-9]{4}$/
+            return  cvvValidator.test(clearNumber(input)) ? null : "Invalid input"
         }
         else if(cardValue === ""){
             return "Invalid input"
