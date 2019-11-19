@@ -24,7 +24,7 @@
         &__section{
             max-height: 2000px;
             opacity: 1;
-            transition: all .4s ease;
+            transition: all .5s ease;
         }
 
         &__button{
@@ -65,8 +65,21 @@
             background-color: transparent;
             position: absolute;
             top: 30px;
-            left: 97%;
+            left: 98%;
             cursor: pointer;
+
+
+            @include respond(desktop){
+                left: 97%;
+              }
+
+            @include respond(tablet){
+                left: 95%;
+              }
+
+              @include respond(phone){
+                left: 97%;
+              }
         }
     }
 }
@@ -74,7 +87,7 @@
 .close{
     max-height: 0;
     opacity: 0;
-    transition: all .1s ease;
+    transition: all .3s ease;
     overflow: hidden;
 }
 

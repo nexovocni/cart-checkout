@@ -16,12 +16,12 @@
     &__email{
         opacity: 1;
         max-height: 100px;
-        transition: all .3 ease;
+        transition: all .5 ease;
         margin-top: -5px;
     }
 
     &__heading{
-        margin-bottom: 25px;
+        margin-bottom: 15px;
         position: relative;
 
         &__button{
@@ -30,9 +30,21 @@
             background-color: transparent;
             position: absolute;
             top: 5px;
-            left: 95%;
+            left: 97%;
             cursor: pointer;
             height: 50px;
+
+            @include respond(desktop){
+                left: 96%;
+              }
+
+            @include respond(tablet){
+                left: 94%;
+              }
+
+              @include respond(phone){
+                left: 96%;
+              }
         }
     }
 
@@ -43,7 +55,7 @@
         &__form{
             max-height: 600px;
             opacity: 1;
-            transition: all .2s ease;
+            transition: all .5s ease;
         }
 
         &__validation{

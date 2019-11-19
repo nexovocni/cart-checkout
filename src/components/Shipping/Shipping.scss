@@ -18,11 +18,10 @@
     &__shipping{
         opacity: 1;
         max-height: 300px;
-        transition: all .3 ease;
+        transition: all .5 ease;
     }
 
     &__heading{
-        margin-bottom: 40px;
         position: relative;
 
         &__button{
@@ -31,8 +30,21 @@
             background-color: transparent;
             position: absolute;
             top: 5px;
-            left: 95%;
+            left: 97%;
             cursor: pointer;
+
+
+            @include respond(desktop){
+                left: 96%;
+              }
+
+            @include respond(tablet){
+                left: 94%;
+              }
+
+              @include respond(phone){
+                left: 96%;
+              }
         }
     }
 
@@ -43,7 +55,7 @@
         &__form{
             max-height: 2000px;
             opacity: 1;
-            transition: all .2s ease;
+            transition: all .5s ease;
 
             p{
                 margin-bottom: 30px;
@@ -65,7 +77,8 @@
             margin-bottom: 55px;
             max-height: 2000px;
             opacity: 1;
-            transition: all .2s ease;
+            transition: all .5s ease;
+            margin-top: 40px;
         }
 
         &__button{
@@ -87,7 +100,7 @@
         &__store{
             max-height: 1000px;
             opacity: 1;
-            transition: all .3s ease;
+            transition: all .5s ease;
         }
     }
 }

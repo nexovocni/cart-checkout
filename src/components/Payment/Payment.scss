@@ -17,7 +17,6 @@
     }
 
     &__heading{
-        margin-bottom: 40px;
         position: relative;
 
         &__button{
@@ -26,8 +25,20 @@
             background-color: transparent;
             position: absolute;
             top: 35px;
-            left: 96%;
+            left: 98%;
             cursor: pointer;
+
+            @include respond(desktop){
+                left: 97%;
+              }
+
+            @include respond(tablet){
+                left: 95%;
+              }
+
+              @include respond(phone){
+                left: 97%;
+              }
         }
     }
 }

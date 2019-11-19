@@ -27,7 +27,7 @@
                 opacity: 1;
                 flex-direction: column;
                 width: 100%;
-                transition: all .4s ease;
+                transition: all .5s ease;
             }
 
             &-open{
@@ -37,7 +37,7 @@
                     flex-direction: column;
                     width: 100%;
                     opacity: 1;
-                    transition: all .4s ease;
+                    transition: all .5s ease;
                 }
             }
         }

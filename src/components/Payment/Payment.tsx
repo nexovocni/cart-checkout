@@ -8,9 +8,10 @@ import PaymentButtons from '../PaymentButtons/PaymentButtons'
 interface IProps {
     componentPayment: boolean;
     openComponentPayment: any;
+    openComponentReview: any;
 }
 
-const Payment:React.FC<IProps> = ({componentPayment, openComponentPayment}) => {
+const Payment:React.FC<IProps> = ({componentPayment, openComponentPayment, openComponentReview}) => {
 
     const [card, setCard] = useState("")
     const [cardCredit, setCardCredit] = useState("")
@@ -42,7 +43,7 @@ const Payment:React.FC<IProps> = ({componentPayment, openComponentPayment}) => {
 
     const submitBtn = () => {
         openComponentPayment(!componentPayment)
-
+        openComponentReview(true)
     }
 
     return (

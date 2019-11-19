@@ -19,7 +19,7 @@
         &__gift{
             max-height: 1000px;
             opacity: 1;
-            transition: all .3s ease;
+            transition: all .5s ease;
 
             &__input{
                 width: 35%;
@@ -39,7 +39,7 @@
             &__text{
                 max-height: 50px;
                 opacity: 1;
-                transition: all .3s ease;
+                transition: all .5s ease;
                 color: #999;
                 font-size: .6rem;
             }

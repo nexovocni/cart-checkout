@@ -44,6 +44,7 @@ const Form:React.FC<IProps> = ({products, deleteProduct, changeProducts, setTax,
             <Payment 
                 componentPayment={componentPayment}
                 openComponentPayment={openComponentPayment}
+                openComponentReview={openComponentReview}
             />
             <Review 
                 products={ products } 
