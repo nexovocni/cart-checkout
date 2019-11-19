@@ -7,18 +7,18 @@ interface IProps {
     handleState: any;
     productComponent: any;
     removeProduct: any;
-    classNames: any;
+    review: boolean;
 }
 
-const ViewProduct:React.FC<IProps> = ({localData, handleState, productComponent, removeProduct, classNames}) => {
+const ViewProduct:React.FC<IProps> = ({localData, handleState, productComponent, removeProduct, review}) => {
 
     return (
             <React.Fragment>
-                <div className={classNames.img}>
+                <div className={`${review ? `review` : `product`}__section__left-image`}>
                     <img src={localData.image[localData.colors.indexOf(localData.color)]} alt="image"/>
                 </div>
-                <div className={classNames.nameSection}>
-                    <div className={productComponent ? classNames.name :  classNames.nameMob}>
+                <div className={`${review ? `review` : `product`}__section__left-name`}>
+                    <div className={productComponent ? `${review ? `review` : `product`}__name` :  `${review ? `review` : `product`}__name-mob`}>
                         <div>
                             <p>{localData.name}</p>
                         </div>
@@ -27,7 +27,7 @@ const ViewProduct:React.FC<IProps> = ({localData, handleState, productComponent,
                             removeProduct={removeProduct} 
                             productComponent={productComponent}
                             localData={localData}
-                            classNames={classNames}
+                            review={review}
                         />
                         <div className={productComponent ? "wishlist" : "wishlist-mob"}>
                             <p><i className="fa fa-heart"></i>Move to wishlist</p>

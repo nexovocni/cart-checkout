@@ -23,10 +23,10 @@ interface IProps {
     removeProduct: any;
     updateState: any;
     stateComponent: boolean;
-    classNames: any;
+    review: boolean
 }
 
-const ProductLeft:React.FC<IProps> = ({localData, removeProduct, product, handleChange, handleChangeColor, updateState,stateComponent, classNames}) => {
+const ProductLeft:React.FC<IProps> = ({localData, removeProduct, product, handleChange, handleChangeColor, updateState,stateComponent, review}) => {
 
     const [productComponent, updateProductComponent] = useState (true)
 
@@ -36,17 +36,17 @@ const ProductLeft:React.FC<IProps> = ({localData, removeProduct, product, handle
     }
 
     return (
-        <div className={classNames.productLeft} style={{opacity: stateComponent && productComponent ? .3 : 1, pointerEvents: stateComponent && productComponent ? "none" : "auto"}}>
+        <div className={`${review ? `review` : `product`}__section__left`} style={{opacity: stateComponent && productComponent ? .3 : 1, pointerEvents: stateComponent && productComponent ? "none" : "auto"}}>
             <div className="product__section__left-top">
                 <ViewProduct 
                     localData={localData}
                     productComponent={productComponent}
                     handleState={handleState}
                     removeProduct={removeProduct}
-                    classNames={classNames}
+                    review={review}
                 />
             </div>
-            <div className={productComponent ? classNames.productBottom : classNames.productBottomOpen}>
+            <div className={!productComponent ? `${review ? `review` : `product`}__section__left-bottom` : "close"}>
                 <SelectMobile 
                     localData={ localData}  
                     handleChange={ handleChange } 
@@ -54,6 +54,7 @@ const ProductLeft:React.FC<IProps> = ({localData, removeProduct, product, handle
                     product={ product }
                     updateState={ updateState }
                     updateProductComponent= { updateProductComponent}
+                    review={review}
                 />
             </div>
         </div>

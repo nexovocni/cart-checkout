@@ -32,7 +32,15 @@
                     width: 100%
                 };
 
-                .name{
+                .name__price{
+                    display: none;
+
+                    @include respond(phone){
+                        display: inline-block;
+                    };
+                }
+
+                .product__name{
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
@@ -63,15 +71,7 @@
                            display: none;
                         }
                     }
-
-            &__price{
-                    display: none;
-
-                    @include respond(phone){
-                        display: inline-block;
-                    };
                 }
-            }
             
                 i{
                     margin-right: 10px;
@@ -95,7 +95,6 @@
 
         &__left{
 
-
             &-image{
                 width: 20%;
                 margin-right: 10px;
@@ -109,6 +108,12 @@
                 display: flex;
                 width: 100%;
                 justify-content: space-between;
+            }
+
+            &-bottom{
+                max-height: 200px;
+                opacity: 1;
+                transition: all .4s ease;
             }
         }
     }
@@ -131,6 +136,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            color: #999;
         }
     }
 

@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef, useLayoutEffect} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import ReviewProduct from '../ReviewProduct/ReviewProduct'
 import ReviewData from '../ReviewData/ReviewData'
 import './Review.scss'
@@ -29,7 +29,7 @@ const Review:React.FC<IProps> = ({products, changeProducts, deleteProduct, check
                 setScrollBtn(true)
             }
         })
-    })
+    }, [componentReview])
 
     const reviewSubmit = () => {
         openComponentReview(false)

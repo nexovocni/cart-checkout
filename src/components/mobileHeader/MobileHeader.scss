@@ -6,7 +6,6 @@
     @include respond(phone){
         display: flex;
         justify-content: space-between;
-        margin-bottom: 25px;
       };
 
     &__left{
@@ -34,7 +33,7 @@
                 margin-right: 33px;
             }
 
-            &.close{
+            &.x{
                 height: 15px;
             }
         }

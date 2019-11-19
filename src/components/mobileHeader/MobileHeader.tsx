@@ -14,7 +14,7 @@ const MobileHeader:React.FC<IProps> = ({products}) => {
             </div>
             <div className="mobile-header__right">
                 <img className="search" src="./img/search.svg"/>
-                <img className="close" src="./img/close-line.svg"/>
+                <img className="x" src="./img/close-line.svg"/>
             </div>
         </div>
     )
