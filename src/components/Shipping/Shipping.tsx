@@ -11,13 +11,15 @@ interface IProps {
     setCheckValue: any;
     checkValue: number;
     shipValue: number;
+    openComponentPayment: any;
 }
 
-const Shipping:React.FC<IProps> = ({componentShipping, openComponentShipping, setTax, setCheckValue, checkValue, shipValue}) => {
+const Shipping:React.FC<IProps> = ({componentShipping, openComponentShipping, setTax, setCheckValue, checkValue, shipValue, openComponentPayment}) => {
 
     const submitBtn = () => {
         setTax(true)
         openComponentShipping(!componentShipping)
+        openComponentPayment(true)
     }
 
     const [firstName, setFirstName] = useState("")
@@ -77,12 +79,12 @@ const Shipping:React.FC<IProps> = ({componentShipping, openComponentShipping, se
                         store={open.store}
                     />
                     <button onClick={() => {openComponentShipping(!componentShipping)}} className={!componentShipping ? "shipping__heading__button" : "close"}>Edit</button>
-                    <div className={componentShipping ? "shipping__component__buttons" : "shipping__component__buttons close" }>
+                    <div className={componentShipping ? "shipping__component__buttons" : "close" }>
                         <button onClick={openStore} className={open.store ? "shipping__component__button border-black" : "shipping__component__button"}>Store - Free</button>
                         <button onClick={openHome} className={open.home ? "shipping__component__button border-black" : "shipping__component__button"}>Adress - $10.00</button>
                     </div>
                 </div>
-                <div className={open.home ? "shipping__component__home" : "shipping__component__home close"}>  
+                <div className={open.home ? "shipping__component__home" : "close"}>  
                 <ShippingHome 
                         setFirstName={setFirstNameAddress}
                         setLastName={setLastNameAddress}
