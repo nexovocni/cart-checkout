@@ -13,9 +13,11 @@ interface IProps {
     openComponentReview: any;
     shipValue: number;
     taxValue: any;
+    openEditBtn: any;
+    editBtn: any;
 }
 
-const Review:React.FC<IProps> = ({products, changeProducts, deleteProduct, checkValue, itemsValue, openComponentReview, componentReview, shipValue, taxValue}) => {
+const Review:React.FC<IProps> = ({products, changeProducts, deleteProduct, checkValue, itemsValue, openComponentReview, componentReview, shipValue, taxValue, openEditBtn, editBtn}) => {
 
     const [stateComponent, updateStateComponent] = useState (false)
 
@@ -34,15 +36,17 @@ const Review:React.FC<IProps> = ({products, changeProducts, deleteProduct, check
     const reviewSubmit = () => {
         openComponentReview(false)
         setScrollBtn(false)
+        openEditBtn({...editBtn, review: true})
     }
 
     return (
         <div className="review">
-            <h2 className="review__number">4</h2>
+            <h2 style={{color: !componentReview ? "#999" : "#000"}} className="review__number">4</h2>
+            <div style={{backgroundColor: !componentReview ? "#999" : "#000"}} className="dash-review"></div>
             <div className="review__component__up">
                 <div className="review__component">
-                    <h2 className="review__heading">Review and finish</h2>
-                    <button onClick={() => {openComponentReview(!componentReview)}} className={!componentReview ? "review__heading__button" : "close"}>Edit</button>
+                    <h2 style={{color: !componentReview ? "#999" : "#000"}} className="review__heading">Review and finish</h2>
+                    <button style={{opacity: !componentReview ? 1 : 0}} onClick={() => {openComponentReview(!componentReview)}} className={editBtn.review ? "review__heading__button" : "editBtn"}>Edit</button>
                     <div className={componentReview ? "review__component__section" : "close"}>
                         <div className="review__products">
                             {products.map(product => {

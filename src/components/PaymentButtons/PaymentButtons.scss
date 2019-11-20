@@ -33,8 +33,8 @@
                     width: 30%
                 }
 
-                @include respond(desktop){
-                    width: 15%
+                @include respond(phone){
+                    width: 50px;
                 }
             }
 
@@ -46,8 +46,8 @@
                     width: 50%
                 }
 
-                @include respond(desktop){
-                    width: 30%
+                @include respond(phone){
+                    width: 90px;
                 }
             }
         }
@@ -60,6 +60,12 @@
             transition: all .5s ease;
             overflow: hidden;
             margin-top: 40px;
+
+            @include respond(phone){
+                margin-left: -28%;
+                width: 127%;
+
+              }
 
             &__up,
             &__down{

@@ -1,3 +1,5 @@
+@import '../../sass/mixins/mixins.scss'; 
+
 .payment {
 
     &__component{
@@ -46,10 +48,13 @@
         }
 
         &__credit{
-
             max-height: 1;
             opacity: 1;
             transition: all .5s ease;
+
+            @include respond(phone){
+                margin-left: -28%;
+              }
 
             &__submit{
                 background-color: #000;

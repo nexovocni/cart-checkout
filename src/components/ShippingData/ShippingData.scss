@@ -1,6 +1,12 @@
+@import '../../sass/mixins/mixins.scss'; 
+
 .shipping{
 
     &__data{
         margin-top: 15px;
+
+        @include respond(phone){
+            margin-left: -28%;
+          }
     }
 }

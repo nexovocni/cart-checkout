@@ -25,6 +25,10 @@
             max-height: 2000px;
             opacity: 1;
             transition: all .5s ease;
+
+            @include respond(phone){
+                margin-left: -28%;
+              }
         }
 
         &__button{
@@ -44,8 +48,16 @@
         width: 80%;
       }
 
+      @include respond(phone){
+        width: 100%;
+      }
+
     &__number{
         margin-right: 22%;
+
+        @include respond(phone){
+            margin-right: 0;
+        }
     }
 
     &__component__up{
@@ -64,7 +76,7 @@
             outline: none;
             background-color: transparent;
             position: absolute;
-            top: 30px;
+            top: 35px;
             left: 98%;
             cursor: pointer;
 
@@ -78,7 +90,7 @@
               }
 
               @include respond(phone){
-                left: 97%;
+                left: 96%;
               }
         }
     }
@@ -90,4 +102,15 @@
     transition: all .3s ease;
     overflow: hidden;
 }
+
+.dash-review{
+
+    @include respond(phone){
+      height: 2px;
+      width: 20px;
+      margin: 0 8%;
+      margin-top: 10px;
+      flex-shrink: 0;
+    }
+  }
 

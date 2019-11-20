@@ -21,6 +21,10 @@
             opacity: 1;
             transition: all .5s ease;
 
+            @include respond(phone){
+                margin-left: -28%;
+              }
+
             &__input{
                 width: 35%;
                 margin-right: 20px;

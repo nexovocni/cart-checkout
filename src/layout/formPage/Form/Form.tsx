@@ -23,6 +23,12 @@ const Form:React.FC<IProps> = ({products, deleteProduct, changeProducts, setTax,
     const [componentShipping, openComponentShipping] = useState(false)
     const [componentPayment, openComponentPayment] = useState(false)
     const [componentReview, openComponentReview] = useState(false)
+    const [editBtn, openEditBtn]= useState({
+        email: false,
+        shipping: false,
+        payment: false,
+        review: false
+    })
 
 
     return (
@@ -31,6 +37,8 @@ const Form:React.FC<IProps> = ({products, deleteProduct, changeProducts, setTax,
                 componentEmail={componentEmail}
                 openComponentEmail={openComponentEmail}
                 openComponentShipping={openComponentShipping}
+                openEditBtn={openEditBtn}
+                editBtn={editBtn}
             />
             <Shipping 
                 componentShipping={componentShipping}
@@ -40,11 +48,15 @@ const Form:React.FC<IProps> = ({products, deleteProduct, changeProducts, setTax,
                 checkValue={checkValue}
                 shipValue={shipValue}
                 openComponentPayment={openComponentPayment}
+                openEditBtn={openEditBtn}
+                editBtn={editBtn}
             />
             <Payment 
                 componentPayment={componentPayment}
                 openComponentPayment={openComponentPayment}
                 openComponentReview={openComponentReview}
+                openEditBtn={openEditBtn}
+                editBtn={editBtn}
             />
             <Review 
                 products={ products } 
@@ -56,6 +68,8 @@ const Form:React.FC<IProps> = ({products, deleteProduct, changeProducts, setTax,
                 openComponentReview={openComponentReview}
                 shipValue={shipValue}
                 taxValue={taxValue}
+                openEditBtn={openEditBtn}
+                editBtn={editBtn}
             />
         </main>
     )

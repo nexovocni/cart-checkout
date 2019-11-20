@@ -1,7 +1,13 @@
+@import '../../sass/mixins/mixins.scss'; 
+
 .payment{
 
     &__data{
         margin: 5px 0;
+
+        @include respond(phone){
+            margin-left: -28%;
+          }
 
         &__component{
             margin-top: 15px;

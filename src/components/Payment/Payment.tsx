@@ -9,9 +9,11 @@ interface IProps {
     componentPayment: boolean;
     openComponentPayment: any;
     openComponentReview: any;
+    openEditBtn: any;
+    editBtn: any;
 }
 
-const Payment:React.FC<IProps> = ({componentPayment, openComponentPayment, openComponentReview}) => {
+const Payment:React.FC<IProps> = ({componentPayment, openComponentPayment, openComponentReview, openEditBtn, editBtn}) => {
 
     const [card, setCard] = useState("")
     const [cardCredit, setCardCredit] = useState("")
@@ -44,21 +46,23 @@ const Payment:React.FC<IProps> = ({componentPayment, openComponentPayment, openC
     const submitBtn = () => {
         openComponentPayment(!componentPayment)
         openComponentReview(true)
+        openEditBtn({...editBtn, payment: true})
     }
 
     return (
         <div className="payment">
-            <h2 className="payment__number">3</h2>
+            <h2 style={{color: !componentPayment ? "#999" : "#000"}} className="payment__number">3</h2>
+            <div style={{backgroundColor: !componentPayment ? "#999" : "#000"}} className="dash-payment"></div>
             <div className="payment__component__up">
                 <div className="payment__component">
-                    <h2 className="payment__heading">Payment method</h2>
+                    <h2 style={{color: !componentPayment ? "#999" : "#000"}} className="payment__heading">Payment method</h2>
                     <PaymentData 
                         cardCredit={cardCredit}
                         card={card}
                         component={componentPayment}
                         gift={open.gift}
                     />
-                    <button onClick={() => {openComponentPayment(!componentPayment)}} className={!componentPayment ? "payment__heading__button" : "close"}>Edit</button>
+                    <button style={{opacity: !componentPayment ? 1 : 0}} onClick={() => {openComponentPayment(!componentPayment)}} className={editBtn.payment ? "payment__heading__button" : "editBtn"}>Edit</button>
                     <PaymentButtons 
                         openGift={openGift}
                         openCredit={openCredit}
