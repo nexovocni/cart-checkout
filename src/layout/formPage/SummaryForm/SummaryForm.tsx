@@ -65,7 +65,6 @@ const SummaryForm:React.FC<IProps> = ({products, itemsValue, shipValue, tax, che
                 />
                 <Link to="/" className="summaryform button_check">Go back</Link>
             </div>
-
             </div>
             <div></div>
 
