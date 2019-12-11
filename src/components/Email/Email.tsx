@@ -42,12 +42,13 @@ const Email:React.FC<IProps> = ({componentEmail, openComponentEmail, openCompone
             render={(props:any) => { 
                 return( 
                     <div className="email">
+                        <div className="email__up">
                         <h2 style={{color: !componentEmail ? "#999" : "#000"}} className="email__number">1</h2>
                         <span style={{backgroundColor: !componentEmail ? "#999" : "#000"}} className="dash-email"></span>
-                        <div className={componentEmail ? "email__component" :"email__component margin"}>
-                            <h2 style={{color: !componentEmail ? "#999" : "#000"}} className="email__heading">Your email</h2>
-                            <p className={!componentEmail ? "email__email" : "close"}>{input}</p>
-                            <button onClick={ () =>{openComponentEmail(!componentEmail)}} style={{display: componentEmail ? "none" : "inline"}} className={!componentEmail ? "email__heading__button" : "close"}>Edit</button>
+                        <h2 style={{color: !componentEmail ? "#999" : "#000"}} className="email__heading">Your email</h2>
+                        <p className={!componentEmail ? "email__email" : "close"}>{input}</p>
+                        <button onClick={ () =>{openComponentEmail(!componentEmail)}} style={{display: componentEmail ? "none" : "inline"}} className={!componentEmail ? "email__heading__button" : "close"}>Edit</button>
+                        </div>
                             <form onSubmit={props.handleSubmit} className={componentEmail ? "email__component__form" : "close"}>
                                 <EmailMain 
                                     submitBtn={submitBtn}
@@ -69,8 +70,8 @@ const Email:React.FC<IProps> = ({componentEmail, openComponentEmail, openCompone
                                     submitBtn={props.handleSubmit}
                                 />
                             </form>
-                        </div>
-                    </div>
+                            <p className={!componentEmail ? "email__email__responsive" : "close"}>{input}</p>
+                     </div>
                 )
             }}
         />

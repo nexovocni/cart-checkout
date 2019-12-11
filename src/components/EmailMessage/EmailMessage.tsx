@@ -13,7 +13,7 @@ const MessageEmail:React.FC<IProps> = ({passwordBtn, submitBtn, passwordComponen
     return (
         <div className={validate(input) && !passwordComponent ? "email__component__message" : "email__component__message close"}>
             <div className="email__component__message__up">
-                <i className="fas fa-circle"></i>
+                <i className="fas fa-circle dot"></i>
                 <p>Welcome! Create password to save information for one-click checkout, order tracking, VIP discount and more!</p>
             </div>
             <div className="email__component__buttons">

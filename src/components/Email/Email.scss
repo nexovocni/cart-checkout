@@ -2,8 +2,8 @@
 
 .email{
     max-height: 800px;
-    display: flex;
     width: 100%;
+    position: relative;
 
     @include respond(tablet){
         width: 80%;
@@ -21,6 +21,10 @@
         }
     }
 
+    &__up{
+        display: flex;
+    }
+
     &__email{
         opacity: 1;
         max-height: 100px;
@@ -28,8 +32,17 @@
         margin-top: -5px;
 
         @include respond(phone){
-            margin-left: -27%;
-          }
+            display: none;
+        }
+
+        &__responsive{
+            margin-bottom: 30px;
+            display: none;
+
+            @include respond(phone){
+                display: inline-block;
+            }
+        }
     }
 
     &__heading{
@@ -68,10 +81,6 @@
             max-height: 600px;
             opacity: 1;
             transition: all .5s ease;
-
-            @include respond(phone){
-                margin-left: -25%;
-              }
         }
 
         &__validation{
