@@ -52,10 +52,6 @@
             opacity: 1;
             transition: all .5s ease;
 
-            @include respond(phone){
-                margin-left: -28%;
-              }
-
             &__submit{
                 background-color: #000;
                 color: #fff;

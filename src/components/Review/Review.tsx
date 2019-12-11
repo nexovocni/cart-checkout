@@ -41,38 +41,38 @@ const Review:React.FC<IProps> = ({products, changeProducts, deleteProduct, check
 
     return (
         <div className="review">
+            <div className="review__up">
             <h2 style={{color: !componentReview ? "#999" : "#000"}} className="review__number">4</h2>
             <div style={{backgroundColor: !componentReview ? "#999" : "#000"}} className="dash-review"></div>
-            <div className="review__component__up">
-                <div className="review__component">
-                    <h2 style={{color: !componentReview ? "#999" : "#000"}} className="review__heading">Review and finish</h2>
-                    <button style={{opacity: !componentReview ? 1 : 0}} onClick={() => {openComponentReview(!componentReview)}} className={editBtn.review ? "review__heading__button" : "editBtn"}>Edit</button>
-                    <div className={componentReview ? "review__component__section" : "close"}>
-                        <div className="review__products">
-                            {products.map(product => {
-                                return(
-                                    <ReviewProduct 
-                                        product={product}
-                                        changeProducts={changeProducts}
-                                        deleteProduct={deleteProduct}
-                                        stateComponent={stateComponent}
-                                        updateStateComponent={updateStateComponent}
-                                    />
-                                )
-                            })}
-                        </div>
-                        <div className="review__data">
-                            <ReviewData 
-                                itemsValue={itemsValue}
-                                checkValue={checkValue}
-                                productComponent={stateComponent}
-                                shipValue={shipValue}
-                                taxValue={taxValue}
-                            />
-                        </div>
-                        <div style={{position: stateComponent ? "relative" : "sticky"}} id="sticky_div" className={!scrollBtn ? "review__component__button" : "review__component__button-sticky"}>
-                            <button style={{opacity: stateComponent ? .3 : 1, pointerEvents: stateComponent ? "none" : "auto"}} onClick={reviewSubmit} className="review__component__submit" type="submit">Place order</button>
-                        </div>
+            <h2 style={{color: !componentReview ? "#999" : "#000"}} className="review__heading">Review and finish</h2>
+            <button style={{opacity: !componentReview ? 1 : 0}} onClick={() => {openComponentReview(!componentReview)}} className={editBtn.review ? "review__heading__button" : "editBtn"}>Edit</button>
+            </div>
+            <div className="review__component">
+                <div className={componentReview ? "review__component__section" : "close"}>
+                    <div className="review__products">
+                        {products.map(product => {
+                            return(
+                                <ReviewProduct 
+                                    product={product}
+                                    changeProducts={changeProducts}
+                                    deleteProduct={deleteProduct}
+                                    stateComponent={stateComponent}
+                                    updateStateComponent={updateStateComponent}
+                                />
+                            )
+                        })}
+                    </div>
+                    <div className="review__data">
+                        <ReviewData 
+                            itemsValue={itemsValue}
+                            checkValue={checkValue}
+                            productComponent={stateComponent}
+                            shipValue={shipValue}
+                            taxValue={taxValue}
+                        />
+                    </div>
+                    <div style={{position: stateComponent ? "relative" : "sticky"}} id="sticky_div" className={!scrollBtn ? "review__component__button" : "review__component__button-sticky"}>
+                        <button style={{opacity: stateComponent ? .3 : 1, pointerEvents: stateComponent ? "none" : "auto"}} onClick={reviewSubmit} className="review__component__submit" type="submit">Place order</button>
                     </div>
                 </div>
             </div>
