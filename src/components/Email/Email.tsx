@@ -46,7 +46,6 @@ const Email:React.FC<IProps> = ({componentEmail, openComponentEmail, openCompone
                         <h2 style={{color: !componentEmail ? "#999" : "#000"}} className="email__number">1</h2>
                         <span style={{backgroundColor: !componentEmail ? "#999" : "#000"}} className="dash-email"></span>
                         <h2 style={{color: !componentEmail ? "#999" : "#000"}} className="email__heading">Your email</h2>
-                        <p className={!componentEmail ? "email__email" : "close"}>{input}</p>
                         <button onClick={ () =>{openComponentEmail(!componentEmail)}} style={{display: componentEmail ? "none" : "inline"}} className={!componentEmail ? "email__heading__button" : "close"}>Edit</button>
                         </div>
                             <form onSubmit={props.handleSubmit} className={componentEmail ? "email__component__form" : "close"}>

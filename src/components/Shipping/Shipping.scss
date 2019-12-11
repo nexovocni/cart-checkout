@@ -2,7 +2,6 @@
 
 .shipping{
     max-height: 2000px;
-    display: flex;
     width: 100%;
     padding: 35px 0;
     border-top: 1px solid rgba(0, 0, 0, .2);
@@ -41,7 +40,6 @@
             left: 97%;
             cursor: pointer;
 
-
             @include respond(desktop){
                 left: 96%;
               }
@@ -58,7 +56,19 @@
 
     &__component{
         width: 100%;
-        position: relative;
+
+        &__head{
+            display: flex;
+            position: relative;
+        }
+
+        &__up{
+            margin-left: 23%;
+
+            @include respond(phone){
+                margin-left: 0;
+              }
+        }
 
         &__form{
             max-height: 2000px;
@@ -87,10 +97,7 @@
             opacity: 1;
             transition: all .5s ease;
             margin-top: 40px;
-
-            @include respond(phone){
-                margin-left: -28%;
-              }
+            width: 100%;
         }
 
         &__button{
@@ -103,11 +110,6 @@
             background-color: transparent;
             height: 50px;
 
-            @include respond(phone){
-                height: 35px;
-                padding: 0 0 3px 0;
-              }
-
             &:hover{
                 border-color: #000;
             }
@@ -118,10 +120,6 @@
             max-height: 1000px;
             opacity: 1;
             transition: all .5s ease;
-
-            @include respond(phone){
-                margin-left: -28%;
-            }
         }
     }
 }

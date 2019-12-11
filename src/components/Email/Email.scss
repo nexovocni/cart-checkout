@@ -37,10 +37,11 @@
 
         &__responsive{
             margin-bottom: 30px;
-            display: none;
+            margin-left: 23%;
 
             @include respond(phone){
                 display: inline-block;
+                margin-left: 0;
             }
         }
     }
@@ -81,6 +82,11 @@
             max-height: 600px;
             opacity: 1;
             transition: all .5s ease;
+            margin-left: 23%;
+
+            @include respond(phone){
+                margin-left: 0;
+              }
         }
 
         &__validation{
