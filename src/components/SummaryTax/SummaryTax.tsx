@@ -4,13 +4,11 @@ import "./SummaryTax.scss"
 
 interface IProps {
     disabledCode: boolean,
-    tax: boolean
+    tax: boolean;
+    taxValue: any;
 }
 
-const SummaryTax:React.FC<IProps> = ({disabledCode, tax}) => {
-
-    const gst = 13.01
-    const pst = 1.99
+const SummaryTax:React.FC<IProps> = ({disabledCode, tax, taxValue}) => {
  
     return (
         <div className={tax ? "summary-first" : "summary-first-open"} >
@@ -25,12 +23,12 @@ const SummaryTax:React.FC<IProps> = ({disabledCode, tax}) => {
                 <SummaryTotal 
                     disabledCode={disabledCode} 
                     title="GST"
-                    itemsValue={"$" + gst}
+                    itemsValue={"$" + taxValue.gst}
                 />
                 <SummaryTotal 
                     disabledCode={disabledCode} 
                     title="PST"
-                    itemsValue={"$" + pst}
+                    itemsValue={"$" + taxValue.pst}
                 />
             </div>
         </div>

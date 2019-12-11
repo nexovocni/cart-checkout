@@ -12,7 +12,7 @@ interface IProps {
 const PaymentData:React.FC<IProps> = ({card, cardCredit, gift, component}) => {
 
     return (
-        <React.Fragment>
+        <div className={ !component && gift || card ? "payment__data__component" : "close"}>
             <div className={!component && gift ? "payment__data" : "close"}>
                 <p>Applied gift card</p> 
             </div>
@@ -20,7 +20,7 @@ const PaymentData:React.FC<IProps> = ({card, cardCredit, gift, component}) => {
                 <p>{card} &nbsp; {formatString("●●●● ●●●● ●●●● 9999",cardCredit)}</p>
                 
             </div>
-        </React.Fragment>
+        </div>
     )
 }
 

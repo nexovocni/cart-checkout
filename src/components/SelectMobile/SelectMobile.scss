@@ -65,3 +65,85 @@
         }
     }
 }
+
+.review{
+
+    &__section{
+
+        &__left{
+
+            &-bottom{
+
+                &-select{
+                    display: flex;
+                    width: 100%;
+                    justify-content: space-between;
+                    margin: 30px 0;
+
+                    &-color{
+                        width: 30%;
+                        display: flex;
+                        flex-direction: column;
+
+                        p{
+                            margin: 0 auto;
+                            margin-bottom: 15px;
+                        }
+
+                        .product__section__right-color-full{
+                            border: 1px solid rgba(0, 0, 0, .1);
+                            width: 100%;
+
+                            i{
+                                opacity: 1;
+                                left: 90%;
+                            }
+                        }
+                    }
+
+                    &-size{
+                        width: 30%;
+                        display: flex;
+                        flex-direction: column;
+                        
+                        p{
+                            margin: 0 auto;
+                            margin-bottom: 15px;
+                        }
+
+                        .product__section__right-size-full{
+                            border: 1px solid rgba(0, 0, 0, .1);
+                            width: 100%;
+
+                            i{
+                                opacity: 1;
+                                left: 87%;
+                            }
+                        }
+                    }
+
+                    &-quantity{
+                        width: 30%;
+                        display: flex;
+                        flex-direction: column;
+                        
+                        p{
+                            margin: 0 auto;
+                            margin-bottom: 15px;
+                        }
+
+                        .product__section__right-quantity-full{
+                            border: 1px solid rgba(0, 0, 0, .1);
+                            width: 100%;
+
+                            i{
+                                opacity: 1;
+                                left: 90%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

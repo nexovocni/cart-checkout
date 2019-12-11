@@ -10,14 +10,14 @@
 
     @include respond(phone){
         width: 100%;
-        padding: 6% 4%;
+        padding: 15px 4%;
         padding-top: 15px;
         border-bottom: 1px solid rgba(0, 0, 0, .1);
     }
 
-    &__{
+    &__sticky{
         position: sticky;
-        top: 10px;
+        top: 57.5px;
     }
 
     &__top{

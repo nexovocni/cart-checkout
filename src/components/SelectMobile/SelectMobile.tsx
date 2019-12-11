@@ -18,14 +18,15 @@ interface IProps {
         quantities: number[]
         image: string;
     };
-    localData: any,
-    handleChange: any,
-    handleChangeColor: any,
-    updateState: any
-    updateProductComponent: any
+    localData: any;
+    handleChange: any;
+    handleChangeColor: any;
+    updateState: any;
+    updateProductComponent: any;
+    review: boolean
 }
 
-const SelectMobile:React.FC<IProps> = ({localData, handleChange, handleChangeColor, product, updateState, updateProductComponent}) => {
+const SelectMobile:React.FC<IProps> = ({localData, handleChange, handleChangeColor, product, updateState, updateProductComponent, review}) => {
 
     const handleButton = () => {
         updateProductComponent(true)
@@ -34,16 +35,16 @@ const SelectMobile:React.FC<IProps> = ({localData, handleChange, handleChangeCol
 
     return (
         <React.Fragment>
-                <div className="product__section__left-bottom-select">
-                    <div className="product__section__left-bottom-select-color">
+                <div className={`${review ? `review` : `product`}__section__left-bottom-select`}>
+                    <div className={`${review ? `review` : `product`}__section__left-bottom-select-color`}>
                         <p>Color</p>
                         <SelectColor localData={localData} handleChangeColor={handleChangeColor}/>
                     </div>
-                    <div className="product__section__left-bottom-select-size">
+                    <div className={`${review ? `review` : `product`}__section__left-bottom-select-size`}>
                         <p>Size</p>
                         <SelectSize localData={localData} handleChange={handleChange} product={product}/>
                     </div>
-                    <div className="product__section__left-bottom-select-quantity">
+                    <div className={`${review ? `review` : `product`}__section__left-bottom-select-quantity`}>
                         <p>Quantity</p>
                         <SelectQuantity localData={localData} handleChange={handleChange}/>
                     </div>

@@ -17,23 +17,16 @@ interface IProps {
         quantities: number[]
         image: string;
     };
-    localData: any,
-    handleChange: any,
-    handleChangeColor: any
-    removeProduct: any,
-    updateState: any,
-    stateComponent: boolean
+    localData: any;
+    handleChange: any;
+    handleChangeColor: any;
+    removeProduct: any;
+    updateState: any;
+    stateComponent: boolean;
+    review: boolean
 }
 
-const ProductLeft:React.FC<IProps> = ({
-    localData,
-    removeProduct,
-    product, 
-    handleChange, 
-    handleChangeColor, 
-    updateState,
-    stateComponent
-}) => {
+const ProductLeft:React.FC<IProps> = ({localData, removeProduct, product, handleChange, handleChangeColor, updateState,stateComponent, review}) => {
 
     const [productComponent, updateProductComponent] = useState (true)
 
@@ -43,16 +36,17 @@ const ProductLeft:React.FC<IProps> = ({
     }
 
     return (
-        <div className="product__section__left" style={{opacity: stateComponent && productComponent ? .3 : 1, pointerEvents: stateComponent && productComponent ? "none" : "auto"}}>
+        <div className={`${review ? `review` : `product`}__section__left`} style={{opacity: stateComponent && productComponent ? .3 : 1, pointerEvents: stateComponent && productComponent ? "none" : "auto"}}>
             <div className="product__section__left-top">
                 <ViewProduct 
                     localData={localData}
                     productComponent={productComponent}
                     handleState={handleState}
                     removeProduct={removeProduct}
+                    review={review}
                 />
             </div>
-            <div className={productComponent ? "product__section__left-bottom" : "product__section__left-bottom-open"}>
+            <div className={!productComponent ? `${review ? `review` : `product`}__section__left-bottom` : "close"}>
                 <SelectMobile 
                     localData={ localData}  
                     handleChange={ handleChange } 
@@ -60,6 +54,7 @@ const ProductLeft:React.FC<IProps> = ({
                     product={ product }
                     updateState={ updateState }
                     updateProductComponent= { updateProductComponent}
+                    review={review}
                 />
             </div>
         </div>

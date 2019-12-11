@@ -2,26 +2,52 @@
 
 .email{
     max-height: 800px;
-    display: flex;
     width: 100%;
+    position: relative;
 
     @include respond(tablet){
         width: 80%;
-      };
+    };
+
+    @include respond(phone){
+        width: 100%;
+    }
 
     &__number{
         margin-right: 22%;
+
+        @include respond(phone){
+            margin-right: 0;
+        }
+    }
+
+    &__up{
+        display: flex;
     }
 
     &__email{
         opacity: 1;
         max-height: 100px;
-        transition: all .3 ease;
+        transition: all .5 ease;
         margin-top: -5px;
+
+        @include respond(phone){
+            display: none;
+        }
+
+        &__responsive{
+            margin-bottom: 30px;
+            margin-left: 23%;
+
+            @include respond(phone){
+                display: inline-block;
+                margin-left: 0;
+            }
+        }
     }
 
     &__heading{
-        margin-bottom: 25px;
+        margin-bottom: 15px;
         position: relative;
 
         &__button{
@@ -29,10 +55,22 @@
             outline: none;
             background-color: transparent;
             position: absolute;
-            top: 5px;
-            left: 95%;
+            top: -18px;
+            left: 97%;
             cursor: pointer;
             height: 50px;
+
+            @include respond(desktop){
+                left: 96%;
+              }
+
+            @include respond(tablet){
+                left: 94%;
+              }
+
+              @include respond(phone){
+                left: 95%;
+              }
         }
     }
 
@@ -43,7 +81,12 @@
         &__form{
             max-height: 600px;
             opacity: 1;
-            transition: all .2s ease;
+            transition: all .5s ease;
+            margin-left: 23%;
+
+            @include respond(phone){
+                margin-left: 0;
+              }
         }
 
         &__validation{
@@ -66,6 +109,17 @@
 
 .margin{
     margin-bottom: 30px
+}
+
+.dash-email{
+    
+    @include respond(phone){
+        height: 2px;
+        width: 20px;
+        margin: 0 8%;
+        margin-top: 10px;
+        flex-shrink: 0;
+      }
 }
 
 

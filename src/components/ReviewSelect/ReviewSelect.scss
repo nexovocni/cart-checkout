@@ -1,0 +1,88 @@
+@import '../../sass/mixins/mixins.scss';
+
+.review{
+
+    &__product{
+
+        &__select{
+            max-height: 1000px;
+            opacity: 1;
+            transition: all .5s ease;
+        }
+
+        &__section{
+
+            &__select{
+                display: flex;
+                justify-content: space-between;
+                margin-top: 30px;
+            }
+
+            &__color,
+            &__size,
+            &__quantity{
+                width: 30%;
+                display: flex;
+                flex-direction: column;
+
+                p{
+                    align-self: center;
+                    margin-bottom: 5px;
+                }
+            }
+
+            &__border{
+                border: 1px solid rgba(0, 0, 0, .1);
+                position: relative;
+                cursor: pointer;
+                display: flex;
+                align-self: center;
+                align-items: center;
+                padding: 10px;
+                width: 100%;
+
+                select{
+                    border: none;
+                    outline: none;
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    background-color: transparent;
+                    cursor: pointer;
+                    width: 110%;
+                }
+
+                i{
+                    position: absolute;
+                    top: 13px;
+                    left: 90%;
+                    z-index: -10;
+
+                    @include respond(phone){
+                        display: none;
+                    }
+                }
+            }
+
+            &__button
+            
+                button{
+                    border: none;
+                    width: 100%;
+                    background-color: #000;
+                    color: #FFF;
+                    padding: 15px;
+                    text-align: center;
+                    margin-top: 30px;
+                    outline: none;
+                    cursor: pointer;
+                }
+        }
+    }
+}
+
+.close__select{
+    max-height: 0;
+    opacity: 0;
+    transition: all .3s ease;
+    overflow: hidden;
+}

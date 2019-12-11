@@ -1,3 +1,5 @@
+@import '../../sass/mixins/mixins.scss'; 
+
 .payment {
 
     &__component{
@@ -46,10 +48,9 @@
         }
 
         &__credit{
-
             max-height: 1;
             opacity: 1;
-            transition: all .3s ease;
+            transition: all .5s ease;
 
             &__submit{
                 background-color: #000;
@@ -85,7 +86,7 @@
         &__label{
             max-height: 50px;
             opacity: 1;
-            transition: all .3s ease;
+            transition: all .5s ease;
             color: #999;
             font-size: .6rem;
         }
@@ -106,7 +107,7 @@
 .close{
     max-height: 0;
     opacity: 0;
-    transition: all .3s ease;
+    transition: all .5s ease;
     overflow: hidden;
 }
 

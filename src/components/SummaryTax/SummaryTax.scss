@@ -2,12 +2,12 @@
 
     &-first{
         max-height: 60px;
-        transition: max-height .4s ease;
+        transition: max-height .5s ease;
         margin-bottom: 35px;
 
         &-open{
             max-height: 30px;
-            transition: max-height .4s ease;
+            transition: max-height .5s ease;
             margin-bottom: 15px;
         }
 
@@ -25,14 +25,14 @@
         }
 
         &-tax{
-            transition: opacity .8s ease;
+            transition: opacity .5s ease;
             opacity: 0;
             overflow: hidden;
             max-height: 0px;
     
             &-open{
                 opacity: 1;
-                transition: all .8s ease;
+                transition: all .5s ease;
                 max-height: 20px;
             }
         }

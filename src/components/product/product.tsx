@@ -18,24 +18,19 @@ interface IProps {
         quantities: number[]
         image: string;
     };
-    updateProducts: any;
-    remove: any;
+    changeProducts: any;
+    deleteProduct: any;
     updateState: any;
     stateComponent: boolean
 }
 
-const Product: React.FC<IProps> = ({
-    product,
-    updateProducts,
-    updateState,
-    remove,
-    stateComponent
-}) => {
+const Product: React.FC<IProps> = ({product, changeProducts, updateState, deleteProduct,stateComponent}) => {
+
     const [localData, setLocalData] = useState(product);
 
     const handleChange = (e:any) => {
         const newProduct = {...localData, [e.target.name]: e.target.value};
-        updateProducts(newProduct.id, newProduct);
+        changeProducts(newProduct.id, newProduct);
     };
 
     const handleChangeColor = (e:any) => {
@@ -46,11 +41,11 @@ const Product: React.FC<IProps> = ({
             color: newColor,
         };
 
-        updateProducts(newProduct.id, newProduct);
+        changeProducts(newProduct.id, newProduct);
     }
 
     const removeProduct = () => {
-        remove(localData.id);
+        deleteProduct(localData.id);
     }
 
     useEffect(() => {
@@ -68,6 +63,7 @@ const Product: React.FC<IProps> = ({
                         product={product}
                         updateState={ updateState}
                         stateComponent= { stateComponent }
+                        review={false}
                 /> 
                 <ProductRight
                         product={product}
@@ -84,7 +80,7 @@ const Product: React.FC<IProps> = ({
                 <i className="fa fa-times"></i>
             </div>
         </div>
-    );
+    )
 }
 
 export default Product

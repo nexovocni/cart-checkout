@@ -7,12 +7,19 @@
         &__message{
             max-height: 300px;
             opacity: 1;
-            transition: all .3s ease;
+            transition: all .5s ease;
 
                 &__up{
                 display: flex;
                 width: 80%;
                 margin-bottom: 40px;
+
+                .dot{
+
+                    @include respond(phone){
+                        display: none;
+                    }
+                }
 
                 @include respond(tablet){
                     width: 80%;
@@ -50,6 +57,7 @@
                 border: 1px solid rgba(0, 0, 0, .3);
                 width: 48%;
                 padding: 15px;
+                transition: all .5 ease;
 
                 @include respond(phone){
                     padding: 3%;
