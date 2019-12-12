@@ -1,31 +1,51 @@
 @import '../../../sass/mixins/mixins.scss'; 
 
 .summarycart{
-    background-color: rgba(247, 242, 242, 0.5);
-    width: 30%;
-    padding: 3% 2%;
+    width: 100%;
+    padding: 0 4%;
     display: flex;
     flex-direction: column;
+    transform: translateY(0);
+    opacity: 1;
+    transition: opacity .5s ease, transform .5s ease;
+    justify-content: space-between;
+    position: absolute;
+    top: 15px;
 
     @include respond(phone){
-        width: 100%;
-        padding: 6% 4%;
-        padding-top: 15px;
-        border-bottom: 1px solid rgba(0, 0, 0, .1);
+      position: relative;
+  }
+
+    &__close{
+      opacity: 0;
+      overflow: hidden;
+      transform: translateY(-20px);
+      transition: opacity .5s ease, transform .5s ease;
+      padding: 0 4%;
+
+      @include respond(phone){
+        display: none;
+      }
     }
 
-  &__top{
+    &__bottom{
+      opacity: 1;
+      
+
+      &__close{
+        opacity: 0;
+        
+      }
+    }
+
+    &__top{
+      margin-bottom: auto;
+    }
 
     @include respond(phone){
-      margin-top: 15px;
-  }
-    
-  }
-    
-  &__sticky{
-    position: sticky;
-    top: 57.5px;
-  }
+        padding: 15px ;
+      }
+  
 
    &__line{
         width: 100%;

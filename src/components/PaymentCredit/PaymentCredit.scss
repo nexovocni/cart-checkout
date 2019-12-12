@@ -4,6 +4,14 @@
 
     &__component{
 
+        &__credit{
+            margin-left: 23%;
+
+        @include respond(phone){
+            margin-left: 0;
+          }
+        }
+
         &__input{
             width: 100%;
             height: 70px;

@@ -22,6 +22,7 @@ const Summary:React.FC<IProps> = ({products, stateComponent, setCheckValue, item
 
     
     return (
+        <React.Fragment>
         <section style={{opacity: stateComponent ? .3 : 1, pointerEvents: stateComponent ? "none" : "auto"}} className="summary">
             <MobileHeader products={products}/>
             <SummaryCart
@@ -46,6 +47,8 @@ const Summary:React.FC<IProps> = ({products, stateComponent, setCheckValue, item
                 taxValue={taxValue}
             />
         </section>
+        <div></div>
+        </React.Fragment>
     )
 }
 

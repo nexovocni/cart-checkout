@@ -9,7 +9,7 @@ class App extends React.Component  {
     return (
       <Router>
       <div className="App">
-        <Route render={(props) => <CartCheckOut {...props}/> }/>
+        <Route render={(props) => <CartCheckOut /> }/>
       </div>
     </Router>
     );

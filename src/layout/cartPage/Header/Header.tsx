@@ -1,5 +1,5 @@
 import React from 'react'
-import './HeaderCart.scss'
+import './Header.scss'
 import {Link} from 'react-router-dom'
 import Logo from '../../../components/Logo/Logo'
 

@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react'
 import CartPage from '../CartPage/CartPage'
-import FormPage from '../FormPage/FormPage'
 
 const CartCheckOut = () => {
 

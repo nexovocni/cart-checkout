@@ -32,7 +32,7 @@ const Form:React.FC<IProps> = ({products, deleteProduct, changeProducts, setTax,
     })
 
     return (
-        <main className="main__form">
+        <main className={!switchComponent ? "main__form" : "main__form__close"}>
             <Email 
                 componentEmail={componentEmail}
                 openComponentEmail={openComponentEmail}

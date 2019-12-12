@@ -3,6 +3,11 @@
 .payment{
 
     &__component{
+        margin-left: 23%;
+
+        @include respond(phone){
+            margin-left: 0;
+        }
 
         &__button{
             border: 1px solid #999;

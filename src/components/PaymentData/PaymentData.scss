@@ -4,11 +4,6 @@
 
     &__data{
         margin: 5px 0;
-        margin-left: 23%;
-
-        @include respond(phone){
-            margin-left: 0;
-          }
 
         &__component{
             margin-top: 15px;

@@ -17,6 +17,7 @@ const SummaryTax:React.FC<IProps> = ({disabledCode, tax, taxValue}) => {
                     itemsValue="TBD"
                     disabledCode={disabledCode} 
                     title="Taxes"
+                    valueTrans={false}
                 />
             </div>
             <div className={tax ? "summary-first-total-open" : "summary-first-total"} >
@@ -24,11 +25,13 @@ const SummaryTax:React.FC<IProps> = ({disabledCode, tax, taxValue}) => {
                     disabledCode={disabledCode} 
                     title="GST"
                     itemsValue={"$" + taxValue.gst}
+                    valueTrans={false}
                 />
                 <SummaryTotal 
                     disabledCode={disabledCode} 
                     title="PST"
                     itemsValue={"$" + taxValue.pst}
+                    valueTrans={false}
                 />
             </div>
         </div>
