@@ -5,11 +5,9 @@
     &__top__shipping{
         background-color: rgb(228, 226, 226);
         text-transform: uppercase;
-        padding: 20px;
         text-align: center;
         height: 50px;
         margin-bottom: 85px;
-        padding: auto;
         display: flex;
 
         @include respond(desktop){

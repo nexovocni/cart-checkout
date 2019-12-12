@@ -64,7 +64,9 @@ const SummaryForm:React.FC<IProps> = ({itemsValue, shipValue, tax, checkValue, v
                     disabledCode={disabledCode}
                     checkValue={checkValue}
                 />
-                <button onClick={() => {setSwitchComponent(!switchComponent)}} className={!switchComponent ? "button button_check" : "button_check_close"}>Go back</button>
+            </div>
+            <div className="summaryform__bottom">
+            <button onClick={() => {setSwitchComponent(!switchComponent)}} className={!switchComponent ? "button button_check" : "button_check_close"}>Go back</button>
             </div>
             </div>
             <div></div>

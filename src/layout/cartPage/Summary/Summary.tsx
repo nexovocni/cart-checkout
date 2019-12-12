@@ -47,7 +47,6 @@ const Summary:React.FC<IProps> = ({products, stateComponent, setCheckValue, item
                 taxValue={taxValue}
             />
         </section>
-        <div></div>
         </React.Fragment>
     )
 }
