@@ -1,0 +1,25 @@
+
+@import '../../../sass/mixins/mixins.scss';
+
+.main{
+
+    &__form{
+      width: 100%;
+      padding-right: 15%;
+      transform: translateY(0);
+      opacity: 1;
+      transition: opacity .5s ease, transform .5s ease;
+      position: absolute;
+      top: 30px;
+
+      &__close{
+        opacity: 0;
+        transform: translateY(150%);
+        transition: opacity .8s ease, transform .8s ease;
+      }
+
+      @include respond(tablet){
+          padding-right: 0;
+        }
+    }
+}

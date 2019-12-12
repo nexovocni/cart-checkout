@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import CartPage from '../CartPage/CartPage'
 import FormPage from '../FormPage/FormPage'
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
 const CartCheckOut = () => {
 
@@ -40,37 +39,27 @@ const CartCheckOut = () => {
     {products.map( (product: IProduct) => {
         itemsValue += product.quantity * product.price
     })}
+
+    const value = itemsValue + checkValue
  
     const shipValue = (550 - itemsValue)
 
+    const [switchComponent, setSwitchComponent] = useState(true)
+
     return (
             <React.Fragment>
-                <Router>
-                    <Switch>
-                        <Route path="/" exact render={(props) => <CartPage 
-                            {...props} 
-                            products={products} 
-                            changeProducts={changeProducts}
-                            deleteProduct={deleteProduct}
-                            setCheckValue={setCheckValue}
-                            itemsValue={itemsValue}
-                            shipValue={shipValue}
-                            checkValue={checkValue}
-                        /> 
-                        }/>
-                        <Route path="/form" render={(props) => <FormPage 
-                            {...props} 
-                            products={products} 
-                            changeProducts={changeProducts}
-                            deleteProduct={deleteProduct}
-                            checkValue={checkValue}
-                            itemsValue={itemsValue}
-                            shipValue={shipValue}
-                            setCheckValue={setCheckValue}
-                        /> 
-                        }/>
-                    </Switch>
-                </Router>
+                <CartPage 
+                    products={products} 
+                    changeProducts={changeProducts}
+                    deleteProduct={deleteProduct}
+                    setCheckValue={setCheckValue}
+                    itemsValue={itemsValue}
+                    shipValue={shipValue}
+                    checkValue={checkValue}
+                    switchComponent={switchComponent}
+                    setSwitchComponent={setSwitchComponent}
+                    value={value}
+                />
             </React.Fragment>
     )
 }

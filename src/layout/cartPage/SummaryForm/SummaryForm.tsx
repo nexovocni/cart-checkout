@@ -1,30 +1,29 @@
 import React, {useState} from 'react'
-import MobileHeader from '../../../components/MobileHeader/MobileHeader'
 import SummaryTitle from '../../../components/SummaryTitle/SummaryTitle'
 import SummaryTotal from '../../../components/SummaryTotal/SummaryTotal'
 import Code from '../../../components/Code/Code'
 import SummarySubtotal from '../../../components/SummarySubtotal/SummarySubtotal'
 import SummaryTax from '../../../components/SummaryTax/SummaryTax'
-import {Link} from 'react-router-dom'
 import './SummaryForm.scss'
 
 interface IProps {
-    products: any;
     itemsValue: any;
     shipValue: number;
     tax: boolean;
     checkValue: number;
+    value: number;
     taxValue: any;
+    switchComponent: boolean;
+    setSwitchComponent: any;
 }
 
-const SummaryForm:React.FC<IProps> = ({products, itemsValue, shipValue, tax, checkValue, taxValue}) => {
+const SummaryForm:React.FC<IProps> = ({itemsValue, shipValue, tax, checkValue, value, taxValue, switchComponent, setSwitchComponent}) => {
 
     const [disabledCode, setDisabledCode] = useState(false)
 
     return (
-        <section className="summaryform">
-            <div className="summaryform__sticky">
-            <MobileHeader products={products}/>
+        <React.Fragment>
+            <div className={!switchComponent ? "summaryform" : "summaryform__close"}>
             <div className="summaryform__top">
                 <SummaryTitle 
                     shipValue={shipValue} 
@@ -34,12 +33,14 @@ const SummaryForm:React.FC<IProps> = ({products, itemsValue, shipValue, tax, che
                     itemsValue={`$${itemsValue.toFixed(2)}`} 
                     disabledCode={disabledCode} 
                     title="Your Items"
+                    valueTrans={true}
                  />
                 <div className="summaryform__line-grey"></div>
                 <SummaryTotal
                     disabledCode={disabledCode} 
                     title="Shipping"
                     itemsValue={shipValue < 1 ? 'Free' : `$${checkValue.toFixed(2)}`} 
+                    valueTrans={false}
                  />
                 <div className="summaryform__line-grey"></div>
                 <SummaryTax 
@@ -58,17 +59,16 @@ const SummaryForm:React.FC<IProps> = ({products, itemsValue, shipValue, tax, che
                 />
                 <div className="summaryform__line-grey-last"></div>
                 <SummarySubtotal 
-                    itemsValue={itemsValue}
+                    itemsValue={value}
                     shipValue={shipValue}
                     disabledCode={disabledCode}
                     checkValue={checkValue}
                 />
-                <Link to="/" className="summaryform button_check">Go back</Link>
+                <button onClick={() => {setSwitchComponent(!switchComponent)}} className={!switchComponent ? "button button_check" : "button_check_close"}>Go back</button>
             </div>
             </div>
             <div></div>
-
-        </section>
+        </React.Fragment>
     )
 }
 
