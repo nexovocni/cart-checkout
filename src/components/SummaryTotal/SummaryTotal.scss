@@ -7,7 +7,7 @@
         &__data{
             display: flex;
             justify-content: space-between;
-            margin: 0 0 5% 0;
+            margin: 0 0 15px 0;
             width: 100%;
 
             & .value{
@@ -33,10 +33,6 @@
                 animation: fadeOut .2s linear;
                 position: absolute;
                 bottom: 0px;
-            }
-
-                @include respond(phone){
-                    display: none;
             }
         }
     }

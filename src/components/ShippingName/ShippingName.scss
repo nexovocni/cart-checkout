@@ -7,6 +7,10 @@
             opacity: 1;
             transition: all .3s ease;
             color: #999;
+
+            &__container{
+                height: 20px;
+            }
         }
 
         &__validation{

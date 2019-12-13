@@ -6,6 +6,7 @@
 
         &__credit{
             margin-left: 23%;
+            margin-top: 40px;
 
         @include respond(phone){
             margin-left: 0;
@@ -17,6 +18,10 @@
             transition: all .5s ease;
             overflow: hidden;
             margin-left: 23%;
+
+            @include respond(phone){
+                margin-left: 0;
+              }
         }
         }
 

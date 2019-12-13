@@ -94,6 +94,10 @@
                 transition: opacity .3s ease, max-height .3s ease;
                 overflow: hidden;
                 margin-left: 23%;
+
+                @include respond(phone){
+                    margin-left: 0;
+                  }
               }
         }
 

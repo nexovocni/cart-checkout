@@ -64,13 +64,10 @@
                 background-color: #fff;
                 border: 1px solid rgba(0, 0, 0, .3);
                 width: 48%;
-                padding: 15px;
+                height: 50px;
                 transition: all .5 ease;
 
-                @include respond(phone){
-                    padding: 3%;
-                    width: 45%;
-                }
+                
             
                 &:hover{
                     border: 1px solid rgba(0, 0, 0, 1);
