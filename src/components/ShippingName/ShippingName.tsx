@@ -22,7 +22,7 @@ const ShippingName:React.FC<IProps> = ({setFirstName, setLastName, validate}) =>
                         setFirstName(input.value)
                         return(
                             <>
-                                <label className={input.value ? "shipping__component__label" : "close"}>First name</label>
+                                <label className={input.value ? "shipping__component__label" : "shipping__component__label__close"}>First name</label>
                                 <input placeholder="First name" className="shipping__component__name__input" {...input} />
                                 {meta.error && meta.touched ? <span className="shipping__component__validation">{meta.error}</span> : null}
                             </>
@@ -41,7 +41,7 @@ const ShippingName:React.FC<IProps> = ({setFirstName, setLastName, validate}) =>
                         setLastName(input.value)
                         return(
                             <>
-                                <label className={input.value ? "shipping__component__label" : "close"}>Last name</label>
+                                <label className={input.value ? "shipping__component__label" : "shipping__component__label__close"}>Last name</label>
                                 <input placeholder="Last name" className="shipping__component__name__input" {...input}/>
                                 {meta.error && meta.touched ? <span className="shipping__component__validation">{meta.error}</span> : null}
                             </>

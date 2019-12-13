@@ -10,6 +10,14 @@
         @include respond(phone){
             margin-left: 0;
           }
+
+          &__close{
+            max-height: 0;
+            opacity: 0;
+            transition: all .5s ease;
+            overflow: hidden;
+            margin-left: 23%;
+        }
         }
 
         &__input{
@@ -110,13 +118,6 @@
     background-color: transparent;
     border-bottom: none;
     cursor: pointer;
-}
-
-.close{
-    max-height: 0;
-    opacity: 0;
-    transition: all .5s ease;
-    overflow: hidden;
 }
 
 .border{

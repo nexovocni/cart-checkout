@@ -26,6 +26,18 @@
                 margin-left: 0;
             }
 
+            &__close{
+                    max-height: 0;
+                    opacity: 0;
+                    transition: all .3s ease;
+                    overflow: hidden;
+                    margin-left: 23%;
+                
+                    @include respond(phone){
+                        margin-left: 0;
+                    }
+            }
+
             &__input{
                 width: 35%;
                 margin-right: 20px;
@@ -96,16 +108,4 @@ i.select{
     @include respond(tablet){
         left: 97%;
       }
-}
-
-.close{
-    max-height: 0;
-    opacity: 0;
-    transition: all .3s ease;
-    overflow: hidden;
-    margin-left: 23%;
-
-    @include respond(phone){
-        margin-left: 0;
-    }
 }

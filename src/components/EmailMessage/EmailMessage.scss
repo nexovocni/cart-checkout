@@ -9,6 +9,14 @@
             opacity: 1;
             transition: all .5s ease;
 
+            .close{
+                max-height: 0;
+                opacity: 0;
+                transition: all .3s ease;
+                overflow: hidden;
+                margin-left: 0;
+            }
+
                 &__up{
                 display: flex;
                 width: 80%;
@@ -72,9 +80,3 @@
     }
 }
 
-.close{
-    max-height: 0;
-    opacity: 0;
-    transition: all .3s ease;
-    overflow: hidden;
-}

@@ -5,9 +5,15 @@
         &__label{
             max-height: 50px;
             opacity: 1;
-            transition: all .5s ease;
+            transition: all .3s ease;
             color: #999;
-            font-size: .6rem;
+
+            &__close{
+                max-height: 0;
+                opacity: 0;
+                transition: all .3s ease, max-height .3s ease;
+                overflow: hidden;
+            }
         }
 
         &__validation{
@@ -41,13 +47,6 @@
             }
         }
     }
-}
-
-.close{
-    max-height: 0;
-    opacity: 0;
-    transition: all .3s ease;
-    overflow: hidden;
 }
 
 .border{

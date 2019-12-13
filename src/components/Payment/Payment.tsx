@@ -72,14 +72,14 @@ const Payment:React.FC<IProps> = ({componentPayment, openComponentPayment, openC
                         creditComponent={open.credit}
                     />
                 </div>
-                <div className={componentPayment && open.gift ? "payment__component__gift" : "close"}> 
+                <div className={componentPayment && open.gift ? "payment__component__gift" : "payment__component__gift__close"}> 
                     <PaymentGift 
                         setCardGift={setCardGift}
                         validate={validate}
                         submitBtn={submitBtn}
                     />
                 </div>
-                <div className={componentPayment && open.credit ? "payment__component__credit" : "close"}> 
+                <div className={componentPayment && open.credit ? "payment__component__credit" : "payment__component__credit__close"}> 
                     <PaymentCredit 
                         submitBtn={submitBtn}
                         setCard={setCard}
