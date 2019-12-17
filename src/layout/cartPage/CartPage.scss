@@ -11,14 +11,18 @@
     &__main{
         display: flex;
         flex-direction: column;
-        width: 80%;
+        width: 70%;
         padding-top: 3%;
         padding-left: 4%;
 
         @include respond(phone){
            padding: 6% 4%;
            width: 100%;
-          };
+        }
+
+        &__content{
+          position: relative;
+        }
     }
 }
 

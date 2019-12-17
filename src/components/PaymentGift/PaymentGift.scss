@@ -20,6 +20,24 @@
             max-height: 1000px;
             opacity: 1;
             transition: all .5s ease;
+            margin-left: 23%;
+            margin-top: 40px;
+
+            @include respond(phone){
+                margin-left: 0;
+            }
+
+            &__close{
+                    max-height: 0;
+                    opacity: 0;
+                    transition: all .3s ease;
+                    overflow: hidden;
+                    margin-left: 23%;
+                
+                    @include respond(phone){
+                        margin-left: 0;
+                    }
+            }
 
             &__input{
                 width: 35%;
@@ -39,9 +57,8 @@
             &__text{
                 max-height: 50px;
                 opacity: 1;
-                transition: all .5s ease;
+                transition: opacity .5s ease;
                 color: #999;
-                font-size: .6rem;
             }
     
             &__validation{
@@ -53,14 +70,13 @@
                 background-color: #000;
                 color: #FFF;
                 flex: 1 0 100px;
-                height: 35px;
+                height: 40px;
                 border: none;
                 outline: none;
                 margin-top: 5px;
                 cursor: pointer;
 
                 @include respond(phone){
-                    
                     margin-top: 20px;
                   }
             }
@@ -83,7 +99,6 @@
     }
 }
 
-
 i.select{
     position: relative;
     top: -25px;
@@ -93,11 +108,4 @@ i.select{
     @include respond(tablet){
         left: 97%;
       }
-}
-
-.close{
-    max-height: 0;
-    opacity: 0;
-    transition: all .3s ease;
-    overflow: hidden;
 }

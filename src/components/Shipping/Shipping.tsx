@@ -89,7 +89,7 @@ const Shipping:React.FC<IProps> = ({componentShipping, openComponentShipping, se
                         <button onClick={openStore} className={open.store ? "shipping__component__button border-black" : "shipping__component__button"}>Store - Free</button>
                         <button onClick={openHome} className={open.home ? "shipping__component__button border-black" : "shipping__component__button"}>Adress - $10.00</button>
                     </div>        
-                <div className={open.home ? "shipping__component__home" : "close"}>  
+                <div className={open.home && componentShipping ? "shipping__component__home" : "close"}>  
                 <ShippingHome 
                         setFirstName={setFirstNameAddress}
                         setLastName={setLastNameAddress}
@@ -108,7 +108,7 @@ const Shipping:React.FC<IProps> = ({componentShipping, openComponentShipping, se
                         component={componentShipping}
                 /> 
                 </div>
-                <div className={open.store ? "shipping__component__store" : "close-store"}>
+                <div className={open.store && componentShipping ? "shipping__component__store" : "close-store"}>
                     <ShippingStore 
                         setFirstName={setFirstName}
                         setLastName={setLastName}

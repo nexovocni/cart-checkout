@@ -19,21 +19,25 @@ const ReviewData:React.FC<IProps> = ({itemsValue, checkValue, productComponent, 
                 itemsValue={`$${itemsValue.toFixed(2)}`} 
                 disabledCode={productComponent} 
                 title="Your Items"
+                valueTrans={false}
             />
             <SummaryTotal 
                 disabledCode={productComponent} 
                 title="GST"
                 itemsValue={"$" + taxValue.gst}
+                valueTrans={false}
             />
             <SummaryTotal 
                 disabledCode={productComponent} 
                 title="PST"
                 itemsValue={"$" + taxValue.pst}
+                valueTrans={false}
              />
             <SummaryTotal
                 disabledCode={productComponent} 
                 title="Shipping"
                 itemsValue={shipValue < 1 ? 'Free' : `$${checkValue.toFixed(2)}`} 
+                valueTrans={false}
             />
             </div>
             <SummarySubtotal 

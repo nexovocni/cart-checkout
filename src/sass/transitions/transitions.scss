@@ -30,3 +30,41 @@
 .fade-exit-done {
   opacity: 0;
 }
+
+
+.item-exit {
+  opacity: 1;
+  max-height: 600px;
+}
+
+.item-exit-active {
+  opacity: 0;
+  max-height: 0;
+  transition: all .5s;
+}
+
+@keyframes slideIn{
+  from{
+      transform: translateY(100%);
+  }
+  to{
+    transform: translateY(0%);
+  }
+}
+
+@keyframes slideOut{
+  from{
+    transform: translateY(0%);
+  }
+  to{
+    transform: translateY(100%);
+  }
+}
+
+.swipe-enter {
+  animation: slideIn .5s forwards;
+}
+
+.swipe-exit {
+  animation: slideOut .5s forwards ;
+}

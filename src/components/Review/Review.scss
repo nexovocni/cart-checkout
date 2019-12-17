@@ -23,7 +23,7 @@
             outline: none;
             background-color: #000;
             color: #FFF;
-            padding: 15px;
+            height: 40px;
             text-align: center;
             width: 100%;
             cursor: pointer;
@@ -94,7 +94,7 @@
               }
 
               @include respond(phone){
-                left: 96%;
+                left: 95%;
               }
         }
     }

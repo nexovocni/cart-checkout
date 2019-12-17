@@ -9,6 +9,14 @@
             opacity: 1;
             transition: all .5s ease;
 
+            .close{
+                max-height: 0;
+                opacity: 0;
+                transition: all .3s ease;
+                overflow: hidden;
+                margin-left: 0;
+            }
+
                 &__up{
                 display: flex;
                 width: 80%;
@@ -56,13 +64,10 @@
                 background-color: #fff;
                 border: 1px solid rgba(0, 0, 0, .3);
                 width: 48%;
-                padding: 15px;
+                height: 50px;
                 transition: all .5 ease;
 
-                @include respond(phone){
-                    padding: 3%;
-                    width: 45%;
-                }
+                
             
                 &:hover{
                     border: 1px solid rgba(0, 0, 0, 1);
@@ -72,9 +77,3 @@
     }
 }
 
-.close{
-    max-height: 0;
-    opacity: 0;
-    transition: all .3s ease;
-    overflow: hidden;
-}

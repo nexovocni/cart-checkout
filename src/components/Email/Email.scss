@@ -81,11 +81,23 @@
         &__form{
             max-height: 600px;
             opacity: 1;
-            transition: all .5s ease;
+            transition: opacity .3s ease, max-height .3s ease;
             margin-left: 23%;
 
             @include respond(phone){
                 margin-left: 0;
+              }
+
+              &__close{
+                max-height: 0;
+                opacity: 0;
+                transition: opacity .3s ease, max-height .3s ease;
+                overflow: hidden;
+                margin-left: 23%;
+
+                @include respond(phone){
+                    margin-left: 0;
+                  }
               }
         }
 
@@ -98,13 +110,6 @@
             top: -70px;
         }
     }
-}
-
-.close{
-    max-height: 0;
-    opacity: 0;
-    transition: all .3s ease;
-    overflow: hidden;
 }
 
 .margin{
