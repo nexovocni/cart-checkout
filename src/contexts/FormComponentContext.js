@@ -16,7 +16,9 @@ export const ComponentContextProvider = (props) => {
         editPayment: false,
         editReview: false,
         homeShipping: false,
-        storeShipping: false
+        storeShipping: false,
+        creditPayment: false,
+        giftPayment: false
     }
 
     const [formComponents, dispatch] = useReducer(FormComponentReducer, components)

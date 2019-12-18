@@ -1,20 +1,23 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import {FormComponentContext} from '../../contexts/FormComponentContext'
 import './PaymentButtons.scss'
 
 interface IProps {
    openCredit: any;
    openGift: any;
-   componentPayment: boolean;
-   giftComponent: boolean;
-   creditComponent: boolean;
 }
 
-const PaymentButtons:React.FC<IProps> = ({openCredit, openGift, componentPayment, creditComponent, giftComponent}) => {
+const PaymentButtons:React.FC<IProps> = ({openCredit, openGift}) => {
+
+    const formContext:any = useContext(FormComponentContext)
+    const {formComponents} = formContext
+    const {componentPayment, giftPayment, creditPayment} = formComponents
+
     return (
         <div className={componentPayment ? "payment__component__buttons" : "close" }>
             <div className="payment__component__buttons__up">
-                <button onClick={openCredit} className={ creditComponent? "payment__component__button border-black" : "payment__component__button"}>Credit card</button>
-                <button onClick={openGift} className={ giftComponent? "payment__component__button border-black" : "payment__component__button"}>Gift card</button>
+                <button onClick={openCredit} className={ creditPayment? "payment__component__button border-black" : "payment__component__button"}>Credit card</button>
+                <button onClick={openGift} className={ giftPayment? "payment__component__button border-black" : "payment__component__button"}>Gift card</button>
             </div>
             <div className="payment__component__buttons__down">
                 <button className="payment__component__button"><img className="apple" src="img/apple.svg"/></button>

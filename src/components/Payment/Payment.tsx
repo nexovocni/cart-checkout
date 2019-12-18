@@ -1,52 +1,40 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import './Payment.scss'
 import PaymentData from '../PaymentData/PaymentData'
 import PaymentGift from '../PaymentGift/PaymentGift'
 import PaymentCredit from '../PaymentCredit/PaymentCredit'
 import PaymentButtons from '../PaymentButtons/PaymentButtons'
+import {FormComponentContext} from '../../contexts/FormComponentContext'
 
-interface IProps {
-    componentPayment: boolean;
-    openComponentPayment: any;
-    openComponentReview: any;
-    openEditBtn: any;
-    editBtn: any;
-}
-
-const Payment:React.FC<IProps> = ({componentPayment, openComponentPayment, openComponentReview, openEditBtn, editBtn}) => {
+const Payment:React.FC = () => {
 
     const [card, setCard] = useState("")
     const [cardCredit, setCardCredit] = useState("")
     const [cardGift, setCardGift] = useState("")
-    const [open, setOpen] = useState({
-        credit: false,
-        gift: false
-    })
+
+    const formContext:any = useContext(FormComponentContext)
+    const {formComponents, dispatch} = formContext
+    const {componentPayment, editPayment, creditPayment, giftPayment} = formComponents
+   
 
     const openGift = () => {
-        setOpen({
-            credit: false,
-            gift: true
-        })
-
+        dispatch({type: "COMPONENT", payload: {giftPayment: true}})
+        dispatch({type: "COMPONENT", payload: {creditPayment: false}})
         setCardCredit("")
     }
 
     const openCredit = () => {
-        setOpen({
-            credit: true,
-            gift: false
-        })
-
+        dispatch({type: "COMPONENT", payload: {giftPayment: false}})
+        dispatch({type: "COMPONENT", payload: {creditPayment: true}})
         setCardGift("")
     }
 
     const validate = (value:any) => (value ? null : "Invalid input")
 
     const submitBtn = () => {
-        openComponentPayment(!componentPayment)
-        openComponentReview(true)
-        openEditBtn({...editBtn, payment: true})
+        dispatch({type: "COMPONENT", payload: {componentPayment: !componentPayment}})
+        dispatch({type: "COMPONENT", payload: {componentReview: true}})
+        dispatch({type: "COMPONENT", payload: {editPayment: true}})
     }
 
     return (
@@ -55,31 +43,26 @@ const Payment:React.FC<IProps> = ({componentPayment, openComponentPayment, openC
             <h2 style={{color: !componentPayment ? "#999" : "#000"}} className="payment__number">3</h2>
             <div style={{backgroundColor: !componentPayment ? "#999" : "#000"}} className="dash-payment"></div>
             <h2 style={{color: !componentPayment ? "#999" : "#000"}} className="payment__heading">Payment method</h2>
-            <button style={{opacity: !componentPayment ? 1 : 0}} onClick={() => {openComponentPayment(!componentPayment)}} className={editBtn.payment ? "payment__heading__button" : "editBtn"}>Edit</button>
+            <button style={{opacity: !componentPayment ? 1 : 0}} onClick={() => {dispatch({type: "COMPONENT", payload: {componentPayment: !componentPayment}})}} className={editPayment ? "payment__heading__button" : "editBtn"}>Edit</button>
             </div>
                 <div className="payment__component">
                     <PaymentData 
                         cardCredit={cardCredit}
                         card={card}
-                        component={componentPayment}
-                        gift={open.gift}
                     />
                     <PaymentButtons 
                         openGift={openGift}
                         openCredit={openCredit}
-                        componentPayment={componentPayment}
-                        giftComponent={open.gift}
-                        creditComponent={open.credit}
                     />
                 </div>
-                <div className={componentPayment && open.gift ? "payment__component__gift" : "payment__component__gift__close"}> 
+                <div className={componentPayment && giftPayment ? "payment__component__gift" : "payment__component__gift__close"}> 
                     <PaymentGift 
                         setCardGift={setCardGift}
                         validate={validate}
                         submitBtn={submitBtn}
                     />
                 </div>
-                <div className={componentPayment && open.credit ? "payment__component__credit" : "payment__component__credit__close"}> 
+                <div className={componentPayment && creditPayment ? "payment__component__credit" : "payment__component__credit__close"}> 
                     <PaymentCredit 
                         submitBtn={submitBtn}
                         setCard={setCard}
