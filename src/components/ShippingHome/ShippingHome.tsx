@@ -1,10 +1,11 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import {Form} from 'react-final-form'
 import ShippingName from '../ShippingName/ShippingName'
 import ShippingAddress from '../ShippingAddress/ShippingAddress'
 import ShippingCity from '../../components/ShippingCity/ShippingCity'
 import ShippingPhone from '../../components/ShippingPhone/ShippingPhone'
 import ShippingStandard from '../../components/ShippingStandard/ShippingStandard'
+import {FormComponentContext} from '../../contexts/FormComponentContext'
 import './ShippingHome.scss'
 
 interface IProps {
@@ -22,15 +23,19 @@ interface IProps {
     setCheckValue: any;
     checkValue: number;
     shipValue: number;
-    component: any
 }
 
-const ShippingHome:React.FC<IProps> = ({setFirstName, setLastName, setFirstAddress, setLastAddress, setCity, setCountry, setPhone, setPostal, setProvince, validate, submitBtn, setCheckValue, checkValue, shipValue, component}) => {
+const ShippingHome:React.FC<IProps> = ({setFirstName, setLastName, setFirstAddress, setLastAddress, setCity, setCountry, setPhone, setPostal, setProvince, validate, submitBtn, setCheckValue, checkValue, shipValue}) => {
+
+    const formContext:any = useContext(FormComponentContext)
+    const {formComponents} = formContext
+    const {componentShipping} = formComponents
+
     return (
         <Form onSubmit={submitBtn}
             render={(props:any) => {
                 return(
-                    <form onSubmit={props.handleSubmit} className={component ? "shipping__component__form" : "close"}>
+                    <form onSubmit={props.handleSubmit} className={componentShipping ? "shipping__component__form" : "close"}>
                         <ShippingName 
                             setFirstName={setFirstName}
                             setLastName={setLastName}

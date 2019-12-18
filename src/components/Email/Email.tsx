@@ -1,41 +1,36 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import './Email.scss'
 import {Form} from 'react-final-form'
 import MessageEmail from '../EmailMessage/EmailMessage'
 import PasswordEmail from '../EmailPassword/EmailPassword'
 import EmailMain from '../EmailMain/EmailMain'
+import {FormComponentContext} from '../../contexts/FormComponentContext'
 
-interface IProps {
-    componentEmail: boolean;
-    openComponentEmail: any;
-    openComponentShipping: any;
-    openEditBtn: any;
-    editBtn:any
-}
+const Email:React.FC = () => {
 
-const Email:React.FC<IProps> = ({componentEmail, openComponentEmail, openComponentShipping, openEditBtn, editBtn}) => {
-
-    const [input, setInput] = useState("")
-
-    const [passwordComponent, setPasswordComponent] = useState(false)
+    const formContext:any = useContext(FormComponentContext)
+    const {formComponents, dispatch} = formContext
+    const {componentEmail} = formComponents
 
     const passwordBtn = () => {
-        setPasswordComponent(true)
-        openComponentEmail(true)
+        dispatch({type: "COMPONENT", payload: {componentPassword: true}})
+        dispatch({type: "COMPONENT", payload: {componentEmail: true}})
     }
 
     const submitBtn = () => {
-        openComponentEmail(!componentEmail)
-        openComponentShipping(true)
-        openEditBtn({...editBtn, email: true})
+        dispatch({type: "COMPONENT", payload: {componentEmail: false}})
+        dispatch({type: "COMPONENT", payload: {componentShipping: true}})
+        dispatch({type: "COMPONENT", payload: {editEmail: true}})
     }
 
     const validate = (email:any) => {
         let re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(email);
-      }
+    }
 
-   const validateEmail = (value:any) => (value && validate(value) ? null : "Invalid mail")
+    const [input, setInput] = useState("")
+
+    const validateEmail = (value:any) => (value && validate(value) ? null : "Invalid mail")
 
     return (
         <Form onSubmit={submitBtn} 
@@ -46,7 +41,7 @@ const Email:React.FC<IProps> = ({componentEmail, openComponentEmail, openCompone
                         <h2 style={{color: !componentEmail ? "#999" : "#000"}} className="email__number">1</h2>
                         <span style={{backgroundColor: !componentEmail ? "#999" : "#000"}} className="dash-email"></span>
                         <h2 style={{color: !componentEmail ? "#999" : "#000"}} className="email__heading">Your email</h2>
-                        <button onClick={ () =>{openComponentEmail(!componentEmail)}} style={{display: componentEmail ? "none" : "inline"}} className={!componentEmail ? "email__heading__button" : "close"}>Edit</button>
+                        <button onClick={ () =>{dispatch({type: "COMPONENT", payload: {componentEmail: !componentEmail}})}} style={{display: componentEmail ? "none" : "inline"}} className={!componentEmail ? "email__heading__button" : "close"}>Edit</button>
                         </div>
                             <form onSubmit={props.handleSubmit} className={componentEmail ? "email__component__form" : "email__component__form__close"}>
                                 <EmailMain 
@@ -57,13 +52,11 @@ const Email:React.FC<IProps> = ({componentEmail, openComponentEmail, openCompone
                                 />
                                 <MessageEmail
                                     passwordBtn={passwordBtn}
-                                    passwordComponent={passwordComponent}
                                     input={input}
                                     validate={validate}
                                     submitBtn={props.handleSubmit}
                                 />
                                 <PasswordEmail 
-                                    passwordComponent={passwordComponent}
                                     input={input}
                                     validate={validate}
                                     submitBtn={props.handleSubmit}

@@ -5,12 +5,19 @@ export const FormComponentContext = createContext()
 
 export const ComponentContextProvider = (props) => {
 
-    const components =  [
-        {componentEmail: true},
-        {componentPayment: false},
-        {componentShipping: false},
-        {componentReview: false}
-    ]
+    const components =  {
+        componentEmail: true,
+        componentPayment: false,
+        componentShipping: false,
+        componentReview: false,
+        componentPassword: false,
+        editEmail: false,
+        editShipping: false,
+        editPayment: false,
+        editReview: false,
+        homeShipping: false,
+        storeShipping: false
+    }
 
     const [formComponents, dispatch] = useReducer(FormComponentReducer, components)
 

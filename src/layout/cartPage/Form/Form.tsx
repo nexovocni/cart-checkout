@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import Email from '../../../components/Email/Email'
 import Shipping from '../../../components/Shipping/Shipping'
 import Payment from '../../../components/Payment/Payment'
@@ -20,38 +20,16 @@ interface IProps {
 
 const Form:React.FC<IProps> = ({products, deleteProduct, changeProducts, setTax, setCheckValue, checkValue, shipValue, itemsValue, taxValue, switchComponent}) => {
 
-    const [componentEmail, openComponentEmail] = useState(true)
-    const [componentShipping, openComponentShipping] = useState(false)
-    const [componentPayment, openComponentPayment] = useState(false)
-    const [componentReview, openComponentReview] = useState(false)
-    const [editBtn, openEditBtn]= useState({
-        email: false,
-        shipping: false,
-        payment: false,
-        review: false
-    })
-
     return (
         <main className={!switchComponent ? "main__form" : "main__form__close"}>
-            <Email 
-                componentEmail={componentEmail}
-                openComponentEmail={openComponentEmail}
-                openComponentShipping={openComponentShipping}
-                openEditBtn={openEditBtn}
-                editBtn={editBtn}
-            />
+            <Email />
             <Shipping 
-                componentShipping={componentShipping}
-                openComponentShipping={openComponentShipping}
                 setTax={setTax}
                 setCheckValue={setCheckValue}
                 checkValue={checkValue}
                 shipValue={shipValue}
-                openComponentPayment={openComponentPayment}
-                openEditBtn={openEditBtn}
-                editBtn={editBtn}
             />
-            <Payment 
+            {/* <Payment 
                 componentPayment={componentPayment}
                 openComponentPayment={openComponentPayment}
                 openComponentReview={openComponentReview}
@@ -70,7 +48,7 @@ const Form:React.FC<IProps> = ({products, deleteProduct, changeProducts, setTax,
                 taxValue={taxValue}
                 openEditBtn={openEditBtn}
                 editBtn={editBtn}
-            />
+            /> */}
         </main>
     )
 }

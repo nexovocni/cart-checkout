@@ -3,6 +3,7 @@ import Header from './Header/Header'
 import Products from './Products/Products'
 import Form  from './Form/Form'
 import Summary from './Summary/Summary'
+import {ComponentContextProvider} from '../../contexts/FormComponentContext'
 import './CartPage.scss'
 
 interface IProps {
@@ -42,18 +43,20 @@ const CartPage:React.FC<IProps> = ({products, deleteProduct, changeProducts, set
                 stateComponent={state}
                 switchComponent={switchComponent}
             />
-            <Form
-                setTax={setTax}
-                products={ products } 
-                deleteProduct = {deleteProduct}
-                changeProducts = {changeProducts}
-                setCheckValue={setCheckValue}
-                checkValue={checkValue}
-                shipValue={shipValue}
-                itemsValue={itemsValue}
-                taxValue={taxValue}
-                switchComponent={switchComponent}
-        />
+            <ComponentContextProvider>
+                <Form
+                    setTax={setTax}
+                    products={ products } 
+                    deleteProduct = {deleteProduct}
+                    changeProducts = {changeProducts}
+                    setCheckValue={setCheckValue}
+                    checkValue={checkValue}
+                    shipValue={shipValue}
+                    itemsValue={itemsValue}
+                    taxValue={taxValue}
+                    switchComponent={switchComponent}
+                />
+            </ComponentContextProvider>
         </div>
         </div>
             <Summary
