@@ -30,19 +30,15 @@ const Form:React.FC<IProps> = ({products, deleteProduct, changeProducts, setTax,
                 shipValue={shipValue}
             />
             <Payment />
-            {/* <Review 
+            <Review 
                 products={ products } 
                 deleteProduct = {deleteProduct}
                 changeProducts = {changeProducts}
                 checkValue={checkValue}
                 itemsValue={itemsValue}
-                componentReview={componentReview}
-                openComponentReview={openComponentReview}
                 shipValue={shipValue}
                 taxValue={taxValue}
-                openEditBtn={openEditBtn}
-                editBtn={editBtn}
-            /> */}
+            />
         </main>
     )
 }
