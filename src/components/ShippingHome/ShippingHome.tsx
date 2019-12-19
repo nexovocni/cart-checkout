@@ -6,6 +6,7 @@ import ShippingCity from '../../components/ShippingCity/ShippingCity'
 import ShippingPhone from '../../components/ShippingPhone/ShippingPhone'
 import ShippingStandard from '../../components/ShippingStandard/ShippingStandard'
 import {FormComponentContext} from '../../contexts/FormComponentContext'
+import {ValueContext} from '../../contexts/ValueContext'
 import './ShippingHome.scss'
 
 interface IProps {
@@ -20,16 +21,16 @@ interface IProps {
     setPhone: any;
     validate: any;
     submitBtn: any;
-    setCheckValue: any;
-    checkValue: number;
-    shipValue: number;
 }
 
-const ShippingHome:React.FC<IProps> = ({setFirstName, setLastName, setFirstAddress, setLastAddress, setCity, setCountry, setPhone, setPostal, setProvince, validate, submitBtn, setCheckValue, checkValue, shipValue}) => {
+const ShippingHome:React.FC<IProps> = ({setFirstName, setLastName, setFirstAddress, setLastAddress, setCity, setCountry, setPhone, setPostal, setProvince, validate, submitBtn}) => {
 
     const formContext:any = useContext(FormComponentContext)
     const {formComponents} = formContext
     const {componentShipping} = formComponents
+
+    const valueContext:any = useContext(ValueContext)
+    console.log(valueContext)
 
     return (
         <Form onSubmit={submitBtn}
@@ -57,7 +58,7 @@ const ShippingHome:React.FC<IProps> = ({setFirstName, setLastName, setFirstAddre
                             setPhone={setPhone}
                             validate={validate}
                         />
-                        {checkValue === 0 || shipValue < 0 ?
+                        {/* {checkValue === 0 || shipValue < 0 ?
                         <div className="shipping__standard">
                         <div><h3>Standard shipping</h3><p>5 - 7 business days</p></div>
                         <div>$10.00</div>
@@ -65,7 +66,7 @@ const ShippingHome:React.FC<IProps> = ({setFirstName, setLastName, setFirstAddre
                         <ShippingStandard 
                             setCheckValue={setCheckValue}
                         />
-                        }
+                        } */}
                         <button onSubmit={props.handleSubmit} className="shipping__component__submit" type="submit">Continue to payment method</button>
                     </form>
                 )

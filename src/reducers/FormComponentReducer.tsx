@@ -1,4 +1,4 @@
-export const FormComponentReducer = (state, action) => {
+export const FormComponentReducer = (state:any, action:any) => {
     switch (action.type){
         case 'COMPONENT':
             return { ...state, ...action.payload};

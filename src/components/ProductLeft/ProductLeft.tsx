@@ -1,6 +1,7 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import SelectMobile from '../SelectMobile/SelectMobile'
 import ViewProduct from '../ViewProduct/ViewProduct'
+import {ProductContext} from '../../contexts/ProductContext'
 import './ProductLeft.scss'
 
 interface IProps {
@@ -18,17 +19,17 @@ interface IProps {
         image: string;
     };
     localData: any;
-    handleChange: any;
-    handleChangeColor: any;
-    removeProduct: any;
     updateState: any;
     stateComponent: boolean;
     review: boolean
 }
 
-const ProductLeft:React.FC<IProps> = ({localData, removeProduct, product, handleChange, handleChangeColor, updateState,stateComponent, review}) => {
+const ProductLeft:React.FC<IProps> = ({localData, product, updateState,stateComponent, review}) => {
 
     const [productComponent, updateProductComponent] = useState (true)
+
+    const productContext:any = useContext(ProductContext)
+    const {handleChangeColor, handleChange, removeProduct} = productContext
 
     const handleState = () => {
         updateState(true)

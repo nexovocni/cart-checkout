@@ -1,9 +1,9 @@
 import React, {createContext, useReducer} from 'react'
 import {FormComponentReducer} from '../reducers/FormComponentReducer'
 
-export const FormComponentContext = createContext()
+export const FormComponentContext = createContext({})
 
-export const ComponentContextProvider = (props) => {
+export const ComponentContextProvider = (props:any) => {
 
     const components =  {
         componentEmail: true,
@@ -18,7 +18,8 @@ export const ComponentContextProvider = (props) => {
         homeShipping: false,
         storeShipping: false,
         creditPayment: false,
-        giftPayment: false
+        giftPayment: false,
+        stateReview: false
     }
 
     const [formComponents, dispatch] = useReducer(FormComponentReducer, components)

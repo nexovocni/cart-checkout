@@ -7,12 +7,9 @@ import {FormComponentContext} from '../../contexts/FormComponentContext'
 
 interface IProps {
     setTax: any;
-    setCheckValue: any;
-    checkValue: number;
-    shipValue: number;
 }
 
-const Shipping:React.FC<IProps> = ({setTax, setCheckValue, checkValue, shipValue}) => {
+const Shipping:React.FC<IProps> = ({setTax}) => {
 
     const formContext:any = useContext(FormComponentContext)
     const {formComponents, dispatch} = formContext
@@ -80,9 +77,6 @@ const Shipping:React.FC<IProps> = ({setTax, setCheckValue, checkValue, shipValue
                         setCountry={setCountry}
                         submitBtn={submitBtn}
                         validate={validate}
-                        setCheckValue={setCheckValue}
-                        checkValue={checkValue}
-                        shipValue={shipValue}
                 /> 
                 </div>
                 <div className={storeShipping && componentShipping ? "shipping__component__store" : "close-store"}>

@@ -22,21 +22,20 @@ interface IProps {
         image: string;
     };
     localData: any,
-    handleChange: any,
-    handleChangeColor: any
 }
 
-const ProductRight:React.FC<IProps> = ({product, localData, handleChange, handleChangeColor}) => {
+const ProductRight:React.FC<IProps> = ({product, localData}) => {
+
     return (
         <div className="product__section__right">
             <div className="product__section__right-color">
-                <SelectColor localData={localData} handleChangeColor={handleChangeColor}/>
+                <SelectColor localData={localData} />
             </div>
             <div className="product__section__right-size">
-                <SelectSize localData={localData} handleChange={handleChange} product={product}/>
+                <SelectSize localData={localData} product={product}/>
             </div>
             <div className="product__section__right-quantity">
-                <SelectQuantity localData={localData} handleChange={handleChange} />
+                <SelectQuantity localData={localData} />
             </div>
             <div className="product__section__right-price">
                 <p>${parseInt(localData.price).toFixed(2)}</p>

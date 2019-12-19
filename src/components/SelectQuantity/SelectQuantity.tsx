@@ -1,11 +1,15 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import {ProductContext} from '../../contexts/ProductContext'
 
 interface IProps {
-    handleChange: any,
     localData: any
 }
 
-const SelectQuantity:React.FC<IProps> = ({handleChange, localData}) => {
+const SelectQuantity:React.FC<IProps> = ({localData}) => {
+
+    const productContext:any = useContext(ProductContext)
+    const {handleChange} = productContext
+
     return (
         <div className="product__section__right-quantity-full">
                 <select name="quantity" onChange={handleChange}>

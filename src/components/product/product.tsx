@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import ProductLeft from '../ProductLeft/ProductLeft'
 import ProductRight from '../ProductRight/ProductRight'
+import {ProductContext} from '../../contexts/ProductContext'
 import './Product.scss'
-
 
 interface IProps {
     product: {
@@ -18,35 +18,17 @@ interface IProps {
         quantities: number[]
         image: string;
     };
-    changeProducts: any;
-    deleteProduct: any;
+   
     updateState: any;
     stateComponent: boolean
 }
 
-const Product: React.FC<IProps> = ({product, changeProducts, updateState, deleteProduct,stateComponent}) => {
+const Product: React.FC<IProps> = ({product, updateState, stateComponent}) => {
 
     const [localData, setLocalData] = useState(product);
 
-    const handleChange = (e:any) => {
-        const newProduct = {...localData, [e.target.name]: e.target.value};
-        changeProducts(newProduct.id, newProduct);
-    };
-
-    const handleChangeColor = (e:any) => {
-        const newColor = e.target.value;
-
-        const newProduct = {
-            ...localData, 
-            color: newColor,
-        };
-
-        changeProducts(newProduct.id, newProduct);
-    }
-
-    const removeProduct = () => {
-        deleteProduct(localData.id);
-    }
+    const productContext:any = useContext(ProductContext)
+    const {removeProduct} = productContext
 
     useEffect(() => {
         setLocalData(product);
@@ -57,9 +39,6 @@ const Product: React.FC<IProps> = ({product, changeProducts, updateState, delete
             <div className="product__section">
                 <ProductLeft
                         localData={ localData }
-                        removeProduct={ removeProduct }
-                        handleChange={ handleChange }
-                        handleChangeColor={ handleChangeColor } 
                         product={product}
                         updateState={ updateState}
                         stateComponent= { stateComponent }
@@ -67,9 +46,7 @@ const Product: React.FC<IProps> = ({product, changeProducts, updateState, delete
                 /> 
                 <ProductRight
                         product={product}
-                        localData={localData}
-                        handleChange={handleChange}
-                        handleChangeColor={handleChangeColor} 
+                        localData={localData} 
                 />
             </div>
             <div 

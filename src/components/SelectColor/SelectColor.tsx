@@ -1,11 +1,15 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import {ProductContext} from '../../contexts/ProductContext'
 
 interface IProps {
-    handleChangeColor: any,
     localData: any
 }
 
-const SelectColor:React.FC<IProps> = ({localData, handleChangeColor}) => {
+const SelectColor:React.FC<IProps> = ({localData}) => {
+
+    const productContext:any = useContext(ProductContext)
+    const {handleChangeColor} = productContext
+
     return (
         <div className="product__section__right-color-full">
                     <div style={{backgroundColor: localData.color === "Leopard" ? "orange" : localData.color }} className="color-ball"></div>

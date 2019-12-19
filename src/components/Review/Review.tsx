@@ -2,19 +2,17 @@ import React, {useState, useEffect, useContext} from 'react'
 import ReviewProduct from '../ReviewProduct/ReviewProduct'
 import ReviewData from '../ReviewData/ReviewData'
 import {FormComponentContext} from '../../contexts/FormComponentContext'
+import {ProductContext} from '../../contexts/ProductContext'
 import './Review.scss'
 
 interface IProps {
-    products: any[];
-    changeProducts: any;
-    deleteProduct: any;
     checkValue: number;
     itemsValue: any;
     shipValue: number;
     taxValue: any;
 }
 
-const Review:React.FC<IProps> = ({products, changeProducts, deleteProduct, checkValue, itemsValue,  shipValue, taxValue}) => {
+const Review:React.FC<IProps> = ({ checkValue, itemsValue,  shipValue, taxValue}) => {
 
     const [stateComponent, updateStateComponent] = useState (false)
 
@@ -23,6 +21,9 @@ const Review:React.FC<IProps> = ({products, changeProducts, deleteProduct, check
     const formContext:any = useContext(FormComponentContext)
     const {formComponents, dispatch} = formContext
     const {componentReview, editReview} = formComponents
+
+    const productContext:any = useContext(ProductContext)
+    const {products} = productContext
 
     useEffect(() => {
         document.addEventListener("scroll", () => {
@@ -51,12 +52,10 @@ const Review:React.FC<IProps> = ({products, changeProducts, deleteProduct, check
             <div className="review__component">
                 <div className={componentReview ? "review__component__section" : "close"}>
                     <div className="review__products">
-                        {products.map(product => {
+                        {products.map((product:any) => {
                             return(
                                 <ReviewProduct 
                                     product={product}
-                                    changeProducts={changeProducts}
-                                    deleteProduct={deleteProduct}
                                     stateComponent={stateComponent}
                                     updateStateComponent={updateStateComponent}
                                 />
