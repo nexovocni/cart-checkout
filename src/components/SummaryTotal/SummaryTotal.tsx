@@ -1,14 +1,17 @@
-import React, {useState, useEffect, useRef} from 'react'
+import React, {useState, useEffect, useRef, useContext} from 'react'
+import {CartComponentContext} from '../../contexts/CartComponentContext'
 import './SummaryTotal.scss'
 
 interface IProps {
-    disabledCode: boolean;
     itemsValue: string;
     title: string;
     valueTrans: boolean;
 }
 
-const SummaryTotal:React.FC<IProps> = ({disabledCode, itemsValue, title, valueTrans}) => {
+const SummaryTotal:React.FC<IProps> = ({itemsValue, title, valueTrans}) => {
+
+    const productContext:any = useContext(CartComponentContext)
+    const {disabledCode} = productContext
 
     const [value, setValue] = useState(itemsValue)
 

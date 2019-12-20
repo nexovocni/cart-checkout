@@ -1,35 +1,35 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import './ViewProduct.scss'
 import ViewMobile from '../ViewMobile/ViewMobile'
+import {CartComponentContext} from '../../contexts/CartComponentContext'
 
 interface IProps {
     localData: any;
-    handleState: any;
-    productComponent: any;
-    removeProduct: any;
     review: boolean;
+    removeProduct: any
 }
 
-const ViewProduct:React.FC<IProps> = ({localData, handleState, productComponent, removeProduct, review}) => {
+const ViewProduct:React.FC<IProps> = ({localData,review, removeProduct}) => {
+
+    const productContext:any = useContext(CartComponentContext)
+    const {productState} = productContext
 
     return (
             <React.Fragment>
                 <div className={`${review ? `review` : `product`}__section__left-image`}>
-                    <img src={localData.image[localData.colors.indexOf(localData.color)]} alt="image"/>
+                    <img src={localData.image[localData.colors.indexOf(localData.color)]} alt="productImg"/>
                 </div>
                 <div className={`${review ? `review` : `product`}__section__left-name`}>
-                    <div className={productComponent ? `${review ? `review` : `product`}__name` :  `${review ? `review` : `product`}__name-mob`}>
+                    <div className={productState ? `${review ? `review` : `product`}__name` :  `${review ? `review` : `product`}__name-mob`}>
                         <div>
                             <p>{localData.name}</p>
                         </div>
                         <ViewMobile 
-                            handleState={handleState} 
-                            removeProduct={removeProduct} 
-                            productComponent={productComponent}
                             localData={localData}
                             review={review}
+                            removeProduct={removeProduct}
                         />
-                        <div className={productComponent ? "wishlist" : "wishlist-mob"}>
+                        <div className={productState ? "wishlist" : "wishlist-mob"}>
                             <p><i className="fa fa-heart"></i>Move to wishlist</p>
                         </div>
                     </div>

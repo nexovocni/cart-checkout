@@ -4,19 +4,19 @@ import ShippingHome from "../../components/ShippingHome/ShippingHome"
 import ShippingStore from "../../components/ShippingStore/ShippingStore"
 import ShippingData from "../../components/ShippingData/ShippingData"
 import {FormComponentContext} from '../../contexts/FormComponentContext'
+import {CartComponentContext, CartContextProvider} from '../../contexts/CartComponentContext'
 
-interface IProps {
-    setTax: any;
-}
-
-const Shipping:React.FC<IProps> = ({setTax}) => {
+const Shipping:React.FC= () => {
 
     const formContext:any = useContext(FormComponentContext)
     const {formComponents, dispatch} = formContext
     const {componentShipping, editShipping, storeShipping, homeShipping} = formComponents
 
+    // const cartContext:any = useContext(CartComponentContext)
+    // const {dispatch} = cartContext
+
     const submitBtn = () => {
-        setTax(true)
+        dispatch({type: "COMPONENT", payload: {tax: true}})
         dispatch({type: "COMPONENT", payload: {componentShipping: !componentShipping}})
         dispatch({type: "COMPONENT", payload: {componentPayment: true}})
         dispatch({type: "COMPONENT", payload: {editShipping: true}})

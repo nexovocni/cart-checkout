@@ -1,58 +1,44 @@
-import React, {useState} from 'react'
+import React, {useContext} from 'react'
 import SummaryTitle from '../../../components/SummaryTitle/SummaryTitle'
 import SummaryTotal from '../../../components/SummaryTotal/SummaryTotal'
 import Code from '../../../components/Code/Code'
 import SummarySubtotal from '../../../components/SummarySubtotal/SummarySubtotal'
 import SummaryTax from '../../../components/SummaryTax/SummaryTax'
+import {ProductContext} from '../../../contexts/ProductContext'
+import {CartComponentContext} from '../../../contexts/CartComponentContext'
 import './SummaryForm.scss'
 
-interface IProps {
-    itemsValue: any;
-    shipValue: number;
-    tax: boolean;
-    checkValue: number;
-    value: number;
-    taxValue: any;
-    switchComponent: boolean;
-    setSwitchComponent: any;
-}
+const SummaryForm:React.FC = () => {
 
-const SummaryForm:React.FC<IProps> = ({itemsValue, shipValue, tax, checkValue, value, taxValue, switchComponent, setSwitchComponent}) => {
+    const cartProducts:any = useContext(ProductContext)
+    const {values} = cartProducts
+    const {itemsValue, shipValue, checkValue, value} = values
 
-    const [disabledCode, setDisabledCode] = useState(false)
+    const productContext:any = useContext(CartComponentContext)
+    const {switchPage, dispatch} = productContext
 
     return (
         <React.Fragment>
-            <div className={!switchComponent ? "summaryform" : "summaryform__close"}>
+            <div className={!switchPage ? "summaryform" : "summaryform__close"}>
             <div className="summaryform__top">
                 <SummaryTitle 
                     shipValue={shipValue} 
-                    disabledCode={disabledCode}
                 />
                 <SummaryTotal
-                    itemsValue={`$${itemsValue.toFixed(2)}`} 
-                    disabledCode={disabledCode} 
+                    itemsValue={`$${itemsValue.toFixed(2)}`}  
                     title="Your Items"
                     valueTrans={true}
                  />
                 <div className="summaryform__line-grey"></div>
-                <SummaryTotal
-                    disabledCode={disabledCode} 
+                <SummaryTotal 
                     title="Shipping"
                     itemsValue={shipValue < 1 ? 'Free' : `$${checkValue.toFixed(2)}`} 
                     valueTrans={false}
                  />
                 <div className="summaryform__line-grey"></div>
-                <SummaryTax 
-                    disabledCode={disabledCode} 
-                    tax={tax}
-                    taxValue={taxValue}
-                />
+                <SummaryTax  />
                 <div className="summaryform__line-grey-tax"></div>
-                <Code 
-                    setCode={setDisabledCode}
-                    code={disabledCode} 
-                    stateComponent= {false}
+                <Code  
                     title="Have a promo code"
                     button="Apply"
                     placeholder="Enter Promo Code"
@@ -60,13 +46,10 @@ const SummaryForm:React.FC<IProps> = ({itemsValue, shipValue, tax, checkValue, v
                 <div className="summaryform__line-grey-last"></div>
                 <SummarySubtotal 
                     itemsValue={value}
-                    shipValue={shipValue}
-                    disabledCode={disabledCode}
-                    checkValue={checkValue}
                 />
             </div>
             <div className="summaryform__bottom">
-            <button onClick={() => {setSwitchComponent(!switchComponent)}} className={!switchComponent ? "button button_check" : "button_check_close"}>Go back</button>
+            <button onClick={() => {dispatch({type: "COMPONENT", payload: {switchPage: !switchPage}})}} className={!switchPage ? "button button_check" : "button_check_close"}>Go back</button>
             </div>
             </div>
             <div></div>

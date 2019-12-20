@@ -2,13 +2,11 @@ import React, {useContext} from 'react'
 import {ProductContext} from '../../contexts/ProductContext'
 
 interface IProps {
-    localData: any
+    localData: any,
+    handleChangeColor: any
 }
 
-const SelectColor:React.FC<IProps> = ({localData}) => {
-
-    const productContext:any = useContext(ProductContext)
-    const {handleChangeColor} = productContext
+const SelectColor:React.FC<IProps> = ({localData, handleChangeColor}) => {
 
     return (
         <div className="product__section__right-color-full">

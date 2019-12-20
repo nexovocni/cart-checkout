@@ -2,13 +2,11 @@ import React, {useContext} from 'react'
 import {ProductContext} from '../../contexts/ProductContext'
 
 interface IProps {
-    localData: any
+    localData: any,
+    handleChange: any,
 }
 
-const SelectQuantity:React.FC<IProps> = ({localData}) => {
-
-    const productContext:any = useContext(ProductContext)
-    const {handleChange} = productContext
+const SelectQuantity:React.FC<IProps> = ({localData, handleChange}) => {
 
     return (
         <div className="product__section__right-quantity-full">

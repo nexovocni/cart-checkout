@@ -1,7 +1,7 @@
-import React, {useState, useContext} from 'react'
+import React, {useContext} from 'react'
 import SelectMobile from '../SelectMobile/SelectMobile'
 import ViewProduct from '../ViewProduct/ViewProduct'
-import {ProductContext} from '../../contexts/ProductContext'
+import {CartComponentContext} from '../../contexts/CartComponentContext'
 import './ProductLeft.scss'
 
 interface IProps {
@@ -19,43 +19,33 @@ interface IProps {
         image: string;
     };
     localData: any;
-    updateState: any;
-    stateComponent: boolean;
-    review: boolean
+    review: boolean,
+    handleChange: any,
+    handleChangeColor: any, 
+    removeProduct: any
 }
 
-const ProductLeft:React.FC<IProps> = ({localData, product, updateState,stateComponent, review}) => {
+const ProductLeft:React.FC<IProps> = ({localData, product, review, removeProduct, handleChange, handleChangeColor}) => {
 
-    const [productComponent, updateProductComponent] = useState (true)
-
-    const productContext:any = useContext(ProductContext)
-    const {handleChangeColor, handleChange, removeProduct} = productContext
-
-    const handleState = () => {
-        updateState(true)
-        updateProductComponent(false)
-    }
+    const productContext:any = useContext(CartComponentContext)
+    const {cartState, productState} = productContext
 
     return (
-        <div className={`${review ? `review` : `product`}__section__left`} style={{opacity: stateComponent && productComponent ? .3 : 1, pointerEvents: stateComponent && productComponent ? "none" : "auto"}}>
+        <div className={`${review ? `review` : `product`}__section__left`} style={{opacity: cartState && productState ? .3 : 1, pointerEvents: cartState && productState ? "none" : "auto"}}>
             <div className="product__section__left-top">
                 <ViewProduct 
                     localData={localData}
-                    productComponent={productComponent}
-                    handleState={handleState}
-                    removeProduct={removeProduct}
                     review={review}
+                    removeProduct={removeProduct}
                 />
             </div>
-            <div className={!productComponent ? `${review ? `review` : `product`}__section__left-bottom` : "close"}>
+            <div className={!productState ? `${review ? `review` : `product`}__section__left-bottom` : "close"}>
                 <SelectMobile 
-                    localData={ localData}  
-                    handleChange={ handleChange } 
-                    handleChangeColor={ handleChangeColor }  
+                    localData={ localData}   
                     product={ product }
-                    updateState={ updateState }
-                    updateProductComponent= { updateProductComponent}
                     review={review}
+                    handleChange= {handleChange}
+                    handleChangeColor = {handleChangeColor}
                 />
             </div>
         </div>

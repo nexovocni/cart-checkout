@@ -5,14 +5,7 @@ import {FormComponentContext} from '../../contexts/FormComponentContext'
 import {ProductContext} from '../../contexts/ProductContext'
 import './Review.scss'
 
-interface IProps {
-    checkValue: number;
-    itemsValue: any;
-    shipValue: number;
-    taxValue: any;
-}
-
-const Review:React.FC<IProps> = ({ checkValue, itemsValue,  shipValue, taxValue}) => {
+const Review:React.FC = () => {
 
     const [stateComponent, updateStateComponent] = useState (false)
 
@@ -63,13 +56,7 @@ const Review:React.FC<IProps> = ({ checkValue, itemsValue,  shipValue, taxValue}
                         })}
                     </div>
                     <div className="review__data">
-                        <ReviewData 
-                            itemsValue={itemsValue}
-                            checkValue={checkValue}
-                            productComponent={stateComponent}
-                            shipValue={shipValue}
-                            taxValue={taxValue}
-                        />
+                        <ReviewData />
                     </div>
                     <div style={{position: stateComponent ? "relative" : "sticky"}} id="sticky_div" className={!scrollBtn ? "review__component__button" : "review__component__button-sticky"}>
                         <button style={{opacity: stateComponent ? .3 : 1, pointerEvents: stateComponent ? "none" : "auto"}} onClick={reviewSubmit} className="review__component__submit" type="submit">Place order</button>

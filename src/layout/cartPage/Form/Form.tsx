@@ -1,30 +1,22 @@
-import React, {useState, useContext} from 'react'
+import React, {useContext} from 'react'
 import Email from '../../../components/Email/Email'
 import Shipping from '../../../components/Shipping/Shipping'
 import Payment from '../../../components/Payment/Payment'
 import Review from '../../../components/Review/Review'
+import {CartComponentContext} from '../../../contexts/CartComponentContext'
 import './Form.scss'
 
-interface IProps {
-    setTax: any;
-    switchComponent: boolean;
-}
+const Form:React.FC = () => {
 
-const Form:React.FC<IProps> = ({ setTax, switchComponent}) => {
+    const productContext:any = useContext(CartComponentContext)
+    const {switchPage} = productContext
 
     return (
-        <main className={!switchComponent ? "main__form" : "main__form__close"}>
+        <main className={!switchPage ? "main__form" : "main__form__close"}>
             <Email />
-            <Shipping 
-                setTax={setTax}
-            />
+            <Shipping />
             <Payment />
-            <Review 
-                checkValue={checkValue}
-                itemsValue={itemsValue}
-                shipValue={shipValue}
-                taxValue={taxValue}
-            />
+            <Review />
         </main>
     )
 }

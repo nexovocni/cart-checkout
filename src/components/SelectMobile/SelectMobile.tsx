@@ -1,7 +1,8 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import SelectColor from '../SelectColor/SelectColor'
 import SelectSize from '../SelectSize/SelectSize'
 import SelectQuantity from '../SelectQuantity/SelectQuantity'
+import {CartComponentContext} from '../../contexts/CartComponentContext'
 import './SelectMobile.scss'
 
 interface IProps {
@@ -19,18 +20,19 @@ interface IProps {
         image: string;
     };
     localData: any;
-    handleChange: any;
-    handleChangeColor: any;
-    updateState: any;
-    updateProductComponent: any;
-    review: boolean
+    review: boolean,
+    handleChange: any,
+    handleChangeColor: any, 
 }
 
-const SelectMobile:React.FC<IProps> = ({localData, handleChange, handleChangeColor, product, updateState, updateProductComponent, review}) => {
+const SelectMobile:React.FC<IProps> = ({localData, product, review, handleChange, handleChangeColor}) => {
 
+    const productContext:any = useContext(CartComponentContext)
+    const {dispatch} = productContext
+    
     const handleButton = () => {
-        updateProductComponent(true)
-        updateState(false)
+        dispatch({type: "COMPONENT", payload: {cartState: true}})
+        dispatch({type: "COMPONENT", payload: {productState: false}})
     }
 
     return (
@@ -42,7 +44,7 @@ const SelectMobile:React.FC<IProps> = ({localData, handleChange, handleChangeCol
                     </div>
                     <div className={`${review ? `review` : `product`}__section__left-bottom-select-size`}>
                         <p>Size</p>
-                        <SelectSize localData={localData} handleChange={handleChange} product={product}/>
+                        <SelectSize localData={localData} product={product} handleChange={handleChange}/>
                     </div>
                     <div className={`${review ? `review` : `product`}__section__left-bottom-select-quantity`}>
                         <p>Quantity</p>

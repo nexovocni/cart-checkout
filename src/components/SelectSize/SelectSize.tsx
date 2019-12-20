@@ -3,13 +3,11 @@ import {ProductContext} from '../../contexts/ProductContext'
 
 interface IProps {
     product: any,
-    localData: any
+    localData: any,
+    handleChange: any
 }
 
-const SelectSize:React.FC<IProps> = ({product, localData}) => {
-
-    const productContext:any = useContext(ProductContext)
-    const {handleChange} = productContext
+const SelectSize:React.FC<IProps> = ({product, localData, handleChange}) => {
 
     return (
         <div className="product__section__right-size-full">

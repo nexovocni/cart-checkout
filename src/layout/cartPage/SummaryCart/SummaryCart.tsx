@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState, useContext} from 'react'
 import './SummaryCart.scss'
 import Checkbox from '../../../components/Checkbox/Checkbox'
 import Code from '../../../components/Code/Code'
@@ -6,77 +6,54 @@ import Buttons from '../../../components/SummaryButtons/Buttons'
 import SummaryTotal from '../../../components/SummaryTotal/SummaryTotal'
 import SummaryTitle from '../../../components/SummaryTitle/SummaryTitle'
 import SummarySubtotal from '../../../components/SummarySubtotal/SummarySubtotal'
+import {ProductContext} from '../../../contexts/ProductContext'
+import {CartComponentContext} from '../../../contexts/CartComponentContext'
 
-interface IProps {
-    products: any;
-    setCheckValue: any;
-    stateComponent: boolean;
-    itemsValue: number;
-    shipValue: number;
-    checkValue: number;
-    value: number;
-    switchComponent: boolean;
-    setSwitchComponent: any;
-}
+const Summary:React.FC = () => {
 
-const Summary:React.FC<IProps> = ({products, stateComponent, setCheckValue, itemsValue, shipValue, checkValue, value, switchComponent, setSwitchComponent}) => {
+    const productContext:any = useContext(CartComponentContext)
+    const {disabledCode, switchPage} = productContext
 
-    const [disabledCode, setDisabledCode] = useState(false)
+    const cartProducts:any = useContext(ProductContext)
+    const {values} = cartProducts
+    const {itemsValue, shipValue, setCheckValue, value} = values
     
     return (
         <React.Fragment>
-            <div className={switchComponent ? "summarycart" : "summarycart__close"}>
+            <div className={switchPage ? "summarycart" : "summarycart__close"}>
             <div className="summarycart__top">
                 <SummaryTitle 
                     shipValue={shipValue} 
-                    disabledCode={disabledCode}
                 />
                 <SummaryTotal
                     itemsValue={`$${itemsValue.toFixed(2)}`}  
-                    disabledCode={disabledCode} 
                     title="Your order"
                     valueTrans={true}
                 />
                 <div style={{opacity: disabledCode ? .3 : 1 }} className="summarycart__line"></div>
                 <Checkbox 
-                    code={disabledCode} 
                     setCheckValue={setCheckValue} 
                     shipValue={shipValue}
-                    stateComponent= {stateComponent}
                 />
                 <div className="summarycart__line-grey"></div>
-                <Code 
-                    setCode={setDisabledCode}
-                    code={disabledCode} 
-                    stateComponent= {stateComponent}
+                <Code
                     title="Estimate your tax and shipping"
                     button="Estimate"
                     placeholder="Enter Tax Code"
                 />
                 <div className="summarycart__line-grey"></div>
                 <Code 
-                    setCode={setDisabledCode}
-                    code={disabledCode}
-                    stateComponent={stateComponent}
                     title="Have a promo code"
                     button="Apply"
                     placeholder="Enter Zip Code"
                 />
                 <div className="summarycart__line-grey"></div>
-                <SummarySubtotal 
+                <SummarySubtotal  
                     itemsValue={value}
-                    shipValue={shipValue}
-                   disabledCode={disabledCode}
-                    checkValue={checkValue}
                 />
             </div>
-            <div className={setSwitchComponent ? "summarycart__bottom" : "summarycart__bottom__close"}>
-                <Buttons 
-                    stateComponent={stateComponent} 
-                    disabledCode={disabledCode}
-                    switchComponent={switchComponent}
-                    setSwitchComponent={setSwitchComponent}
-                />
+            <div className={switchPage ? "summarycart__bottom" : "summarycart__bottom__close"}>
+                <Buttons />
             </div>
         </div>
     </React.Fragment>

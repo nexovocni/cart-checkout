@@ -18,21 +18,33 @@ interface IProps {
         quantities: number[]
         image: string;
     };
-   
-    updateState: any;
-    stateComponent: boolean
 }
 
-const Product: React.FC<IProps> = ({product, updateState, stateComponent}) => {
+const Product: React.FC<IProps> = ({product}) => {
 
     const [localData, setLocalData] = useState(product);
 
     const productContext:any = useContext(ProductContext)
-    const {removeProduct} = productContext
+    const {changeProducts, deleteProduct} = productContext
 
     useEffect(() => {
         setLocalData(product);
     }, [product]);
+
+    const handleChange = (e:any) => {
+        const newProduct = {...product, [e.target.name]: e.target.value}
+        changeProducts(newProduct.id, newProduct)
+    };
+
+    const handleChangeColor = (e:any) => {
+        const newColor = e.target.value;
+        const newProduct = {...product, color: newColor,}
+        changeProducts(newProduct.id, newProduct);
+    }
+
+    const removeProduct = () => {
+        deleteProduct(product.id);
+    }
 
     return (
         <div className="product">
@@ -40,13 +52,16 @@ const Product: React.FC<IProps> = ({product, updateState, stateComponent}) => {
                 <ProductLeft
                         localData={ localData }
                         product={product}
-                        updateState={ updateState}
-                        stateComponent= { stateComponent }
                         review={false}
+                        handleChange= {handleChange}
+                        handleChangeColor = {handleChangeColor}
+                        removeProduct={removeProduct}
                 /> 
                 <ProductRight
                         product={product}
                         localData={localData} 
+                        handleChange= {handleChange}
+                        handleChangeColor = {handleChangeColor}
                 />
             </div>
             <div 

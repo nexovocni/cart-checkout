@@ -1,19 +1,21 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
+import {CartComponentContext} from '../../contexts/CartComponentContext'
 import './Checkbox.scss'
 
 interface IProps {
-    code: boolean
     shipValue: number
     setCheckValue: any
-    stateComponent: boolean
 }
 
-const Checkbox:React.FC<IProps> = ({ code, shipValue, setCheckValue, stateComponent}) => {
+const Checkbox:React.FC<IProps> = ({ shipValue, setCheckValue}) => {
 
     const [isChecked, setChecked] = useState(true)
 
+    const productContext:any = useContext(CartComponentContext)
+    const {disabledCode, cartState} = productContext
+
     return (
-        <form style={{opacity: code ? .3 : 1, pointerEvents: code || stateComponent  ? "none" : "auto"}} className="checkbox">
+        <form style={{opacity: disabledCode ? .3 : 1, pointerEvents: disabledCode || cartState  ? "none" : "auto"}} className="checkbox">
                 <div className="checkbox__component">
                     <div className="ship">
                         <label>

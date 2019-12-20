@@ -5,6 +5,10 @@ export const ProductContext = createContext({})
 
 export const ProductContextProvider = (props:any) => {
 
+    let itemsValue = 0
+
+    const [checkValue, setCheckValue] = useState(10)
+
     let [products, updateProducts] = useState([]);
 
     useEffect( () => {
@@ -20,29 +24,30 @@ export const ProductContextProvider = (props:any) => {
         const newProducts: any = products.map((product: any) => product.id === productId ? productData : product)
         updateProducts(newProducts);
     };
-    
-    const deleteProducts = (productId: number) => {
+
+    const deleteProduct = (productId: number) => {
         const newProducts = products.filter((product: any) => product.id !== productId)
         updateProducts(newProducts);
     };
 
-    const handleChange = (e:any, product:any) => {
-        const newProduct = {...product, [e.target.name]: e.target.value};
-        changeProducts(newProduct.id, newProduct);
-    };
+    {products.map( (product: any) => {
+        itemsValue += product.quantity * product.price
+    })}
 
-    const handleChangeColor = (e:any, product: any) => {
-        const newColor = e.target.value;
-        const newProduct = {...product, color: newColor,};
-        changeProducts(newProduct.id, newProduct);
-    }
+    const value = itemsValue + checkValue
+ 
+    const shipValue = (550 - itemsValue)
 
-    const removeProduct = (product: any) => {
-        deleteProducts(product.id);
+    let values = {
+        itemsValue,
+        shipValue,
+        checkValue,
+        value,
+        taxValue: {gst:  3.01, pst:  1.99}
     }
 
     return (
-        <ProductContext.Provider value={{products, updateProducts, removeProduct, changeProducts, deleteProducts, handleChange, handleChangeColor}}>
+        <ProductContext.Provider value={{products, values, setCheckValue, changeProducts, deleteProduct}}>
             {props.children}
         </ProductContext.Provider>
     )
