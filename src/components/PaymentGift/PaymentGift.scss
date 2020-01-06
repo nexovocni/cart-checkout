@@ -1,0 +1,111 @@
+@import '../../sass/mixins/mixins.scss'; 
+
+.payment{
+
+    &__component{
+
+        &__form{
+
+            &__gift{
+                display: flex;
+                justify-content: space-between;
+
+                @include respond(phone){
+                    flex-wrap: wrap;
+                  }
+            }
+        }
+
+        &__gift{
+            max-height: 1000px;
+            opacity: 1;
+            transition: all .5s ease;
+            margin-left: 23%;
+            margin-top: 40px;
+
+            @include respond(phone){
+                margin-left: 0;
+            }
+
+            &__close{
+                    max-height: 0;
+                    opacity: 0;
+                    transition: all .3s ease;
+                    overflow: hidden;
+                    margin-left: 23%;
+                
+                    @include respond(phone){
+                        margin-left: 0;
+                    }
+            }
+
+            &__input{
+                width: 35%;
+                margin-right: 20px;
+                
+                @include respond(phone){
+                    width: 47%;
+                    margin-right: 0;
+                  }
+            }
+
+            &__heading{
+                margin-bottom: 30px;
+            }
+
+            &__label,
+            &__text{
+                max-height: 50px;
+                opacity: 1;
+                transition: opacity .5s ease;
+                color: #999;
+            }
+    
+            &__validation{
+                color: red;
+                font-size: .6rem;
+            }
+
+            &__submit{
+                background-color: #000;
+                color: #FFF;
+                flex: 1 0 100px;
+                height: 40px;
+                border: none;
+                outline: none;
+                margin-top: 5px;
+                cursor: pointer;
+
+                @include respond(phone){
+                    margin-top: 20px;
+                  }
+            }
+
+            &__number,
+            &__pin{
+                width: 100%;
+                border: none;
+                outline: none;
+                border-bottom: 1px solid #999;
+                width: 100%;
+                padding-bottom: 5px;
+                font-size: 1rem;
+                
+                &:focus{
+                    border-color: #000;
+                }
+            }
+        }
+    }
+}
+
+i.select{
+    position: relative;
+    top: -25px;
+    left: 99%;
+    z-index: -10;
+
+    @include respond(tablet){
+        left: 97%;
+      }
+}

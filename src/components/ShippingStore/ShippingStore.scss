@@ -1,0 +1,23 @@
+.shipping{
+
+    &__component{
+
+        &__submit{
+            margin-top: 55px;
+        }
+
+        &__form{
+
+            p{
+                margin-bottom:55px;
+            }
+        }
+    }
+}
+
+.close-store{
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all .3 ease;
+}

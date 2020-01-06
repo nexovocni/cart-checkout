@@ -5,22 +5,22 @@
     &__visible{
         display: flex;
         cursor: pointer;
-        margin: 40px 0 10px 0;
+        margin: 35px 0 10px 0;
     
         i{
             align-self: center;
             font-size: 10px;
             margin-left: 10px;
             margin-top: 4px;
-            transition: all .6s ease;
+            transition: all .5s ease;
         }
 
         &-form{
             justify-content: space-between;
             display: flex;
-            transition: max-height .7s ease-in-out;
+            transition: max-height .5s ease-in-out;
             overflow: hidden;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
 
             input[type="text"]{
                 border: none;
@@ -45,10 +45,11 @@
                 background-color: #000;
                 color: #fff;
                 font-size: 1rem;
-                padding: 3% 4%;
+                padding: 3% 6%;
                 cursor: pointer;
                 font-weight: 300;
                 outline: none;
+                border: none;
 
                 @include respond(phone){
                     padding: 2% 4%;

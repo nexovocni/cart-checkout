@@ -1,0 +1,26 @@
+@import "../../sass/mixins/mixins.scss"; 
+
+.summarycart{
+
+    &__top__shipping{
+        background-color: rgb(228, 226, 226);
+        text-transform: uppercase;
+        text-align: center;
+        height: 50px;
+        margin-bottom: 85px;
+        display: flex;
+
+        @include respond(desktop){
+            margin-bottom: 63px;
+        }
+
+        @include respond(tablet){
+            margin-bottom: 53px;
+        }
+    
+        &-text{
+            align-self: center;
+             margin: 0 auto;
+        }
+    }
+}

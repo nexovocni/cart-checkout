@@ -1,0 +1,132 @@
+@import '../../sass/mixins/mixins.scss'; 
+
+.email{
+    max-height: 800px;
+    width: 100%;
+    position: relative;
+
+    @include respond(tablet){
+        width: 80%;
+    };
+
+    @include respond(phone){
+        width: 100%;
+    }
+
+    &__number{
+        margin-right: 22%;
+
+        @include respond(phone){
+            margin-right: 0;
+        }
+    }
+
+    &__up{
+        display: flex;
+    }
+
+    &__email{
+        opacity: 1;
+        max-height: 100px;
+        transition: all .5 ease;
+        margin-top: -5px;
+
+        @include respond(phone){
+            display: none;
+        }
+
+        &__responsive{
+            margin-bottom: 30px;
+            margin-left: 23%;
+
+            @include respond(phone){
+                display: inline-block;
+                margin-left: 0;
+            }
+        }
+    }
+
+    &__heading{
+        margin-bottom: 15px;
+        position: relative;
+
+        &__button{
+            border: none;
+            outline: none;
+            background-color: transparent;
+            position: absolute;
+            top: -18px;
+            left: 97%;
+            cursor: pointer;
+            height: 50px;
+
+            @include respond(desktop){
+                left: 96%;
+              }
+
+            @include respond(tablet){
+                left: 94%;
+              }
+
+              @include respond(phone){
+                left: 95%;
+              }
+        }
+    }
+
+    &__component{
+        width: 100%;
+        position: relative;
+
+        &__form{
+            max-height: 600px;
+            opacity: 1;
+            transition: opacity .3s ease, max-height .3s ease;
+            margin-left: 23%;
+
+            @include respond(phone){
+                margin-left: 0;
+              }
+
+              &__close{
+                max-height: 0;
+                opacity: 0;
+                transition: opacity .3s ease, max-height .3s ease;
+                overflow: hidden;
+                margin-left: 23%;
+
+                @include respond(phone){
+                    margin-left: 0;
+                  }
+              }
+        }
+
+        &__validation{
+            display: inline-block;
+            color: red;
+            font-size: .6rem;
+            position: relative;
+            left: 94%;
+            top: -70px;
+        }
+    }
+}
+
+.margin{
+    margin-bottom: 30px
+}
+
+.dash-email{
+    
+    @include respond(phone){
+        height: 2px;
+        width: 20px;
+        margin: 0 8%;
+        margin-top: 10px;
+        flex-shrink: 0;
+      }
+}
+
+
+   
+

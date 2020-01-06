@@ -2,22 +2,23 @@ import React from 'react'
 import "./ViewMobile.scss"
 
 interface IProps {
-    localData: any,
-    handleState: any,
-    productComponent: any,
-    removeProduct: any,
+    localData: any;
+    handleState: any;
+    productComponent: any;
+    removeProduct: any;
+    review: boolean
 }
 
-const ViewMobile:React.FC<IProps> = ({localData, handleState, productComponent, removeProduct}) => {
+const ViewMobile:React.FC<IProps> = ({localData, handleState, productComponent, removeProduct, review}) => {
     return (
-        <div className="name__viewMobile">
-            <div className={!productComponent ? "name__mobile-data-mob" : "name__mobile-data"} >
-                    <p className="name__mobile-data-text">{localData.color} - Size {localData.size} - Quantity {localData.quantity}</p>
-                </div>
-                <div className={productComponent ? "name__mobile-nav" : "name__mobile-nav-mob"}>
-                    <button onClick={handleState} className="name__mobile-nav-edit">Edit</button>
-                    <button onClick={removeProduct} className="name__mobile-nav-remove">Remove</button>
-                </div>
+        <div className={`${review ? `review__` : ``}name__viewMobile`}>
+            <div className={productComponent ? `${review ? `review__` : ``}name__mobile-data-mob` : `${review ? `review__` : ``}name__viewMobile`} >
+                <p className={`${review ? `review` : `name`}__mobile-data-text`}>{localData.color} - Size {localData.size} - Quantity {localData.quantity}</p>
+            </div>
+            <div className={productComponent ? `${review ? `review__` : ``}name__mobile-nav` : `${review ? `review__` : ``}name__mobile-nav-mob`}>
+                <button onClick={handleState} className="name__mobile-nav-edit">Edit</button>
+                <button onClick={removeProduct} className="name__mobile-nav-remove">Remove</button>
+            </div>
         </div>
     )
 }

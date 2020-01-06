@@ -1,6 +1,8 @@
 import React from 'react'
 import Product from '../../../components/Product/Product'
 import InfoCart from '../../../components/InfoCart/InfoCart'
+import {CSSTransition,TransitionGroup} from 'react-transition-group'
+import '../../../sass/transitions/transitions.scss'
 import './Products.scss'
 
 interface IProps {
@@ -8,34 +10,36 @@ interface IProps {
     changeProducts: any,
     deleteProduct: any,
     updateState: any
-    stateComponent: boolean
+    stateComponent: boolean,
+    switchComponent: boolean;
 }
 
-const Products: React.FC<IProps> = ({
-    products,
-    changeProducts,
-    deleteProduct,
-    updateState,
-    stateComponent
-}) => {
-
+const Products: React.FC<IProps> = ({products, changeProducts, deleteProduct, updateState, stateComponent,switchComponent}) => {
     return (
-        <main className="main">
+        <main className={switchComponent ? "main__cart" : "main__cart__close"}>
             <InfoCart products={ products }/>
-            <div className="main__products">
+            <TransitionGroup component={null}>
                 {products.map((product: any) => {
                     return (
+                        <CSSTransition
+                            key={product.id}
+                            timeout={300}
+                            classNames="item"
+                            unmountOnExit={true}
+                            mountOnEnter={false}
+                        >
                         <Product
                             key={ product.id }
-                            updateProducts={ changeProducts } 
-                            remove={ deleteProduct } 
+                            changeProducts={ changeProducts } 
+                            deleteProduct={ deleteProduct } 
                             product={ product } 
                             updateState= { updateState }
                             stateComponent={stateComponent}
                         />
+                        </CSSTransition>
                     )
                 })}
-            </div>
+            </TransitionGroup>
         </main>
     )
 }

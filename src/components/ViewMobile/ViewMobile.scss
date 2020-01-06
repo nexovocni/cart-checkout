@@ -14,10 +14,6 @@
                     display: flex;
                 }
             }
-
-            &-mob{
-                display: none;
-            }
         }
 
         &-nav{
@@ -30,6 +26,17 @@
 
             &-edit{
                 margin-right: 20px;
+                border: none;
+                outline: none;
+                background-color: transparent;
+                cursor: pointer;
+            }
+
+            &-remove{
+                border: none;
+                outline: none;
+                background-color: transparent;
+                cursor: pointer;
             }
 
             &-mob{

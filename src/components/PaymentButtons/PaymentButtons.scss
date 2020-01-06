@@ -1,0 +1,91 @@
+@import '../../sass/mixins/mixins.scss'; 
+
+.payment{
+
+    &__component{
+        margin-left: 23%;
+
+        @include respond(phone){
+            margin-left: 0;
+        }
+
+        &__button{
+            border: 1px solid #999;
+            outline: none;
+            width: 48%;
+            padding: 15px;
+            cursor: pointer;
+            transition: all .5s ease;
+            background-color: transparent;
+            height: 50px;
+            padding: 6.5px 15px;
+            margin-bottom: 15px;
+
+            &:hover{
+                border-color: #000;
+            }
+
+            @include respond(phone){
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            .apple{
+                width: 14%;
+                height: auto;
+    
+                @include respond(desktop){
+                    width: 30%
+                }
+
+                @include respond(phone){
+                    width: 50px;
+                }
+            }
+
+            .paypay{
+                width: 25%;
+                height: auto;
+
+                @include respond(desktop){
+                    width: 50%
+                }
+
+                @include respond(phone){
+                    width: 90px;
+                }
+            }
+        }
+
+        &__buttons{
+            opacity: 1;
+            max-height: 1000px;
+            width: 100%;
+            transition: all .5s ease;
+            overflow: hidden;
+            margin-top: 40px;
+
+            &__up,
+            &__down{
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+
+                @include respond(phone){
+                    flex-direction: column;
+                }
+            }
+        }
+    }
+}
+
+.close{
+    max-height: 0;
+    opacity: 0;
+    transition: all .3s ease;
+    overflow: hidden;
+}
+
+.border-black{
+    border-color: #000;
+}

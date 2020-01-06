@@ -1,13 +1,20 @@
 import React, {useEffect, useState} from 'react'
-import CartPage from '../cartPage/CartPage'
-import FormPage from '../formPage/FormPage'
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import CartPage from '../CartPage/CartPage'
 
 const CartCheckOut = () => {
 
+    interface IProduct {
+        price: number;
+        quantity: number;
+        id: number;
+        product: {};
+    }
+
+    let itemsValue = 0
+
     const [products, updateProducts] = useState([]);
 
-    const[checkValue, setCheckValue] = useState(10)
+    const[checkValue, setCheckValue] = useState<number>(10)
 
     useEffect( () => {
         (async () => {
@@ -17,7 +24,7 @@ const CartCheckOut = () => {
     })()}, [])
 
     const changeProducts = (productId: number, productData: any) => {
-        const newProducts: any = products.map((product: any) => product.id === productId ? productData : product);
+        const newProducts: any = products.map((product: IProduct) => product.id === productId ? productData : product);
 
         updateProducts(newProducts);
     };
@@ -28,24 +35,31 @@ const CartCheckOut = () => {
         updateProducts(newProducts);
     };
 
+    {products.map( (product: IProduct) => {
+        itemsValue += product.quantity * product.price
+    })}
+
+    const value = itemsValue + checkValue
+ 
+    const shipValue = (550 - itemsValue)
+
+    const [switchComponent, setSwitchComponent] = useState(true)
+
     return (
             <React.Fragment>
-                <Router>
-                    <Switch>
-                        <Route path="/" exact render={(props) => <CartPage 
-                        {...props} 
-                        products={products} 
-                        changeProducts={changeProducts}
-                        deleteProduct={deleteProduct}
-                        checkValue={checkValue}
-                        setCheckValue={setCheckValue}
-                        /> 
-                        }/>
-                        <Route path="/form" render={(props) => <FormPage />}/>
-                    </Switch>
-                </Router>
+                <CartPage 
+                    products={products} 
+                    changeProducts={changeProducts}
+                    deleteProduct={deleteProduct}
+                    setCheckValue={setCheckValue}
+                    itemsValue={itemsValue}
+                    shipValue={shipValue}
+                    checkValue={checkValue}
+                    switchComponent={switchComponent}
+                    setSwitchComponent={setSwitchComponent}
+                    value={value}
+                />
             </React.Fragment>
-      
     )
 }
 

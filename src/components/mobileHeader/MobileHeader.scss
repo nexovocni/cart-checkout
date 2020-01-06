@@ -1,3 +1,4 @@
+
 @import '../../sass/mixins/mixins.scss' ;
 
 .mobile-header{
@@ -6,7 +7,7 @@
     @include respond(phone){
         display: flex;
         justify-content: space-between;
-        margin-bottom: 25px;
+        padding: 15px 15px 0 15px ;
       };
 
     &__left{
@@ -34,7 +35,7 @@
                 margin-right: 33px;
             }
 
-            &.close{
+            &.exit{
                 height: 15px;
             }
         }

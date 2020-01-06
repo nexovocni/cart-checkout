@@ -3,17 +3,18 @@ import './Buttons.scss'
 import {Link} from 'react-router-dom'
 
 interface IProps {
-   isChecked: number
-   stateComponent: boolean
-   disabledCode: boolean
+   stateComponent: boolean;
+   disabledCode: boolean;
+   switchComponent: boolean;
+   setSwitchComponent: any;
 }
 
-const Buttons:React.FC<IProps> = ({isChecked, stateComponent, disabledCode}) => {
+const Buttons:React.FC<IProps> = ({ stateComponent, disabledCode, switchComponent, setSwitchComponent}) => {
     return (
-        <div style={{opacity: !isChecked || disabledCode  ? .3 : 1, pointerEvents: !stateComponent || disabledCode  ? "auto" : "none"}} className="buttons">
-            <Link to="/form" className="button button_check">Checkout now</Link>
-            <Link to="#" className="button button_pay"><img className="apple" src="img/apple.svg"/></Link>
-            <Link to="#" className="button button_pay"><img className="paypay" src="img/pay.svg"/></Link>
+        <div style={{opacity: disabledCode  ? .3 : 1, pointerEvents: !disabledCode ? "auto" : "none"}} className="buttons">
+            <button onClick={() => {setSwitchComponent(!switchComponent)}} className="button button_check">Checkout now</button>
+            <button className="button button_pay"><img className="apple" src="img/apple.svg"/></button>
+            <button className="button button_pay"><img className="paypay" src="img/pay.svg"/></button>
         </div>
     )
 }
