@@ -9,7 +9,7 @@ interface IProps {
 const SummarySubtotal:React.FC<IProps> = ({itemsValue}) => {
 
     const productContext:any = useContext(CartComponentContext)
-    const {disabledCode} = productContext
+    const {disabledCode} = productContext.cartComponents
 
     const [value, setValue] = useState(0)
 

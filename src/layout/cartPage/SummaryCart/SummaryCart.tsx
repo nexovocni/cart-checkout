@@ -12,7 +12,7 @@ import {CartComponentContext} from '../../../contexts/CartComponentContext'
 const Summary:React.FC = () => {
 
     const productContext:any = useContext(CartComponentContext)
-    const {disabledCode, switchPage} = productContext
+    const {disabledCode, switchPage} = productContext.cartComponents
 
     const cartProducts:any = useContext(ProductContext)
     const {values} = cartProducts

@@ -11,7 +11,7 @@ interface IProps {
 const SummaryTotal:React.FC<IProps> = ({itemsValue, title, valueTrans}) => {
 
     const productContext:any = useContext(CartComponentContext)
-    const {disabledCode} = productContext
+    const {disabledCode} = productContext.cartComponents
 
     const [value, setValue] = useState(itemsValue)
 

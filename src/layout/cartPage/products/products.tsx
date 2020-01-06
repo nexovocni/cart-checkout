@@ -12,7 +12,7 @@ const Products: React.FC = () => {
     const cartProducts:any = useContext(ProductContext)
     const {products} = cartProducts
     const productContext:any = useContext(CartComponentContext)
-    const {switchPage} = productContext
+    const {switchPage} = productContext.cartComponents
 
     return (
         <main className={switchPage ? "main__cart" : "main__cart__close"}>

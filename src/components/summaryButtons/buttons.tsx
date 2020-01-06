@@ -5,7 +5,8 @@ import './Buttons.scss'
 const Buttons:React.FC = () => {
 
     const productContext:any = useContext(CartComponentContext)
-    const {disabledCode, switchPage, dispatch} = productContext
+    const {switchPage, disabledCode} = productContext.cartComponents
+    const {dispatch} = productContext
 
     return (
         <div style={{opacity: disabledCode  ? .3 : 1, pointerEvents: !disabledCode ? "auto" : "none"}} className="buttons">

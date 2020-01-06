@@ -11,17 +11,19 @@ interface IProps {
 const Code:React.FC<IProps> = ({button, title, placeholder}) => {
 
     const productContext:any = useContext(CartComponentContext)
-    const {disabledCode, cartState, dispatch} = productContext
+    const {disabledCode, cartState} = productContext.cartComponents
+    const {dispatch} = productContext
 
     const [on, setOn] = useState<boolean>(false)
     const [height, setHeight] = useState<string>("0px")
     const [emptyInput, setInput] = useState("")
     const [componentState, updateComponentState] = useState(true)
+    const codeComponent = disabledCode
     
     const toggleOnClick = () => {
         setHeight(on ? `0px` : "220px")
         setOn(!on)
-        dispatch({type: "COMPONENT", payload: {disabledCode: !disabledCode}})
+        dispatch({type: "COMPONENT", payload: {disabledCode: !codeComponent}})
         updateComponentState(!componentState)
     }
 

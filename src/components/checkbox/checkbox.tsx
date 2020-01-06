@@ -12,7 +12,7 @@ const Checkbox:React.FC<IProps> = ({ shipValue, setCheckValue}) => {
     const [isChecked, setChecked] = useState(true)
 
     const productContext:any = useContext(CartComponentContext)
-    const {disabledCode, cartState} = productContext
+    const {disabledCode, cartState} = productContext.cartComponents
 
     return (
         <form style={{opacity: disabledCode ? .3 : 1, pointerEvents: disabledCode || cartState  ? "none" : "auto"}} className="checkbox">

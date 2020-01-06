@@ -15,7 +15,8 @@ const SummaryForm:React.FC = () => {
     const {itemsValue, shipValue, checkValue, value} = values
 
     const productContext:any = useContext(CartComponentContext)
-    const {switchPage, dispatch} = productContext
+    const {switchPage} = productContext.cartComponents
+    const {dispatch} = productContext
 
     return (
         <React.Fragment>

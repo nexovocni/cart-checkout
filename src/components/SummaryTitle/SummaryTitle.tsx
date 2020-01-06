@@ -9,7 +9,7 @@ interface IProps {
 const SummaryTitle:React.FC<IProps> = ({shipValue}) => {
 
     const productContext:any = useContext(CartComponentContext)
-    const {disabledCode} = productContext
+    const {disabledCode} = productContext.cartComponents
 
     return (
         <div style={{opacity: disabledCode ? .3 : 1, pointerEvents: disabledCode ? "auto" : "none"}} className="summarycart__top__shipping">

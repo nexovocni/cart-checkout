@@ -9,7 +9,7 @@ import './Form.scss'
 const Form:React.FC = () => {
 
     const productContext:any = useContext(CartComponentContext)
-    const {switchPage} = productContext
+    const {switchPage} = productContext.cartComponents
 
     return (
         <main className={!switchPage ? "main__form" : "main__form__close"}>
