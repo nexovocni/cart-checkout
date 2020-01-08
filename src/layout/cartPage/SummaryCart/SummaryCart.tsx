@@ -1,4 +1,4 @@
-import React,{useState, useContext} from 'react'
+import React,{ useContext} from 'react'
 import './SummaryCart.scss'
 import Checkbox from '../../../components/Checkbox/Checkbox'
 import Code from '../../../components/Code/Code'
@@ -16,7 +16,7 @@ const Summary:React.FC = () => {
 
     const cartProducts:any = useContext(ProductContext)
     const {values} = cartProducts
-    const {itemsValue, shipValue, setCheckValue, value} = values
+    const {itemsValue, shipValue, value} = values
     
     return (
         <React.Fragment>
@@ -31,10 +31,7 @@ const Summary:React.FC = () => {
                     valueTrans={true}
                 />
                 <div style={{opacity: disabledCode ? .3 : 1 }} className="summarycart__line"></div>
-                <Checkbox 
-                    setCheckValue={setCheckValue} 
-                    shipValue={shipValue}
-                />
+                <Checkbox  />
                 <div className="summarycart__line-grey"></div>
                 <Code
                     title="Estimate your tax and shipping"

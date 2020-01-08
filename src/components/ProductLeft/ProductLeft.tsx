@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import React, {useContext, useState} from 'react'
 import SelectMobile from '../SelectMobile/SelectMobile'
 import ViewProduct from '../ViewProduct/ViewProduct'
 import {CartComponentContext} from '../../contexts/CartComponentContext'
@@ -26,7 +26,9 @@ interface IProps {
 const ProductLeft:React.FC<IProps> = ({product, review, handleChange, handleChangeColor}) => {
 
     const cartContext:any = useContext(CartComponentContext)
-    const {cartState, productState} = cartContext.cartComponents
+    const {cartState} = cartContext.cartComponents
+    const [productState, updateProductState] = useState (true)
+
 
     return (
         <div className={`${review ? `review` : `product`}__section__left`} style={{opacity: cartState && productState ? .3 : 1, pointerEvents: cartState && productState ? "none" : "auto"}}>
@@ -34,12 +36,15 @@ const ProductLeft:React.FC<IProps> = ({product, review, handleChange, handleChan
                 <ViewProduct 
                     review={review}
                     product={ product }
+                    productState={productState}
+                    updateProductState={updateProductState}
                 />
             </div>
             <div className={!productState ? `${review ? `review` : `product`}__section__left-bottom` : "close"}>
                 <SelectMobile    
                     product={ product }
                     review={review}
+                    updateProductState={updateProductState}
                     handleChange= {handleChange}
                     handleChangeColor = {handleChangeColor}
                 />

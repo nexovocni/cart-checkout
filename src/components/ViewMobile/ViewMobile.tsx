@@ -6,21 +6,21 @@ import "./ViewMobile.scss"
 interface IProps {
     product: any;
     review: boolean;
+    productState: boolean;
+    updateProductState:any
 }
 
-const ViewMobile:React.FC<IProps> = ({product, review}) => {
+const ViewMobile:React.FC<IProps> = ({product, review, productState, updateProductState}) => {
 
     const cartContext:any = useContext(CartComponentContext)
     const productContext:any = useContext(ProductContext)
     const {deleteProduct} = productContext
-    const {productState} = cartContext.cartComponents
     const {dispatch} = cartContext
     
     const handleState = () => {
         dispatch({type: "COMPONENT", payload: {cartState: true}})
-        dispatch({type: "COMPONENT", payload: {productState: false}})
+        updateProductState((false))
     }
-
 
     return (
         <div className={`${review ? `review__` : ``}name__viewMobile`}>

@@ -1,18 +1,16 @@
 import React, {useState, useContext} from 'react'
 import {CartComponentContext} from '../../contexts/CartComponentContext'
+import {ProductContext} from '../../contexts/ProductContext'
 import './Checkbox.scss'
 
-interface IProps {
-    shipValue: number
-    setCheckValue: any
-}
-
-const Checkbox:React.FC<IProps> = ({ shipValue, setCheckValue}) => {
+const Checkbox:React.FC = () => {
 
     const [isChecked, setChecked] = useState(true)
 
-    const productContext:any = useContext(CartComponentContext)
-    const {disabledCode, cartState} = productContext.cartComponents
+    const cartContext:any = useContext(CartComponentContext)
+    const {disabledCode, cartState} = cartContext.cartComponents
+    const productContext:any = useContext(ProductContext)
+    const {shipValue, setCheckValue} = productContext
 
     return (
         <form style={{opacity: disabledCode ? .3 : 1, pointerEvents: disabledCode || cartState  ? "none" : "auto"}} className="checkbox">

@@ -1,17 +1,15 @@
-import React, {useContext} from 'react'
+import React from 'react'
 import './ViewProduct.scss'
 import ViewMobile from '../ViewMobile/ViewMobile'
-import {CartComponentContext} from '../../contexts/CartComponentContext'
 
 interface IProps {
     review: boolean;
+    productState: boolean;
+    updateProductState:any
     product: any
 }
 
-const ViewProduct:React.FC<IProps> = ({review, product}) => {
-
-    const cartContext:any = useContext(CartComponentContext)
-    const {productState} = cartContext.cartComponents
+const ViewProduct:React.FC<IProps> = ({review, product, productState, updateProductState}) => {
 
     return (
             <React.Fragment>
@@ -26,6 +24,8 @@ const ViewProduct:React.FC<IProps> = ({review, product}) => {
                         <ViewMobile 
                             product={product}
                             review={review}
+                            productState={productState}
+                            updateProductState={updateProductState}
                         />
                         <div className={productState ? "wishlist" : "wishlist-mob"}>
                             <p><i className="fa fa-heart"></i>Move to wishlist</p>

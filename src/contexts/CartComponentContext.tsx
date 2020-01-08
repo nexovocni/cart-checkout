@@ -8,7 +8,6 @@ export const CartContextProvider = (props:any) => {
     const components =  {
         switchPage: true,
         cartState: false,
-        productState: true,
         tax: false,
         disabledCode: false
     }

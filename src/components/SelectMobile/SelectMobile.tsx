@@ -22,16 +22,17 @@ interface IProps {
     review: boolean,
     handleChange: any,
     handleChangeColor: any, 
+    updateProductState: any
 }
 
-const SelectMobile:React.FC<IProps> = ({ product, review, handleChange, handleChangeColor}) => {
+const SelectMobile:React.FC<IProps> = ({ product, review, handleChange, handleChangeColor, updateProductState}) => {
 
     const productContext:any = useContext(CartComponentContext)
     const {dispatch} = productContext
     
     const handleButton = () => {
         dispatch({type: "COMPONENT", payload: {cartState: false}})
-        dispatch({type: "COMPONENT", payload: {productState: true}})
+        updateProductState(true)
     }
 
     return (
