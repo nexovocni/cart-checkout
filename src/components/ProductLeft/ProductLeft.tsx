@@ -18,12 +18,10 @@ interface IProps {
         quantities: number[]
         image: string;
     };
-    review: boolean,
-    handleChange: any,
-    handleChangeColor: any, 
+    review: boolean, 
 }
 
-const ProductLeft:React.FC<IProps> = ({product, review, handleChange, handleChangeColor}) => {
+const ProductLeft:React.FC<IProps> = ({product, review}) => {
 
     const cartContext:any = useContext(CartComponentContext)
     const {cartState} = cartContext.cartComponents
@@ -45,8 +43,6 @@ const ProductLeft:React.FC<IProps> = ({product, review, handleChange, handleChan
                     product={ product }
                     review={review}
                     updateProductState={updateProductState}
-                    handleChange= {handleChange}
-                    handleChangeColor = {handleChangeColor}
                 />
             </div>
         </div>

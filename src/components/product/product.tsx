@@ -23,32 +23,17 @@ interface IProps {
 const Product: React.FC<IProps> = ({product}) => {
 
     const productContext:any = useContext(ProductContext)
-    const {changeProducts, deleteProduct} = productContext
-
-    const handleChange = (e:any) => {
-        const newProduct = {...product, [e.target.name]: e.target.value}
-        changeProducts(newProduct.id, newProduct)
-    };
-
-    const handleChangeColor = (e:any) => {
-        const newColor = e.target.value;
-        const newProduct = {...product, color: newColor,}
-        changeProducts(newProduct.id, newProduct);
-    }
+    const {deleteProduct} = productContext
 
     return (
         <div className="product">
             <div className="product__section">
                 <ProductLeft
-                        product={product}
-                        review={false}
-                        handleChange= {handleChange}
-                        handleChangeColor = {handleChangeColor}
+                    product={product}
+                    review={false}
                 /> 
                 <ProductRight
-                        product={product} 
-                        handleChange= {handleChange}
-                        handleChangeColor = {handleChangeColor}
+                    product={product} 
                 />
             </div>
             <div 

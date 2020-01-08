@@ -19,13 +19,11 @@ interface IProps {
         quantities: number[]
         image: string;
     };
-    review: boolean,
-    handleChange: any,
-    handleChangeColor: any, 
+    review: boolean, 
     updateProductState: any
 }
 
-const SelectMobile:React.FC<IProps> = ({ product, review, handleChange, handleChangeColor, updateProductState}) => {
+const SelectMobile:React.FC<IProps> = ({ product, review, updateProductState}) => {
 
     const productContext:any = useContext(CartComponentContext)
     const {dispatch} = productContext
@@ -40,15 +38,15 @@ const SelectMobile:React.FC<IProps> = ({ product, review, handleChange, handleCh
                 <div className={`${review ? `review` : `product`}__section__left-bottom-select`}>
                     <div className={`${review ? `review` : `product`}__section__left-bottom-select-color`}>
                         <p>Color</p>
-                        <SelectColor product={product} handleChangeColor={handleChangeColor}/>
+                        <SelectColor product={product} />
                     </div>
                     <div className={`${review ? `review` : `product`}__section__left-bottom-select-size`}>
                         <p>Size</p>
-                        <SelectSize product={product} handleChange={handleChange}/>
+                        <SelectSize product={product} />
                     </div>
                     <div className={`${review ? `review` : `product`}__section__left-bottom-select-quantity`}>
                         <p>Quantity</p>
-                        <SelectQuantity product={product} handleChange={handleChange}/>
+                        <SelectQuantity product={product} />
                     </div>
                 </div>
                 <div className="product__section__left-bottom-button">

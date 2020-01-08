@@ -1,5 +1,5 @@
 import React, {createContext, useReducer} from 'react'
-import {FormComponentReducer} from '../reducers/FormComponentReducer'
+import {FormComponentReducer} from '../reducers/ComponentReducer'
 
 export const FormComponentContext = createContext({})
 

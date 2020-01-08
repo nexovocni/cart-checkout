@@ -51,6 +51,7 @@ const Review:React.FC = () => {
                                     product={product}
                                     stateComponent={stateComponent}
                                     updateStateComponent={updateStateComponent}
+                                    key={product.id}
                                 />
                             )
                         })}

@@ -1,4 +1,4 @@
-export const fetchUsers = (url:string) => {
+export const fetchProducts = (url:string) => {
     
     return fetch(url)
     .then(response => {

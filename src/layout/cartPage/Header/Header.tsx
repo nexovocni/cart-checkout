@@ -6,8 +6,8 @@ import Logo from '../../../components/Logo/Logo'
 
 const Header:React.FC = () => {
 
-    const productContext:any = useContext(CartComponentContext)
-    const {switchPage} = productContext
+    const cartContext:any = useContext(CartComponentContext)
+    const {switchPage} = cartContext.cartComponents
 
     return (
         <header className="header">

@@ -11,7 +11,6 @@ const ReviewData:React.FC = () => {
     const cartProducts:any = useContext(ProductContext)
     const {values} = cartProducts
     const {itemsValue, taxValue, shipValue, cartCheckValue, value} = values
-    console.log(cartCheckValue)
 
     return (
         <div className="review__data__component">
