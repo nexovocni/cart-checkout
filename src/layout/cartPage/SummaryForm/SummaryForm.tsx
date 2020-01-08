@@ -12,7 +12,7 @@ const SummaryForm:React.FC = () => {
 
     const cartProducts:any = useContext(ProductContext)
     const {values} = cartProducts
-    const {itemsValue, shipValue, checkValue, value} = values
+    const {itemsValue, shipValue, cartCheckValue, value} = values
 
     const productContext:any = useContext(CartComponentContext)
     const {switchPage} = productContext.cartComponents
@@ -33,7 +33,7 @@ const SummaryForm:React.FC = () => {
                 <div className="summaryform__line-grey"></div>
                 <SummaryTotal 
                     title="Shipping"
-                    itemsValue={shipValue < 1 ? 'Free' : `$${checkValue.toFixed(2)}`} 
+                    itemsValue={shipValue < 1 ? 'Free' : `$${cartCheckValue.toFixed(2)}`} 
                     valueTrans={false}
                  />
                 <div className="summaryform__line-grey"></div>

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import ProductLeft from '../ProductLeft/ProductLeft'
 import ProductRight from '../ProductRight/ProductRight'
 import {ProductContext} from '../../contexts/ProductContext'

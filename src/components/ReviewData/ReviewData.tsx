@@ -10,7 +10,8 @@ const ReviewData:React.FC = () => {
 
     const cartProducts:any = useContext(ProductContext)
     const {values} = cartProducts
-    const {itemsValue, taxValue, shipValue, checkValue, value} = values
+    const {itemsValue, taxValue, shipValue, cartCheckValue, value} = values
+    console.log(cartCheckValue)
 
     return (
         <div className="review__data__component">
@@ -32,12 +33,12 @@ const ReviewData:React.FC = () => {
              />
             <SummaryTotal
                 title="Shipping"
-                itemsValue={shipValue < 1 ? 'Free' : `$${checkValue.toFixed(2)}`} 
+                itemsValue={shipValue < 1 ? 'Free' : `$${cartCheckValue.toFixed(2)}`} 
                 valueTrans={false}
             />
             </div>
             <SummarySubtotal 
-                    itemsValue={value}
+                itemsValue={value}
             />
         </div>
     )
