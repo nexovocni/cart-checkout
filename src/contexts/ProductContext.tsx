@@ -20,8 +20,9 @@ export const ProductContextProvider = (props:any) => {
         })
     }, [])
 
-    const changeProducts = (productId: number, productData: any) => {
-        const newProducts: any = products.map((product: any) => product.id === productId ? productData : product)
+    const changeProducts = (e:any, product:any ) => {
+        const newProduct = {...product, [e.target.name]: e.target.value}
+        const newProducts: any = products.map((product: any) => product.id === newProduct.id ? newProduct: product)
         updateProducts(newProducts);
     };
 

@@ -2,18 +2,18 @@ import React, {useContext} from 'react'
 import {ProductContext} from '../../contexts/ProductContext'
 
 interface IProps {
-    localData: any,
+    product: any,
     handleChangeColor: any
 }
 
-const SelectColor:React.FC<IProps> = ({localData, handleChangeColor}) => {
+const SelectColor:React.FC<IProps> = ({product, handleChangeColor}) => {
 
     return (
         <div className="product__section__right-color-full">
-                    <div style={{backgroundColor: localData.color === "Leopard" ? "orange" : localData.color }} className="color-ball"></div>
+                    <div style={{backgroundColor: product.color === "Leopard" ? "orange" : product.color }} className="color-ball"></div>
                     <select name="colorName" onChange={handleChangeColor}>
-                        <option selected hidden>{localData.color}</option>
-                        {localData.colors.map((color: string, index: number) => {
+                        <option selected hidden>{product.color}</option>
+                        {product.colors.map((color: string, index: number) => {
                             return (
                                 <option key={index} value={color}>{color}</option>
                             )

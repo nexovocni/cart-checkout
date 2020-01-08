@@ -3,17 +3,16 @@ import {ProductContext} from '../../contexts/ProductContext'
 
 interface IProps {
     product: any,
-    localData: any,
     handleChange: any
 }
 
-const SelectSize:React.FC<IProps> = ({product, localData, handleChange}) => {
+const SelectSize:React.FC<IProps> = ({product, handleChange}) => {
 
     return (
         <div className="product__section__right-size-full">
             <select name="size" onChange={handleChange}>
                 <option selected hidden>{product.size}</option>
-                {localData.sizes.map((size: string, index:number) => {
+                {product.sizes.map((size: string, index:number) => {
                     return(
                         <option key={index} value={size}>{size}</option>
                     )

@@ -18,30 +18,26 @@ interface IProps {
         quantities: number[]
         image: string;
     };
-    localData: any;
     review: boolean,
     handleChange: any,
     handleChangeColor: any, 
-    removeProduct: any
 }
 
-const ProductLeft:React.FC<IProps> = ({localData, product, review, removeProduct, handleChange, handleChangeColor}) => {
+const ProductLeft:React.FC<IProps> = ({product, review, handleChange, handleChangeColor}) => {
 
-    const productContext:any = useContext(CartComponentContext)
-    const {cartState, productState} = productContext
+    const cartContext:any = useContext(CartComponentContext)
+    const {cartState, productState} = cartContext.cartComponents
 
     return (
         <div className={`${review ? `review` : `product`}__section__left`} style={{opacity: cartState && productState ? .3 : 1, pointerEvents: cartState && productState ? "none" : "auto"}}>
             <div className="product__section__left-top">
                 <ViewProduct 
-                    localData={localData}
                     review={review}
-                    removeProduct={removeProduct}
+                    product={ product }
                 />
             </div>
             <div className={!productState ? `${review ? `review` : `product`}__section__left-bottom` : "close"}>
-                <SelectMobile 
-                    localData={ localData}   
+                <SelectMobile    
                     product={ product }
                     review={review}
                     handleChange= {handleChange}

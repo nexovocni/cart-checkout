@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useContext } from 'react'
 import ProductLeft from '../ProductLeft/ProductLeft'
 import ProductRight from '../ProductRight/ProductRight'
 import {ProductContext} from '../../contexts/ProductContext'
@@ -22,14 +22,8 @@ interface IProps {
 
 const Product: React.FC<IProps> = ({product}) => {
 
-    const [localData, setLocalData] = useState(product);
-
     const productContext:any = useContext(ProductContext)
     const {changeProducts, deleteProduct} = productContext
-
-    useEffect(() => {
-        setLocalData(product);
-    }, [product]);
 
     const handleChange = (e:any) => {
         const newProduct = {...product, [e.target.name]: e.target.value}
@@ -42,31 +36,24 @@ const Product: React.FC<IProps> = ({product}) => {
         changeProducts(newProduct.id, newProduct);
     }
 
-    const removeProduct = () => {
-        deleteProduct(product.id);
-    }
-
     return (
         <div className="product">
             <div className="product__section">
                 <ProductLeft
-                        localData={ localData }
                         product={product}
                         review={false}
                         handleChange= {handleChange}
                         handleChangeColor = {handleChangeColor}
-                        removeProduct={removeProduct}
                 /> 
                 <ProductRight
-                        product={product}
-                        localData={localData} 
+                        product={product} 
                         handleChange= {handleChange}
                         handleChangeColor = {handleChangeColor}
                 />
             </div>
             <div 
-                id={`${localData.id}`} 
-                onClick={removeProduct} 
+                id={`${product.id}`} 
+                onClick={ () => { deleteProduct(product.id)} }
                 className="product__exit"
             >
                 <i className="fa fa-times"></i>

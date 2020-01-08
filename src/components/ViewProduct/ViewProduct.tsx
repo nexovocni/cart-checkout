@@ -4,37 +4,35 @@ import ViewMobile from '../ViewMobile/ViewMobile'
 import {CartComponentContext} from '../../contexts/CartComponentContext'
 
 interface IProps {
-    localData: any;
     review: boolean;
-    removeProduct: any
+    product: any
 }
 
-const ViewProduct:React.FC<IProps> = ({localData,review, removeProduct}) => {
+const ViewProduct:React.FC<IProps> = ({review, product}) => {
 
-    const productContext:any = useContext(CartComponentContext)
-    const {productState} = productContext
+    const cartContext:any = useContext(CartComponentContext)
+    const {productState} = cartContext.cartComponents
 
     return (
             <React.Fragment>
                 <div className={`${review ? `review` : `product`}__section__left-image`}>
-                    <img src={localData.image[localData.colors.indexOf(localData.color)]} alt="productImg"/>
+                    <img src={product.image[product.colors.indexOf(product.color)]} alt="productImg"/>
                 </div>
                 <div className={`${review ? `review` : `product`}__section__left-name`}>
                     <div className={productState ? `${review ? `review` : `product`}__name` :  `${review ? `review` : `product`}__name-mob`}>
                         <div>
-                            <p>{localData.name}</p>
+                            <p>{product.name}</p>
                         </div>
                         <ViewMobile 
-                            localData={localData}
+                            product={product}
                             review={review}
-                            removeProduct={removeProduct}
                         />
                         <div className={productState ? "wishlist" : "wishlist-mob"}>
                             <p><i className="fa fa-heart"></i>Move to wishlist</p>
                         </div>
                     </div>
                     <div className="name__price">
-                        <p>${parseInt(localData.price).toFixed(2)}</p>
+                        <p>${parseInt(product.price).toFixed(2)}</p>
                     </div>
                 </div>
             </React.Fragment>

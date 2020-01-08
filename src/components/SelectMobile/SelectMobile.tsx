@@ -19,20 +19,19 @@ interface IProps {
         quantities: number[]
         image: string;
     };
-    localData: any;
     review: boolean,
     handleChange: any,
     handleChangeColor: any, 
 }
 
-const SelectMobile:React.FC<IProps> = ({localData, product, review, handleChange, handleChangeColor}) => {
+const SelectMobile:React.FC<IProps> = ({ product, review, handleChange, handleChangeColor}) => {
 
     const productContext:any = useContext(CartComponentContext)
     const {dispatch} = productContext
     
     const handleButton = () => {
-        dispatch({type: "COMPONENT", payload: {cartState: true}})
-        dispatch({type: "COMPONENT", payload: {productState: false}})
+        dispatch({type: "COMPONENT", payload: {cartState: false}})
+        dispatch({type: "COMPONENT", payload: {productState: true}})
     }
 
     return (
@@ -40,15 +39,15 @@ const SelectMobile:React.FC<IProps> = ({localData, product, review, handleChange
                 <div className={`${review ? `review` : `product`}__section__left-bottom-select`}>
                     <div className={`${review ? `review` : `product`}__section__left-bottom-select-color`}>
                         <p>Color</p>
-                        <SelectColor localData={localData} handleChangeColor={handleChangeColor}/>
+                        <SelectColor product={product} handleChangeColor={handleChangeColor}/>
                     </div>
                     <div className={`${review ? `review` : `product`}__section__left-bottom-select-size`}>
                         <p>Size</p>
-                        <SelectSize localData={localData} product={product} handleChange={handleChange}/>
+                        <SelectSize product={product} handleChange={handleChange}/>
                     </div>
                     <div className={`${review ? `review` : `product`}__section__left-bottom-select-quantity`}>
                         <p>Quantity</p>
-                        <SelectQuantity localData={localData} handleChange={handleChange}/>
+                        <SelectQuantity product={product} handleChange={handleChange}/>
                     </div>
                 </div>
                 <div className="product__section__left-bottom-button">
