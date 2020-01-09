@@ -42,7 +42,7 @@ const Review:React.FC = () => {
             <button style={{opacity: !componentReview ? 1 : 0}} onClick={() => {dispatch({type: "COMPONENT", payload: {componentReview: !componentReview}})}} className={editReview ? "review__heading__button" : "editBtn"}>Edit</button>
             </div>
             <div className="review__component">
-                <div className={componentReview ? "review__component__section" : "close"}>
+                <div className={componentReview ? "review__component__section" : "review__component__section__close"}>
                     <div className="review__products">
                         {products.map((product:any) => {
                             return(

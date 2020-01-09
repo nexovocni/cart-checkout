@@ -7,7 +7,7 @@
         &__message{
             @include open-close(300px, 1, .3s);
 
-            .close{
+            &__close{
                 @include open-close(0, 0, .3s);
                 overflow: hidden;
                 margin-left: 0;

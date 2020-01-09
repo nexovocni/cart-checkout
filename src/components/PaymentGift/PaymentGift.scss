@@ -17,9 +17,7 @@
         }
 
         &__gift{
-            max-height: 1000px;
-            opacity: 1;
-            transition: all .5s ease;
+            @include open-close(1000px, 1, .5s);
             margin-left: 23%;
             margin-top: 40px;
 
@@ -53,11 +51,8 @@
                 margin-bottom: 30px;
             }
 
-            &__label,
             &__text{
-                max-height: 50px;
-                opacity: 1;
-                transition: opacity .5s ease;
+                @include open-close(50px, 1, .5s);
                 color: #999;
             }
     

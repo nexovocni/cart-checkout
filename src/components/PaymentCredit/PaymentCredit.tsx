@@ -79,7 +79,7 @@ const PaymentCredit:React.FC<IProps> = ({validate, submitBtn, setCard, setCardCr
                                 setCard(input.value)
                                 return(
                                 <>
-                                    <label className={input.value ? "payment__component__label" : "close"}>Cards in my wallet</label>
+                                    <label className={input.value ? "payment__component__label" : "payment__component__label__close"}>Cards in my wallet</label>
                                     <select placeholder="Country" className={input.value ? "payment__component__credit__select select" : "payment__component__credit__select select border"} {...input}>
                                         <option selected hidden value="">Chose a card</option>
                                         <option value="Visa card">Visa card</option>
@@ -103,7 +103,7 @@ const PaymentCredit:React.FC<IProps> = ({validate, submitBtn, setCard, setCardCr
                                 {({input, meta}) => {
                                     return(
                                         <>
-                                            <label className={input.value ? "payment__component__label" : "close"}>Card holder name</label>
+                                            <label className={input.value ? "payment__component__label" : "payment__component__label__close"}>Card holder name</label>
                                             <input placeholder="Card holder name" className="payment__component__credit__name" {...input} />
                                             {meta.error && meta.touched ? <span className="payment__component__validation">{meta.error}</span> : null}
                                         </>
@@ -123,7 +123,7 @@ const PaymentCredit:React.FC<IProps> = ({validate, submitBtn, setCard, setCardCr
                                     setCardCredit(input.value)
                                     return(
                                         <>
-                                            <label className={input.value ? "payment__component__label" : "close"}>Card number</label>
+                                            <label className={input.value ? "payment__component__label" : "payment__component__label__close"}>Card number</label>
                                             <input placeholder="Card number" className="payment__component__credit__number" {...input} />
                                             {meta.error && meta.touched ? <span className="payment__component__validation">{meta.error}</span> : null}
                                         </>
@@ -142,7 +142,7 @@ const PaymentCredit:React.FC<IProps> = ({validate, submitBtn, setCard, setCardCr
                                 {({input, meta}) => {
                                     return(
                                         <div className="payment__component__date">
-                                            <label className={input.value ? "payment__component__label" : "close"}>Expiration date</label>
+                                            <label className={input.value ? "payment__component__label" : "payment__component__label__close"}>Expiration date</label>
                                             <input placeholder="MM / YY" className="payment__component__credit__expiration" {...input} />
                                             {meta.error && meta.touched ? <span className="payment__component__validation">{meta.error}</span> : null}
                                         </div>
@@ -159,7 +159,7 @@ const PaymentCredit:React.FC<IProps> = ({validate, submitBtn, setCard, setCardCr
                                 {({input, meta}) => {
                                     return(
                                         <div className="payment__component__date">
-                                            <label className={input.value ? "payment__component__label" : "close"}>CVV</label>
+                                            <label className={input.value ? "payment__component__label" : "payment__component__label__close"}>CVV</label>
                                             <input placeholder="CVV" className="payment__component__credit__date" {...input} />
                                             {meta.error && meta.touched ? <span className="payment__component__validation">{meta.error}</span> : null}
                                         </div>

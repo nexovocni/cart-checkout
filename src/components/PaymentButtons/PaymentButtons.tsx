@@ -14,7 +14,7 @@ const PaymentButtons:React.FC<IProps> = ({openCredit, openGift}) => {
     const {componentPayment, giftPayment, creditPayment} = formComponents
 
     return (
-        <div className={componentPayment ? "payment__component__buttons" : "close" }>
+        <div className={componentPayment ? "payment__component__buttons" : "payment__component__buttons__close" }>
             <div className="payment__component__buttons__up">
                 <button onClick={openCredit} className={ creditPayment? "payment__component__button border-black" : "payment__component__button"}>Credit card</button>
                 <button onClick={openGift} className={ giftPayment? "payment__component__button border-black" : "payment__component__button"}>Gift card</button>

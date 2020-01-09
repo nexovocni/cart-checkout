@@ -30,9 +30,11 @@
         }
 
         &__section{
-            max-height: 2000px;
-            opacity: 1;
-            transition: all .5s ease;
+            @include open-close(2000px, 1, .5s);
+
+            &__close{
+                @include open-close(0, 0, .5s);
+            }
         }
 
         &__button{
@@ -98,13 +100,6 @@
               }
         }
     }
-}
-
-.close{
-    max-height: 0;
-    opacity: 0;
-    transition: all .3s ease;
-    overflow: hidden;
 }
 
 .dash-review{

@@ -29,7 +29,7 @@ const PaymentGift:React.FC<IProps> = ({setCardGift, validate, submitBtn}) => {
                                     setCardGift(input.value)
                                     return(
                                         <div className="payment__component__gift__input">
-                                            <label className={input.value ? "payment__component__gift__label" : "close"}>Gift card number</label>
+                                            <label className={input.value ? "payment__component__label" : "payment__component__label__close"}>Gift card number</label>
                                             <input placeholder="Gift card number" className="payment__component__gift__number" {...input} />
                                             {meta.error && meta.touched ? <span className="payment__component__gift__validation">{meta.error}</span> : <span className="payment__component__gift__text">Keep card for 30 days after purchase</span>}
                                         </div>
@@ -45,7 +45,7 @@ const PaymentGift:React.FC<IProps> = ({setCardGift, validate, submitBtn}) => {
                                 {({input, meta}) => {
                                     return(
                                         <div className="payment__component__gift__input">
-                                            <label className={input.value ? "payment__component__gift__label" : "close"}>PIN</label>
+                                            <label className={input.value ? "payment__component__label" : "payment__component__label__close"}>PIN</label>
                                             <input placeholder="PIN" className="payment__component__gift__pin" {...input} />
                                             {meta.error && meta.touched ? <span className="payment__component__gift__validation">{meta.error}</span> : null}
                                         </div>

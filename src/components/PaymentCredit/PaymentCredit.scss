@@ -8,21 +8,14 @@
             margin-left: 23%;
             margin-top: 40px;
 
+            &__close{
+                @include open-close(0, 0, .3s);
+                margin-left: 23%;
+            }
+
         @include respond(phone){
             margin-left: 0;
           }
-
-          &__close{
-            max-height: 0;
-            opacity: 0;
-            transition: all .5s ease;
-            overflow: hidden;
-            margin-left: 23%;
-
-            @include respond(phone){
-                margin-left: 0;
-              }
-        }
         }
 
         &__input{
@@ -69,9 +62,6 @@
         }
 
         &__credit{
-            max-height: 1;
-            opacity: 1;
-            transition: all .5s ease;
 
             &__submit{
                 background-color: #000;
@@ -105,10 +95,12 @@
         }
 
         &__label{
-            max-height: 50px;
-            opacity: 1;
-            transition: all .5s ease;
+            @include open-close(50px, 1, .5s);
             color: #999;
+
+            &__close{
+                @include open-close(0, 0, .5s);
+            }
         }
 
         &__validation{
