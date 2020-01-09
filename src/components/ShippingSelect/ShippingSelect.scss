@@ -1,3 +1,5 @@
+@import '../../sass/mixins/mixins.scss';
+
 .shipping{
 
     &__component{
@@ -14,8 +16,7 @@
 
             &__up,
             &__down{
-                display: flex;
-                justify-content: space-between;
+                @include flex;
                 width: 100%;
                 height: 70px;
             }
@@ -25,9 +26,7 @@
         &__province,
         &__postal,
         &__country{
-            border: none;
-            outline: none;
-            border-bottom: 1px solid #999;
+            @include input-border(none, none, 1px solid #999, transparent, default);
             width: 100%;
             padding-bottom: 5px;
             font-size: 1rem;

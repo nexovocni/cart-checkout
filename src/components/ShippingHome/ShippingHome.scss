@@ -17,8 +17,7 @@
     }
 
     &__standard{
-        display: flex;
-        justify-content: space-between;
+        @include flex;
 
         p{
             color: #999;

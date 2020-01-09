@@ -55,22 +55,18 @@
         }
 
         &__display{
-            display: flex;
+            @include flex;
             height: 70px;
             margin-top: 15px;
-            justify-content: space-between;
         }
 
         &__credit{
 
             &__submit{
-                background-color: #000;
+                @include input-border(none, none, none, #000, pointer);
                 color: #fff;
                 width: 100%;
                 padding: 15px;
-                border: none;
-                outline: none;
-                cursor: pointer;
             }
 
             &__select,
@@ -78,9 +74,7 @@
             &__name,
             &__date,
             &__expiration{
-                border: none;
-                outline: none;
-                border-bottom: 1px solid #999;
+                @include input-border(none, none, 1px solid #999, transparent, default);
                 width: 100%;
                 padding-bottom: 5px;
                 font-size: 1rem;

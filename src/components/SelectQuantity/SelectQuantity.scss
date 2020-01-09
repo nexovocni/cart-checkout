@@ -7,12 +7,11 @@
         &-quantity{
 
             &-full{
+                @include flex;
                 align-self: center;
                 border: 1px solid transparent;
-                display: flex;
                 align-items: center;
                 padding: 10px;
-                justify-content: space-between;
                 transition: all .5s ease;
                 position: relative;
                 align-content: flex-start;
@@ -28,12 +27,9 @@
                 }
             
                 select{
-                    border: none;
-                    outline: none;
+                    @include input-border(none, none, none, transparent, pointer);
                     -webkit-appearance: none;
                     -moz-appearance: none;
-                    background-color: transparent;
-                    cursor: pointer;
                     width: 100%;
                 }
             

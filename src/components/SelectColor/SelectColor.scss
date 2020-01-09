@@ -30,12 +30,9 @@
                     }
             
                 select{
-                    border: none;
-                    outline: none;
+                    @include input-border(none, none, none, transparent, pointer);
                     -webkit-appearance: none;
                     -moz-appearance: none;
-                    background-color: transparent;
-                    cursor: pointer;
                     width: 110%;
                 }
             

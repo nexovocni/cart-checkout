@@ -13,7 +13,7 @@ interface IProps {
 
 const ReviewSelect:React.FC<IProps> = ({localData, handleChange, handleChangeColor, product, handleButton, productComponent, state}) => {
     return (
-        <div className={productComponent && !state ? "review__product__select" : "close__select"}>
+        <div className={productComponent && !state ? "review__product__select" : "review__product__select__close"}>
             <div className="review__product__section__select">
                 <div className="review__product__section__color">
                     <p>Color</p>

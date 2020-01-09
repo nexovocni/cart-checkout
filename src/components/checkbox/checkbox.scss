@@ -1,8 +1,9 @@
+@import '../../sass/mixins/mixins.scss'; 
+
 .checkbox{
 
     &__component{
-        display: flex;
-        justify-content: space-between;
+        @include flex;
         margin: 30px 0;
     }
 

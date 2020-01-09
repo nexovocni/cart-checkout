@@ -15,3 +15,16 @@
    opacity: $opacity;
    transition: all $transition ease;
 }
+
+@mixin input-border($border, $outline, $bottom, $color, $cursor){
+   border: $border;
+   outline: $outline;
+   border-bottom: $bottom;
+   background-color: $color;
+   cursor: $cursor;
+}
+
+@mixin flex{
+   display: flex;
+   justify-content: space-between;
+}

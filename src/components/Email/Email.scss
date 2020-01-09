@@ -53,13 +53,10 @@
         position: relative;
 
         &__button{
-            border: none;
-            outline: none;
-            background-color: transparent;
+            @include input-border(none, none, none, transparent, pointer);
             position: absolute;
             top: -18px;
             left: 97%;
-            cursor: pointer;
             height: 50px;
 
             @include respond(desktop){

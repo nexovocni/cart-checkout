@@ -31,13 +31,10 @@
         position: relative;
 
         &__button{
-            border: none;
-            outline: none;
-            background-color: transparent;
+          @include input-border(none, none, none, transparent, pointer);
             position: absolute;
             top: 35px;
             left: 98%;
-            cursor: pointer;
 
             @include respond(desktop){
                 left: 97%;

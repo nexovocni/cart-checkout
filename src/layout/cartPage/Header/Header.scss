@@ -14,8 +14,7 @@
       };
 
     &__top{
-        display: flex;
-        justify-content: space-between;
+        @include flex;
     }
 
     &__nav{

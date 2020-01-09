@@ -15,10 +15,8 @@
             }
 
             &__input{
+                @include input-border(none, none, 1px solid #999, transparent, default);
                 width: 100%;
-                border: none;
-                outline: none;
-                border-bottom: 1px solid #999;
                 padding-bottom: 5px;
                 font-size: 1rem;
                 margin: 5px 0; 

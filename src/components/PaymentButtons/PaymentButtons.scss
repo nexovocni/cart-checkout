@@ -10,13 +10,10 @@
         }
 
         &__button{
-            border: 1px solid #999;
-            outline: none;
+            @include input-border(1px solid #999, none, none, transparent, pointer);
             width: 48%;
             padding: 15px;
-            cursor: pointer;
             transition: all .5s ease;
-            background-color: transparent;
             height: 50px;
             padding: 6.5px 15px;
             margin-bottom: 15px;
@@ -69,8 +66,7 @@
 
             &__up,
             &__down{
-                display: flex;
-                justify-content: space-between;
+                @include flex;
                 width: 100%;
 
                 @include respond(phone){

@@ -1,3 +1,5 @@
+@import '../../sass/mixins/mixins.scss';
+
 .shipping {
 
     &__component{
@@ -9,8 +11,7 @@
 
         &__name{
             width: 100%;
-            display: flex;
-            justify-content: space-between;
+            @include flex;
             height: 70px;
 
             &__first,
@@ -19,9 +20,7 @@
             }
 
             &__input{
-                border: none;
-                outline: none;
-                border-bottom: 1px solid #999;
+                @include input-border(none, none,1px solid #999, transparent, default);
                 width: 100%;
                 padding-bottom: 5px;
                 font-size: 1rem;

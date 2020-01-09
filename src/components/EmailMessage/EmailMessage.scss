@@ -48,23 +48,16 @@
         }
 
         &__buttons{
-            display: flex;
-            justify-content: space-between;
+            @include flex;
             width: 100%;
             margin: 10px 0 50px 0;
 
             .white__button{
-                border: none;
-                outline: none;
-                cursor: pointer;
-                background-color: #fff;
-                border: 1px solid rgba(0, 0, 0, .3);
+                @include input-border(1px solid rgba(0, 0, 0, .3), none, 1px solid rgba(0, 0, 0, .3), #fff, pointer);
                 width: 48%;
                 height: 50px;
-                transition: all .5 ease;
+                transition: all .5s ease;
 
-                
-            
                 &:hover{
                     border: 1px solid rgba(0, 0, 0, 1);
                 }
