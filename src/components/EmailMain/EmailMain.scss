@@ -5,12 +5,14 @@
     &__component{
 
         &__label{
+            @include open-close(20px, 1, .5s);
             margin-bottom: 15px;
             color: rgba(0, 0, 0, .4);
-            max-height: 20px;
-            opacity: 1;
             overflow: hidden;
-            transition: all .5s ease;
+
+            &__close{
+                @include open-close(0, 0, .5s);
+            }
         }
 
         &__input{

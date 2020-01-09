@@ -26,9 +26,7 @@
     }
 
     &__email{
-        opacity: 1;
-        max-height: 100px;
-        transition: all .5 ease;
+        @include open-close(100px, 1, .5s);
         margin-top: -5px;
 
         @include respond(phone){
@@ -38,6 +36,10 @@
         &__responsive{
             margin-bottom: 30px;
             margin-left: 23%;
+
+            &__close{
+                @include open-close(0, 0, none)
+            }
 
             @include respond(phone){
                 display: inline-block;
@@ -79,9 +81,7 @@
         position: relative;
 
         &__form{
-            max-height: 600px;
-            opacity: 1;
-            transition: opacity .3s ease, max-height .3s ease;
+            @include open-close(600px, 1, .3s);
             margin-left: 23%;
 
             @include respond(phone){
@@ -89,9 +89,7 @@
               }
 
               &__close{
-                max-height: 0;
-                opacity: 0;
-                transition: opacity .3s ease, max-height .3s ease;
+                @include open-close(0, 0, .3s);
                 overflow: hidden;
                 margin-left: 23%;
 

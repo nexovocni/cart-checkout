@@ -9,3 +9,9 @@
       @media(max-width: 1280px){ @content }
    };
 }
+
+@mixin open-close($height, $opacity, $transition){
+   max-height: $height;
+   opacity: $opacity;
+   transition: all $transition ease;
+}

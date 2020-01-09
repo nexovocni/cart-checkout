@@ -21,7 +21,7 @@ const ShippingPhone:React.FC<IProps> = ({setPhone, validate}) => {
                         setPhone(input.value)
                         return(
                             <>
-                                <label className={input.value ? "shipping__component__label" : "close"}>Phone</label>
+                                <label className={input.value ? "shipping__component__label" : "shipping__component__label__close"}>Phone</label>
                                 <input placeholder="Phone" className="shipping__component__phone__input" {...input} />
                                 <div className="shipping__component__phone__underinput">
                                     <span>Why is it required?</span>

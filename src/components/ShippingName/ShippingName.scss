@@ -2,17 +2,6 @@
 
     &__component{
 
-        &__label{
-            max-height: 50px;
-            opacity: 1;
-            transition: all .3s ease;
-            color: #999;
-
-            &__container{
-                height: 20px;
-            }
-        }
-
         &__validation{
             color: red;
             font-size: .6rem;

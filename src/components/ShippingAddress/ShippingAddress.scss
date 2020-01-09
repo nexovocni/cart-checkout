@@ -1,3 +1,5 @@
+@import '../../sass/mixins/mixins.scss'; 
+
 .shipping{
 
     &__component{
@@ -25,18 +27,21 @@
                     border-color: #000;
                 }
             }
-
-            &__label{
-                max-height: 50px;
-                opacity: 1;
-                transition: all .5s ease;
-                color: #999;
-                font-size: .6rem;
-            }
     
             &__validation{
                 color: red;
                 font-size: .6rem;
+            }
+        }
+
+        &__label{
+            @include open-close(50px, 1, .3s);
+            color: #999;
+            
+
+            &__close{
+                @include open-close(0, 0, .3s);
+                overflow: hidden;
             }
         }
     }

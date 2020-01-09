@@ -58,7 +58,7 @@ const Email:React.FC = () => {
                                     submitBtn={props.handleSubmit}
                                 />
                             </form>
-                            <p className={!componentEmail ? "email__email__responsive" : "close"}>{input}</p>
+                            <p className={!componentEmail ? "email__email__responsive" : "email__email__responsive__close"}>{input}</p>
                      </div>
                 )
             }}
