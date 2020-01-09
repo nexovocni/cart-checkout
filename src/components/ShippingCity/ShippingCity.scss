@@ -54,10 +54,7 @@
 }
 
 i.select{
-    position: relative;
-    top: -25px;
-    left: 97%;
-    z-index: -10;
+    @include position(relative, 97%, -25px, -10);
 }
 
 .border{

@@ -90,9 +90,7 @@
 
         &__button {
           @include input-border(none, none, none, transparent, pointer);
-          position: absolute;
-          top: 0px;
-          left: 97%;
+          @include position(absolute, 97%, 0, auto);
 
           @include respond(desktop) {
             left: 96%;

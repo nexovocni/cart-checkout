@@ -40,10 +40,7 @@
                 margin-right: 10px;
     
                 i{  
-                    position: relative;
-                    color: #fff;
-                    left: 50%;
-                    top: 45%;
+                    @include position(relative, 50%, 45%, auto);
                     transform: translate(-50%, -50%);
                 }
             }

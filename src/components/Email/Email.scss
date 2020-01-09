@@ -54,9 +54,7 @@
 
         &__button{
             @include input-border(none, none, none, transparent, pointer);
-            position: absolute;
-            top: -18px;
-            left: 97%;
+            @include position(absolute, 97%, -18px, auto);
             height: 50px;
 
             @include respond(desktop){
@@ -97,12 +95,10 @@
         }
 
         &__validation{
+            @include position(relative, 94%, -70px, auto);
             display: inline-block;
             color: red;
             font-size: .6rem;
-            position: relative;
-            left: 94%;
-            top: -70px;
         }
     }
 }

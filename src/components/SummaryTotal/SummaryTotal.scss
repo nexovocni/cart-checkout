@@ -5,15 +5,13 @@
     &__data {
       @include flex;
       margin: 0 0 15px 0;
-
       width: 100%;
 
       & .value {
         &-result {
+          @include position(relative, -48%, 0, auto);
           display: flex;
           flex-direction: column;
-          position: relative;
-          left: -48px;
         }
 
         &-open {
@@ -23,13 +21,13 @@
           bottom: 0px;
         }
       }
+    }
 
-      & .prev-value {
-        opacity: 0;
-        animation: fadeOut 0.2s linear;
-        position: absolute;
-        bottom: 0px;
-      }
+    & .prev-value {
+      opacity: 0;
+      animation: fadeOut 0.2s linear;
+      position: absolute;
+      bottom: 0px;
     }
   }
 }

@@ -3,13 +3,12 @@
 .summaryform {
   @include open-close(100vh, 1, 0.5s);
   @include flex;
+  @include position(absolute, 0, 15px, auto);
   background-color: rgba(247, 242, 242, 0.5);
   width: 100%;
   padding: 0 20px;
   flex-direction: column;
   transform: translateY(0);
-  position: absolute;
-  top: 15px;
   height: 100vh;
 
   @include respond(phone) {

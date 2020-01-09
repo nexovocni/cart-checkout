@@ -28,3 +28,10 @@
    display: flex;
    justify-content: space-between;
 }
+
+@mixin position($position, $left, $top, $index){
+   position: $position;
+   left: $left;
+   top: $top;
+   index: $index;
+}

@@ -89,10 +89,7 @@
 }
 
 i.select{
-    position: relative;
-    top: -25px;
-    left: 99%;
-    z-index: -10;
+    @include position(relative, 99%, -25px, -10);
 
     @include respond(tablet){
         left: 97%;

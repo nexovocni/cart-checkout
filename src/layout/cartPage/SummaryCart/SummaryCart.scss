@@ -1,6 +1,7 @@
 @import '../../../sass/mixins/mixins.scss'; 
 
 .summarycart{
+  @include position(absolute, 0, 15px, auto);
     width: 100%;
     padding: 0 20px;
     display: flex;
@@ -8,8 +9,6 @@
     transform: translateY(0);
     opacity: 1;
     transition: opacity .5s ease, transform .5s ease;
-    position: absolute;
-    top: 15px;
     height: 100vh;
 
     @include respond(phone){

@@ -32,9 +32,7 @@
 
         &__button{
           @include input-border(none, none, none, transparent, pointer);
-            position: absolute;
-            top: 35px;
-            left: 98%;
+          @include position(absolute, 98%, 35px, auto);
 
             @include respond(desktop){
                 left: 97%;
