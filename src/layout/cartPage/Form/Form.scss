@@ -4,7 +4,7 @@
 .main{
 
     &__form{
-      @include open-close(100vh, 1, .5s);
+      @include open-close(auto, 1, .5s);
       @include position(absolute, 0, 30px, auto);
       padding-right: 15%;
       transform: translateY(0);

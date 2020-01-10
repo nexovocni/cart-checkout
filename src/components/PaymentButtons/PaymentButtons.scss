@@ -10,7 +10,7 @@
         }
 
         &__button{
-            @include input-border(1px solid #999, none, none, transparent, pointer);
+            @include input-border(1px solid #999, none, 1px solid #999, transparent, pointer);
             width: 48%;
             padding: 15px;
             transition: all .5s ease;

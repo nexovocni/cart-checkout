@@ -47,6 +47,16 @@
         }
     }
 
+    &__section{
+
+        &__left-bottom{
+
+            &__close{
+                @include open-close(0, 0, .5s);
+            }
+        }
+    }
+
     @include respond(tablet){
         width: 80%;
       }
