@@ -9,7 +9,7 @@
 
       & .value {
         &-result {
-          @include position(relative, -48%, 0, auto);
+          @include position(relative, -48px, 0, auto);
           display: flex;
           flex-direction: column;
         }

@@ -137,9 +137,7 @@
           }
 
           &__form {
-            max-height: 2000px;
-            opacity: 1;
-            transition: all 0.5s ease;
+            @include open-close(2000px, 1, 0.5s);
 
             p {
               margin-bottom: 30px;
@@ -155,9 +153,8 @@
 
           &__buttons {
             @include flex;
-            max-height: 2000px;
-            opacity: 1;
-            transition: all 0.5s ease;
+            @include open-close(2000px, 1, 0.5s);
+
             margin-top: 40px;
             width: 100%;
 

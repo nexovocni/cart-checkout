@@ -3,13 +3,11 @@
 .summary{
 
     &-first{
-        max-height: 60px;
-        transition: max-height .5s ease;
+        @include open-close(60px, 1, .5s);
         margin-bottom: 35px;
 
         &-open{
-            max-height: 30px;
-            transition: max-height .5s ease;
+            @include open-close(30px, 1, .5s);
             margin-bottom: 15px;
         }
 
@@ -26,15 +24,11 @@
         }
 
         &-tax{
-            transition: opacity .5s ease;
-            opacity: 0;
+            @include open-close(0, 0, .5s);
             overflow: hidden;
-            max-height: 0px;
     
             &-open{
-                opacity: 1;
-                transition: all .5s ease;
-                max-height: 20px;
+                @include open-close(20px, 1, .5s);
             }
         }
     }

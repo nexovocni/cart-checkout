@@ -8,15 +8,11 @@
       @include position(absolute, 0, 30px, auto);
       padding-right: 15%;
       transform: translateY(0);
-      position: absolute;
-      top: 30px;
 
       &__close{
         @include position(relative, 0, 0, -1);
         @include open-close(0, 0, .5s);
         transform: translateY(150%);
-        position: relative;
-        z-index: -1;
       }
 
       @include respond(tablet){

@@ -108,9 +108,7 @@
             }
 
             &-bottom{
-                max-height: 200px;
-                opacity: 1;
-                transition: all .4s ease;
+                @include open-close(200px, 1, .4s);
             }
         }
     }

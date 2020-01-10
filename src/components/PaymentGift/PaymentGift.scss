@@ -25,9 +25,7 @@
             }
 
             &__close{
-                    max-height: 0;
-                    opacity: 0;
-                    transition: all .3s ease;
+                    @include open-close(0, 0, .3s);
                     overflow: hidden;
                     margin-left: 23%;
                 

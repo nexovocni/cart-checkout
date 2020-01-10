@@ -21,23 +21,21 @@
             display: none;
 
             @include respond(phone){
+                @include open-close(500px, 1, .5s);
                 display: inline;
-                max-height: 500px;
                 overflow: hidden;
-                opacity: 1;
-                flex-direction: column;
                 width: 100%;
-                transition: all .5s ease;
+            }
+
+            &__close{
+                @include open-close(0, 0, .5s);
             }
 
             &-open{
 
                 @include respond(phone){
-                    max-height: 160px;
-                    flex-direction: column;
+                    @include open-close(160px, 1, .5s);
                     width: 100%;
-                    opacity: 1;
-                    transition: all .5s ease;
                 }
             }
         }
