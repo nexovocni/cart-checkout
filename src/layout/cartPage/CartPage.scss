@@ -12,8 +12,8 @@
         display: flex;
         flex-direction: column;
         width: 70%;
-        padding-top: 3%;
-        padding-left: 4%;
+        padding-top: 30px;
+        padding-left: 50px;
 
         @include respond(phone){
            padding: 6% 4%;
