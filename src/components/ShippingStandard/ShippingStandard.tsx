@@ -1,22 +1,21 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import {Field} from 'react-final-form'
+import {ProductContext} from '../../contexts/ProductContext'
 import './ShippingStandard.scss'
 
-interface IProps {
-    setCheckValue: any;
-}
-
-const ShippingStandard:React.FC<IProps> = ({setCheckValue}) => {
+const ShippingStandard:React.FC= () => {
 
     const [isChecked, setChecked] = useState(true)
+    const productContext:any = useContext(ProductContext)
+    const {dispatch} = productContext
 
     const checkBtn = (input:any) => {
-        setCheckValue(parseInt(input))
+        dispatch({type:"CHECK", payload: parseInt(input)})
         setChecked(false)
     }
 
     const checkBtnStandard = (input:any) => {
-        setCheckValue(parseInt(input))
+        dispatch({type:"CHECK", payload: parseInt(input)})
         setChecked(true)
     }
 

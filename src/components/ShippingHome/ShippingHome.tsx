@@ -1,10 +1,12 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import {Form} from 'react-final-form'
 import ShippingName from '../ShippingName/ShippingName'
 import ShippingAddress from '../ShippingAddress/ShippingAddress'
 import ShippingCity from '../../components/ShippingCity/ShippingCity'
 import ShippingPhone from '../../components/ShippingPhone/ShippingPhone'
 import ShippingStandard from '../../components/ShippingStandard/ShippingStandard'
+import {FormComponentContext} from '../../contexts/FormComponentContext'
+import {ProductContext} from '../../contexts/ProductContext'
 import './ShippingHome.scss'
 
 interface IProps {
@@ -19,18 +21,22 @@ interface IProps {
     setPhone: any;
     validate: any;
     submitBtn: any;
-    setCheckValue: any;
-    checkValue: number;
-    shipValue: number;
-    component: any
 }
 
-const ShippingHome:React.FC<IProps> = ({setFirstName, setLastName, setFirstAddress, setLastAddress, setCity, setCountry, setPhone, setPostal, setProvince, validate, submitBtn, setCheckValue, checkValue, shipValue, component}) => {
+const ShippingHome:React.FC<IProps> = ({setFirstName, setLastName, setFirstAddress, setLastAddress, setCity, setCountry, setPhone, setPostal, setProvince, validate, submitBtn}) => {
+
+    const formContext:any = useContext(FormComponentContext)
+    const {formComponents} = formContext
+    const {componentShipping} = formComponents
+
+    const productContext:any = useContext(ProductContext)
+    const {shipValue, checkValue} = productContext
+
     return (
         <Form onSubmit={submitBtn}
             render={(props:any) => {
                 return(
-                    <form onSubmit={props.handleSubmit} className={component ? "shipping__component__form" : "close"}>
+                    <form onSubmit={props.handleSubmit} className={componentShipping ? "shipping__component__form" : "close"}>
                         <ShippingName 
                             setFirstName={setFirstName}
                             setLastName={setLastName}
@@ -57,9 +63,7 @@ const ShippingHome:React.FC<IProps> = ({setFirstName, setLastName, setFirstAddre
                         <div><h3>Standard shipping</h3><p>5 - 7 business days</p></div>
                         <div>$10.00</div>
                         </div>:
-                        <ShippingStandard 
-                            setCheckValue={setCheckValue}
-                        />
+                        <ShippingStandard />
                         }
                         <button onSubmit={props.handleSubmit} className="shipping__component__submit" type="submit">Continue to payment method</button>
                     </form>

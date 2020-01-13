@@ -6,40 +6,27 @@ import '../SelectColor/SelectColor.scss'
 import '../SelectSize/SelectSize.scss'
 import '../SelectQuantity/SelectQuantity.scss'
 import './ProductRight.scss'
+import IProduct from '../../interfaces/Interfaces'
 
 interface IProps {
-    product: {
-        name: string,
-        size: string,
-        price: string,
-        color: string,
-        colorName: string, 
-        quantity: string,
-        id: number,
-        colors: string[]
-        sizes: string[],
-        quantities: number[]
-        image: string;
-    };
-    localData: any,
-    handleChange: any,
-    handleChangeColor: any
+    product: IProduct;
 }
 
-const ProductRight:React.FC<IProps> = ({product, localData, handleChange, handleChangeColor}) => {
+const ProductRight:React.FC<IProps> = ({product}) => {
+
     return (
         <div className="product__section__right">
             <div className="product__section__right-color">
-                <SelectColor localData={localData} handleChangeColor={handleChangeColor}/>
+                <SelectColor product={product} />
             </div>
             <div className="product__section__right-size">
-                <SelectSize localData={localData} handleChange={handleChange} product={product}/>
+                <SelectSize product={product} />
             </div>
             <div className="product__section__right-quantity">
-                <SelectQuantity localData={localData} handleChange={handleChange} />
+                <SelectQuantity product={product} />
             </div>
             <div className="product__section__right-price">
-                <p>${parseInt(localData.price).toFixed(2)}</p>
+                <p>${parseInt(product.price).toFixed(2)}</p>
             </div>
         </div>
     )

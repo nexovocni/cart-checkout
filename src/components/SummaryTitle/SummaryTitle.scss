@@ -6,17 +6,10 @@
         background-color: rgb(228, 226, 226);
         text-transform: uppercase;
         text-align: center;
-        height: 5vh;
-        margin-bottom: 6.2vh;
+        cart-context
+        height: 50px;
+        margin-bottom: 65px;
         display: flex;
-
-        @include respond(desktop){
-            margin-bottom: 63px;
-        }
-
-        @include respond(tablet){
-            margin-bottom: 53px;
-        }
     
         &-text{
             align-self: center;

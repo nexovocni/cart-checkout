@@ -1,22 +1,21 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import Product from '../../../components/Product/Product'
 import InfoCart from '../../../components/InfoCart/InfoCart'
 import {CSSTransition,TransitionGroup} from 'react-transition-group'
 import '../../../sass/transitions/transitions.scss'
+import {ProductContext} from '../../../contexts/ProductContext'
+import {CartComponentContext} from '../../../contexts/CartComponentContext'
 import './Products.scss'
 
-interface IProps {
-    products: any,
-    changeProducts: any,
-    deleteProduct: any,
-    updateState: any
-    stateComponent: boolean,
-    switchComponent: boolean;
-}
+const Products: React.FC = () => {
 
-const Products: React.FC<IProps> = ({products, changeProducts, deleteProduct, updateState, stateComponent,switchComponent}) => {
+    const cartProducts:any = useContext(ProductContext)
+    const {products} = cartProducts
+    const productContext:any = useContext(CartComponentContext)
+    const {switchPage} = productContext.cartComponents
+
     return (
-        <main className={switchComponent ? "main__cart" : "main__cart__close"}>
+        <main className={switchPage ? "main__cart" : "main__cart__close"}>
             <InfoCart products={ products }/>
             <TransitionGroup component={null}>
                 {products.map((product: any) => {
@@ -30,11 +29,7 @@ const Products: React.FC<IProps> = ({products, changeProducts, deleteProduct, up
                         >
                         <Product
                             key={ product.id }
-                            changeProducts={ changeProducts } 
-                            deleteProduct={ deleteProduct } 
                             product={ product } 
-                            updateState= { updateState }
-                            stateComponent={stateComponent}
                         />
                         </CSSTransition>
                     )

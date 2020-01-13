@@ -1,32 +1,33 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
+import {CartComponentContext} from '../../contexts/CartComponentContext'
+import {ProductContext} from '../../contexts/ProductContext'
 import './Checkbox.scss'
 
-interface IProps {
-    code: boolean
-    shipValue: number
-    setCheckValue: any
-    stateComponent: boolean
-}
-
-const Checkbox:React.FC<IProps> = ({ code, shipValue, setCheckValue, stateComponent}) => {
+const Checkbox:React.FC = () => {
 
     const [isChecked, setChecked] = useState(true)
 
+    const cartContext:any = useContext(CartComponentContext)
+    const {disabledCode, cartState} = cartContext.cartComponents
+    const productContext:any = useContext(ProductContext)
+    const {dispatch} = productContext
+    const {checkValue} = productContext.values
+
     return (
-        <form style={{opacity: code ? .3 : 1, pointerEvents: code || stateComponent  ? "none" : "auto"}} className="checkbox">
+        <form style={{opacity: disabledCode ? .3 : 1, pointerEvents: disabledCode || cartState  ? "none" : "auto"}} className="checkbox">
                 <div className="checkbox__component">
                     <div className="ship">
                         <label>
-                        <input onChange={(e) => setCheckValue(parseInt(e.target.value))} onClick={() => setChecked(true)} checked={isChecked} type="radio" name="ship" value={10}/>
+                        <input onChange={(e) => dispatch({type:"CHECK", payload: parseInt(e.target.value)})} onClick={() => setChecked(true)} checked={isChecked} type="radio" name="ship" value={10}/>
                         <span className="circle"></span>
                         Ship to an adress</label> 
                     </div>
-                    <p>{shipValue > 0 ? `$10.00` : `Free`}</p>
+                    <p>${checkValue.toFixed(2)}</p>
                 </div>
                 <div className="checkbox__component">
                     <div className="ship">
                         <label>
-                        <input onChange={(e) => setCheckValue(parseInt(e.target.value))} onClick={() => setChecked(false)} checked={!isChecked} type="radio" name="ship" value={0}/>
+                        <input onChange={(e) => dispatch({type:"CHECK", payload: parseInt(e.target.value)})} onClick={() => setChecked(false)} checked={!isChecked} type="radio" name="ship" value={0}/>
                         <span className="circle"></span>
                         Pick up in store</label> 
                     </div>

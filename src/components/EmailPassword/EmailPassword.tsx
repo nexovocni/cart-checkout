@@ -1,15 +1,15 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import {Field, Form} from 'react-final-form'
 import './EmailPassword.scss'
+import {FormComponentContext} from '../../contexts/FormComponentContext'
 
 interface IProps{
-    passwordComponent: boolean;
     submitBtn: any;
     input: string;
     validate: any;
 }
 
-const PasswordEmail:React.FC<IProps> = ({submitBtn, passwordComponent, input, validate}) => {
+const PasswordEmail:React.FC<IProps> = ({submitBtn, input, validate}) => {
 
     const [passwordValue, setPasswordValue] = useState("")
 
@@ -24,11 +24,17 @@ const PasswordEmail:React.FC<IProps> = ({submitBtn, passwordComponent, input, va
 
     const validateConfirmPassword = (value:any) => (value === passwordValue ? null : "Password don't match")
 
+    const formContext:any = useContext(FormComponentContext)
+
+    const {formComponents} = formContext
+
+    const {componentPassword} = formComponents
+
     return(
         <Form onSubmit={submitBtn} 
                 render={(props:any) => { 
                 return (
-                    <div className={validate(input) && passwordComponent ? "email__component__password" : "close"}>
+                    <div className={validate(input) && componentPassword ? "email__component__password" : "close"}>
                     <div className="email__component__password__up">
                         <i className="fas fa-circle dot"></i>
                         <p>Create your password using at least 5 characters and some other interesting security rules for your own safety.</p>

@@ -1,15 +1,15 @@
-import React, {useState, useEffect, useRef} from 'react'
+import React, {useState, useEffect, useRef, useContext} from 'react'
+import {CartComponentContext} from '../../contexts/CartComponentContext'
 import './SummarySubtotal.scss'
-
 
 interface IProps {
     itemsValue: any;
-    shipValue: any;
-    disabledCode: boolean;
-    checkValue: number;
 }
 
-const SummarySubtotal:React.FC<IProps> = ({itemsValue, shipValue, disabledCode, checkValue}) => {
+const SummarySubtotal:React.FC<IProps> = ({itemsValue}) => {
+
+    const productContext:any = useContext(CartComponentContext)
+    const {disabledCode} = productContext.cartComponents
 
     const [value, setValue] = useState(0)
 
@@ -17,7 +17,7 @@ const SummarySubtotal:React.FC<IProps> = ({itemsValue, shipValue, disabledCode, 
 
     useEffect(() => {
         setValue((itemsValue).toFixed(2))
-     })
+     },)
 
     useEffect(() => {
        setAnime((anime:boolean)=>!anime)

@@ -129,8 +129,11 @@
     transition: opacity .3s ease, max-height .3s ease;
     overflow: hidden;
     margin: 0;
-
 }
+
+.editBtn{
+    display: none;
+  }
 
 .border-black{
     border-color: #000;

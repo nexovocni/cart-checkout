@@ -3,7 +3,7 @@ import './ReviewInfo.scss'
 
 interface IProps {
     localData: any;
-    productComponent: any;
+    productComponent: boolean;
     handleState: any;
     removeProduct: any;
 }
@@ -13,7 +13,7 @@ const ReviewInfo:React.FC<IProps> = ({localData, productComponent, handleState, 
         <div className="review__product__section">
             <div className="review__product__section__info">
                 <div className="review__product__section__image">
-                    <img src={localData.image[localData.colors.indexOf(localData.color)]} alt="image"/>
+                    <img src={localData.image[localData.colors.indexOf(localData.color)]} alt="product"/>
                 </div>
                 <div className="review__product__section__name">
                     <div>

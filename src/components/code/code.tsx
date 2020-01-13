@@ -1,31 +1,34 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
+import {CartComponentContext} from '../../contexts/CartComponentContext'
 import './Code.scss'
 
 interface IProps {
-    code: boolean;
-    setCode: any;
-    stateComponent: boolean;
     title: string;
     button: string;
     placeholder: string;
 }
 
-const Code:React.FC<IProps> = ({code, stateComponent, setCode, button, title, placeholder}) => {
+const Code:React.FC<IProps> = ({button, title, placeholder}) => {
+
+    const productContext:any = useContext(CartComponentContext)
+    const {disabledCode, cartState} = productContext.cartComponents
+    const {dispatch} = productContext
 
     const [on, setOn] = useState<boolean>(false)
     const [height, setHeight] = useState<string>("0px")
     const [emptyInput, setInput] = useState("")
     const [componentState, updateComponentState] = useState(true)
+    const codeComponent = disabledCode
     
     const toggleOnClick = () => {
         setHeight(on ? `0px` : "220px")
         setOn(!on)
-        setCode(!code)
+        dispatch({type: "COMPONENT", payload: {disabledCode: !codeComponent}})
         updateComponentState(!componentState)
     }
 
     return (
-        <div style={{opacity: code && componentState ? .3 : 1, pointerEvents: code && componentState || stateComponent ? "none" : "auto"}} className="code">
+        <div style={{opacity: disabledCode && componentState ? .3 : 1, pointerEvents: disabledCode && componentState || cartState ? "none" : "auto"}} className="code">
             <div className="code__visible" onClick={toggleOnClick}>
                 <p>{title}</p>
                 <i className={on ? "fas fa-angle-down clicked" : "fas fa-angle-down"}></i>

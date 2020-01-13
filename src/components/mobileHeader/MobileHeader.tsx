@@ -1,11 +1,12 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import {ProductContext} from '../../contexts/ProductContext'
 import './MobileHeader.scss'
 
-interface IProps {
-    products: any
-}
+const MobileHeader:React.FC = () => {
 
-const MobileHeader:React.FC<IProps> = ({products}) => {
+    const cartProducts:any = useContext(ProductContext)
+    const {products} = cartProducts
+    
     return (
         <div className="mobile-header">
             <div className="mobile-header__left">
@@ -13,8 +14,8 @@ const MobileHeader:React.FC<IProps> = ({products}) => {
                 <p>Your bag - {products.length}</p>
             </div>
             <div className="mobile-header__right">
-                <img className="search" src="./img/search.svg"/>
-                <img className="exit" src="./img/close-line.svg"/>
+                <img className="search" src="./img/search.svg" alt="productImg"/>
+                <img className="exit" src="./img/close-line.svg"  alt="productImg"/>
             </div>
         </div>
     )

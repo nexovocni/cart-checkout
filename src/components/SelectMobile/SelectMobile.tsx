@@ -1,36 +1,25 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import SelectColor from '../SelectColor/SelectColor'
 import SelectSize from '../SelectSize/SelectSize'
 import SelectQuantity from '../SelectQuantity/SelectQuantity'
+import {CartComponentContext} from '../../contexts/CartComponentContext'
+import IProduct from '../../interfaces/Interfaces'
 import './SelectMobile.scss'
 
 interface IProps {
-    product: {
-        name: string,
-        size: string,
-        price: string,
-        color: string,
-        colorName: string, 
-        quantity: string,
-        id: number,
-        colors: string[]
-        sizes: string[],
-        quantities: number[]
-        image: string;
-    };
-    localData: any;
-    handleChange: any;
-    handleChangeColor: any;
-    updateState: any;
-    updateProductComponent: any;
-    review: boolean
+    product: IProduct,
+    review: boolean, 
+    updateProductState: any
 }
 
-const SelectMobile:React.FC<IProps> = ({localData, handleChange, handleChangeColor, product, updateState, updateProductComponent, review}) => {
+const SelectMobile:React.FC<IProps> = ({ product, review, updateProductState}) => {
 
+    const productContext:any = useContext(CartComponentContext)
+    const {dispatch} = productContext
+    
     const handleButton = () => {
-        updateProductComponent(true)
-        updateState(false)
+        dispatch({type: "COMPONENT", payload: {cartState: false}})
+        updateProductState(true)
     }
 
     return (
@@ -38,15 +27,15 @@ const SelectMobile:React.FC<IProps> = ({localData, handleChange, handleChangeCol
                 <div className={`${review ? `review` : `product`}__section__left-bottom-select`}>
                     <div className={`${review ? `review` : `product`}__section__left-bottom-select-color`}>
                         <p>Color</p>
-                        <SelectColor localData={localData} handleChangeColor={handleChangeColor}/>
+                        <SelectColor product={product} />
                     </div>
                     <div className={`${review ? `review` : `product`}__section__left-bottom-select-size`}>
                         <p>Size</p>
-                        <SelectSize localData={localData} handleChange={handleChange} product={product}/>
+                        <SelectSize product={product} />
                     </div>
                     <div className={`${review ? `review` : `product`}__section__left-bottom-select-quantity`}>
                         <p>Quantity</p>
-                        <SelectQuantity localData={localData} handleChange={handleChange}/>
+                        <SelectQuantity product={product} />
                     </div>
                 </div>
                 <div className="product__section__left-bottom-button">
