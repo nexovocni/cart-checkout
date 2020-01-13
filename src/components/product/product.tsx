@@ -2,22 +2,11 @@ import React, { useContext } from 'react'
 import ProductLeft from '../ProductLeft/ProductLeft'
 import ProductRight from '../ProductRight/ProductRight'
 import {ProductContext} from '../../contexts/ProductContext'
+import IProduct from '../../interfaces/Interfaces'
 import './Product.scss'
 
 interface IProps {
-    product: {
-        name: string,
-        size: string,
-        price: string,
-        color: string,
-        colorName: string, 
-        quantity: string,
-        id: number,
-        colors: string[]
-        sizes: string[],
-        quantities: number[]
-        image: string;
-    };
+    product: IProduct
 }
 
 const Product: React.FC<IProps> = ({product}) => {

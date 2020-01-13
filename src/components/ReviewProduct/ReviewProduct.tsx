@@ -1,21 +1,10 @@
 import React from 'react'
 import ProductLeft from '../ProductLeft/ProductLeft'
 import './ReviewProduct.scss'
+import IProduct from '../../interfaces/Interfaces'
 
 interface IProps {
-    product: {
-        name: string,
-        size: string,
-        price: string,
-        color: string,
-        colorName: string, 
-        quantity: string,
-        id: number,
-        colors: string[]
-        sizes: string[],
-        quantities: number[]
-        image: string;
-    };
+    product: IProduct
     updateStateComponent: any;
     stateComponent: boolean;
 }

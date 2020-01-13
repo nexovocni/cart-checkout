@@ -2,22 +2,11 @@ import React, {useContext, useState} from 'react'
 import SelectMobile from '../SelectMobile/SelectMobile'
 import ViewProduct from '../ViewProduct/ViewProduct'
 import {CartComponentContext} from '../../contexts/CartComponentContext'
+import IProduct from '../../interfaces/Interfaces'
 import './ProductLeft.scss'
 
 interface IProps {
-    product: {
-        name: string,
-        size: string,
-        price: string,
-        color: string,
-        colorName: string, 
-        quantity: string,
-        id: number,
-        colors: string[]
-        sizes: string[],
-        quantities: number[]
-        image: string;
-    };
+    product: IProduct,
     review: boolean, 
 }
 

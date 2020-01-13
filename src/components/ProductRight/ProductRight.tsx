@@ -6,21 +6,10 @@ import '../SelectColor/SelectColor.scss'
 import '../SelectSize/SelectSize.scss'
 import '../SelectQuantity/SelectQuantity.scss'
 import './ProductRight.scss'
+import IProduct from '../../interfaces/Interfaces'
 
 interface IProps {
-    product: {
-        name: string,
-        size: string,
-        price: string,
-        color: string,
-        colorName: string, 
-        quantity: string,
-        id: number,
-        colors: string[]
-        sizes: string[],
-        quantities: number[]
-        image: string;
-    };
+    product: IProduct;
 }
 
 const ProductRight:React.FC<IProps> = ({product}) => {

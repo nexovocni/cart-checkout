@@ -18,23 +18,19 @@ const Payment:React.FC = () => {
    
 
     const openGift = () => {
-        dispatch({type: "COMPONENT", payload: {giftPayment: true}})
-        dispatch({type: "COMPONENT", payload: {creditPayment: false}})
+        dispatch({type: "COMPONENT", payload: {giftPayment: true, creditPayment: false}})
         setCardCredit("")
     }
 
     const openCredit = () => {
-        dispatch({type: "COMPONENT", payload: {giftPayment: false}})
-        dispatch({type: "COMPONENT", payload: {creditPayment: true}})
+        dispatch({type: "COMPONENT", payload: {giftPayment: false, creditPayment: true}})
         setCardGift("")
     }
 
     const validate = (value:any) => (value ? null : "Invalid input")
 
     const submitBtn = () => {
-        dispatch({type: "COMPONENT", payload: {componentPayment: !componentPayment}})
-        dispatch({type: "COMPONENT", payload: {componentReview: true}})
-        dispatch({type: "COMPONENT", payload: {editPayment: true}})
+        dispatch({type: "COMPONENT", payload: {componentPayment: !componentPayment, componentReview: true, editPayment: true}})
     }
 
     return (

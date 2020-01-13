@@ -4,12 +4,11 @@ import './EmailMain.scss'
 
 interface IProps {
     submitBtn: any;
-    input: string;
     setInput: any;
     validateEmail: any
 }
 
-const YourEmail:React.FC<IProps> = ({submitBtn, input, validateEmail, setInput}) => {
+const YourEmail:React.FC<IProps> = ({submitBtn, validateEmail, setInput}) => {
     return (
         <Form onSubmit={submitBtn} 
                 render={() => { 

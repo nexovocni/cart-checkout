@@ -13,14 +13,11 @@ const Email:React.FC = () => {
     const {componentEmail} = formComponents
 
     const passwordBtn = () => {
-        dispatch({type: "COMPONENT", payload: {componentPassword: true}})
-        dispatch({type: "COMPONENT", payload: {componentEmail: true}})
+        dispatch({type: "COMPONENT", payload: {componentPassword: true, componentEmail: true}})
     }
 
     const submitBtn = () => {
-        dispatch({type: "COMPONENT", payload: {componentEmail: false}})
-        dispatch({type: "COMPONENT", payload: {componentShipping: true}})
-        dispatch({type: "COMPONENT", payload: {editEmail: true}})
+        dispatch({type: "COMPONENT", payload: {componentEmail: false, componentShipping: true, editEmail: true}})
     }
 
     const validate = (email:any) => {
@@ -46,7 +43,6 @@ const Email:React.FC = () => {
                             <form onSubmit={props.handleSubmit} className={componentEmail ? "email__component__form" : "email__component__form__close"}>
                                 <EmailMain 
                                     submitBtn={submitBtn}
-                                    input={input}
                                     validateEmail={validateEmail}
                                     setInput={setInput}
                                 />

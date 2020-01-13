@@ -4,7 +4,6 @@ import ShippingHome from "../../components/ShippingHome/ShippingHome"
 import ShippingStore from "../../components/ShippingStore/ShippingStore"
 import ShippingData from "../../components/ShippingData/ShippingData"
 import {FormComponentContext} from '../../contexts/FormComponentContext'
-import {CartComponentContext, CartContextProvider} from '../../contexts/CartComponentContext'
 
 const Shipping:React.FC= () => {
 
@@ -12,14 +11,8 @@ const Shipping:React.FC= () => {
     const {formComponents, dispatch} = formContext
     const {componentShipping, editShipping, storeShipping, homeShipping} = formComponents
 
-    // const cartContext:any = useContext(CartComponentContext)
-    // const {dispatch} = cartContext
-
     const submitBtn = () => {
-        dispatch({type: "COMPONENT", payload: {tax: true}})
-        dispatch({type: "COMPONENT", payload: {componentShipping: !componentShipping}})
-        dispatch({type: "COMPONENT", payload: {componentPayment: true}})
-        dispatch({type: "COMPONENT", payload: {editShipping: true}})
+        dispatch({type: "COMPONENT", payload: {tax: true, componentShipping: !componentShipping, componentPayment: true, editShipping: true}})
     }
 
     const [firstName, setFirstName] = useState("")

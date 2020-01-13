@@ -1,10 +1,11 @@
 import React, {useContext} from 'react'
 import {CartComponentContext} from '../../contexts/CartComponentContext'
 import {ProductContext} from '../../contexts/ProductContext'
+import IProduct from '../../interfaces/Interfaces'
 import "./ViewMobile.scss"
 
 interface IProps {
-    product: any;
+    product: IProduct;
     review: boolean;
     productState: boolean;
     updateProductState:any

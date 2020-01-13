@@ -30,8 +30,7 @@ const Review:React.FC = () => {
 
     const reviewSubmit = () => {
         setScrollBtn(false)
-        dispatch({type: "COMPONENT", payload: {componentReview: false}})
-        dispatch({type: "COMPONENT", payload: {editReview: true}})
+        dispatch({type: "COMPONENT", payload: {componentReview: false, editReview: true}})
     }
 
     return (

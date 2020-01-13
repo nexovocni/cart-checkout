@@ -3,22 +3,11 @@ import SelectColor from '../SelectColor/SelectColor'
 import SelectSize from '../SelectSize/SelectSize'
 import SelectQuantity from '../SelectQuantity/SelectQuantity'
 import {CartComponentContext} from '../../contexts/CartComponentContext'
+import IProduct from '../../interfaces/Interfaces'
 import './SelectMobile.scss'
 
 interface IProps {
-    product: {
-        name: string,
-        size: string,
-        price: string,
-        color: string,
-        colorName: string, 
-        quantity: string,
-        id: number,
-        colors: string[]
-        sizes: string[],
-        quantities: number[]
-        image: string;
-    };
+    product: IProduct,
     review: boolean, 
     updateProductState: any
 }
