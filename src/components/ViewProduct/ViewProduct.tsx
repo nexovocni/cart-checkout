@@ -1,15 +1,15 @@
-import React from 'react'
-import './ViewProduct.scss'
-import ViewMobile from '../ViewMobile/ViewMobile'
+import React from 'react';
+import './ViewProduct.scss';
+import ViewMobile from '../ViewMobile/ViewMobile';
 
 interface IProps {
     review: boolean;
     productState: boolean;
-    updateProductState:any
-    product: any
+    updateProductState: any;
+    product: any;
 }
 
-const ViewProduct:React.FC<IProps> = ({review, product, productState, updateProductState}) => {
+const ViewProduct: React.FC<IProps> = ({review, product, productState, updateProductState}: IProps): any => {
 
     return (
             <React.Fragment>
@@ -21,22 +21,22 @@ const ViewProduct:React.FC<IProps> = ({review, product, productState, updateProd
                         <div>
                             <p>{product.name}</p>
                         </div>
-                        <ViewMobile 
+                        <ViewMobile
                             product={product}
                             review={review}
                             productState={productState}
                             updateProductState={updateProductState}
                         />
-                        <div className={productState ? "wishlist" : "wishlist-mob"}>
-                            <p><i className="fa fa-heart"></i>Move to wishlist</p>
+                        <div className={productState ? 'wishlist' : 'wishlist-mob'}>
+                            <p><i className="fa fa-heart" />Move to wishlist</p>
                         </div>
                     </div>
                     <div className="name__price">
-                        <p>${parseInt(product.price).toFixed(2)}</p>
+                        <p>${parseInt(product.price, 0).toFixed(2)}</p>
                     </div>
                 </div>
             </React.Fragment>
-    )
-}
+    );
+};
 
-export default ViewProduct
+export default ViewProduct;

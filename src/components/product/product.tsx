@@ -1,18 +1,18 @@
-import React, { useContext } from 'react'
-import ProductLeft from '../ProductLeft/ProductLeft'
-import ProductRight from '../ProductRight/ProductRight'
-import {ProductContext} from '../../contexts/ProductContext'
-import IProduct from '../../interfaces/Interfaces'
-import './Product.scss'
+import React, { useContext } from 'react';
+import ProductLeft from '../ProductLeft/ProductLeft';
+import ProductRight from '../ProductRight/ProductRight';
+import {ProductContext} from '../../contexts/ProductContext';
+import IProduct from '../../interfaces/Interfaces';
+import './Product.scss';
 
 interface IProps {
-    product: IProduct
+    product: IProduct;
 }
 
-const Product: React.FC<IProps> = ({product}) => {
+const Product: React.FC<IProps> = ({product}: IProps): any => {
 
-    const productContext:any = useContext(ProductContext)
-    const {deleteProduct} = productContext
+    const productContext: any = useContext(ProductContext);
+    const {deleteProduct} = productContext;
 
     return (
         <div className="product">
@@ -20,20 +20,20 @@ const Product: React.FC<IProps> = ({product}) => {
                 <ProductLeft
                     product={product}
                     review={false}
-                /> 
+                />
                 <ProductRight
-                    product={product} 
+                    product={product}
                 />
             </div>
-            <div 
-                id={`${product.id}`} 
-                onClick={ () => { deleteProduct(product.id)} }
+            <div
+                id={`${product.id}`}
+                onClick={ (): any => { deleteProduct(product.id); }}
                 className="product__exit"
             >
-                <i className="fa fa-times"></i>
+                <i className="fa fa-times" />
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Product
+export default Product;

@@ -1,26 +1,26 @@
-import React, {useContext} from 'react'
-import './EmailMessage.scss'
-import {FormComponentContext} from '../../contexts/FormComponentContext'
+import React, {useContext} from 'react';
+import './EmailMessage.scss';
+import {FormComponentContext} from '../../contexts/FormComponentContext';
 
-interface IProps{
+interface IProps {
     submitBtn: any;
     passwordBtn: any;
     input: string;
-    validate: any
+    validate: any;
 }
 
-const MessageEmail:React.FC<IProps> = ({passwordBtn, submitBtn, input, validate}) => {
+const MessageEmail: React.FC<IProps> = ({passwordBtn, submitBtn, input, validate}: IProps): any => {
 
-    const formContext:any = useContext(FormComponentContext)
+    const formContext: any = useContext(FormComponentContext);
 
-    const {formComponents} = formContext
+    const {formComponents} = formContext;
 
-    const {componentPassword} = formComponents
+    const {componentPassword} = formComponents;
 
     return (
-        <div className={validate(input) && !componentPassword ? "email__component__message" : "email__component__message close"}>
+        <div className={validate(input) && !componentPassword ? 'email__component__message' : 'email__component__message close'}>
             <div className="email__component__message__up">
-                <i className="fas fa-circle dot"></i>
+                <i className="fas fa-circle dot" />
                 <p>Welcome! Create password to save information for one-click checkout, order tracking, VIP discount and more!</p>
             </div>
             <div className="email__component__buttons">
@@ -28,7 +28,7 @@ const MessageEmail:React.FC<IProps> = ({passwordBtn, submitBtn, input, validate}
                 <button onClick={passwordBtn} type="button" className="white__button">Create password</button>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default MessageEmail
+export default MessageEmail;

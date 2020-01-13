@@ -1,9 +1,9 @@
-import React, {createContext, useReducer} from 'react'
-import {FormComponentReducer} from '../reducers/ComponentReducer'
+import React, {createContext, useReducer} from 'react';
+import {FormComponentReducer} from '../reducers/ComponentReducer';
 
-export const FormComponentContext = createContext({})
+export const FormComponentContext = createContext({});
 
-export const ComponentContextProvider = (props:any) => {
+export const ComponentContextProvider = (props: any): any => {
 
     const components =  {
         componentEmail: true,
@@ -19,14 +19,14 @@ export const ComponentContextProvider = (props:any) => {
         storeShipping: false,
         creditPayment: false,
         giftPayment: false,
-        stateReview: false
-    }
+        stateReview: false,
+    };
 
-    const [formComponents, dispatch] = useReducer(FormComponentReducer, components)
+    const [formComponents, dispatch] = useReducer(FormComponentReducer, components);
 
     return (
         <FormComponentContext.Provider value={{formComponents, dispatch}}>
             {props.children}
         </FormComponentContext.Provider>
-    )
-}
+    );
+};

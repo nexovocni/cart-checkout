@@ -1,7 +1,7 @@
-import React from 'react'
-import './InfoCart.scss'
+import React from 'react';
+import './InfoCart.scss';
 
-const InfoCart:React.FC<any> = ({products}) => {
+const InfoCart: React.FC<any> = ({products}: any): any => {
 
     return (
         <div className="info">
@@ -24,9 +24,9 @@ const InfoCart:React.FC<any> = ({products}) => {
                     </div>
                 </div>
             </div>
-            <div className="info__line"></div>
+            <div className="info__line" />
         </div>
-    )
-}
+    );
+};
 
-export default InfoCart
+export default InfoCart;

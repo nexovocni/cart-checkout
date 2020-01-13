@@ -1,46 +1,44 @@
-import React, {useContext} from 'react'
-import SummarySubtotal from '../SummarySubtotal/SummarySubtotal'
-import SummaryTotal from '../SummaryTotal/SummaryTotal'
-import {ProductContext} from '../../contexts/ProductContext'
-import './ReviewData.scss'
+import React, {useContext} from 'react';
+import SummarySubtotal from '../SummarySubtotal/SummarySubtotal';
+import SummaryTotal from '../SummaryTotal/SummaryTotal';
+import {ProductContext} from '../../contexts/ProductContext';
+import './ReviewData.scss';
 
+const ReviewData: React.FC = (): any => {
 
-
-const ReviewData:React.FC = () => {
-
-    const cartProducts:any = useContext(ProductContext)
-    const {values} = cartProducts
-    const {itemsValue, taxValue, shipValue, cartCheckValue, value} = values
+    const cartProducts: any = useContext(ProductContext);
+    const {values} = cartProducts;
+    const {itemsValue, taxValue, shipValue, cartCheckValue, value} = values;
 
     return (
         <div className="review__data__component">
             <div className="review__data__component__section">
             <SummaryTotal
-                itemsValue={`$${itemsValue.toFixed(2)}`} 
+                itemsValue={`$${itemsValue.toFixed(2)}`}
                 title="Your Items"
                 valueTrans={false}
             />
-            <SummaryTotal 
+            <SummaryTotal
                 title="GST"
-                itemsValue={"$" + taxValue.gst}
+                itemsValue={'$' + taxValue.gst}
                 valueTrans={false}
             />
-            <SummaryTotal 
+            <SummaryTotal
                 title="PST"
-                itemsValue={"$" + taxValue.pst}
+                itemsValue={'$' + taxValue.pst}
                 valueTrans={false}
              />
             <SummaryTotal
                 title="Shipping"
-                itemsValue={shipValue < 1 ? 'Free' : `$${cartCheckValue.toFixed(2)}`} 
+                itemsValue={shipValue < 1 ? 'Free' : `$${cartCheckValue.toFixed(2)}`}
                 valueTrans={false}
             />
             </div>
-            <SummarySubtotal 
+            <SummarySubtotal
                 itemsValue={value}
             />
         </div>
-    )
-}
+    );
+};
 
-export default ReviewData
+export default ReviewData;

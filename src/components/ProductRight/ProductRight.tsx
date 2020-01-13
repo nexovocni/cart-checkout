@@ -1,18 +1,18 @@
-import React from 'react'
-import SelectColor from '../SelectColor/SelectColor'
-import SelectSize from '../SelectSize/SelectSize'
-import SelectQuantity from '../SelectQuantity/SelectQuantity'
-import '../SelectColor/SelectColor.scss'
-import '../SelectSize/SelectSize.scss'
-import '../SelectQuantity/SelectQuantity.scss'
-import './ProductRight.scss'
-import IProduct from '../../interfaces/Interfaces'
+import React from 'react';
+import SelectColor from '../SelectColor/SelectColor';
+import SelectSize from '../SelectSize/SelectSize';
+import SelectQuantity from '../SelectQuantity/SelectQuantity';
+import '../SelectColor/SelectColor.scss';
+import '../SelectSize/SelectSize.scss';
+import '../SelectQuantity/SelectQuantity.scss';
+import './ProductRight.scss';
+import IProduct from '../../interfaces/Interfaces';
 
 interface IProps {
     product: IProduct;
 }
 
-const ProductRight:React.FC<IProps> = ({product}) => {
+const ProductRight: React.FC<IProps> = ({product}: IProps): any => {
 
     return (
         <div className="product__section__right">
@@ -26,10 +26,10 @@ const ProductRight:React.FC<IProps> = ({product}) => {
                 <SelectQuantity product={product} />
             </div>
             <div className="product__section__right-price">
-                <p>${parseInt(product.price).toFixed(2)}</p>
+                <p>${parseInt(product.price, 0).toFixed(2)}</p>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default ProductRight
+export default ProductRight;

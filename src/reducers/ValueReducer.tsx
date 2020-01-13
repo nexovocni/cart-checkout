@@ -1,8 +1,8 @@
-export const ValueReducer = (state:any, action:any) => {
-    switch (action.type){
+export const ValueReducer = (state: any, action: any): any => {
+    switch (action.type) {
         case 'CHECK':
-            return action.payload;  
+            return action.payload;
         default:
             return state;
     }
-}
+};

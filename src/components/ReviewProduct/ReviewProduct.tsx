@@ -1,25 +1,22 @@
-import React from 'react'
-import ProductLeft from '../ProductLeft/ProductLeft'
-import './ReviewProduct.scss'
-import IProduct from '../../interfaces/Interfaces'
+import React from 'react';
+import ProductLeft from '../ProductLeft/ProductLeft';
+import './ReviewProduct.scss';
+import IProduct from '../../interfaces/Interfaces';
 
 interface IProps {
-    product: IProduct
-    updateStateComponent: any;
-    stateComponent: boolean;
+    product: IProduct;
 }
 
-const ReviewProduct:React.FC<IProps> = ({product, updateStateComponent, stateComponent}) => {
+const ReviewProduct: React.FC<IProps> = ({product}: IProps): any => {
 
     return (
         <div className="review__product">
-            <ProductLeft 
+            <ProductLeft
                 product={product}
                 review={true}
             />
         </div>
-    )
-}
+    );
+};
 
-export default ReviewProduct
-
+export default ReviewProduct;

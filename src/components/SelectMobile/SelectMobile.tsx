@@ -1,26 +1,25 @@
-import React, {useContext} from 'react'
-import SelectColor from '../SelectColor/SelectColor'
-import SelectSize from '../SelectSize/SelectSize'
-import SelectQuantity from '../SelectQuantity/SelectQuantity'
-import {CartComponentContext} from '../../contexts/CartComponentContext'
-import IProduct from '../../interfaces/Interfaces'
-import './SelectMobile.scss'
+import React, {useContext} from 'react';
+import SelectColor from '../SelectColor/SelectColor';
+import SelectSize from '../SelectSize/SelectSize';
+import SelectQuantity from '../SelectQuantity/SelectQuantity';
+import {CartComponentContext} from '../../contexts/CartComponentContext';
+import IProduct from '../../interfaces/Interfaces';
+import './SelectMobile.scss';
 
 interface IProps {
-    product: IProduct,
-    review: boolean, 
-    updateProductState: any
+    product: IProduct;
+    review: boolean;
+    updateProductState: any;
 }
 
-const SelectMobile:React.FC<IProps> = ({ product, review, updateProductState}) => {
+const SelectMobile: React.FC<IProps> = ({ product, review, updateProductState}: IProps): any => {
 
-    const productContext:any = useContext(CartComponentContext)
-    const {dispatch} = productContext
-    
-    const handleButton = () => {
-        dispatch({type: "COMPONENT", payload: {cartState: false}})
-        updateProductState(true)
-    }
+    const productContext: any = useContext(CartComponentContext);
+    const {dispatch} = productContext;
+    const handleButton = (): any => {
+        dispatch({type: 'COMPONENT', payload: {cartState: false}});
+        updateProductState(true);
+    };
 
     return (
         <React.Fragment>
@@ -42,7 +41,7 @@ const SelectMobile:React.FC<IProps> = ({ product, review, updateProductState}) =
                     <button onClick={handleButton}>Update Bag</button>
                 </div>
         </React.Fragment>
-    )
-}
+    );
+};
 
-export default SelectMobile
+export default SelectMobile;
