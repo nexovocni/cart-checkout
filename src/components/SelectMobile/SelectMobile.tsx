@@ -1,47 +1,66 @@
-import React, {useContext} from 'react';
+import React, { useContext } from 'react';
 import SelectColor from '../SelectColor/SelectColor';
 import SelectSize from '../SelectSize/SelectSize';
 import SelectQuantity from '../SelectQuantity/SelectQuantity';
-import {CartComponentContext} from '../../contexts/CartComponentContext';
+import { CartComponentContext } from '../../contexts/CartComponentContext';
 import IProduct from '../../interfaces/Interfaces';
 import './SelectMobile.scss';
 
 interface IProps {
-    product: IProduct;
-    review: boolean;
-    updateProductState: any;
+  product: IProduct;
+  review: boolean;
+  updateProductState: any;
 }
 
-const SelectMobile: React.FC<IProps> = ({ product, review, updateProductState}: IProps): any => {
+const SelectMobile: React.FC<IProps> = ({
+  product,
+  review,
+  updateProductState,
+}) => {
+  const productContext: any = useContext(CartComponentContext);
+  const { dispatch } = productContext;
+  const handleButton = () => {
+    dispatch({ type: 'COMPONENT', payload: { cartState: false } });
+    updateProductState(true);
+  };
 
-    const productContext: any = useContext(CartComponentContext);
-    const {dispatch} = productContext;
-    const handleButton = (): any => {
-        dispatch({type: 'COMPONENT', payload: {cartState: false}});
-        updateProductState(true);
-    };
-
-    return (
-        <React.Fragment>
-                <div className={`${review ? `review` : `product`}__section__left-bottom-select`}>
-                    <div className={`${review ? `review` : `product`}__section__left-bottom-select-color`}>
-                        <p>Color</p>
-                        <SelectColor product={product} />
-                    </div>
-                    <div className={`${review ? `review` : `product`}__section__left-bottom-select-size`}>
-                        <p>Size</p>
-                        <SelectSize product={product} />
-                    </div>
-                    <div className={`${review ? `review` : `product`}__section__left-bottom-select-quantity`}>
-                        <p>Quantity</p>
-                        <SelectQuantity product={product} />
-                    </div>
-                </div>
-                <div className="product__section__left-bottom-button">
-                    <button onClick={handleButton}>Update Bag</button>
-                </div>
-        </React.Fragment>
-    );
+  return (
+    <React.Fragment>
+      <div
+        className={`${
+          review ? `review` : `product`
+        }__section__left-bottom-select`}
+      >
+        <div
+          className={`${
+            review ? `review` : `product`
+          }__section__left-bottom-select-color`}
+        >
+          <p>Color</p>
+          <SelectColor product={product} />
+        </div>
+        <div
+          className={`${
+            review ? `review` : `product`
+          }__section__left-bottom-select-size`}
+        >
+          <p>Size</p>
+          <SelectSize product={product} />
+        </div>
+        <div
+          className={`${
+            review ? `review` : `product`
+          }__section__left-bottom-select-quantity`}
+        >
+          <p>Quantity</p>
+          <SelectQuantity product={product} />
+        </div>
+      </div>
+      <div className="product__section__left-bottom-button">
+        <button onClick={handleButton}>Update Bag</button>
+      </div>
+    </React.Fragment>
+  );
 };
 
 export default SelectMobile;

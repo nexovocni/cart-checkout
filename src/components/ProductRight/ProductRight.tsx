@@ -9,27 +9,26 @@ import './ProductRight.scss';
 import IProduct from '../../interfaces/Interfaces';
 
 interface IProps {
-    product: IProduct;
+  product: IProduct;
 }
 
-const ProductRight: React.FC<IProps> = ({product}: IProps): any => {
-
-    return (
-        <div className="product__section__right">
-            <div className="product__section__right-color">
-                <SelectColor product={product} />
-            </div>
-            <div className="product__section__right-size">
-                <SelectSize product={product} />
-            </div>
-            <div className="product__section__right-quantity">
-                <SelectQuantity product={product} />
-            </div>
-            <div className="product__section__right-price">
-                <p>${parseInt(product.price, 0).toFixed(2)}</p>
-            </div>
-        </div>
-    );
+const ProductRight: React.FC<IProps> = ({ product }) => {
+  return (
+    <div className="product__section__right">
+      <div className="product__section__right-color">
+        <SelectColor product={product} />
+      </div>
+      <div className="product__section__right-size">
+        <SelectSize product={product} />
+      </div>
+      <div className="product__section__right-quantity">
+        <SelectQuantity product={product} />
+      </div>
+      <div className="product__section__right-price">
+        <p>${parseInt(product.price, 0).toFixed(2)}</p>
+      </div>
+    </div>
+  );
 };
 
 export default ProductRight;

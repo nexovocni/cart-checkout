@@ -4,19 +4,15 @@ import './ReviewProduct.scss';
 import IProduct from '../../interfaces/Interfaces';
 
 interface IProps {
-    product: IProduct;
+  product: IProduct;
 }
 
-const ReviewProduct: React.FC<IProps> = ({product}: IProps): any => {
-
-    return (
-        <div className="review__product">
-            <ProductLeft
-                product={product}
-                review={true}
-            />
-        </div>
-    );
+const ReviewProduct: React.FC<IProps> = ({ product }) => {
+  return (
+    <div className="review__product">
+      <ProductLeft product={product} review={true} />
+    </div>
+  );
 };
 
 export default ReviewProduct;
