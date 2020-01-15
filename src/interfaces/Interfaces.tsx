@@ -1,4 +1,4 @@
-export default interface IProduct {
+export interface IProduct {
   name: string;
   size: string;
   price: string;
@@ -12,7 +12,7 @@ export default interface IProduct {
   image: string;
 }
 
-export default interface IFormComponents {
+export interface IFormComponents {
   componentEmail: boolean;
   componentPayment: boolean;
   componentShipping: boolean;
@@ -29,12 +29,19 @@ export default interface IFormComponents {
   stateReview: boolean;
 }
 
-export default interface ICartComponents {
-  cartComponents: {
-    switchPage: boolean;
-    cartState: boolean;
-    tax: boolean;
-    disabledCode: boolean;
-  };
-  dispatch: any;
+export interface IFormContext {
+  formComponents: IFormComponents;
+  dispatch?: any;
+}
+
+export interface ICartComponents {
+  switchPage: boolean;
+  cartState: boolean;
+  tax: boolean;
+  disabledCode: boolean;
+}
+
+export interface ICartContext {
+  cartComponents: ICartComponents;
+  dispatch?: any;
 }

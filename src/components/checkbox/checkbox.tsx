@@ -6,7 +6,7 @@ import './Checkbox.scss';
 const Checkbox: React.FC = () => {
   const [isChecked, setChecked] = useState(true);
 
-  const cartContext: any = useContext(CartComponentContext);
+  const cartContext = useContext(CartComponentContext);
   const { disabledCode, cartState } = cartContext.cartComponents;
   const productContext: any = useContext(ProductContext);
   const { dispatch } = productContext;

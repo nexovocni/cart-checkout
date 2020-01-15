@@ -10,17 +10,17 @@ import { ProductContext } from '../../contexts/ProductContext';
 import './ShippingHome.scss';
 
 interface IProps {
-  setFirstName: any;
-  setLastName: any;
-  setFirstAddress: any;
-  setLastAddress: any;
-  setCity: any;
-  setProvince: any;
-  setPostal: any;
-  setCountry: any;
-  setPhone: any;
-  validate: any;
-  submitBtn: any;
+  setFirstName: (value: string) => void;
+  setLastName: (value: string) => void;
+  setFirstAddress: (value: string) => void;
+  setLastAddress: (value: string) => void;
+  setCity: (value: string) => void;
+  setProvince: (value: string) => void;
+  setPostal: (value: string) => void;
+  setCountry: (value: string) => void;
+  setPhone: (value: string) => void;
+  validate: (value: string) => void;
+  submitBtn: () => void;
 }
 
 const ShippingHome: React.FC<IProps> = ({
@@ -36,7 +36,7 @@ const ShippingHome: React.FC<IProps> = ({
   validate,
   submitBtn,
 }: IProps) => {
-  const formContext: any = useContext(FormComponentContext);
+  const formContext = useContext(FormComponentContext);
   const { formComponents } = formContext;
   const { componentShipping } = formComponents;
   const productContext: any = useContext(ProductContext);

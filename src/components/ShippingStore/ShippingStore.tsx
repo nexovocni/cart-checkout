@@ -7,11 +7,11 @@ import { FormComponentContext } from '../../contexts/FormComponentContext';
 import './ShippingStore.scss';
 
 interface IProps {
-  setFirstName: any;
-  setLastName: any;
-  setPhone: any;
-  validate: any;
-  submitBtn: any;
+  setFirstName: (value: string) => void;
+  setLastName: (value: string) => void;
+  setPhone: (value: string) => void;
+  validate: (value: string) => void;
+  submitBtn: () => void;
 }
 
 const ShippingStore: React.FC<IProps> = ({
@@ -21,7 +21,7 @@ const ShippingStore: React.FC<IProps> = ({
   validate,
   submitBtn,
 }) => {
-  const formContext: any = useContext(FormComponentContext);
+  const formContext = useContext(FormComponentContext);
   const { formComponents } = formContext;
   const { componentShipping } = formComponents;
 

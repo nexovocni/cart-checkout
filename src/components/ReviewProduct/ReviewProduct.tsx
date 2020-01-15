@@ -1,7 +1,7 @@
 import React from 'react';
 import ProductLeft from '../ProductLeft/ProductLeft';
 import './ReviewProduct.scss';
-import IProduct from '../../interfaces/Interfaces';
+import { IProduct } from '../../interfaces/Interfaces';
 
 interface IProps {
   product: IProduct;

@@ -4,10 +4,10 @@ import { Form, Field } from 'react-final-form';
 import formatString from 'format-string-by-pattern';
 
 interface IProps {
-  setCardCredit: any;
-  submitBtn: any;
-  validate: any;
-  setCard: any;
+  setCardCredit: (value: string) => void;
+  submitBtn: () => void;
+  validate: (value: string) => void;
+  setCard: (value: string) => void;
   cardCredit: string;
   cardValue: string;
 }
@@ -23,15 +23,13 @@ const PaymentCredit: React.FC<IProps> = ({
     return value.replace(/\D+/g, '');
   };
 
-  const cardValidate = (input: string): any => {
+  const cardValidate = (input: string): number | null | string | undefined => {
     if (cardValue === 'Visa card') {
       const visaValidator = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
-      return visaValidator.test(clearNumber(input)) ? 'null' : 'Invalid input';
+      return visaValidator.test(clearNumber(input)) ? null : 'Invalid input';
     } else if (cardValue === 'Master card') {
       const masterValidator = /^5[1-5][0-9]{14}$|^2(?:2(?:2[1-9]|[3-9][0-9])|[3-6][0-9][0-9]|7(?:[01][0-9]|20))[0-9]{12}$/;
-      return masterValidator.test(clearNumber(input))
-        ? 'null'
-        : 'Invalid input';
+      return masterValidator.test(clearNumber(input)) ? null : 'Invalid input';
     } else if (cardValue === 'American express') {
       const expressValidator = /^3[47][0-9]{13}$/;
       return expressValidator.test(clearNumber(input))
@@ -52,7 +50,7 @@ const PaymentCredit: React.FC<IProps> = ({
     return formatString('9999 9999 9999 9999 9999', onlyNumbers);
   };
 
-  const cvvValidate = (input: string): any => {
+  const cvvValidate = (input: string): string | undefined | null | boolean => {
     if (cardValue === 'Visa card' || cardValue === 'Master card') {
       const cvvValidator = /^[0-9]{3}$/;
       return cvvValidator.test(clearNumber(input)) ? null : 'Invalid input';
@@ -194,7 +192,7 @@ const PaymentCredit: React.FC<IProps> = ({
                 validate={dateValidate}
                 parse={formatString('MM / YY')}
               >
-                {({ input, meta }): any => {
+                {({ input, meta }) => {
                   return (
                     <div className="payment__component__date">
                       <label
@@ -225,7 +223,7 @@ const PaymentCredit: React.FC<IProps> = ({
                 validate={cvvValidate}
                 parse={formatString('1234')}
               >
-                {({ input, meta }): any => {
+                {({ input, meta }) => {
                   return (
                     <div className="payment__component__date">
                       <label

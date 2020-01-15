@@ -3,9 +3,9 @@ import './ShippingAddress.scss';
 import { Field } from 'react-final-form';
 
 interface IProps {
-  setFirstAddress: any;
-  setLastAddress: any;
-  validate: any;
+  setFirstAddress: (value: string) => void;
+  setLastAddress: (value: string) => void;
+  validate: (value: string) => void;
 }
 
 const ShippingAddress: React.FC<IProps> = ({

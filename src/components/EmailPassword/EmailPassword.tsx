@@ -4,9 +4,9 @@ import './EmailPassword.scss';
 import { FormComponentContext } from '../../contexts/FormComponentContext';
 
 interface IProps {
-  submitBtn: any;
+  submitBtn: () => void;
   inputValue: string;
-  validate: any;
+  validate: (value: string) => boolean;
 }
 
 const PasswordEmail: React.FC<IProps> = ({
@@ -15,7 +15,6 @@ const PasswordEmail: React.FC<IProps> = ({
   validate,
 }) => {
   const [passwordValue, setPasswordValue] = useState('');
-
   const [eye, setEye] = useState(false);
 
   const validatePassword = (value: string) => {
@@ -28,10 +27,8 @@ const PasswordEmail: React.FC<IProps> = ({
   const validateConfirmPassword = (value: string) =>
     value === passwordValue ? null : 'Password dont match';
 
-  const formContext: any = useContext(FormComponentContext);
-
+  const formContext = useContext(FormComponentContext);
   const { formComponents } = formContext;
-
   const { componentPassword } = formComponents;
 
   return (

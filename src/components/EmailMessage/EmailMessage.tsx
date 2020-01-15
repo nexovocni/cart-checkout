@@ -3,10 +3,10 @@ import './EmailMessage.scss';
 import { FormComponentContext } from '../../contexts/FormComponentContext';
 
 interface IProps {
-  submitBtn: any;
-  passwordBtn: any;
+  submitBtn: () => void;
+  passwordBtn: () => void;
   input: string;
-  validate: any;
+  validate: (value: string) => boolean;
 }
 
 const MessageEmail: React.FC<IProps> = ({
@@ -15,10 +15,8 @@ const MessageEmail: React.FC<IProps> = ({
   input,
   validate,
 }) => {
-  const formContext: any = useContext(FormComponentContext);
-
+  const formContext = useContext(FormComponentContext);
   const { formComponents } = formContext;
-
   const { componentPassword } = formComponents;
 
   return (

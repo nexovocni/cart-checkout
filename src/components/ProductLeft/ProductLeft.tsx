@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import SelectMobile from '../SelectMobile/SelectMobile';
 import ViewProduct from '../ViewProduct/ViewProduct';
 import { CartComponentContext } from '../../contexts/CartComponentContext';
-import IProduct from '../../interfaces/Interfaces';
+import { IProduct } from '../../interfaces/Interfaces';
 import './ProductLeft.scss';
 
 interface IProps {
@@ -11,7 +11,7 @@ interface IProps {
 }
 
 const ProductLeft: React.FC<IProps> = ({ product, review }) => {
-  const cartContext: any = useContext(CartComponentContext);
+  const cartContext = useContext(CartComponentContext);
   const { cartState } = cartContext.cartComponents;
   const [productState, updateProductState] = useState(true);
 

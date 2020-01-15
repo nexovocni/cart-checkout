@@ -1,10 +1,9 @@
 import React, { createContext, useReducer } from 'react';
 import { FormComponentReducer } from '../reducers/ComponentReducer';
+import { IFormContext } from '../interfaces/Interfaces';
 
-export const FormComponentContext = createContext({});
-
-export const ComponentContextProvider = (props: any) => {
-  const components = {
+const components = {
+  formComponents: {
     componentEmail: true,
     componentPayment: false,
     componentShipping: false,
@@ -19,15 +18,24 @@ export const ComponentContextProvider = (props: any) => {
     creditPayment: false,
     giftPayment: false,
     stateReview: false,
-  };
+  },
+};
 
+export const FormComponentContext = createContext<IFormContext>(components);
+
+export const ComponentContextProvider = (props: any) => {
   const [formComponents, dispatch] = useReducer(
     FormComponentReducer,
-    components
+    components.formComponents
   );
 
+  const formContext: IFormContext = {
+    formComponents,
+    dispatch,
+  };
+
   return (
-    <FormComponentContext.Provider value={{ formComponents, dispatch }}>
+    <FormComponentContext.Provider value={formContext}>
       {props.children}
     </FormComponentContext.Provider>
   );

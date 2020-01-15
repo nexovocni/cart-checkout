@@ -9,7 +9,7 @@ import { FormComponentContext } from '../../contexts/FormComponentContext';
 const Payment: React.FC = () => {
   const [card, setCard] = useState('');
   const [cardCredit, setCardCredit] = useState('');
-  const formContext: any = useContext(FormComponentContext);
+  const formContext = useContext(FormComponentContext);
   const { formComponents, dispatch } = formContext;
   const {
     componentPayment,

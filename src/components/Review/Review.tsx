@@ -8,7 +8,7 @@ import './Review.scss';
 const Review: React.FC = () => {
   const [stateComponent, updateStateComponent] = useState(false);
   const [scrollBtn, setScrollBtn] = useState(false);
-  const formContext: any = useContext(FormComponentContext);
+  const formContext = useContext(FormComponentContext);
   const { formComponents, dispatch } = formContext;
   const { componentReview, editReview } = formComponents;
   const productContext: any = useContext(ProductContext);

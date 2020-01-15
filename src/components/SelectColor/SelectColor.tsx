@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { ProductContext } from '../../contexts/ProductContext';
-import IProduct from '../../interfaces/Interfaces';
+import { IProduct } from '../../interfaces/Interfaces';
 
 interface IProps {
   product: IProduct;

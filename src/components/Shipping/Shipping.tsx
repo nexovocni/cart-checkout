@@ -6,7 +6,7 @@ import ShippingData from '../../components/ShippingData/ShippingData';
 import { FormComponentContext } from '../../contexts/FormComponentContext';
 
 const Shipping: React.FC = () => {
-  const formContext: any = useContext(FormComponentContext);
+  const formContext = useContext(FormComponentContext);
   const { formComponents, dispatch } = formContext;
   const {
     componentShipping,

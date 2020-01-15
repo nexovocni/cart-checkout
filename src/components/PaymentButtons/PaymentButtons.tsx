@@ -3,12 +3,12 @@ import { FormComponentContext } from '../../contexts/FormComponentContext';
 import './PaymentButtons.scss';
 
 interface IProps {
-  openCredit: any;
-  openGift: any;
+  openCredit: () => void;
+  openGift: () => void;
 }
 
 const PaymentButtons: React.FC<IProps> = ({ openCredit, openGift }) => {
-  const formContext: any = useContext(FormComponentContext);
+  const formContext = useContext(FormComponentContext);
   const { formComponents } = formContext;
   const { componentPayment, giftPayment, creditPayment } = formComponents;
 

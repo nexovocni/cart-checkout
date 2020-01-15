@@ -8,8 +8,8 @@ interface IProps {
   card: string;
 }
 
-const PaymentData: React.FC<IProps> = ({ card, cardCredit }: any): any => {
-  const formContext: any = useContext(FormComponentContext);
+const PaymentData: React.FC<IProps> = ({ card, cardCredit }) => {
+  const formContext = useContext(FormComponentContext);
   const { formComponents } = formContext;
   const { componentPayment, giftPayment } = formComponents;
 

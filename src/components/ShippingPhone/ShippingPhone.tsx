@@ -3,8 +3,8 @@ import { Field } from 'react-final-form';
 import './ShippingPhone.scss';
 
 interface IProps {
-  setPhone: any;
-  validate: any;
+  setPhone: (value: string) => void;
+  validate: (value: string) => void;
 }
 
 const ShippingPhone: React.FC<IProps> = ({ setPhone, validate }: IProps) => {

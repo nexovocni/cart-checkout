@@ -1,7 +1,7 @@
 import React, { createContext, useState, useEffect, useReducer } from 'react';
 import { ValueReducer } from '../reducers/ValueReducer';
 import { fetchProducts } from '../service/Service';
-import IProduct from '../interfaces/Interfaces';
+import { IProduct } from '../interfaces/Interfaces';
 
 export const ProductContext = createContext({});
 

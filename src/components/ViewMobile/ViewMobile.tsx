@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { CartComponentContext } from '../../contexts/CartComponentContext';
 import { ProductContext } from '../../contexts/ProductContext';
-import IProduct from '../../interfaces/Interfaces';
+import { IProduct } from '../../interfaces/Interfaces';
 import './ViewMobile.scss';
 
 interface IProps {
@@ -17,10 +17,10 @@ const ViewMobile: React.FC<IProps> = ({
   productState,
   updateProductState,
 }) => {
-  const cartContext: any = useContext(CartComponentContext);
+  const cartContext = useContext(CartComponentContext);
+  const { dispatch } = cartContext;
   const productContext: any = useContext(ProductContext);
   const { deleteProduct } = productContext;
-  const { dispatch } = cartContext;
   const handleState = () => {
     dispatch({ type: 'COMPONENT', payload: { cartState: true } });
     updateProductState(false);

@@ -1,7 +1,7 @@
 import React from 'react';
 import './ViewProduct.scss';
 import ViewMobile from '../ViewMobile/ViewMobile';
-import IProduct from '../../interfaces/Interfaces';
+import { IProduct } from '../../interfaces/Interfaces';
 
 interface IProps {
   review: boolean;

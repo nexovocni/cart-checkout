@@ -7,12 +7,12 @@ const ShippingStandard: React.FC = () => {
   const [isChecked, setChecked] = useState(true);
   const productContext: any = useContext(ProductContext);
   const { dispatch } = productContext;
-  const checkBtn = (input: any) => {
+  const checkBtn = (input: string) => {
     dispatch({ type: 'CHECK', payload: parseInt(input, 0) });
     setChecked(false);
   };
 
-  const checkBtnStandard = (input: any) => {
+  const checkBtnStandard = (input: string) => {
     dispatch({ type: 'CHECK', payload: parseInt(input, 0) });
     setChecked(true);
   };
@@ -53,10 +53,7 @@ const ShippingStandard: React.FC = () => {
             {({ input }) => {
               return (
                 <label>
-                  <input
-                    onClick={() => checkBtn(parseInt(input.value, 0))}
-                    {...input}
-                  />
+                  <input onClick={() => checkBtn(input.value)} {...input} />
                   <span className="circle" />
                   Express Shipping
                   <p>2 - 3 business days</p>
@@ -73,10 +70,7 @@ const ShippingStandard: React.FC = () => {
             {({ input }) => {
               return (
                 <label>
-                  <input
-                    onClick={() => checkBtn(parseInt(input.value, 0))}
-                    {...input}
-                  />
+                  <input onClick={() => checkBtn(input.value)} {...input} />
                   <span className="circle" />
                   Next day delivery
                   <p>Orders before 12PM</p>

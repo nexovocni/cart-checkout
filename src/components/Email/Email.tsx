@@ -7,7 +7,7 @@ import EmailMain from '../EmailMain/EmailMain';
 import { FormComponentContext } from '../../contexts/FormComponentContext';
 
 const Email: React.FC = () => {
-  const formContext: any = useContext(FormComponentContext);
+  const formContext = useContext(FormComponentContext);
   const { formComponents, dispatch } = formContext;
   const { componentEmail } = formComponents;
 

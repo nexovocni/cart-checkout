@@ -3,7 +3,7 @@ import SelectColor from '../SelectColor/SelectColor';
 import SelectSize from '../SelectSize/SelectSize';
 import SelectQuantity from '../SelectQuantity/SelectQuantity';
 import { CartComponentContext } from '../../contexts/CartComponentContext';
-import IProduct from '../../interfaces/Interfaces';
+import { IProduct } from '../../interfaces/Interfaces';
 import './SelectMobile.scss';
 
 interface IProps {

@@ -3,7 +3,7 @@ import { Field } from 'react-final-form';
 import './ShippingSelect.scss';
 
 interface IProps {
-  validate: any;
+  validate: (value: string) => void;
 }
 
 const ShippingSelect: React.FC<IProps> = ({ validate }) => {

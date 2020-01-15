@@ -3,11 +3,11 @@ import { Field } from 'react-final-form';
 import './ShippingCity.scss';
 
 interface IProps {
-  setCity: any;
-  setProvince: any;
-  setPostal: any;
-  setCountry: any;
-  validate: any;
+  setCity: (value: string) => void;
+  setProvince: (value: string) => void;
+  setPostal: (value: string) => void;
+  setCountry: (value: string) => void;
+  validate: (value: string) => void;
 }
 
 const ShippingCity: React.FC<IProps> = ({

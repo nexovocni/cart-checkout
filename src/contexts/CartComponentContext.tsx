@@ -1,22 +1,25 @@
 import React, { createContext, useReducer } from 'react';
 import { FormComponentReducer } from '../reducers/ComponentReducer';
+import { ICartContext } from '../interfaces/Interfaces';
 
-export const CartComponentContext = createContext({});
-
-export const CartContextProvider = (props: any) => {
-  const components = {
+const components = {
+  cartComponents: {
     switchPage: true,
     cartState: false,
     tax: false,
     disabledCode: false,
-  };
+  },
+};
 
+export const CartComponentContext = createContext<ICartContext>(components);
+
+export const CartContextProvider = (props: any) => {
   const [cartComponents, dispatch] = useReducer(
     FormComponentReducer,
-    components
+    components.cartComponents
   );
 
-  const cartContext = {
+  const cartContext: ICartContext = {
     cartComponents,
     dispatch,
   };

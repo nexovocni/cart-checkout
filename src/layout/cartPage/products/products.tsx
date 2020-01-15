@@ -11,6 +11,7 @@ const Products: React.FC = () => {
   const cartProducts: any = useContext(ProductContext);
   const { products } = cartProducts;
   const productContext: any = useContext(CartComponentContext);
+  console.log('--test', productContext);
   const { switchPage } = productContext.cartComponents;
 
   return (

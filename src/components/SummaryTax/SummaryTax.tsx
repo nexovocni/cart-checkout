@@ -5,8 +5,8 @@ import { CartComponentContext } from '../../contexts/CartComponentContext';
 import './SummaryTax.scss';
 
 const SummaryTax: React.FC = () => {
-  const cartContext: any = useContext(CartComponentContext);
-  const { tax } = cartContext;
+  const cartContext = useContext(CartComponentContext);
+  const { tax } = cartContext.cartComponents;
   const productContext: any = useContext(ProductContext);
   const { values } = productContext;
   const { taxValue } = values;

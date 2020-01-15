@@ -6,7 +6,7 @@ import '../SelectColor/SelectColor.scss';
 import '../SelectSize/SelectSize.scss';
 import '../SelectQuantity/SelectQuantity.scss';
 import './ProductRight.scss';
-import IProduct from '../../interfaces/Interfaces';
+import { IProduct } from '../../interfaces/Interfaces';
 
 interface IProps {
   product: IProduct;

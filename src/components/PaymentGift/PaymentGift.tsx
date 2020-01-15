@@ -3,8 +3,8 @@ import { Form, Field } from 'react-final-form';
 import './PaymentGift.scss';
 
 interface IProps {
-  submitBtn: any;
-  validate: any;
+  submitBtn: (value: string) => void;
+  validate: (value: string) => void;
 }
 
 const PaymentGift: React.FC<IProps> = ({ validate, submitBtn }) => {

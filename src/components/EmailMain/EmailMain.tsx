@@ -3,9 +3,9 @@ import { Field, Form } from 'react-final-form';
 import './EmailMain.scss';
 
 interface IProps {
-  submitBtn: any;
-  setInput: any;
-  validateEmail: any;
+  submitBtn: () => void;
+  setInput: (value: string) => void;
+  validateEmail: (value: string) => void;
 }
 
 const YourEmail: React.FC<IProps> = ({

@@ -31,7 +31,7 @@ const ShippingData: React.FC<IProps> = ({
   lastNameAddress,
   phoneAddress,
 }) => {
-  const formContext: any = useContext(FormComponentContext);
+  const formContext = useContext(FormComponentContext);
   const { formComponents } = formContext;
   const { componentShipping, homeShipping, storeShipping } = formComponents;
 
