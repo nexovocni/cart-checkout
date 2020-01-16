@@ -28,9 +28,14 @@ export interface IFormComponents {
   stateReview?: boolean;
 }
 
+export interface IFormDispatch {
+  type: string;
+  payload: IFormComponents;
+}
+
 export interface IFormContext {
   formComponents: IFormComponents;
-  dispatch?: any;
+  dispatchForm?: (value: IFormDispatch) => void;
 }
 
 export interface ICartComponents {
@@ -40,9 +45,14 @@ export interface ICartComponents {
   disabledCode?: boolean;
 }
 
+export interface ICartDispatch {
+  type: string;
+  payload: ICartComponents;
+}
+
 export interface ICartContext {
   cartComponents: ICartComponents;
-  dispatch?: any;
+  dispatchCart?: (value: ICartDispatch) => void;
 }
 
 export interface IValues {
@@ -54,10 +64,15 @@ export interface IValues {
   taxValue: { gst: number; pst: number };
 }
 
+export interface IProductDispatch {
+  type: string;
+  payload: number;
+}
+
 export interface IProductContext {
   values: IValues;
   products?: IProduct[] | undefined;
-  dispatch?: any;
+  dispatch?: (value: IProductDispatch) => void;
   changeProducts?: (
     e: React.ChangeEvent<HTMLSelectElement>,
     value: IProduct

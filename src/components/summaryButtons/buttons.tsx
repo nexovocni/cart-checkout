@@ -5,9 +5,12 @@ import './Buttons.scss';
 const Buttons: React.FC = () => {
   const productContext = useContext(CartComponentContext);
   const { switchPage, disabledCode } = productContext.cartComponents;
-  const { dispatch } = productContext;
+  const { dispatchCart } = productContext;
   const pageSwitch = () => {
-    dispatch({ type: 'COMPONENT', payload: { switchPage: !switchPage } });
+    dispatchCart({
+      type: 'CART-COMPONENT',
+      payload: { switchPage: !switchPage },
+    });
   };
 
   return (

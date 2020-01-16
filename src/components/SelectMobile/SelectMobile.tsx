@@ -18,9 +18,9 @@ const SelectMobile: React.FC<IProps> = ({
   updateProductState,
 }) => {
   const productContext = useContext(CartComponentContext);
-  const { dispatch } = productContext;
+  const { dispatchCart } = productContext;
   const handleButton = () => {
-    dispatch({ type: 'COMPONENT', payload: { cartState: false } });
+    dispatchCart({ type: 'CART-COMPONENT', payload: { cartState: false } });
     updateProductState(true);
   };
 

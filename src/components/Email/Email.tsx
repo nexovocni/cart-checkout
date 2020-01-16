@@ -8,19 +8,19 @@ import { FormComponentContext } from '../../contexts/FormComponentContext';
 
 const Email: React.FC = () => {
   const formContext = useContext(FormComponentContext);
-  const { formComponents, dispatch } = formContext;
+  const { formComponents, dispatchForm } = formContext;
   const { componentEmail } = formComponents;
 
   const passwordBtn = () => {
-    dispatch({
-      type: 'COMPONENT',
+    dispatchForm({
+      type: 'FORM-COMPONENT',
       payload: { componentPassword: true, componentEmail: true },
     });
   };
 
   const submitBtn = () => {
-    dispatch({
-      type: 'COMPONENT',
+    dispatchForm({
+      type: 'FORM-COMPONENT',
       payload: {
         componentEmail: false,
         componentShipping: true,
@@ -35,8 +35,8 @@ const Email: React.FC = () => {
   };
 
   const openEmail = () => {
-    dispatch({
-      type: 'COMPONENT',
+    dispatchForm({
+      type: 'FORM-COMPONENT',
       payload: { componentEmail: !componentEmail },
     });
   };

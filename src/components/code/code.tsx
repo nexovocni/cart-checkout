@@ -11,7 +11,7 @@ interface IProps {
 const Code: React.FC<IProps> = ({ button, title, placeholder }) => {
   const productContext = useContext(CartComponentContext);
   const { disabledCode, cartState } = productContext.cartComponents;
-  const { dispatch } = productContext;
+  const { dispatchCart } = productContext;
 
   const [on, setOn] = useState(false);
   const [height, setHeight] = useState('0px');
@@ -21,7 +21,10 @@ const Code: React.FC<IProps> = ({ button, title, placeholder }) => {
   const toggleOnClick = () => {
     setHeight(on ? `0px` : '220px');
     setOn(!on);
-    dispatch({ type: 'COMPONENT', payload: { disabledCode: !codeComponent } });
+    dispatchCart({
+      type: 'CART-COMPONENT',
+      payload: { disabledCode: !codeComponent },
+    });
     updateComponentState(!componentState);
   };
 

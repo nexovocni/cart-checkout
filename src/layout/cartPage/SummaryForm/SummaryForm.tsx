@@ -15,7 +15,7 @@ const SummaryForm: React.FC = () => {
 
   const productContext = useContext(CartComponentContext);
   const { switchPage } = productContext.cartComponents;
-  const { dispatch } = productContext;
+  const { dispatchCart } = productContext;
 
   return (
     <React.Fragment>
@@ -49,8 +49,8 @@ const SummaryForm: React.FC = () => {
         <div className="summaryform__bottom">
           <button
             onClick={() => {
-              dispatch({
-                type: 'COMPONENT',
+              dispatchCart({
+                type: 'CART-COMPONENT',
                 payload: { switchPage: !switchPage },
               });
             }}

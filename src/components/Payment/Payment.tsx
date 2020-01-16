@@ -10,7 +10,7 @@ const Payment: React.FC = () => {
   const [card, setCard] = useState('');
   const [cardCredit, setCardCredit] = useState('');
   const formContext = useContext(FormComponentContext);
-  const { formComponents, dispatch } = formContext;
+  const { formComponents, dispatchForm } = formContext;
   const {
     componentPayment,
     editPayment,
@@ -18,16 +18,16 @@ const Payment: React.FC = () => {
     giftPayment,
   } = formComponents;
   const openGift = () => {
-    dispatch({
-      type: 'COMPONENT',
+    dispatchForm({
+      type: 'FORM-COMPONENT',
       payload: { giftPayment: true, creditPayment: false },
     });
     setCardCredit('');
   };
 
   const openCredit = () => {
-    dispatch({
-      type: 'COMPONENT',
+    dispatchForm({
+      type: 'FORM-COMPONENT',
       payload: { giftPayment: false, creditPayment: true },
     });
   };
@@ -35,8 +35,8 @@ const Payment: React.FC = () => {
   const validate = (value: null | string) => (value ? null : 'Invalid input');
 
   const submitBtn = () => {
-    dispatch({
-      type: 'COMPONENT',
+    dispatchForm({
+      type: 'FORM-COMPONENT',
       payload: {
         componentPayment: !componentPayment,
         componentReview: true,
@@ -46,8 +46,8 @@ const Payment: React.FC = () => {
   };
 
   const openPayment = () => {
-    dispatch({
-      type: 'COMPONENT',
+    dispatchForm({
+      type: 'FORM-COMPONENT',
       payload: { componentPayment: !componentPayment },
     });
   };

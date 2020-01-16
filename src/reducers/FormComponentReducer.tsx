@@ -1,12 +1,14 @@
+import { IFormComponents } from '../interfaces/Interfaces';
+
 export const FormComponentReducer = (
-  state: any,
+  state: IFormComponents,
   action: {
     type: string;
-    payload: any;
+    payload: IFormComponents;
   }
 ) => {
   switch (action.type) {
-    case 'COMPONENT':
+    case 'FORM-COMPONENT':
       return { ...state, ...action.payload };
     default:
       return state;

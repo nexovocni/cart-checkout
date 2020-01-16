@@ -1,5 +1,5 @@
 import React, { createContext, useReducer } from 'react';
-import { FormComponentReducer } from '../reducers/ComponentReducer';
+import { FormComponentReducer } from '../reducers/FormComponentReducer';
 import { IFormContext } from '../interfaces/Interfaces';
 
 const components = {
@@ -26,14 +26,14 @@ export const FormComponentContext = createContext<IFormContext>(components);
 export const ComponentContextProvider = (props: {
   children: React.ReactNode;
 }) => {
-  const [formComponents, dispatch] = useReducer(
+  const [formComponents, dispatchForm] = useReducer(
     FormComponentReducer,
     components.formComponents
   );
 
   const formContext: IFormContext = {
     formComponents,
-    dispatch,
+    dispatchForm,
   };
 
   return (

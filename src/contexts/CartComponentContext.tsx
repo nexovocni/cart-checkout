@@ -1,5 +1,5 @@
 import React, { createContext, useReducer } from 'react';
-import { FormComponentReducer } from '../reducers/ComponentReducer';
+import { CartComponentReducer } from '../reducers/CartComponentReducer';
 import { ICartContext } from '../interfaces/Interfaces';
 
 const components = {
@@ -14,14 +14,14 @@ const components = {
 export const CartComponentContext = createContext<ICartContext>(components);
 
 export const CartContextProvider = (props: { children: React.ReactNode }) => {
-  const [cartComponents, dispatch] = useReducer(
-    FormComponentReducer,
+  const [cartComponents, dispatchCart] = useReducer(
+    CartComponentReducer,
     components.cartComponents
   );
 
   const cartContext: ICartContext = {
     cartComponents,
-    dispatch,
+    dispatchCart,
   };
 
   return (

@@ -4,25 +4,33 @@ import ShippingHome from '../../components/ShippingHome/ShippingHome';
 import ShippingStore from '../../components/ShippingStore/ShippingStore';
 import ShippingData from '../../components/ShippingData/ShippingData';
 import { FormComponentContext } from '../../contexts/FormComponentContext';
+import { CartComponentContext } from '../../contexts/CartComponentContext';
 
 const Shipping: React.FC = () => {
   const formContext = useContext(FormComponentContext);
-  const { formComponents, dispatch } = formContext;
+  const cartContext = useContext(CartComponentContext);
+  const { formComponents, dispatchForm } = formContext;
   const {
     componentShipping,
     editShipping,
     storeShipping,
     homeShipping,
   } = formComponents;
+  const { dispatchCart } = cartContext;
 
   const submitBtn = () => {
-    dispatch({
-      type: 'COMPONENT',
+    dispatchForm({
+      type: 'FORM-COMPONENT',
       payload: {
-        tax: true,
         componentShipping: !componentShipping,
         componentPayment: true,
         editShipping: true,
+      },
+    });
+    dispatchCart({
+      type: 'CART-COMPONENT',
+      payload: {
+        tax: true,
       },
     });
   };
@@ -41,8 +49,8 @@ const Shipping: React.FC = () => {
   const [phoneAddress, setPhoneAddress] = useState('');
   const validate = (value: string) => (value ? null : 'Invalid input');
   const openShipping = () => {
-    dispatch({
-      type: 'COMPONENT',
+    dispatchForm({
+      type: 'FORM-COMPONENT',
       payload: { componentShipping: !componentShipping },
     });
   };
@@ -96,8 +104,8 @@ const Shipping: React.FC = () => {
         >
           <button
             onClick={() =>
-              dispatch({
-                type: 'COMPONENT',
+              dispatchForm({
+                type: 'FORM-COMPONENT',
                 payload: { storeShipping: true, homeShipping: false },
               })
             }
@@ -111,8 +119,8 @@ const Shipping: React.FC = () => {
           </button>
           <button
             onClick={() =>
-              dispatch({
-                type: 'COMPONENT',
+              dispatchForm({
+                type: 'FORM-COMPONENT',
                 payload: { storeShipping: false, homeShipping: true },
               })
             }

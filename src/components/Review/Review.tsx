@@ -10,7 +10,7 @@ const Review: React.FC = () => {
   const [stateComponent, updateStateComponent] = useState(false);
   const [scrollBtn, setScrollBtn] = useState(false);
   const formContext = useContext(FormComponentContext);
-  const { formComponents, dispatch } = formContext;
+  const { formComponents, dispatchForm } = formContext;
   const { componentReview, editReview } = formComponents;
   const productContext = useContext(ProductContext);
   const { products } = productContext;
@@ -31,16 +31,16 @@ const Review: React.FC = () => {
 
   const reviewSubmit = () => {
     setScrollBtn(false);
-    dispatch({
-      type: 'COMPONENT',
+    dispatchForm({
+      type: 'FORM-COMPONENT',
       payload: { componentReview: false, editReview: true },
     });
     updateStateComponent(false);
   };
 
   const openReview = () => {
-    dispatch({
-      type: 'COMPONENT',
+    dispatchForm({
+      type: 'FORM-COMPONENT',
       payload: { componentReview: !componentReview },
     });
   };

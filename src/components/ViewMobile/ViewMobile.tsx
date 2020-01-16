@@ -18,11 +18,11 @@ const ViewMobile: React.FC<IProps> = ({
   updateProductState,
 }) => {
   const cartContext = useContext(CartComponentContext);
-  const { dispatch } = cartContext;
+  const { dispatchCart } = cartContext;
   const productContext = useContext(ProductContext);
   const { deleteProduct } = productContext;
   const handleState = () => {
-    dispatch({ type: 'COMPONENT', payload: { cartState: true } });
+    dispatchCart({ type: 'CART-COMPONENT', payload: { cartState: true } });
     updateProductState(false);
   };
 
