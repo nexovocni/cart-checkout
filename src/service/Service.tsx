@@ -1,12 +1,12 @@
-export const fetchProducts = (url: string): any => {
+export const fetchProducts = (url: string) => {
   return fetch(url)
-    .then((response: any) => {
+    .then(response => {
       return response.json();
     })
-    .then((data: any) => {
+    .then(data => {
       return data;
     })
-    .catch((error: any) => {
+    .catch(error => {
       alert(error);
     });
 };

@@ -8,12 +8,8 @@ interface IProps {
   valueTrans: boolean;
 }
 
-const SummaryTotal: React.FC<IProps> = ({
-  itemsValue,
-  title,
-  valueTrans,
-}: IProps): any => {
-  const productContext: any = useContext(CartComponentContext);
+const SummaryTotal: React.FC<IProps> = ({ itemsValue, title, valueTrans }) => {
+  const productContext = useContext(CartComponentContext);
   const { disabledCode } = productContext.cartComponents;
   const [value, setValue] = useState(itemsValue);
   const [anime, setAnime] = useState(false);

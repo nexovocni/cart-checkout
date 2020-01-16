@@ -25,7 +25,7 @@ const ProductRight: React.FC<IProps> = ({ product }) => {
         <SelectQuantity product={product} />
       </div>
       <div className="product__section__right-price">
-        <p>${parseInt(product.price, 0).toFixed(2)}</p>
+        <p>${product.price.toFixed(2)}</p>
       </div>
     </div>
   );

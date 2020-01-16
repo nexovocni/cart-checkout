@@ -3,8 +3,9 @@ import { ProductContext } from '../../contexts/ProductContext';
 import './MobileHeader.scss';
 
 const MobileHeader: React.FC = () => {
-  const cartProducts: any = useContext(ProductContext);
+  const cartProducts = useContext(ProductContext);
   const { products } = cartProducts;
+
   return (
     <div className="mobile-header">
       <div className="mobile-header__left">

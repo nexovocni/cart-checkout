@@ -9,7 +9,7 @@ import './SelectMobile.scss';
 interface IProps {
   product: IProduct;
   review: boolean;
-  updateProductState: any;
+  updateProductState: (value: boolean) => void;
 }
 
 const SelectMobile: React.FC<IProps> = ({
@@ -17,7 +17,7 @@ const SelectMobile: React.FC<IProps> = ({
   review,
   updateProductState,
 }) => {
-  const productContext: any = useContext(CartComponentContext);
+  const productContext = useContext(CartComponentContext);
   const { dispatch } = productContext;
   const handleButton = () => {
     dispatch({ type: 'COMPONENT', payload: { cartState: false } });

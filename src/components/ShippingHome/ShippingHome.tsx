@@ -39,8 +39,8 @@ const ShippingHome: React.FC<IProps> = ({
   const formContext = useContext(FormComponentContext);
   const { formComponents } = formContext;
   const { componentShipping } = formComponents;
-  const productContext: any = useContext(ProductContext);
-  const { shipValue, checkValue } = productContext;
+  const productContext = useContext(ProductContext);
+  const { shipValue, checkValue } = productContext.values;
 
   return (
     <Form

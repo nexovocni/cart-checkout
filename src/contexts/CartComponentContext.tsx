@@ -13,7 +13,7 @@ const components = {
 
 export const CartComponentContext = createContext<ICartContext>(components);
 
-export const CartContextProvider = (props: any) => {
+export const CartContextProvider = (props: { children: React.ReactNode }) => {
   const [cartComponents, dispatch] = useReducer(
     FormComponentReducer,
     components.cartComponents

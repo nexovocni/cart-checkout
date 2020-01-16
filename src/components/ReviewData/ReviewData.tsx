@@ -5,7 +5,7 @@ import { ProductContext } from '../../contexts/ProductContext';
 import './ReviewData.scss';
 
 const ReviewData: React.FC = () => {
-  const cartProducts: any = useContext(ProductContext);
+  const cartProducts = useContext(ProductContext);
   const { values } = cartProducts;
   const { itemsValue, taxValue, shipValue, cartCheckValue, value } = values;
 

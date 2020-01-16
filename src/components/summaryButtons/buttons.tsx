@@ -3,7 +3,7 @@ import { CartComponentContext } from '../../contexts/CartComponentContext';
 import './Buttons.scss';
 
 const Buttons: React.FC = () => {
-  const productContext: any = useContext(CartComponentContext);
+  const productContext = useContext(CartComponentContext);
   const { switchPage, disabledCode } = productContext.cartComponents;
   const { dispatch } = productContext;
   const pageSwitch = () => {

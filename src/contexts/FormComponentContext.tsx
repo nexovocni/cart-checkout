@@ -23,7 +23,9 @@ const components = {
 
 export const FormComponentContext = createContext<IFormContext>(components);
 
-export const ComponentContextProvider = (props: any) => {
+export const ComponentContextProvider = (props: {
+  children: React.ReactNode;
+}) => {
   const [formComponents, dispatch] = useReducer(
     FormComponentReducer,
     components.formComponents

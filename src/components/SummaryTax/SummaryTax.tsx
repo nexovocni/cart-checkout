@@ -7,7 +7,7 @@ import './SummaryTax.scss';
 const SummaryTax: React.FC = () => {
   const cartContext = useContext(CartComponentContext);
   const { tax } = cartContext.cartComponents;
-  const productContext: any = useContext(ProductContext);
+  const productContext = useContext(ProductContext);
   const { values } = productContext;
   const { taxValue } = values;
 

@@ -5,7 +5,7 @@ import './ShippingStandard.scss';
 
 const ShippingStandard: React.FC = () => {
   const [isChecked, setChecked] = useState(true);
-  const productContext: any = useContext(ProductContext);
+  const productContext = useContext(ProductContext);
   const { dispatch } = productContext;
   const checkBtn = (input: string) => {
     dispatch({ type: 'CHECK', payload: parseInt(input, 0) });

@@ -9,7 +9,7 @@ interface IProps {
 }
 
 const Code: React.FC<IProps> = ({ button, title, placeholder }) => {
-  const productContext: any = useContext(CartComponentContext);
+  const productContext = useContext(CartComponentContext);
   const { disabledCode, cartState } = productContext.cartComponents;
   const { dispatch } = productContext;
 

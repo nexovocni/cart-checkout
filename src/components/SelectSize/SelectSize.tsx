@@ -7,14 +7,14 @@ interface IProps {
 }
 
 const SelectSize: React.FC<IProps> = ({ product }) => {
-  const productContext: any = useContext(ProductContext);
+  const productContext = useContext(ProductContext);
   const { changeProducts } = productContext;
 
   return (
     <div className="product__section__right-size-full">
       <select
         name="size"
-        onChange={(e: React.FormEvent<HTMLSelectElement>) =>
+        onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
           changeProducts(e, product)
         }
       >

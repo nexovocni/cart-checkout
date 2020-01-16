@@ -9,11 +9,11 @@ import { CartComponentContext } from '../../../contexts/CartComponentContext';
 import './SummaryForm.scss';
 
 const SummaryForm: React.FC = () => {
-  const cartProducts: any = useContext(ProductContext);
+  const cartProducts = useContext(ProductContext);
   const { values } = cartProducts;
   const { itemsValue, shipValue, cartCheckValue, value } = values;
 
-  const productContext: any = useContext(CartComponentContext);
+  const productContext = useContext(CartComponentContext);
   const { switchPage } = productContext.cartComponents;
   const { dispatch } = productContext;
 

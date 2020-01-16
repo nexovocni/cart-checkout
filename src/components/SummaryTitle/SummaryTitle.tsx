@@ -7,7 +7,7 @@ interface IProps {
 }
 
 const SummaryTitle: React.FC<IProps> = ({ shipValue }) => {
-  const productContext: any = useContext(CartComponentContext);
+  const productContext = useContext(CartComponentContext);
   const { disabledCode } = productContext.cartComponents;
 
   return (

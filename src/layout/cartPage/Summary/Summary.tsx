@@ -6,8 +6,8 @@ import MobileHeader from '../../../components/MobileHeader/MobileHeader';
 import { CartComponentContext } from '../../../contexts/CartComponentContext';
 
 const Summary: React.FC = () => {
-  const productContext: any = useContext(CartComponentContext);
-  const { cartState } = productContext;
+  const productContext = useContext(CartComponentContext);
+  const { cartState } = productContext.cartComponents;
 
   return (
     <React.Fragment>

@@ -6,7 +6,7 @@ import { IProduct } from '../../interfaces/Interfaces';
 interface IProps {
   review: boolean;
   productState: boolean;
-  updateProductState: any;
+  updateProductState: (value: boolean) => void;
   product: IProduct;
 }
 
@@ -49,7 +49,7 @@ const ViewProduct: React.FC<IProps> = ({
           </div>
         </div>
         <div className="name__price">
-          <p>${parseInt(product.price, 0).toFixed(2)}</p>
+          <p>${product.price.toFixed(2)}</p>
         </div>
       </div>
     </React.Fragment>

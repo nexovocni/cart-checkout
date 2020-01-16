@@ -7,7 +7,7 @@ import { CartComponentContext } from '../../../contexts/CartComponentContext';
 import './Form.scss';
 
 const Form: React.FC = () => {
-  const productContext: any = useContext(CartComponentContext);
+  const productContext = useContext(CartComponentContext);
   const { switchPage } = productContext.cartComponents;
 
   return (

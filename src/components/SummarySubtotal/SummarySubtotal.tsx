@@ -3,13 +3,13 @@ import { CartComponentContext } from '../../contexts/CartComponentContext';
 import './SummarySubtotal.scss';
 
 interface IProps {
-  itemsValue: any;
+  itemsValue: number;
 }
 
 const SummarySubtotal: React.FC<IProps> = ({ itemsValue }) => {
-  const productContext: any = useContext(CartComponentContext);
+  const productContext = useContext(CartComponentContext);
   const { disabledCode } = productContext.cartComponents;
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState();
   const [anime, setAnime] = useState(false);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ const SummarySubtotal: React.FC<IProps> = ({ itemsValue }) => {
     setAnime(() => !anime);
   }, [itemsValue]);
 
-  const usePrevious = (valuePrev: any) => {
+  const usePrevious = (valuePrev: undefined) => {
     const ref = useRef();
     useEffect(() => {
       ref.current = valuePrev;

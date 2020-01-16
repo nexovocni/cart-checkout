@@ -8,7 +8,7 @@ const Checkbox: React.FC = () => {
 
   const cartContext = useContext(CartComponentContext);
   const { disabledCode, cartState } = cartContext.cartComponents;
-  const productContext: any = useContext(ProductContext);
+  const productContext = useContext(ProductContext);
   const { dispatch } = productContext;
   const { checkValue } = productContext.values;
 

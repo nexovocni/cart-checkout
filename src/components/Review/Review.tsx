@@ -4,6 +4,7 @@ import ReviewData from '../ReviewData/ReviewData';
 import { FormComponentContext } from '../../contexts/FormComponentContext';
 import { ProductContext } from '../../contexts/ProductContext';
 import './Review.scss';
+import { IProduct } from '../../interfaces/Interfaces';
 
 const Review: React.FC = () => {
   const [stateComponent, updateStateComponent] = useState(false);
@@ -11,7 +12,7 @@ const Review: React.FC = () => {
   const formContext = useContext(FormComponentContext);
   const { formComponents, dispatch } = formContext;
   const { componentReview, editReview } = formComponents;
-  const productContext: any = useContext(ProductContext);
+  const productContext = useContext(ProductContext);
   const { products } = productContext;
 
   useEffect(() => {
@@ -76,7 +77,7 @@ const Review: React.FC = () => {
           className={componentReview ? 'review__component__section' : 'close'}
         >
           <div className="review__products">
-            {products.map((product: any) => {
+            {products.map((product: IProduct) => {
               return <ReviewProduct product={product} key={product.id} />;
             })}
           </div>

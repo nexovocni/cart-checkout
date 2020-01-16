@@ -7,18 +7,22 @@ interface IProps {
 }
 
 const SelectQuantity: React.FC<IProps> = ({ product }) => {
-  const productContext: any = useContext(ProductContext);
+  const productContext = useContext(ProductContext);
   const { changeProducts } = productContext;
 
   return (
     <div className="product__section__right-quantity-full">
       <select
         name="quantity"
-        onChange={(e: React.FormEvent<HTMLSelectElement>) =>
+        onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
           changeProducts(e, product)
         }
       >
-        <option defaultValue={product.quantity} disabled={true} hidden={true}>
+        <option
+          defaultValue={product.quantity.toString()}
+          disabled={true}
+          hidden={true}
+        >
           {product.quantity}
         </option>
         {product.quantities.map((quantity: number, index: number) => {

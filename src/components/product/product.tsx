@@ -10,7 +10,7 @@ interface IProps {
 }
 
 const Product: React.FC<IProps> = ({ product }) => {
-  const productContext: any = useContext(ProductContext);
+  const productContext = useContext(ProductContext);
   const { deleteProduct } = productContext;
 
   return (

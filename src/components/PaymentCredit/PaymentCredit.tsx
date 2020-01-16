@@ -23,7 +23,7 @@ const PaymentCredit: React.FC<IProps> = ({
     return value.replace(/\D+/g, '');
   };
 
-  const cardValidate = (input: string): number | null | string | undefined => {
+  const cardValidate = (input: string): string | null | void => {
     if (cardValue === 'Visa card') {
       const visaValidator = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
       return visaValidator.test(clearNumber(input)) ? null : 'Invalid input';
@@ -32,9 +32,7 @@ const PaymentCredit: React.FC<IProps> = ({
       return masterValidator.test(clearNumber(input)) ? null : 'Invalid input';
     } else if (cardValue === 'American express') {
       const expressValidator = /^3[47][0-9]{13}$/;
-      return expressValidator.test(clearNumber(input))
-        ? 'null'
-        : 'Invalid input';
+      return expressValidator.test(clearNumber(input)) ? null : 'Invalid input';
     } else if (cardValue === '') {
       return 'Invalid input';
     }
@@ -50,7 +48,7 @@ const PaymentCredit: React.FC<IProps> = ({
     return formatString('9999 9999 9999 9999 9999', onlyNumbers);
   };
 
-  const cvvValidate = (input: string): string | undefined | null | boolean => {
+  const cvvValidate = (input: string): string | null | void => {
     if (cardValue === 'Visa card' || cardValue === 'Master card') {
       const cvvValidator = /^[0-9]{3}$/;
       return cvvValidator.test(clearNumber(input)) ? null : 'Invalid input';

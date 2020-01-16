@@ -5,7 +5,7 @@ import { CartComponentContext } from '../../../contexts/CartComponentContext';
 import Logo from '../../../components/Logo/Logo';
 
 const Header: React.FC = () => {
-  const cartContext: any = useContext(CartComponentContext);
+  const cartContext = useContext(CartComponentContext);
   const { switchPage } = cartContext.cartComponents;
 
   return (

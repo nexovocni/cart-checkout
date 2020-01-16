@@ -7,7 +7,7 @@ interface IProps {
 }
 
 const SelectColor: React.FC<IProps> = ({ product }) => {
-  const productContext: any = useContext(ProductContext);
+  const productContext = useContext(ProductContext);
   const { changeProducts } = productContext;
 
   return (
@@ -21,7 +21,7 @@ const SelectColor: React.FC<IProps> = ({ product }) => {
       />
       <select
         name="color"
-        onChange={(e: React.FormEvent<HTMLSelectElement>) =>
+        onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
           changeProducts(e, product)
         }
       >

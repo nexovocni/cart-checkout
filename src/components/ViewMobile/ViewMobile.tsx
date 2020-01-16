@@ -8,7 +8,7 @@ interface IProps {
   product: IProduct;
   review: boolean;
   productState: boolean;
-  updateProductState: any;
+  updateProductState: (value: boolean) => void;
 }
 
 const ViewMobile: React.FC<IProps> = ({
@@ -19,7 +19,7 @@ const ViewMobile: React.FC<IProps> = ({
 }) => {
   const cartContext = useContext(CartComponentContext);
   const { dispatch } = cartContext;
-  const productContext: any = useContext(ProductContext);
+  const productContext = useContext(ProductContext);
   const { deleteProduct } = productContext;
   const handleState = () => {
     dispatch({ type: 'COMPONENT', payload: { cartState: true } });

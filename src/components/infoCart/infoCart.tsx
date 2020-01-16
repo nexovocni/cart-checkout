@@ -1,7 +1,12 @@
 import React from 'react';
 import './InfoCart.scss';
+import { IProduct } from '../../interfaces/Interfaces';
 
-const InfoCart: React.FC<any> = ({ products }) => {
+interface IProps {
+  products: IProduct[];
+}
+
+const InfoCart: React.FC<IProps> = ({ products }) => {
   return (
     <div className="info">
       <div className="info__cart">

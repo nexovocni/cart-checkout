@@ -6,19 +6,19 @@ import '../../../sass/transitions/transitions.scss';
 import { ProductContext } from '../../../contexts/ProductContext';
 import { CartComponentContext } from '../../../contexts/CartComponentContext';
 import './Products.scss';
+import { IProduct } from '../../../interfaces/Interfaces';
 
 const Products: React.FC = () => {
-  const cartProducts: any = useContext(ProductContext);
+  const cartProducts = useContext(ProductContext);
   const { products } = cartProducts;
-  const productContext: any = useContext(CartComponentContext);
-  console.log('--test', productContext);
+  const productContext = useContext(CartComponentContext);
   const { switchPage } = productContext.cartComponents;
 
   return (
     <main className={switchPage ? 'main__cart' : 'main__cart__close'}>
       <InfoCart products={products} />
       <TransitionGroup component={null}>
-        {products.map((product: any) => {
+        {products.map((product: IProduct) => {
           return (
             <CSSTransition
               key={product.id}
