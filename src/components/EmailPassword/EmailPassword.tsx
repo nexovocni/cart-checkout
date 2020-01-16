@@ -34,7 +34,7 @@ const PasswordEmail: React.FC<IProps> = ({
   return (
     <Form
       onSubmit={submitBtn}
-      render={(props: any) => {
+      render={({ handleSubmit }) => {
         return (
           <div
             className={
@@ -128,7 +128,7 @@ const PasswordEmail: React.FC<IProps> = ({
             <div className="email__component__buttons">
               <button
                 type="submit"
-                onClick={props.handleSubmit}
+                onClick={() => handleSubmit()}
                 className="black__button"
               >
                 Save and continue

@@ -28,10 +28,10 @@ const ShippingStore: React.FC<IProps> = ({
   return (
     <Form
       onSubmit={submitBtn}
-      render={(props: any) => {
+      render={({ handleSubmit }) => {
         return (
           <form
-            onSubmit={props.handleSubmit}
+            onSubmit={handleSubmit}
             className={
               componentShipping ? 'shipping__component__form' : 'close'
             }
@@ -49,7 +49,7 @@ const ShippingStore: React.FC<IProps> = ({
             <ShippingPhone setPhone={setPhone} validate={validate} />
             <ShippingSelect validate={validate} />
             <button
-              onSubmit={props.handleSubmit}
+              onSubmit={() => handleSubmit()}
               className="shipping__component__submit"
               type="submit"
             >

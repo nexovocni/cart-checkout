@@ -12,14 +12,14 @@ const PaymentGift: React.FC<IProps> = ({ validate, submitBtn }) => {
     <React.Fragment>
       <Form
         onSubmit={submitBtn}
-        render={(props: any) => {
+        render={({ handleSubmit }) => {
           return (
             <>
               <h3 className="payment__component__gift__heading">
                 Apply gift cards
               </h3>
               <form
-                onSubmit={props.handleSubmit}
+                onSubmit={() => handleSubmit()}
                 className="payment__component__form__gift"
               >
                 <Field
@@ -91,7 +91,7 @@ const PaymentGift: React.FC<IProps> = ({ validate, submitBtn }) => {
                   }}
                 </Field>
                 <button
-                  onSubmit={props.handleSubmit}
+                  onSubmit={() => handleSubmit()}
                   className="payment__component__gift__submit"
                   type="submit"
                 >

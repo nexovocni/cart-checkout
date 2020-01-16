@@ -63,12 +63,9 @@ const PaymentCredit: React.FC<IProps> = ({
   return (
     <Form
       onSubmit={submitBtn}
-      render={(props: any) => {
+      render={({ handleSubmit }) => {
         return (
-          <form
-            onSubmit={props.handleSubmit}
-            className="payment__component__form"
-          >
+          <form onSubmit={handleSubmit} className="payment__component__form">
             <div className="payment__component__input border-bottom">
               <Field
                 name="radius"
@@ -256,7 +253,7 @@ const PaymentCredit: React.FC<IProps> = ({
               </p>
             </div>
             <button
-              onSubmit={props.handleSubmit}
+              onSubmit={() => handleSubmit()}
               className="payment__component__credit__submit"
               type="submit"
             >

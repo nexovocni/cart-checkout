@@ -11,14 +11,14 @@ interface IProps {
 const SummaryTotal: React.FC<IProps> = ({ itemsValue, title, valueTrans }) => {
   const productContext = useContext(CartComponentContext);
   const { disabledCode } = productContext.cartComponents;
-  const [value, setValue] = useState(itemsValue);
+  const [value, setValue] = useState();
   const [anime, setAnime] = useState(false);
   useEffect(() => {
     setAnime(() => !anime);
     setValue(itemsValue);
   }, [itemsValue]);
 
-  const usePrevious = (valuePrev: any) => {
+  const usePrevious = (valuePrev: undefined) => {
     const ref = useRef();
     useEffect(() => {
       ref.current = valuePrev;

@@ -14,7 +14,7 @@ const SummarySubtotal: React.FC<IProps> = ({ itemsValue }) => {
 
   useEffect(() => {
     setValue(itemsValue.toFixed(2));
-  });
+  }, [itemsValue]);
 
   useEffect(() => {
     setAnime(() => !anime);
