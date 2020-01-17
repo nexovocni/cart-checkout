@@ -19,7 +19,7 @@ const PaymentGift: React.FC<IProps> = ({ validate, submitBtn }) => {
                 Apply gift cards
               </h3>
               <form
-                onSubmit={() => handleSubmit()}
+                onSubmit={handleSubmit}
                 className="payment__component__form__gift"
               >
                 <Field
