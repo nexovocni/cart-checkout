@@ -5,16 +5,17 @@
     &__product{
 
         &__select{
-            max-height: 1000px;
-            opacity: 1;
-            transition: all .5s ease;
+            @include open-close(1000px, 1, .5s);
+
+            &__close{
+                @include open-close(0, 0, .5s);
+            }
         }
 
         &__section{
 
             &__select{
-                display: flex;
-                justify-content: space-between;
+                @include flex;
                 margin-top: 30px;
             }
 
@@ -42,20 +43,14 @@
                 width: 100%;
 
                 select{
-                    border: none;
-                    outline: none;
+                    @include input-border(none, none, none, transparent, pointer);
                     -webkit-appearance: none;
                     -moz-appearance: none;
-                    background-color: transparent;
-                    cursor: pointer;
                     width: 110%;
                 }
 
                 i{
-                    position: absolute;
-                    top: 13px;
-                    left: 90%;
-                    z-index: -10;
+                    @include position(absolute, 90%, 13px, -10);
 
                     @include respond(phone){
                         display: none;
@@ -66,23 +61,13 @@
             &__button
             
                 button{
-                    border: none;
+                    @include input-border(none, none, 1px solid #999, #000, pointer);
                     width: 100%;
-                    background-color: #000;
                     color: #FFF;
                     padding: 15px;
                     text-align: center;
                     margin-top: 30px;
-                    outline: none;
-                    cursor: pointer;
                 }
         }
     }
-}
-
-.close__select{
-    max-height: 0;
-    opacity: 0;
-    transition: all .3s ease;
-    overflow: hidden;
 }

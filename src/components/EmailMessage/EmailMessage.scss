@@ -5,14 +5,10 @@
     &__component{
 
         &__message{
-            max-height: 300px;
-            opacity: 1;
-            transition: all .5s ease;
+            @include open-close(300px, 1, .3s);
 
-            .close{
-                max-height: 0;
-                opacity: 0;
-                transition: all .3s ease;
+            &__close{
+                @include open-close(0, 0, .3s);
                 overflow: hidden;
                 margin-left: 0;
             }
@@ -52,23 +48,16 @@
         }
 
         &__buttons{
-            display: flex;
-            justify-content: space-between;
+            @include flex;
             width: 100%;
             margin: 10px 0 50px 0;
 
             .white__button{
-                border: none;
-                outline: none;
-                cursor: pointer;
-                background-color: #fff;
-                border: 1px solid rgba(0, 0, 0, .3);
+                @include input-border(1px solid rgba(0, 0, 0, .3), none, 1px solid rgba(0, 0, 0, .3), #fff, pointer);
                 width: 48%;
                 height: 50px;
-                transition: all .5 ease;
+                transition: all .5s ease;
 
-                
-            
                 &:hover{
                     border: 1px solid rgba(0, 0, 0, 1);
                 }

@@ -21,7 +21,7 @@ const ShippingSelect:React.FC<IProps> = ({validate}) => {
                         {({input, meta}) => {
                             return(
                                 <div className="shipping__component__input">
-                                    <label className={input.value ? "shipping__component__label" : "close"}>Postal Code</label>
+                                    <label className={input.value ? "shipping__component__label" : "shipping__component__label__close"}>Postal Code</label>
                                     <input placeholder="Postal Code" className={input.value ? "shipping__component__postal" : "shipping__component__postal border"} {...input}/>
                                     {meta.error && meta.touched ? <span className="shipping__component__validation">{meta.error}</span> : null}
                                 </div>
@@ -36,7 +36,7 @@ const ShippingSelect:React.FC<IProps> = ({validate}) => {
                         {({input, meta}) => {
                             return(
                                 <div className="shipping__component__input select">
-                                <label className={input.value ? "shipping__component__label" : "close"}>Radius</label>
+                                <label className={input.value ? "shipping__component__label" : "shipping__component__label__close"}>Radius</label>
                                 <select placeholder="Country" className={input.value ? "shipping__component__country" : "shipping__component__country border"} {...input}>
                                     <option selected value="50">50 Km</option>
                                     <option value="100">100 Km</option>
@@ -59,7 +59,7 @@ const ShippingSelect:React.FC<IProps> = ({validate}) => {
                         {({input, meta}) => {
                             return(
                                 <div className="shipping__component__input">
-                                    <label className={input.value ? "shipping__component__label" : "shipping__component__label close"}>Province</label>
+                                    <label className={input.value ? "shipping__component__label" : "shipping__component__label__close"}>Province</label>
                                     <input placeholder="Province" className={input.value ? "shipping__component__province" : "shipping__component__province border"} {...input}/>
                                     {meta.error && meta.touched ? <span className="shipping__component__validation">{meta.error}</span> : null}
                                 </div>
@@ -74,7 +74,7 @@ const ShippingSelect:React.FC<IProps> = ({validate}) => {
                     {({input, meta}) => {
                         return(
                             <div className="shipping__component__input select">
-                                <label className={input.value ? "shipping__component__label" : "shipping__component__label close"}>City</label>
+                                <label className={input.value ? "shipping__component__label" : "shipping__component__label__close"}>City</label>
                                 <select placeholder="City" className={input.value ? "shipping__component__city-select" : "shipping__component__city-select border"} {...input}>
                                     <option selected hidden value="">City</option>
                                     <option value="New York">New York</option>

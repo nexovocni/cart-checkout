@@ -1,3 +1,5 @@
+@import '../../sass/mixins/mixins.scss'; 
+
 .shipping{
 
     &__component{
@@ -13,10 +15,8 @@
             }
 
             &__input{
+                @include input-border(none, none, 1px solid #999, transparent, default);
                 width: 100%;
-                border: none;
-                outline: none;
-                border-bottom: 1px solid #999;
                 padding-bottom: 5px;
                 font-size: 1rem;
                 margin: 5px 0; 
@@ -25,28 +25,24 @@
                     border-color: #000;
                 }
             }
-
-            &__label{
-                max-height: 50px;
-                opacity: 1;
-                transition: all .5s ease;
-                color: #999;
-                font-size: .6rem;
-            }
     
             &__validation{
                 color: red;
                 font-size: .6rem;
             }
         }
-    }
-}
 
-.close{
-    max-height: 0;
-    opacity: 0;
-    transition: all .3s ease;
-    overflow: hidden;
+        &__label{
+            @include open-close(50px, 1, .3s);
+            color: #999;
+            
+
+            &__close{
+                @include open-close(0, 0, .3s);
+                overflow: hidden;
+            }
+        }
+    }
 }
 
 .border{

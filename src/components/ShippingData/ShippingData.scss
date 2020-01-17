@@ -4,6 +4,10 @@
 
     &__data{
         margin-top: 15px;
+
+        &__close{
+            @include open-close(0, 0, none);
+        }
         
 
         @include respond(phone){

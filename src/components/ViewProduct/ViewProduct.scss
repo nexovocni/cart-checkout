@@ -26,9 +26,8 @@
                 margin-top: 15px;
 
                 @include respond(phone){
+                    @include flex;
                     margin-top: 0;
-                    display: flex;
-                    justify-content: space-between;
                     width: 100%
                 };
 
@@ -46,9 +45,8 @@
                     justify-content: center;
 
                     @include respond(phone){
-                        display: flex;
+                        @include flex;
                         flex-direction: column;
-                        justify-content: space-between;
                         height: 75px;
 
                         &-mob{
@@ -105,23 +103,19 @@
             }
 
             &-name{
-                display: flex;
+                @include flex;
                 width: 100%;
-                justify-content: space-between;
             }
 
             &-bottom{
-                max-height: 200px;
-                opacity: 1;
-                transition: all .4s ease;
+                @include open-close(200px, 1, .4s);
             }
         }
     }
 
     &__name{
-        display: flex;
+        @include flex;
         flex-direction: column;
-        justify-content: space-between;
 
         .wishlist{
             display: none;
@@ -132,17 +126,15 @@
         }
 
         &__viewMobile{
+            @include flex;
             height: 52%;
-            display: flex;
             flex-direction: column;
-            justify-content: space-between;
             color: #999;
         }
     }
 
     &__name-mob{
-        display: flex;
-        justify-content: space-between;
+        @include flex;
         flex-direction: column;
 
         .review__name__viewMobile{

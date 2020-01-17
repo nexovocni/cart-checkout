@@ -5,18 +5,18 @@
     &__component{
 
         &__label{
+            @include open-close(20px, 1, .5s);
             margin-bottom: 15px;
             color: rgba(0, 0, 0, .4);
-            max-height: 20px;
-            opacity: 1;
             overflow: hidden;
-            transition: all .5s ease;
+
+            &__close{
+                @include open-close(0, 0, .5s);
+            }
         }
 
         &__input{
-            border: none;
-            outline: none;
-            border-bottom: 1px solid #000;
+            @include input-border(none, none, 1px solid #000, transparent, default);
             width: 100%;
             padding-bottom: 5px;
             font-size: 1rem;
@@ -24,8 +24,7 @@
         }
 
         &__underinput{
-            display: flex;
-            justify-content: space-between;
+            @include flex;
         }
 
         &__validation{

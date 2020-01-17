@@ -10,13 +10,10 @@
         }
 
         &__button{
-            border: 1px solid #999;
-            outline: none;
+            @include input-border(1px solid #999, none, 1px solid #999, transparent, pointer);
             width: 48%;
             padding: 15px;
-            cursor: pointer;
             transition: all .5s ease;
-            background-color: transparent;
             height: 50px;
             padding: 6.5px 15px;
             margin-bottom: 15px;
@@ -58,17 +55,18 @@
         }
 
         &__buttons{
-            opacity: 1;
-            max-height: 1000px;
+            @include open-close(1000px, 1, .5s);
             width: 100%;
-            transition: all .5s ease;
             overflow: hidden;
             margin-top: 40px;
 
+            &__close{
+                @include open-close(0, 0, .5s);
+            }
+
             &__up,
             &__down{
-                display: flex;
-                justify-content: space-between;
+                @include flex;
                 width: 100%;
 
                 @include respond(phone){
@@ -77,13 +75,6 @@
             }
         }
     }
-}
-
-.close{
-    max-height: 0;
-    opacity: 0;
-    transition: all .3s ease;
-    overflow: hidden;
 }
 
 .border-black{

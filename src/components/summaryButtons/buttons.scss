@@ -1,83 +1,86 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:200,300,400,400i&display=swap');
-@import '../../sass/mixins/mixins.scss';
+@import url("https://fonts.googleapis.com/css?family=Montserrat:200,300,400,400i&display=swap");
+@import "../../sass/mixins/mixins.scss";
 
-.buttons{
+.buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2vh;
+
+  @include respond(phone) {
+    margin-top: 0;
+  }
+
+  .button {
+    @include input-border(
+      1px solid #000,
+      none,
+      1px solid #000,
+      transparent,
+      pointer
+    );
+    margin-bottom: 20px;
     width: 100%;
+    height: 7vh;
+    text-align: center;
     display: flex;
-    flex-direction: column;
-    margin-bottom: 2vh;
+    align-items: center;
+    justify-content: center;
 
-    @include respond(phone){
-        margin-top: 0;
-      };
+    @include respond(phone) {
+      height: 50px;
 
-    .button{
-        margin-bottom: 2vh;
-        width: 100%;
-        height: 7vh;
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: 1px solid #000;
-        outline: none;
-        cursor: pointer;
-
-        @include respond(phone){
-            height: 50px;
-
-            &:nth-child(3){
-                margin-bottom: 0;
-            }
-          };
-
-        &_check{
-            background-color: #000;
-            color: #fff;
-            text-align: center;
-            font-size: 1.2rem;
-            text-decoration: none;
-            font-family:'Montserrat', sans-serif;
-        }
-
-        &_pay {
-            background-color: #fff;
-            width: 100%;
-        }
-
-        .apple{
-            width: 10%;
-            height: auto;
-
-            @include respond(desktop){
-                width: 15%
-            }
-
-            @include respond(tablet){
-                width: 20%
-            }
-
-            @include respond(phone){
-                width: 10%
-            }
-        }
-
-        .paypay{
-            width: 20%;
-            height: auto;
-
-            @include respond(desktop){
-                width: 30%
-            }
-
-            @include respond(tablet){
-                width: 40%
-            }
-
-            @include respond(phone){
-                width: 21%
-            }
-        }
+      &:nth-child(3) {
+        margin-bottom: 0;
+      }
     }
-}
 
+    &_check {
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      font-size: 1.2rem;
+      text-decoration: none;
+      font-family: "Montserrat", sans-serif;
+    }
+
+    &_pay {
+      background-color: #fff;
+      width: 100%;
+    }
+
+    .apple {
+      width: 10%;
+      height: auto;
+
+      @include respond(desktop) {
+        width: 15%;
+      }
+
+      @include respond(tablet) {
+        width: 20%;
+      }
+
+      @include respond(phone) {
+        width: 10%;
+      }
+    }
+
+    .paypay {
+      width: 20%;
+      height: auto;
+
+      @include respond(desktop) {
+        width: 30%;
+      }
+
+      @include respond(tablet) {
+        width: 40%;
+      }
+
+      @include respond(phone) {
+        width: 21%;
+      }
+    }
+  }
+}

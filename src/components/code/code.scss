@@ -1,72 +1,65 @@
-@import '../../sass/mixins/mixins.scss';
+@import "../../sass/mixins/mixins.scss";
 
-.code{
+.code {
+  &__visible {
+    display: flex;
+    cursor: pointer;
+    margin: 35px 0 10px 0;
 
-    &__visible{
-        display: flex;
-        cursor: pointer;
-        margin: 35px 0 10px 0;
-    
-        i{
-            align-self: center;
-            font-size: 10px;
-            margin-left: 10px;
-            margin-top: 4px;
-            transition: all .5s ease;
-        }
-
-        &-form{
-            justify-content: space-between;
-            display: flex;
-            transition: max-height .5s ease-in-out;
-            overflow: hidden;
-            margin-bottom: 25px;
-
-            input[type="text"]{
-                border: none;
-                outline: none;
-                border-bottom: 1px solid #000;
-                background-color: transparent;
-                font-size: 1rem;
-                width: 70%;
-
-                @include respond(tablet){
-                    width: 60%;
-                    font-size: .8rem;
-                }
-
-                @include respond(phone){
-                    width: 70%;
-                    font-size: 1rem;
-                }
-            }
-    
-            input[type="submit"]{
-                background-color: #000;
-                color: #fff;
-                font-size: 1rem;
-                padding: 3% 6%;
-                cursor: pointer;
-                font-weight: 300;
-                outline: none;
-                border: none;
-
-                @include respond(phone){
-                    padding: 2% 4%;
-                }
-            }
-        }
-    
-        .clicked{
-            transform: rotate(-180deg);
-        }
-
-        ::-webkit-input-placeholder {
-            color: #000;
-          }
-          
-          :-ms-input-placeholder { 
-            color: #000;;
-          }
+    i {
+      align-self: center;
+      font-size: 10px;
+      margin-left: 10px;
+      margin-top: 4px;
+      transition: all 0.5s ease;
     }
+
+    &-form {
+      @include flex;
+      transition: max-height 0.5s ease-in-out;
+      overflow: hidden;
+      margin-bottom: 25px;
+
+      input[type="text"] {
+        @include input-border(none, none, 1px solid #000, transparent, default);
+        background-color: transparent;
+        font-size: 1rem;
+        width: 70%;
+
+        @include respond(tablet) {
+          width: 60%;
+          font-size: 0.8rem;
+        }
+
+        @include respond(phone) {
+          width: 70%;
+          font-size: 1rem;
+        }
+      }
+
+      input[type="submit"] {
+        @include input-border(none, none, none, #000, pointer);
+        color: #fff;
+        font-size: 1rem;
+        padding: 3% 6%;
+        font-weight: 300;
+
+        @include respond(phone) {
+          padding: 2% 4%;
+        }
+      }
+    }
+
+    .clicked {
+      transform: rotate(-180deg);
+    }
+
+    ::-webkit-input-placeholder {
+      color: #000;
+    }
+
+    :-ms-input-placeholder {
+      color: #000;
+    }
+  }
 }

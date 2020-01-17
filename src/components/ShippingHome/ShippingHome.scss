@@ -1,3 +1,5 @@
+@import '../../sass/mixins/mixins.scss'; 
+
 .shipping{
 
     &__component{
@@ -5,11 +7,17 @@
         &__submit{
             margin-top: 55px;
         }
+
+        &__form{
+
+            &__close{
+                @include open-close(0, 0, none)
+            }
+        }
     }
 
     &__standard{
-        display: flex;
-        justify-content: space-between;
+        @include flex;
 
         p{
             color: #999;

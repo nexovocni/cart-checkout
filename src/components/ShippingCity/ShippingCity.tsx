@@ -77,7 +77,7 @@ const ShippingCity:React.FC<IProps> = ({setCity, setProvince, setCountry, setPos
                         setCountry(input.value)
                         return(
                             <div className="shipping__component__city__field border-bottom">
-                                <label className={input.value ? "shipping__component__label" : "shipping__component__label close"}>Country</label>
+                                <label className={input.value ? "shipping__component__label" : "shipping__component__label__close"}>Country</label>
                                 <select placeholder="Country" className="shipping__component__country__input select border" {...input}>  
                                     <option selected value="Canada">Canada</option>
                                     <option value="America">America</option>

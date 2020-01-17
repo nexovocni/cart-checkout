@@ -22,7 +22,7 @@ const ShippingAddress:React.FC<IProps> = ({setFirstAddress, setLastAddress, vali
                         setFirstAddress(input.value)
                         return(
                             <>
-                                <label className={input.value ? "shipping__component__label" : "shipping__component__label close"}>Address</label>
+                                <label className={input.value ? "shipping__component__label" : "shipping__component__label__close"}>Address</label>
                                 <input placeholder="Address" className="shipping__component__address__input" {...input} />
                                 {meta.error && meta.touched ? <span className="shipping__component__validation">{meta.error}</span> : null}
                             </>
@@ -41,7 +41,7 @@ const ShippingAddress:React.FC<IProps> = ({setFirstAddress, setLastAddress, vali
                         setLastAddress(input.value)
                         return(
                             <>
-                                <label className={input.value ? "shipping__component__label" : "shipping__component__label close"}>Address</label>
+                                <label className={input.value ? "shipping__component__label" : "shipping__component__label__close"}>Address</label>
                                 <input placeholder="Appartment, suite, etc(optional)" className="shipping__component__address__input" {...input}/>
                                 {meta.error && meta.touched ? <span className="shipping__component__validation">{meta.error}</span> : null}
                             </>

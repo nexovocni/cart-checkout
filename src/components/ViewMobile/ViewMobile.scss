@@ -25,18 +25,12 @@
             };
 
             &-edit{
+                @include input-border(none, none, none, transparent, pointer);
                 margin-right: 20px;
-                border: none;
-                outline: none;
-                background-color: transparent;
-                cursor: pointer;
             }
 
             &-remove{
-                border: none;
-                outline: none;
-                background-color: transparent;
-                cursor: pointer;
+                @include input-border(none, none, none, transparent, pointer);
             }
 
             &-mob{
@@ -44,10 +38,7 @@
             }
 
             button{
-                cursor: pointer;
-                border: none;
-                background-color: transparent;
-                outline: none;;
+                @include input-border(none, none, none, transparent, pointer);
             }
         }
     }

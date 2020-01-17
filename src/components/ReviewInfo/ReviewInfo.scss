@@ -1,16 +1,16 @@
+@import '../../sass/mixins/mixins.scss';
+
 .review{
 
     &__product{
 
         &__section{
             width: 100%;
-            display: flex;
-            justify-content: space-between;
+            @include flex;
 
             &__name{
                 display: flex;
-                flex-direction: column;
-                justify-content: space-between;
+                @include flex;
             }
 
             &__image{
@@ -57,19 +57,10 @@
 
             &__edit,
             &__remove{
-                border: none;
-                cursor: pointer;
-                outline: none;
+                @include input-border(none, none, none, transparent, pointer);
             }
         }
     }
-}
-
-.close{
-    max-height: 0;
-    opacity: 0;
-    transition: all .3s ease;
-    overflow: hidden;
 }
 
 .none{

@@ -25,7 +25,7 @@ const YourEmail:React.FC<IProps> = ({submitBtn, validateEmail, setInput}) => {
                                     return(
                                         <div className="email__component__field__email">
                                             <div className="email__component__field__label">
-                                            <label className={input.value ? "email__component__label" : "email__component__label close"}>Email</label></div>
+                                            <label className={input.value ? "email__component__label" : "email__component__label__close"}>Email</label></div>
                                             <input placeholder="Email"  className={input.value ? "email__component__input" : "email__component__input border"} {...input} autoFocus/>
                                             <div className="email__component__underinput">
                                                 <p className="email__component__policy">See our <span>privacy policy</span></p>
