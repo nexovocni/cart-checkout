@@ -1,22 +1,21 @@
+@import "../../../sass/mixins/mixins.scss";
 
-@import '../../../sass/mixins/mixins.scss';
+.main {
+  &__form {
+    @include open-close(2000px, 1, 0.5s);
+    @include position(absolute, 0, 30px, auto);
+    padding-right: 15%;
+    transform: translateY(0);
 
-.main{
-
-    &__form{
-      @include open-close(auto, 1, .5s);
-      @include position(absolute, 0, 30px, auto);
+    &__close {
+      @include position(relative, 0, 0, -1);
+      @include open-close(0, 0, 0.8s);
+      transform: translateY(400%);
       padding-right: 15%;
-      transform: translateY(0);
-
-      &__close{
-        @include position(relative, 0, 0, -1);
-        @include open-close(0, 0, .5s);
-        transform: translateY(150%);
-      }
-
-      @include respond(tablet){
-          padding-right: 0;
-        }
     }
+
+    @include respond(tablet) {
+      padding-right: 0;
+    }
+  }
 }

@@ -1,123 +1,118 @@
-@import '../../sass/mixins/mixins.scss'; 
+@import "../../sass/mixins/mixins.scss";
 
-.email{
-    max-height: 800px;
+.email {
+  max-height: 800px;
+  width: 100%;
+  position: relative;
+
+  @include respond(tablet) {
+    width: 80%;
+  }
+
+  @include respond(phone) {
+    width: 100%;
+  }
+
+  &__number {
+    margin-right: 22%;
+
+    @include respond(phone) {
+      margin-right: 0;
+    }
+  }
+
+  &__up {
+    display: flex;
+  }
+
+  &__email {
+    @include open-close(100px, 1, 0.5s);
+    margin-top: -5px;
+
+    @include respond(phone) {
+      display: none;
+    }
+
+    &__responsive {
+      margin-bottom: 30px;
+      margin-left: 23%;
+
+      &__close {
+        @include open-close(0, 0, none);
+      }
+
+      @include respond(phone) {
+        display: inline-block;
+        margin-left: 0;
+      }
+    }
+  }
+
+  &__heading {
+    margin-bottom: 15px;
+    position: relative;
+
+    &__button {
+      @include input-border(none, none, none, transparent, pointer);
+      @include position(absolute, 97%, -18px, auto);
+      height: 50px;
+
+      @include respond(desktop) {
+        left: 96%;
+      }
+
+      @include respond(tablet) {
+        left: 94%;
+      }
+
+      @include respond(phone) {
+        left: 95%;
+      }
+    }
+  }
+
+  &__component {
     width: 100%;
     position: relative;
 
-    @include respond(tablet){
-        width: 80%;
-    };
+    &__form {
+      @include open-close(600px, 1, 0.3s);
+      margin-left: 23%;
 
-    @include respond(phone){
-        width: 100%;
-    }
-
-    &__number{
-        margin-right: 22%;
-
-        @include respond(phone){
-            margin-right: 0;
-        }
-    }
-
-    &__up{
-        display: flex;
-    }
-
-    &__email{
-        @include open-close(100px, 1, .5s);
-        margin-top: -5px;
-
-        @include respond(phone){
-            display: none;
-        }
-
-        &__responsive{
-            margin-bottom: 30px;
-            margin-left: 23%;
-
-            &__close{
-                @include open-close(0, 0, none)
-            }
-
-            @include respond(phone){
-                display: inline-block;
-                margin-left: 0;
-            }
-        }
-    }
-
-    &__heading{
-        margin-bottom: 15px;
-        position: relative;
-
-        &__button{
-            @include input-border(none, none, none, transparent, pointer);
-            @include position(absolute, 97%, -18px, auto);
-            height: 50px;
-
-            @include respond(desktop){
-                left: 96%;
-              }
-
-            @include respond(tablet){
-                left: 94%;
-              }
-
-              @include respond(phone){
-                left: 95%;
-              }
-        }
-    }
-
-    &__component{
-        width: 100%;
-        position: relative;
-
-        &__form{
-            @include open-close(600px, 1, .3s);
-            margin-left: 23%;
-
-            @include respond(phone){
-                margin-left: 0;
-              }
-
-              &__close{
-                @include open-close(0, 0, .3s);
-                overflow: hidden;
-                margin-left: 23%;
-
-                @include respond(phone){
-                    margin-left: 0;
-                  }
-              }
-        }
-
-        &__validation{
-            @include position(relative, 94%, -70px, auto);
-            display: inline-block;
-            color: red;
-            font-size: .6rem;
-        }
-    }
-}
-
-.margin{
-    margin-bottom: 30px
-}
-
-.dash-email{
-    
-    @include respond(phone){
-        height: 2px;
-        width: 20px;
-        margin: 0 8%;
-        margin-top: 10px;
-        flex-shrink: 0;
+      @include respond(phone) {
+        margin-left: 0;
       }
+
+      &__close {
+        @include open-close(0, 0, 0.3s);
+        overflow: hidden;
+        margin-left: 23%;
+
+        @include respond(phone) {
+          margin-left: 0;
+        }
+      }
+    }
+
+    &__validation {
+      @include position(relative, 94%, -70px, auto);
+      display: inline-block;
+      color: red;
+      font-size: 0.6rem;
+    }
+  }
 }
 
+.margin {
+  margin-bottom: 30px;
+}
 
-   
-
+.dash-email {
+  @include respond(phone) {
+    height: 2px;
+    width: 20px;
+    margin: 0 8%;
+    margin-top: 10px;
+    flex-shrink: 0;
+  }
+}

@@ -21,9 +21,8 @@
 
   &__close {
     @include open-close(100vh, 0, 0.5s);
-    overflow: hidden;
     transform: translateY(20px);
-    padding: 0 4%;
+    padding: 0 20px;
     z-index: -1;
 
     @include respond(phone) {

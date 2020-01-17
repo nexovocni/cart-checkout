@@ -1,116 +1,112 @@
-@import '../../sass/mixins/mixins.scss';
+@import "../../sass/mixins/mixins.scss";
 
-.review{
-    max-height: 2000px;
-    width: 100%;
-    padding: 35px 0;
-    border-top: 1px solid rgba(0, 0, 0, .2);
-    position: relative;
+.review {
+  max-height: 2000px;
+  width: 100%;
+  padding: 35px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  position: relative;
 
-    &__up{
-        display: flex;
+  &__up {
+    display: flex;
+  }
+
+  &__component {
+    margin-left: 23%;
+
+    @include respond(phone) {
+      margin-left: 0;
     }
 
-    &__component{
-        margin-left: 23%;
-
-        @include respond(phone){
-            margin-left: 0;
-          }
-
-        &__submit{
-            @include input-border(none, none, none, #000, pointer);
-            color: #FFF;
-            height: 40px;
-            text-align: center;
-            width: 100%;
-        }
-
-        &__section{
-            @include open-close(2000px, 1, .5s);
-
-            &__close{
-                @include open-close(0, 0, .5s);
-            }
-        }
-
-        &__button{
-            background-color: #FFF;
-            padding: 20px 0;
-        }
-
-        &__button-sticky{
-            position: sticky;
-            bottom: 0;
-            background-color: #FFF;
-            padding: 20px 0;
-        }
+    &__submit {
+      @include input-border(none, none, none, #000, pointer);
+      color: #fff;
+      height: 40px;
+      text-align: center;
+      width: 100%;
     }
 
-    &__section{
+    &__section {
+      @include open-close(2000px, 1, 0.5s);
 
-        &__left-bottom{
-
-            &__close{
-                @include open-close(0, 0, .5s);
-            }
-        }
-    }
-
-    @include respond(tablet){
-        width: 80%;
+      &__close {
+        @include open-close(0, 0, 0.5s);
       }
-
-      @include respond(phone){
-        width: 100%;
-      }
-
-    &__number{
-        margin-right: 22%;
-
-        @include respond(phone){
-            margin-right: 0;
-        }
     }
 
-    &__component__up{
-        width: 100%;
+    &__button {
+      background-color: #fff;
+      padding: 20px 0;
     }
 
-    &__product{
-       width: 100%;
-    }
-
-    &__heading{
-        position: relative;
-
-        &__button{
-            @include position(absolute, 98%, -35px, auto);
-            @include input-border(none, none, none, transparent, pointer);
-
-            @include respond(desktop){
-                left: 97%;
-              }
-
-            @include respond(tablet){
-                left: 95%;
-              }
-
-              @include respond(phone){
-                left: 95%;
-              }
-        }
-    }
-}
-
-.dash-review{
-
-    @include respond(phone){
-        height: 2px;
-        width: 20px;
-        margin: 0 8%;
-        margin-top: 10px;
-        flex-shrink: 0;
+    &__button-sticky {
+      position: sticky;
+      bottom: 0;
+      background-color: #fff;
+      padding: 20px 0;
     }
   }
 
+  &__section {
+    &__left-bottom {
+      &__close {
+        @include open-close(0, 0, 0.5s);
+      }
+    }
+  }
+
+  @include respond(tablet) {
+    width: 80%;
+  }
+
+  @include respond(phone) {
+    width: 100%;
+  }
+
+  &__number {
+    margin-right: 22%;
+
+    @include respond(phone) {
+      margin-right: 0;
+    }
+  }
+
+  &__component__up {
+    width: 100%;
+  }
+
+  &__product {
+    width: 100%;
+  }
+
+  &__heading {
+    position: relative;
+
+    &__button {
+      @include position(absolute, 98%, -35px, auto);
+      @include input-border(none, none, none, transparent, pointer);
+
+      @include respond(desktop) {
+        left: 97%;
+      }
+
+      @include respond(tablet) {
+        left: 95%;
+      }
+
+      @include respond(phone) {
+        left: 95%;
+      }
+    }
+  }
+}
+
+.dash-review {
+  @include respond(phone) {
+    height: 2px;
+    width: 20px;
+    margin: 0 8%;
+    margin-top: 10px;
+    flex-shrink: 0;
+  }
+}

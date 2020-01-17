@@ -21,13 +21,12 @@
           bottom: 0px;
         }
       }
-    }
-
-    & .prev-value {
-      opacity: 0;
-      animation: fadeOut 0.2s linear;
-      position: absolute;
-      bottom: 0px;
+      & .prev-value {
+        opacity: 0;
+        animation: fadeOut 0.2s linear;
+        position: absolute;
+        bottom: 0px;
+      }
     }
   }
 }

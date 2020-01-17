@@ -30,13 +30,8 @@
     position: relative;
 
     &__button {
-      border: none;
-      outline: none;
-      background-color: transparent;
-      position: absolute;
-      top: 0px;
-      left: 97%;
-      cursor: pointer;
+      @include input-border(none, none, none, transparent, pointer);
+      @include position(absolute, 97%, 0, auto);
 
       @include respond(desktop) {
         left: 96%;
@@ -69,169 +64,72 @@
     }
 
     &__form {
-      max-height: 2000px;
-      opacity: 1;
-      transition: all 0.5s ease;
+      @include open-close(2000px, 1, 0.5s);
 
       p {
         margin-bottom: 30px;
       }
     }
+
     &__submit {
+      @include input-border(none, none, none, #000, default);
       width: 100%;
-      border: none;
-      outline: none;
       height: 40px;
-      background-color: #000;
       color: #fff;
+    }
 
-      &__heading {
-        position: relative;
+    &__buttons {
+      @include flex;
+      @include open-close(2000px, 1, 0.5s);
+      margin-top: 40px;
+      width: 100%;
 
-        &__button {
-          @include input-border(none, none, none, transparent, pointer);
-          @include position(absolute, 97%, 0, auto);
-
-          @include respond(desktop) {
-            left: 96%;
-          }
-
-          @include respond(tablet) {
-            left: 94%;
-          }
-
-          @include respond(phone) {
-            left: 95%;
-          }
-        }
-      }
-
-      &__buttons {
-        display: flex;
-        justify-content: space-between;
-        max-height: 2000px;
-        opacity: 1;
-        transition: all 0.5s ease;
-        margin-top: 40px;
-        width: 100%;
-
-        &__close {
-          @include open-close(0, 0, 0.5s);
-          overflow: hidden;
-        }
-
-        &__component {
-          width: 100%;
-
-          &__head {
-            display: flex;
-            position: relative;
-          }
-
-          &__up {
-            margin-left: 23%;
-
-            @include respond(phone) {
-              margin-left: 0;
-            }
-          }
-
-          &__form {
-            @include open-close(2000px, 1, 0.5s);
-
-            p {
-              margin-bottom: 30px;
-            }
-          }
-
-          &__submit {
-            @include input-border(none, none, none, #000, default);
-            width: 100%;
-            height: 40px;
-            color: #fff;
-          }
-
-          &__buttons {
-            @include flex;
-            @include open-close(2000px, 1, 0.5s);
-
-            margin-top: 40px;
-            width: 100%;
-
-            &__close {
-              @include open-close(0, 0, 0.3s);
-              overflow: hidden;
-            }
-          }
-
-          &__button {
-            @include input-border(
-              1px solid #999,
-              none,
-              1px solid #999,
-              transparent,
-              pointer
-            );
-            width: 48%;
-            transition: all 0.5s ease;
-            height: 50px;
-
-            &:hover {
-              border-color: #000;
-            }
-          }
-
-          &__home,
-          &__store {
-            @include open-close(1000px, 1, 0.3s);
-            margin-top: 40px;
-
-            &__close {
-              @include open-close(0, 0, 0.3s);
-              overflow: hidden;
-            }
-          }
-        }
-
-        &__button {
-          border: 1px solid #999;
-          outline: none;
-          width: 48%;
-          cursor: pointer;
-          transition: all 0.5s ease;
-          background-color: transparent;
-          height: 50px;
-
-          &:hover {
-            border-color: #000;
-          }
-        }
-
-        &__home,
-        &__store {
-          @include open-close(1000px, 1, 0.3s);
-          margin-top: 40px;
-
-          &__close {
-            @include open-close(0, 0, 0.3s);
-            overflow: hidden;
-          }
-        }
+      &__close {
+        @include open-close(0, 0, 0.3s);
+        overflow: hidden;
       }
     }
 
-    .border-black {
-      border-color: #000;
-    }
+    &__button {
+      @include input-border(
+        1px solid #999,
+        none,
+        1px solid #999,
+        transparent,
+        pointer
+      );
+      width: 48%;
+      transition: all 0.5s ease;
+      height: 50px;
 
-    .dash-shipping {
-      @include respond(phone) {
-        height: 2px;
-        width: 20px;
-        margin: 0 8%;
-        margin-top: 10px;
-        flex-shrink: 0;
+      &:hover {
+        border-color: #000;
       }
     }
+
+    &__home,
+    &__store {
+      @include open-close(1000px, 1, 0.3s);
+      margin-top: 40px;
+
+      &__close {
+        @include open-close(0, 0, 0.3s);
+        overflow: hidden;
+      }
+    }
+  }
+}
+
+.border-black {
+  border-color: #000;
+}
+
+.dash-shipping {
+  @include respond(phone) {
+    height: 2px;
+    width: 20px;
+    margin: 0 8%;
+    margin-top: 10px;
+    flex-shrink: 0;
   }
 }
