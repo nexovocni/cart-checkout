@@ -1,51 +1,56 @@
 .shipping {
+  &__component {
+    &__label {
+      max-height: 50px;
+      opacity: 1;
+      transition: all 0.3s ease;
+      color: #999;
 
-    &__component{
+      &__close {
+        max-height: 0;
+        opacity: 0;
+        transition: all 0.3s ease;
+        overflow: hidden;
+      }
 
-        &__label{
-            max-height: 50px;
-            opacity: 1;
-            transition: all .3s ease;
-            color: #999;
-
-            &__container{
-                height: 20px;
-            }
-        }
-
-        &__validation{
-            color: red;
-            font-size: .6rem;
-        }
-
-        &__name{
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            height: 70px;
-
-            &__first,
-            &__last{
-                width: 47.5%;
-            }
-
-            &__input{
-                border: none;
-                outline: none;
-                border-bottom: 1px solid #999;
-                width: 100%;
-                padding-bottom: 5px;
-                font-size: 1rem;
-                margin: 5px 0; 
-                
-                &:focus{
-                    border-color: #000;
-                }
-            }
-        }
+      &__container {
+        height: 20px;
+      }
     }
+
+    &__validation {
+      color: red;
+      font-size: 0.6rem;
+    }
+
+    &__name {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      height: 70px;
+
+      &__first,
+      &__last {
+        width: 47.5%;
+      }
+
+      &__input {
+        border: none;
+        outline: none;
+        border-bottom: 1px solid #999;
+        width: 100%;
+        padding-bottom: 5px;
+        font-size: 1rem;
+        margin: 5px 0;
+
+        &:focus {
+          border-color: #000;
+        }
+      }
+    }
+  }
 }
 
-.border{
-    border-color: #999;
+.border {
+  border-color: #999;
 }

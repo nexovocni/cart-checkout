@@ -18,7 +18,9 @@ const ShippingPhone: React.FC<IProps> = ({ setPhone, validate }: IProps) => {
               <>
                 <label
                   className={
-                    input.value ? 'shipping__component__label' : 'close'
+                    input.value
+                      ? 'shipping__component__label'
+                      : 'shipping__component__label__close'
                   }
                 >
                   Phone

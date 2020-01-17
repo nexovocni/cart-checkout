@@ -39,7 +39,9 @@ const ShippingData: React.FC<IProps> = ({
     <React.Fragment>
       <div
         className={
-          !componentShipping && storeShipping ? 'shipping__data' : 'close'
+          !componentShipping && storeShipping
+            ? 'shipping__data'
+            : 'shipping__data__close'
         }
       >
         <p>
@@ -49,7 +51,9 @@ const ShippingData: React.FC<IProps> = ({
       </div>
       <div
         className={
-          !componentShipping && homeShipping ? 'shipping__data' : 'close'
+          !componentShipping && homeShipping
+            ? 'shipping__data'
+            : 'shipping__data__close'
         }
       >
         <p>

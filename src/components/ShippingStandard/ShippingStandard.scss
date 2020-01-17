@@ -1,59 +1,56 @@
-.shipping{
-
-    &__component{
-
-        &__heading{
-            margin-bottom: 40px;
-        }
-
-        &__radio{
-            display: flex;
-            justify-content: space-between;
-
-            &__input{
-
-                input{
-                    display: none;
-                }
-
-                .circle{
-                    width: 16px;
-                    height: 16px;
-                    position: absolute;
-                    top: 5px;
-                    left: 0;
-                    border-radius: 50%;
-                    border: 1px solid #000;
-                    background-color: #fff;
-                    margin-top: 2px;
-                }
-
-                input:checked + .circle:after{
-                    content: "";
-                    position: absolute;
-                    height: 8px;
-                    width: 8px;
-                    background-color: #000;
-                    border-radius: 50%;
-                    left: 50%;
-                    top: 50%;
-                    transform: translate(-50%, -50%);
-                }
-             
-                label{
-                    position: relative;
-                    padding-left: 25px;
-                    cursor: pointer;
-
-                    p{
-                        margin-left: 28px;
-                        font-size: .6rem;
-                        color: #999;
-                        margin-top:3px;
-                        margin-bottom: 40px;
-                    }
-                }
-            }
-        }
+.shipping {
+  &__component {
+    &__heading {
+      margin-bottom: 40px;
     }
+
+    &__radio {
+      display: flex;
+      justify-content: space-between;
+
+      &__input {
+        input {
+          display: none;
+        }
+
+        .circle {
+          width: 16px;
+          height: 16px;
+          position: absolute;
+          top: 5px;
+          left: 0;
+          border-radius: 50%;
+          border: 1px solid #000;
+          background-color: #fff;
+          margin-top: 2px;
+        }
+
+        input:checked + .circle:after {
+          content: '';
+          position: absolute;
+          height: 8px;
+          width: 8px;
+          background-color: #000;
+          border-radius: 50%;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+        }
+
+        label {
+          position: relative;
+          padding-left: 25px;
+          cursor: pointer;
+
+          p {
+            margin-left: 28px;
+            font-size: 0.6rem;
+            color: #999;
+            margin-top: 3px;
+            margin-bottom: 40px;
+          }
+        }
+      }
+    }
+  }
 }

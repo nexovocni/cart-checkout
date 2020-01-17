@@ -23,7 +23,9 @@ const ShippingSelect: React.FC<IProps> = ({ validate }) => {
                 <div className="shipping__component__input">
                   <label
                     className={
-                      input.value ? 'shipping__component__label' : 'close'
+                      input.value
+                        ? 'shipping__component__label'
+                        : 'shipping__component__label__close'
                     }
                   >
                     Postal Code
@@ -52,7 +54,9 @@ const ShippingSelect: React.FC<IProps> = ({ validate }) => {
                 <div className="shipping__component__input select">
                   <label
                     className={
-                      input.value ? 'shipping__component__label' : 'close'
+                      input.value
+                        ? 'shipping__component__label'
+                        : 'shipping__component__label__close'
                     }
                   >
                     Radius
@@ -97,7 +101,7 @@ const ShippingSelect: React.FC<IProps> = ({ validate }) => {
                     className={
                       input.value
                         ? 'shipping__component__label'
-                        : 'shipping__component__label close'
+                        : 'shipping__component__label__close'
                     }
                   >
                     Province
@@ -128,7 +132,7 @@ const ShippingSelect: React.FC<IProps> = ({ validate }) => {
                     className={
                       input.value
                         ? 'shipping__component__label'
-                        : 'shipping__component__label close'
+                        : 'shipping__component__label__close'
                     }
                   >
                     City

@@ -1,9 +1,8 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Form } from 'react-final-form';
 import ShippingName from '../ShippingName/ShippingName';
 import ShippingPhone from '../../components/ShippingPhone/ShippingPhone';
 import ShippingSelect from '../../components/ShippingSelect/ShippingSelect';
-import { FormComponentContext } from '../../contexts/FormComponentContext';
 import './ShippingStore.scss';
 
 interface IProps {
@@ -21,21 +20,12 @@ const ShippingStore: React.FC<IProps> = ({
   validate,
   submitBtn,
 }) => {
-  const formContext = useContext(FormComponentContext);
-  const { formComponents } = formContext;
-  const { componentShipping } = formComponents;
-
   return (
     <Form
       onSubmit={submitBtn}
       render={({ handleSubmit }) => {
         return (
-          <form
-            onSubmit={handleSubmit}
-            className={
-              componentShipping ? 'shipping__component__form' : 'close'
-            }
-          >
+          <form onSubmit={handleSubmit} className="shipping__component__form">
             <p>
               Please ensure that your first bane and last name is identical to a
               valid id card. The phone number will be used to contact you once

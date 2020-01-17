@@ -1,83 +1,79 @@
-.shipping{
-
-    &__component{
-
-        &__heading{
-            margin-bottom: 30px;
-        }
-
-        &__label{
-            max-height: 50px;
-            opacity: 1;
-            transition: all .5s ease;
-            color: #999;
-            
-        }
-
-        &__input{
-            width: 47.5%;
-        }
-
-        &__select{
-
-            &__up,
-            &__down{
-                display: flex;
-                justify-content: space-between;
-                width: 100%;
-                height: 70px;
-            }
-        }
-
-        &__city-select,
-        &__province,
-        &__postal,
-        &__country{
-            border: none;
-            outline: none;
-            border-bottom: 1px solid #999;
-            width: 100%;
-            padding-bottom: 5px;
-            font-size: 1rem;
-            margin: 5px 0; 
-            border-radius: 0;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            background-color: transparent;
-
-            &:focus{
-                border-color: #000;
-            }
-        }
+.shipping {
+  &__component {
+    &__heading {
+      margin-bottom: 30px;
     }
+
+    &__label {
+      max-height: 50px;
+      opacity: 1;
+      transition: all 0.5s ease;
+      color: #999;
+
+      &__close {
+        max-height: 0;
+        opacity: 0;
+        transition: all 0.3s ease;
+        overflow: hidden;
+      }
+    }
+
+    &__input {
+      width: 47.5%;
+    }
+
+    &__select {
+      &__up,
+      &__down {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        height: 70px;
+      }
+    }
+
+    &__city-select,
+    &__province,
+    &__postal,
+    &__country {
+      border: none;
+      outline: none;
+      border-bottom: 1px solid #999;
+      width: 100%;
+      padding-bottom: 5px;
+      font-size: 1rem;
+      margin: 5px 0;
+      border-radius: 0;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-color: transparent;
+
+      &:focus {
+        border-color: #000;
+      }
+    }
+  }
 }
 
-.select{
-    background-color: transparent;
-    border-bottom: none;
-    cursor: pointer;
+.select {
+  background-color: transparent;
+  border-bottom: none;
+  cursor: pointer;
 }
 
-.border-bottom{
-    border-bottom: 1px solid #999;
-    height: 44px;
-    cursor: pointer;
+.border-bottom {
+  border-bottom: 1px solid #999;
+  height: 44px;
+  cursor: pointer;
 }
 
-i.select{
-    position: relative;
-    top: -25px;
-    left: 97%;
-    z-index: -10;
+i.select {
+  position: relative;
+  top: -25px;
+  left: 97%;
+  z-index: -10;
 }
 
-.border{
-    border-color: #999;
-}
-
-.close{
-    max-height: 0;
-    opacity: 0;
-    transition: all .3s ease;
-    overflow: hidden;
+.border {
+  border-color: #999;
 }

@@ -1,13 +1,18 @@
-@import '../../sass/mixins/mixins.scss'; 
+@import '../../sass/mixins/mixins.scss';
 
-.shipping{
+.shipping {
+  &__data {
+    margin-top: 15px;
 
-    &__data{
-        margin-top: 15px;
-        
-
-        @include respond(phone){
-            margin-left: 0;
-          }
+    &__close {
+      max-height: 0;
+      opacity: 0;
+      transition: all 0.3s ease;
+      overflow: hidden;
     }
+
+    @include respond(phone) {
+      margin-left: 0;
+    }
+  }
 }

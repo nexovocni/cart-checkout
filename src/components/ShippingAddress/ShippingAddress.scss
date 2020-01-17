@@ -1,54 +1,52 @@
-.shipping{
+.shipping {
+  &__component {
+    &__address {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
 
-    &__component{
+      &__first,
+      &__last {
+        height: 70px;
+      }
 
-        &__address{
-            width: 100%;
-            display: flex;
-            flex-direction: column;
+      &__input {
+        width: 100%;
+        border: none;
+        outline: none;
+        border-bottom: 1px solid #999;
+        padding-bottom: 5px;
+        font-size: 1rem;
+        margin: 5px 0;
 
-            &__first,
-            &__last{
-                height: 70px;
-            }
-
-            &__input{
-                width: 100%;
-                border: none;
-                outline: none;
-                border-bottom: 1px solid #999;
-                padding-bottom: 5px;
-                font-size: 1rem;
-                margin: 5px 0; 
-                
-                &:focus{
-                    border-color: #000;
-                }
-            }
-
-            &__label{
-                max-height: 50px;
-                opacity: 1;
-                transition: all .5s ease;
-                color: #999;
-                font-size: .6rem;
-            }
-    
-            &__validation{
-                color: red;
-                font-size: .6rem;
-            }
+        &:focus {
+          border-color: #000;
         }
+      }
+
+      &__label {
+        max-height: 50px;
+        opacity: 1;
+        transition: all 0.5s ease;
+        color: #999;
+        font-size: 0.6rem;
+
+        &__close {
+          max-height: 0;
+          opacity: 0;
+          transition: all 0.3s ease;
+          overflow: hidden;
+        }
+      }
+
+      &__validation {
+        color: red;
+        font-size: 0.6rem;
+      }
     }
+  }
 }
 
-.close{
-    max-height: 0;
-    opacity: 0;
-    transition: all .3s ease;
-    overflow: hidden;
-}
-
-.border{
-    border-color: #999;
+.border {
+  border-color: #999;
 }

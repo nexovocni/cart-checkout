@@ -30,7 +30,7 @@ const ShippingAddress: React.FC<IProps> = ({
                   className={
                     input.value
                       ? 'shipping__component__label'
-                      : 'shipping__component__label close'
+                      : 'shipping__component__label__close'
                   }
                 >
                   Address
@@ -65,7 +65,7 @@ const ShippingAddress: React.FC<IProps> = ({
                   className={
                     input.value
                       ? 'shipping__component__label'
-                      : 'shipping__component__label close'
+                      : 'shipping__component__label__close'
                   }
                 >
                   Address

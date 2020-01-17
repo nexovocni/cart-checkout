@@ -29,7 +29,7 @@ const ShippingCity: React.FC<IProps> = ({
                   className={
                     input.value
                       ? 'shipping__component__label'
-                      : 'shipping__component__label close'
+                      : 'shipping__component__label__close'
                   }
                 >
                   City
@@ -66,7 +66,7 @@ const ShippingCity: React.FC<IProps> = ({
                   className={
                     input.value
                       ? 'shipping__component__label'
-                      : 'shipping__component__label close'
+                      : 'shipping__component__label__close'
                   }
                 >
                   Province
@@ -100,7 +100,7 @@ const ShippingCity: React.FC<IProps> = ({
                   className={
                     input.value
                       ? 'shipping__component__label'
-                      : 'shipping__component__label close'
+                      : 'shipping__component__label__close'
                   }
                 >
                   Postal Code
@@ -137,7 +137,7 @@ const ShippingCity: React.FC<IProps> = ({
                   className={
                     input.value
                       ? 'shipping__component__label'
-                      : 'shipping__component__label close'
+                      : 'shipping__component__label__close'
                   }
                 >
                   Country

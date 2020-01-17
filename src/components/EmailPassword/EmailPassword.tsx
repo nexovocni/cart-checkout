@@ -129,7 +129,7 @@ const PasswordEmail: React.FC<IProps> = ({
               <button
                 type="submit"
                 onClick={() => handleSubmit()}
-                className="black__button"
+                className="email__component__button"
               >
                 Save and continue
               </button>

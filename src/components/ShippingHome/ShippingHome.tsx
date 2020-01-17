@@ -5,7 +5,6 @@ import ShippingAddress from '../ShippingAddress/ShippingAddress';
 import ShippingCity from '../../components/ShippingCity/ShippingCity';
 import ShippingPhone from '../../components/ShippingPhone/ShippingPhone';
 import ShippingStandard from '../../components/ShippingStandard/ShippingStandard';
-import { FormComponentContext } from '../../contexts/FormComponentContext';
 import { ProductContext } from '../../contexts/ProductContext';
 import './ShippingHome.scss';
 
@@ -36,9 +35,6 @@ const ShippingHome: React.FC<IProps> = ({
   validate,
   submitBtn,
 }: IProps) => {
-  const formContext = useContext(FormComponentContext);
-  const { formComponents } = formContext;
-  const { componentShipping } = formComponents;
   const productContext = useContext(ProductContext);
   const { shipValue, checkValue } = productContext.values;
 
@@ -47,12 +43,7 @@ const ShippingHome: React.FC<IProps> = ({
       onSubmit={submitBtn}
       render={({ handleSubmit }) => {
         return (
-          <form
-            onSubmit={handleSubmit}
-            className={
-              componentShipping ? 'shipping__component__form' : 'close'
-            }
-          >
+          <form onSubmit={handleSubmit} className="shipping__component__form">
             <ShippingName
               setFirstName={setFirstName}
               setLastName={setLastName}
