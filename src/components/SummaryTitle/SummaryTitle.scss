@@ -1,4 +1,4 @@
-@import "../../sass/mixins/mixins.scss";
+@import '../../sass/mixins/mixins.scss';
 
 .summarycart {
   &__top__shipping {
@@ -6,7 +6,7 @@
     text-transform: uppercase;
     text-align: center;
     height: 50px;
-    margin-bottom: 65px;
+    margin-bottom: 75px;
     display: flex;
 
     &-text {
