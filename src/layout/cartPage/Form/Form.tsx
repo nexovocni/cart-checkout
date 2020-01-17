@@ -1,24 +1,23 @@
-import React, {useContext} from 'react'
-import Email from '../../../components/Email/Email'
-import Shipping from '../../../components/Shipping/Shipping'
-import Payment from '../../../components/Payment/Payment'
-import Review from '../../../components/Review/Review'
-import {CartComponentContext} from '../../../contexts/CartComponentContext'
-import './Form.scss'
+import React, { useContext } from 'react';
+import Email from '../../../components/Email/Email';
+import Shipping from '../../../components/Shipping/Shipping';
+import Payment from '../../../components/Payment/Payment';
+import Review from '../../../components/Review/Review';
+import { CartComponentContext } from '../../../contexts/CartComponentContext';
+import './Form.scss';
 
-const Form:React.FC = () => {
+const Form: React.FC = () => {
+  const productContext = useContext(CartComponentContext);
+  const { switchPage } = productContext.cartComponents;
 
-    const productContext:any = useContext(CartComponentContext)
-    const {switchPage} = productContext.cartComponents
+  return (
+    <main className={!switchPage ? 'main__form' : 'main__form__close'}>
+      <Email />
+      <Shipping />
+      <Payment />
+      <Review />
+    </main>
+  );
+};
 
-    return (
-        <main className={!switchPage ? "main__form" : "main__form__close"}>
-            <Email />
-            <Shipping />
-            <Payment />
-            <Review />
-        </main>
-    )
-}
-
-export default Form
+export default Form;

@@ -1,50 +1,51 @@
-import React, {useState, useEffect, useRef, useContext} from 'react'
-import {CartComponentContext} from '../../contexts/CartComponentContext'
-import './SummarySubtotal.scss'
+import React, { useState, useEffect, useRef, useContext } from 'react';
+import { CartComponentContext } from '../../contexts/CartComponentContext';
+import './SummarySubtotal.scss';
 
 interface IProps {
-    itemsValue: any;
+  itemsValue: number;
 }
 
-const SummarySubtotal:React.FC<IProps> = ({itemsValue}) => {
+const SummarySubtotal: React.FC<IProps> = ({ itemsValue }) => {
+  const productContext = useContext(CartComponentContext);
+  const { disabledCode } = productContext.cartComponents;
+  const [value, setValue] = useState();
+  const [anime, setAnime] = useState(false);
 
-    const productContext:any = useContext(CartComponentContext)
-    const {disabledCode} = productContext.cartComponents
+  useEffect(() => {
+    setValue(itemsValue.toFixed(2));
+  }, [itemsValue]);
 
-    const [value, setValue] = useState(0)
+  useEffect(() => {
+    setAnime(() => !anime);
+  }, [itemsValue]);
 
-    const [anime, setAnime] = useState(false)
-
+  const usePrevious = (valuePrev: undefined) => {
+    const ref = useRef();
     useEffect(() => {
-        setValue((itemsValue).toFixed(2))
-     },)
+      ref.current = valuePrev;
+    }, [itemsValue]);
+    return ref.current;
+  };
 
-    useEffect(() => {
-       setAnime((anime:boolean)=>!anime)
-    },[itemsValue])
+  const prevValue = usePrevious(value);
 
-    function usePrevious(value: any) {
-       
-        const ref = useRef();
-        
-        useEffect(() => {
-          ref.current = value;
-        }, [itemsValue]); 
-        
-        return ref.current;
-      }
+  return (
+    <div
+      style={{ opacity: disabledCode ? 0.3 : 1, pointerEvents: 'none' }}
+      className="summary__top__subtotal"
+    >
+      <p>Subtotal</p>
+      <div className="value-result">
+        <p className={anime ? 'prev-value' : 'value-open'}>
+          {anime ? `$${prevValue}` : `$${value}`}
+        </p>
+        <p className={anime ? 'value-open' : 'prev-value'}>
+          {!anime ? `$${prevValue}` : `$${value}`}
+        </p>
+      </div>
+    </div>
+  );
+};
 
-    const prevValue = usePrevious(value)
-
-    return (
-        <div style={{opacity: disabledCode ? .3 : 1, pointerEvents: "none"}} className="summary__top__subtotal">
-            <p>Subtotal</p>
-            <div className="value-result">
-                <p className= {anime ? "prev-value" : "value-open"} >{anime ? `$${prevValue}` : `$${value}`}</p>
-                <p className={anime ? "value-open" : "prev-value"}>{!anime ? `$${prevValue}` : `$${value}`}</p>
-            </div>
-        </div>
-    )
-}
-
-export default SummarySubtotal
+export default SummarySubtotal;

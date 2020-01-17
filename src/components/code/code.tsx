@@ -1,44 +1,67 @@
-import React, {useState, useContext} from 'react'
-import {CartComponentContext} from '../../contexts/CartComponentContext'
-import './Code.scss'
+import React, { useContext, useState } from 'react';
+import { CartComponentContext } from '../../contexts/CartComponentContext';
+import './Code.scss';
 
 interface IProps {
-    title: string;
-    button: string;
-    placeholder: string;
+  title: string;
+  button: string;
+  placeholder: string;
 }
 
-const Code:React.FC<IProps> = ({button, title, placeholder}) => {
+const Code: React.FC<IProps> = ({ button, title, placeholder }) => {
+  const productContext = useContext(CartComponentContext);
+  const { disabledCode, cartState } = productContext.cartComponents;
+  const { dispatchCart } = productContext;
 
-    const productContext:any = useContext(CartComponentContext)
-    const {disabledCode, cartState} = productContext.cartComponents
-    const {dispatch} = productContext
+  const [on, setOn] = useState(false);
+  const [height, setHeight] = useState('0px');
+  const [emptyInput, setInput] = useState('');
+  const [componentState, updateComponentState] = useState(true);
+  const codeComponent = disabledCode;
+  const toggleOnClick = () => {
+    setHeight(on ? `0px` : '220px');
+    setOn(!on);
+    dispatchCart({
+      type: 'CART-COMPONENT',
+      payload: { disabledCode: !codeComponent },
+    });
+    updateComponentState(!componentState);
+  };
 
-    const [on, setOn] = useState<boolean>(false)
-    const [height, setHeight] = useState<string>("0px")
-    const [emptyInput, setInput] = useState("")
-    const [componentState, updateComponentState] = useState(true)
-    const codeComponent = disabledCode
-    
-    const toggleOnClick = () => {
-        setHeight(on ? `0px` : "220px")
-        setOn(!on)
-        dispatch({type: "COMPONENT", payload: {disabledCode: !codeComponent}})
-        updateComponentState(!componentState)
-    }
+  return (
+    <div
+      style={{
+        opacity: disabledCode && componentState ? 0.3 : 1,
+        pointerEvents:
+          (disabledCode && componentState) || cartState ? 'none' : 'auto',
+      }}
+      className="code"
+    >
+      <div className="code__visible" onClick={toggleOnClick}>
+        <p>{title}</p>
+        <i className={on ? 'fas fa-angle-down clicked' : 'fas fa-angle-down'} />
+      </div>
+      <form
+        style={{ maxHeight: `${height}` }}
+        action="#"
+        className="code__visible-form"
+      >
+        <input
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setInput(e.target.value)
+          }
+          placeholder={placeholder}
+          type="text"
+        />
+        <input
+          disabled={emptyInput ? false : true}
+          style={{ opacity: emptyInput ? 1 : 0.3 }}
+          type="submit"
+          value={button}
+        />
+      </form>
+    </div>
+  );
+};
 
-    return (
-        <div style={{opacity: disabledCode && componentState ? .3 : 1, pointerEvents: disabledCode && componentState || cartState ? "none" : "auto"}} className="code">
-            <div className="code__visible" onClick={toggleOnClick}>
-                <p>{title}</p>
-                <i className={on ? "fas fa-angle-down clicked" : "fas fa-angle-down"}></i>
-            </div>
-            <form style={{maxHeight: `${height}`}} action="#" className="code__visible-form" >
-                <input onChange={(e) => setInput(e.target.value)} placeholder={placeholder} type="text"/>
-                <input disabled={emptyInput ? false : true} style={{opacity: emptyInput ? 1 : .3}} type="submit" value={button} />
-            </form>
-        </div>
-    )
-}
-
-export default Code
+export default Code;

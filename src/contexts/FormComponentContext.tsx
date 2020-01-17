@@ -1,32 +1,44 @@
-import React, {createContext, useReducer} from 'react'
-import {FormComponentReducer} from '../reducers/ComponentReducer'
+import React, { createContext, useReducer } from 'react';
+import { FormComponentReducer } from '../reducers/FormComponentReducer';
+import { IFormContext } from '../interfaces/Interfaces';
 
-export const FormComponentContext = createContext({})
+const components = {
+  formComponents: {
+    componentEmail: true,
+    componentPayment: false,
+    componentShipping: false,
+    componentReview: false,
+    componentPassword: false,
+    editEmail: false,
+    editShipping: false,
+    editPayment: false,
+    editReview: false,
+    homeShipping: false,
+    storeShipping: false,
+    creditPayment: false,
+    giftPayment: false,
+    stateReview: false,
+  },
+};
 
-export const ComponentContextProvider = (props:any) => {
+export const FormComponentContext = createContext<IFormContext>(components);
 
-    const components =  {
-        componentEmail: true,
-        componentPayment: false,
-        componentShipping: false,
-        componentReview: false,
-        componentPassword: false,
-        editEmail: false,
-        editShipping: false,
-        editPayment: false,
-        editReview: false,
-        homeShipping: false,
-        storeShipping: false,
-        creditPayment: false,
-        giftPayment: false,
-        stateReview: false
-    }
+export const ComponentContextProvider = (props: {
+  children: React.ReactNode;
+}) => {
+  const [formComponents, dispatchForm] = useReducer(
+    FormComponentReducer,
+    components.formComponents
+  );
 
-    const [formComponents, dispatch] = useReducer(FormComponentReducer, components)
+  const formContext: IFormContext = {
+    formComponents,
+    dispatchForm,
+  };
 
-    return (
-        <FormComponentContext.Provider value={{formComponents, dispatch}}>
-            {props.children}
-        </FormComponentContext.Provider>
-    )
-}
+  return (
+    <FormComponentContext.Provider value={formContext}>
+      {props.children}
+    </FormComponentContext.Provider>
+  );
+};
