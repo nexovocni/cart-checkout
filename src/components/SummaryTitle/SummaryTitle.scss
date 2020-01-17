@@ -1,18 +1,17 @@
-@import "../../sass/mixins/mixins.scss"; 
+@import "../../sass/mixins/mixins.scss";
 
-.summarycart{
+.summarycart {
+  &__top__shipping {
+    background-color: rgb(228, 226, 226);
+    text-transform: uppercase;
+    text-align: center;
+    height: 50px;
+    margin-bottom: 65px;
+    display: flex;
 
-    &__top__shipping{
-        background-color: rgb(228, 226, 226);
-        text-transform: uppercase;
-        text-align: center;
-        height: 50px;
-        margin-bottom: 65px;
-        display: flex;
-    
-        &-text{
-            align-self: center;
-             margin: 0 auto;
-        }
+    &-text {
+      align-self: center;
+      margin: 0 auto;
     }
+  }
 }
