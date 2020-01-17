@@ -72,7 +72,11 @@ const Email: React.FC = () => {
               <button
                 onClick={openEmail}
                 style={{ display: componentEmail ? 'none' : 'inline' }}
-                className={!componentEmail ? 'email__heading__button' : 'close'}
+                className={
+                  !componentEmail
+                    ? 'email__heading__button'
+                    : 'email__heading__button__close'
+                }
               >
                 Edit
               </button>
@@ -103,7 +107,11 @@ const Email: React.FC = () => {
               />
             </form>
             <p
-              className={!componentEmail ? 'email__email__responsive' : 'close'}
+              className={
+                !componentEmail
+                  ? 'email__email__responsive'
+                  : 'email__email__responsive__close'
+              }
             >
               {input}
             </p>

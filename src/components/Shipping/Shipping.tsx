@@ -77,7 +77,11 @@ const Shipping: React.FC = () => {
         <button
           style={{ opacity: !componentShipping ? 1 : 0 }}
           onClick={openShipping}
-          className={editShipping ? 'shipping__heading__button' : 'editBtn'}
+          className={
+            editShipping
+              ? 'shipping__heading__button'
+              : 'shipping__heading__button__close'
+          }
         >
           Edit
         </button>
@@ -99,7 +103,9 @@ const Shipping: React.FC = () => {
         />
         <div
           className={
-            componentShipping ? 'shipping__component__buttons' : 'close'
+            componentShipping
+              ? 'shipping__component__buttons'
+              : 'shipping__component__buttons__close'
           }
         >
           <button
@@ -137,7 +143,7 @@ const Shipping: React.FC = () => {
           className={
             homeShipping && componentShipping
               ? 'shipping__component__home'
-              : 'close'
+              : 'shipping__component__home__close'
           }
         >
           <ShippingHome
@@ -158,7 +164,7 @@ const Shipping: React.FC = () => {
           className={
             storeShipping && componentShipping
               ? 'shipping__component__store'
-              : 'close-store'
+              : 'shipping__component__store__close'
           }
         >
           <ShippingStore

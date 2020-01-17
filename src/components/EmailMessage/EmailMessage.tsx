@@ -24,7 +24,7 @@ const MessageEmail: React.FC<IProps> = ({
       className={
         validate(input) && !componentPassword
           ? 'email__component__message'
-          : 'email__component__message close'
+          : 'email__component__message__close'
       }
     >
       <div className="email__component__message__up">

@@ -1,53 +1,57 @@
-@import "../../sass/mixins/mixins.scss";
+@import '../../sass/mixins/mixins.scss';
 
-.email{
+.email {
+  &__component {
+    &__label {
+      margin-bottom: 15px;
+      color: rgba(0, 0, 0, 0.4);
+      max-height: 20px;
+      opacity: 1;
+      overflow: hidden;
+      transition: all 0.5s ease;
 
-    &__component{
-
-        &__label{
-            margin-bottom: 15px;
-            color: rgba(0, 0, 0, .4);
-            max-height: 20px;
-            opacity: 1;
-            overflow: hidden;
-            transition: all .5s ease;
-        }
-
-        &__input{
-            border: none;
-            outline: none;
-            border-bottom: 1px solid #000;
-            width: 100%;
-            padding-bottom: 5px;
-            font-size: 1rem;
-            margin-bottom: 15px;
-        }
-
-        &__underinput{
-            display: flex;
-            justify-content: space-between;
-        }
-
-        &__validation{
-
-            &__underinput{
-                color: red;
-                font-size: .6rem;
-            }
-        }
-
-        &__policy{
-            color: rgba(0, 0, 0, .4);
-            font-size: .6rem;
-            margin-bottom: 60px;
-
-            span{
-                border-bottom: 1px solid #000;
-            }
-        }
+      &__close {
+        max-height: 0;
+        opacity: 0;
+        transition: all 0.3s ease;
+        overflow: hidden;
+      }
     }
+
+    &__input {
+      border: none;
+      outline: none;
+      border-bottom: 1px solid #000;
+      width: 100%;
+      padding-bottom: 5px;
+      font-size: 1rem;
+      margin-bottom: 15px;
+    }
+
+    &__underinput {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__validation {
+      &__underinput {
+        color: red;
+        font-size: 0.6rem;
+      }
+    }
+
+    &__policy {
+      color: rgba(0, 0, 0, 0.4);
+      font-size: 0.6rem;
+      margin-bottom: 60px;
+
+      span {
+        border-bottom: 1px solid #000;
+      }
+    }
+  }
 }
 
-.border{
-    border-bottom: 1px solid rgba(0, 0, 0, .3)
+.border {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
 }

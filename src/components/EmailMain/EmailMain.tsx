@@ -34,7 +34,7 @@ const YourEmail: React.FC<IProps> = ({
                         className={
                           input.value
                             ? 'email__component__label'
-                            : 'email__component__label close'
+                            : 'email__component__label__close'
                         }
                       >
                         Email
